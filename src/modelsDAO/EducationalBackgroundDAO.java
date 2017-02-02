@@ -22,15 +22,16 @@ public class EducationalBackgroundDAO {
 
 		try {
 			for (int i = 0; i < educationalBackground.size(); i++) {
-				ps = conn.prepareStatement(
-						"INSERT INTO " + EducationalBackground.TABLE_EB + " (" + EducationalBackground.COL_INSTITUTION
-								+ ", " + EducationalBackground.COL_TYPE + ", " + EducationalBackground.COL_YRGRAD + ", "
-								+ EducationalBackground.COL_COURSE + ") VALUES(?, ?, ? ,?);");
+				ps = conn.prepareStatement("INSERT INTO " + EducationalBackground.TABLE_EB + " ("
+						+ EducationalBackground.COL_INSTITUTION + ", " + EducationalBackground.COL_TYPE + ", "
+						+ EducationalBackground.COL_YRGRAD + ", " + EducationalBackground.COL_COURSE + ", "
+						+ EducationalBackground.COL_FBID + ") VALUES(?, ?, ?, ?, ?);");
 				ps.setString(1, educationalBackground.get(i).getInstitution());
 				ps.setString(2, educationalBackground.get(i).getType());
 				ps.setInt(3, educationalBackground.get(i).getYear_graduated());
 				ps.setString(4, educationalBackground.get(i).getCourse());
-	
+				ps.setString(5, educationalBackground.get(i).getFbID());
+
 				ps.execute();
 			}
 		} catch (SQLException e) {
@@ -43,13 +44,13 @@ public class EducationalBackgroundDAO {
 			}
 		}
 	}
-	
+
 	public void truncateEducationalBackground() {
 		PreparedStatement ps = null;
 
 		try {
 			ps = conn.prepareStatement("TRUNCATE " + EducationalBackground.TABLE_EB);
-			
+
 			ps.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

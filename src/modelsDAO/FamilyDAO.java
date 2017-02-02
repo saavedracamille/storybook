@@ -2,6 +2,7 @@ package modelsDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -23,11 +24,12 @@ public class FamilyDAO {
 		try {
 			for (int i = 0; i < family.size(); i++) {
 				ps = conn.prepareStatement("INSERT INTO " + Family.TABLE_FAMILY + " (" + Family.COL_NAME + ", "
-						+ Family.COL_RELATIONSHIP + ") VALUES(?, ?);");
+						+ Family.COL_RELATIONSHIP + ", " + Family.COL_FBID + ") VALUES(?, ?, ?);");
 				ps.setString(1, family.get(i).getName());
 				ps.setString(2, family.get(i).getRelationship());
+				ps.setString(3, family.get(i).getFbID());
 	
-				ps.execute();
+				ps.executeUpdate();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -38,6 +40,29 @@ public class FamilyDAO {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public ArrayList<Family> getFamilies() {
+		ArrayList<Family> families = new ArrayList<Family> ();
+		Family family = null;
+		
+		ResultSet rs;
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conn.prepareStatement("SELECT * FROM " + Family.TABLE_FAMILY);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				family = new Family(rs.getString(Family.COL_NAME), rs.getString(Family.COL_RELATIONSHIP));
+				families.add(family);
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return families;
 	}
 
 	public void truncateFamily() {

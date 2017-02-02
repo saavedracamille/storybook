@@ -34,6 +34,7 @@ public class EventsJSON {
 				if (events != null) {
 					String name = events.get("name").toString();
 					String rsvp_status = events.get("rsvp_status").toString();
+					String fbID = events.get("id").toString();
 					
 					JSONObject place = (JSONObject) events.get("place");
 					
@@ -54,6 +55,7 @@ public class EventsJSON {
 					
 					event.setName(name);
 					event.setRsvp_status(rsvp_status);
+					event.setFbID(fbID);
 					event.setLocation(checkIn);
 				}
 				

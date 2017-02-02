@@ -26,10 +26,8 @@ public class DatabaseConnection {
 
 	public static Connection getConnection() {
 		try {
-			System.out.println("connected!!!");
 			return DriverManager.getConnection(url + dbName, username, password);
 		} catch (SQLException e) {
-			System.out.println("not connected!!!");
 			e.printStackTrace();
 			return null;
 		}

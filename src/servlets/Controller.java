@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import controller.storyGeneration.GenerateIntro;
 import jsonParser.AboutMeJSON;
 import jsonParser.EventsJSON;
 import jsonParser.LikesJSON;
@@ -46,32 +47,31 @@ public class Controller extends HttpServlet {
 			String strEventData = request.getParameter("events");
 			String strLikeData = request.getParameter("likes");
 			String strPostData = request.getParameter("posts");
-			//System.out.println(strAboutData);
-			//System.out.println(strFamilyData);
 			JSONParser parser = new JSONParser();
 			
 			try {
-				
 				//POSTS JSON
 				JSONArray eventArray = (JSONArray) parser.parse(strPostData);
 				System.out.println("EVENT ARRAY: " + eventArray);
-				PostsJSON pj = new PostsJSON(eventArray);
+				//PostsJSON pj = new PostsJSON(eventArray);
 				
-//				//ABOUT ME JSON
-//				JSONObject about = new JSONObject((JSONObject) parser.parse(strAboutData));
-//				JSONArray familyArray = (JSONArray) parser.parse(strFamilyData);
-//				System.out.println("FAMILY ARRAY: " + familyArray);
-//				AboutMeJSON amj = new AboutMeJSON(about, familyArray);
-//				
-//				//LIKES JSON
-//				JSONArray likesArray = (JSONArray) parser.parse(strLikeData);
-//				System.out.println("LIKES ARRAY: " + likesArray);
-//				LikesJSON lj = new LikesJSON(likesArray);
-//				
-//				//EVENTS JSON
-//				JSONArray eventsData = (JSONArray) parser.parse(strEventData);
-//				System.out.println("EVENTS ARRAY: " + eventsData);
-//				EventsJSON ej = new EventsJSON(eventsData);
+				//ABOUT ME JSON
+				JSONObject about = new JSONObject((JSONObject) parser.parse(strAboutData));
+				JSONArray familyArray = (JSONArray) parser.parse(strFamilyData);
+				System.out.println("FAMILY ARRAY: " + familyArray);
+				//AboutMeJSON amj = new AboutMeJSON(about, familyArray);
+				
+				//LIKES JSON
+				JSONArray likesArray = (JSONArray) parser.parse(strLikeData);
+				System.out.println("LIKES ARRAY: " + likesArray);
+				//LikesJSON lj = new LikesJSON(likesArray);
+				
+				//EVENTS JSON
+				JSONArray eventsData = (JSONArray) parser.parse(strEventData);
+				System.out.println("EVENTS ARRAY: " + eventsData);
+				//EventsJSON ej = new EventsJSON(eventsData);
+				
+				GenerateIntro gi = new GenerateIntro();
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

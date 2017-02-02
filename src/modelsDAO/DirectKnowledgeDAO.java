@@ -18,9 +18,6 @@ public class DirectKnowledgeDAO {
 	}
 
 	public void addDirectKnowledge(ArrayList<DirectKnowledge> directKnowledge) {
-		DatabaseConnection dc = new DatabaseConnection();
-		conn = dc.getConnection();
-		
 		PreparedStatement ps = null;
 
 		try {

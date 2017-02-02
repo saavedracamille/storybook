@@ -52,10 +52,14 @@ public class AboutMeJSON {
 				if (school != null) {
 					String institution = "";
 					String type = "";
+					String fbID = "";
+					
 					if (school.get("name") != null)
 						institution = school.get("name").toString();
 					if (school.get("type") != null)
 						type = education.get("type").toString();
+					if (school.get("id") != null)
+						fbID = school.get("id").toString();
 					
 					JSONObject year = (JSONObject) education.get("year");
 					if (year != null) {
@@ -65,6 +69,7 @@ public class AboutMeJSON {
 	
 					eb.setInstitution(institution);
 					eb.setType(type);
+					eb.setFbID(fbID);
 				}
 				
 				
@@ -98,9 +103,11 @@ public class AboutMeJSON {
 				if (familyMember != null) {
 					String name = familyMember.get("name").toString();
 					String relationship = familyMember.get("relationship").toString();
+					String fbID = familyMember.get("id").toString();
 					
 					fam.setName(name);
 					fam.setRelationship(relationship);
+					fam.setFbID(fbID);
 				}
 				
 				families.add(fam);
@@ -168,10 +175,12 @@ public class AboutMeJSON {
 			System.out.println("TYPE: " + aboutMe.getEducations().get(i).getType());
 			System.out.println("YEAR: " + aboutMe.getEducations().get(i).getYear_graduated());
 			System.out.println("COURSE: " + aboutMe.getEducations().get(i).getCourse());
+			System.out.println("FB ID: " + aboutMe.getEducations().get(i).getFbID());
 		}
 		for (int j = 0; j < aboutMe.getFamilies().size(); j++) {
 			System.out.println("NAME: " + aboutMe.getFamilies().get(j).getName());
 			System.out.println("RELATIONSHIP: " + aboutMe.getFamilies().get(j).getRelationship());
+			System.out.println("FB ID: " + aboutMe.getFamilies().get(j).getFbID());
 		}
 	}
 }

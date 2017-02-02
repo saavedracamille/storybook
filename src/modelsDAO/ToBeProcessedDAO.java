@@ -20,9 +20,6 @@ public class ToBeProcessedDAO {
 	}
 
 	public void addToBeProcessedPost(ArrayList<ToBeProcessed> toBeProcessed) {
-		DatabaseConnection dc = new DatabaseConnection();
-		conn = dc.getConnection();
-		
 		PreparedStatement ps = null;
 
 		try {

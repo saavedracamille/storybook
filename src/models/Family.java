@@ -13,6 +13,15 @@ public class Family {
 	private String relationship;
 	private String fbID;
 	
+	public Family() {
+		
+	}
+	
+	public Family(String name, String relationship) {
+		this.name = name;
+		this.relationship = relationship;
+	}
+	
 	public int getId() {
 		return id;
 	}

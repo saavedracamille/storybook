@@ -15,13 +15,11 @@ public class EventDAO {
 	private Connection conn;
 
 	public EventDAO() {
-		conn = DatabaseConnection.getConnection();
+		DatabaseConnection dc = new DatabaseConnection();
+		conn = dc.getConnection();
 	}
 
 	public void addEvents(ArrayList<Event> events) {
-		DatabaseConnection dc = new DatabaseConnection();
-		conn = dc.getConnection();
-		
 		PreparedStatement ps = null;
 
 		try {

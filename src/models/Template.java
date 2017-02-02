@@ -5,7 +5,7 @@ public class Template {
 	
 	public static final String COL_ID = "id";
 	public static final String COL_TEMPLATE = "template";
-	public static final String COL_TEMPLATEGRPID = "template_group_id";
+	public static final String COL_TEMPLATEGRPID = "groupID";
 	
 	private int id;
 	private String template;
