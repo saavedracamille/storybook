@@ -148,6 +148,7 @@ public class AboutMeJSON {
 		dks.add(new DirectKnowledge(aboutMe.getFirstName(), "first_name"));
 		dks.add(new DirectKnowledge(aboutMe.getMiddleName(), "middle_name"));
 		dks.add(new DirectKnowledge(aboutMe.getLastName(), "last_name"));
+		dks.add(new DirectKnowledge(aboutMe.getGender(), "gender"));
 		dks.add(new DirectKnowledge(aboutMe.getLocation(), "location"));
 		dks.add(new DirectKnowledge(aboutMe.getHometown(), "hometown"));
 		for (int i = 0; i < aboutMe.getEducations().size(); i++) {

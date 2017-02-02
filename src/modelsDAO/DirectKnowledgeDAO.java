@@ -2,12 +2,14 @@ package modelsDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dbConnection.DatabaseConnection;
 import models.DirectKnowledge;
 import models.PredefinedActivities;
+import models.TemplateGroup;
 
 public class DirectKnowledgeDAO {
 	private Connection conn;
@@ -33,7 +35,37 @@ public class DirectKnowledgeDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public ArrayList<DirectKnowledge> getDirectKnowledge() {
+		ArrayList<DirectKnowledge> directKnowledges = new ArrayList<DirectKnowledge>();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			ps = conn.prepareStatement("SELECT * FROM " + DirectKnowledge.TABLE_DK + ";");
+			
+			rs = ps.executeQuery();
 
+			while (rs.next()) {
+				String data = rs.getString(DirectKnowledge.COL_DATA);
+				String type = rs.getString(DirectKnowledge.COL_TYPE);
+				
+				directKnowledges.add(new DirectKnowledge(data, type));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return directKnowledges;
+	}
+	
 	public void truncateDirectKnowledge() {
 		PreparedStatement ps = null;
 
