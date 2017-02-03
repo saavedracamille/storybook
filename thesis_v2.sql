@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for osx10.9 (x86_64)
 --
--- Host: 127.0.0.1    Database: thesis
+-- Host: 127.0.0.1    Database: thesis_v2
 -- ------------------------------------------------------
--- Server version	5.7.12-log
+-- Server version	5.7.10
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,6 +35,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'PERSON'),(2,'LOCATION'),(3,'ORGANIZATION'),(4,'MISC'),(5,'MONEY'),(6,'NUMBER'),(7,'ORDINAL'),(8,'PERCENT'),(9,'DATE'),(10,'TIME'),(11,'DURATION'),(12,'SET');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,11 +228,11 @@ DROP TABLE IF EXISTS `part_of_speech`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `part_of_speech` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pos` varchar(45) NOT NULL,
   `pos_value` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +241,7 @@ CREATE TABLE `part_of_speech` (
 
 LOCK TABLES `part_of_speech` WRITE;
 /*!40000 ALTER TABLE `part_of_speech` DISABLE KEYS */;
-INSERT INTO `part_of_speech` VALUES (1,'unknown','UNKNOWN'),(2,'adjective','ADJ'),(3,'adposition','ADP'),(4,'adverb','ADV'),(5,'conjunction','CONJ'),(6,'determiner','DET'),(7,'noun','NOUN'),(8,'cardinal number','NUM'),(9,'pronoun','PRON'),(10,'particle','PRT'),(11,'punctuation','PUNCT'),(12,'verb','VERB'),(13,'others','X'),(14,'affix','AFFIX');
+INSERT INTO `part_of_speech` VALUES (1,'Coordinating conjunction','CC'),(2,'Cardinal number','CD'),(3,'Determiner','DT'),(4,'Existential there','EX'),(5,'Foreign word','FW'),(6,'Preposition or subordinating conjunction','IN'),(7,'Adjective','JJ'),(8,'Adjective, comparative','JJR'),(9,'Adjective, superlative','JJS'),(10,'List item marker','LS'),(11,'Modal','MD'),(12,'Noun, singular or mass','NN'),(13,'Noun, plural','NNS'),(14,'Proper noun, singular','NNP'),(15,'Proper noun, plural','NNPS'),(16,'Predeterminer','PDT'),(17,'Possesive ending','POS'),(18,'Personal pronoun','PRP'),(19,'Possessive pronoun (prolog version PRP-S)','PRP$'),(20,'Adverb','RB'),(21,'Adverb, comparative','RBR'),(22,'Adverb, superlative','RBS'),(23,'Particle','RP'),(24,'Symbol','SYM'),(25,'to','TO'),(26,'Interjection','UH'),(27,'Verb, base form','VB'),(28,'Verb, past tense','VBD'),(29,'Verb, gerund or present participle','VBG'),(30,'Verb, past participle','VBN'),(31,'Verb, non-3rd person singular present','VBP'),(32,'Verb, 3rd person singular present','VBZ'),(33,'Wh-determiner','WDT'),(34,'Wh-pronoun','WP'),(35,'Possessive wh-pronoun (prolog version WP-S)','WP$'),(36,'Wh-adverb','WRB');
 /*!40000 ALTER TABLE `part_of_speech` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,11 +278,11 @@ DROP TABLE IF EXISTS `relation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `relation` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `relation` varchar(100) NOT NULL,
   `relation_value` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,7 +291,7 @@ CREATE TABLE `relation` (
 
 LOCK TABLES `relation` WRITE;
 /*!40000 ALTER TABLE `relation` DISABLE KEYS */;
-INSERT INTO `relation` VALUES (1,'unknown','UNKNOWN'),(2,'abbrevuation modifier','ABBREV'),(3,'adjectival complement','ACOMP'),(4,'adverbial clause modifier','ADVCL'),(5,'adverbial modifier','ADVMOD'),(6,'adjectival modifier of an NP','AMOD'),(7,'appositional modifer of an NP','APPOS'),(8,'attribute dependent of a copular verb','ATTR'),(9,'auxiliary verb','AUX'),(10,'passive auxialiary','AUXPASS'),(11,'coordinating conjunction','CC'),(12,'clausal complement of a ver or adjective','CCOMP'),(13,'conjunct','CONJ'),(14,'clausal subject','CSUBJ'),(15,'clausal passive subject','CSUBJPASS'),(16,'dependency','DEP'),(17,'determiner','DET'),(18,'discourse','DISCOURSE'),(19,'direct object','DOBJ'),(20,'expletive','EXPL'),(21,'goes with','GOESWITH'),(22,'indirect object','IOBJ'),(23,'marker','MARK'),(24,'multi-word expression','MWE'),(25,'multi-word verbal expression','MWV'),(26,'negation modifier','NEG'),(27,'noun compound modifier','NN'),(28,'noun phrase used as an adverbial modifier','NPADVMOD'),(29,'nominal subject','NSUBJ'),(30,'passive nominal subject','NSUBJPASS'),(31,'numeric modifier of a noun','NUM'),(32,'element of compound number','NUMBER'),(33,'punctuation mark','P'),(34,'parataxis relation','PARATAXIS'),(35,'participial modifier','PARTMOD'),(36,'complement of a preposition is a clause','PCOMP'),(37,'object of a preposition','POBJ'),(38,'possession modifier','POSS'),(39,'postverbal negative particle','POSTENG'),(40,'predicate complement','PRECOMP'),(41,'preconjunt','PRECONJ'),(42,'predeterminer','PREDET'),(43,'prefix','PREF'),(44,'prepositional modifier','PREP'),(45,'relationship between a verb and verbal morpheme','PRONL'),(46,'particle','PRT'),(47,'associative or possessive marker','PS'),(48,'quantifier phrase modifier','QUANTMOD'),(49,'relative clause modifier','RCMOD'),(50,'complementizer in relative clause','RCMODREL'),(51,'ellipses without a preceding predicate','RDROP'),(52,'referent','REF'),(53,'remnant','REMNANT'),(54,'reparandum','REPARANDUM'),(55,'root','ROOT'),(56,'suffix specifying a unit of numbre','SNUM'),(57,'suffix','SUFF'),(58,'temporal modifier','TMOD'),(59,'topic marker','TOPIC'),(60,'clause headed by an infinite form of the verb that modifies a noun','VMOD'),(61,'vocative','VOCATIVE'),(62,'open clausal complement','XCOMP'),(63,'name suffix','SUFFIX'),(64,'name title','TITLE'),(65,'adverbial phrase modifier','ADVPHMOD'),(66,'causative auxiliary','AUXCAUS'),(67,'helper auxiliary','AUXVV'),(68,'rentaishi','DTMOD'),(69,'foreign words','FOREIGN'),(70,'keyword','KW'),(71,'list for chains of comparable items','LIST'),(72,'normalized clause','NOMC'),(73,'normalized clausal subject','NOMCSUBJ'),(74,'normalized clausal passive','NOMCSUBJPASS'),(75,'compound of numeric modifier','NUMC'),(76,'copula','COP'),(77,'dislocated relation','DISLOCATED');
+INSERT INTO `relation` VALUES (1,'adjectival complement','acomp'),(2,'adverbial clause modifier','advcl'),(3,'adverb modifier','advmod'),(4,'agent','agent'),(5,'adjectival modifier','amod'),(6,'appositional modifier','appos'),(7,'auxiliary','aux'),(8,'passive auxiliary','auxpass'),(9,'coordination','cc'),(10,'clausal complement','ccomp'),(11,'conjunct','conj'),(12,'copula','cop'),(13,'clausal subject','csubj'),(14,'clausal passive subject','csubjpass'),(15,'dependent','dep'),(16,'determiner','det'),(17,'discourse element','discourse'),(18,'direct object','dobj'),(19,'expletive','expl'),(20,'goes with','goeswith'),(21,'indirect object','iobj'),(22,'marker','mark'),(23,'multi-word expression','mwe'),(24,'negation modifier','neg'),(25,'noun compound modifier','nn'),(26,'noun phrase as adverbial modifier','npadvmod'),(27,'nominal subject','nsubj'),(28,'passive nominal subject','nsubjpass'),(29,'numeric modifier','num'),(30,'element of compound number','number'),(31,'parataxis','parataxis'),(32,'prepositional complement','pcomp'),(33,'object of a preposition','pobj'),(34,'possession modifier','poss'),(35,'possessive modifier','possessive'),(36,'preconjunct','preconj'),(37,'predeterminer','predet'),(38,'prepositional modifier','prep'),(39,'prepositional clausal modifier','prepc'),(40,'phrasal verb particle','prt'),(41,'punctuation','punct'),(42,'quantifier phrase modifier','quantmod'),(43,'relative clause modifier','rcmod'),(44,'referent','ref'),(45,'root','root'),(46,'temporal modifier','tmod'),(47,'reduced non-finite verbal modifier','vmod'),(48,'open clausal complement','xcomp'),(49,'controlling subject','xsubj');
 /*!40000 ALTER TABLE `relation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -416,4 +417,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-03  1:23:42
+-- Dump completed on 2017-02-03 17:18:47
