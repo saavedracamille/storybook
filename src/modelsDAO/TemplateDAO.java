@@ -30,7 +30,6 @@ public class TemplateDAO {
 			ps.setInt(1, groupId);
 			ps.setInt(2, 1);
 			
-			System.out.println(ps);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {

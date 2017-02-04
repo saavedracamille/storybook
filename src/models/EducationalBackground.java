@@ -17,6 +17,18 @@ public class EducationalBackground {
 	private String course;
 	private String fbID;
 	
+	public EducationalBackground() {
+		
+	}
+	
+	public EducationalBackground(String institution, String type, int year_graduated, String course, String fbID) {
+		this.institution = institution;
+		this.type = type;
+		this.year_graduated = year_graduated;
+		this.course = course;
+		this.fbID = fbID;
+	}
+	
 	public int getId() {
 		return id;
 	}

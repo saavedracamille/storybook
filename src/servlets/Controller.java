@@ -14,7 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import controller.storyGeneration.GenerateIntro;
+import controller.storyGenerationIntro.GenerateIntro;
 import jsonParser.AboutMeJSON;
 import jsonParser.EventsJSON;
 import jsonParser.LikesJSON;

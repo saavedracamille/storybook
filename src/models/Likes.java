@@ -13,6 +13,15 @@ public class Likes {
 	private String type;
 	private String fbID;
 	
+	public Likes() {
+		
+	}
+	
+	public Likes(String interest, String type) {
+		this.interest = interest;
+		this.type = type;
+	}
+	
 	public int getId() {
 		return id;
 	}

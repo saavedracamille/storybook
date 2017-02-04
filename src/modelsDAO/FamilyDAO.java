@@ -18,7 +18,7 @@ public class FamilyDAO {
 		conn = dc.getConnection();
 	}
 
-	public void addFamily(ArrayList<Family> family) {
+	public void addFamilies(ArrayList<Family> family) {
 		PreparedStatement ps = null;
 
 		try {
@@ -44,7 +44,6 @@ public class FamilyDAO {
 	
 	public ArrayList<Family> getFamilies() {
 		ArrayList<Family> families = new ArrayList<Family> ();
-		Family family = null;
 		
 		ResultSet rs;
 		PreparedStatement ps = null;
@@ -55,8 +54,7 @@ public class FamilyDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				family = new Family(rs.getString(Family.COL_NAME), rs.getString(Family.COL_RELATIONSHIP));
-				families.add(family);
+				families.add(new Family(rs.getString(Family.COL_NAME), rs.getString(Family.COL_RELATIONSHIP)));
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();

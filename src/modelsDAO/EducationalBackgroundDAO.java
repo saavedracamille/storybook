@@ -2,12 +2,14 @@ package modelsDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dbConnection.DatabaseConnection;
 import models.DirectKnowledge;
 import models.EducationalBackground;
+import models.Family;
 
 public class EducationalBackgroundDAO {
 	private Connection conn;
@@ -43,6 +45,29 @@ public class EducationalBackgroundDAO {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public ArrayList<EducationalBackground> getEducations() {
+		ArrayList<EducationalBackground> educations = new ArrayList<EducationalBackground>();
+
+		ResultSet rs;
+		PreparedStatement ps = null;
+
+		try {
+			ps = conn.prepareStatement("SELECT * FROM " + EducationalBackground.TABLE_EB);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				educations.add(new EducationalBackground(rs.getString(EducationalBackground.COL_INSTITUTION),
+						rs.getString(EducationalBackground.COL_TYPE), rs.getInt(EducationalBackground.COL_YRGRAD),
+						rs.getString(EducationalBackground.COL_COURSE), rs.getString(EducationalBackground.COL_FBID)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return educations;
 	}
 
 	public void truncateEducationalBackground() {

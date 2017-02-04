@@ -12,6 +12,7 @@ public class AboutMe {
 	private ArrayList<Family> families;
 	private String location;
 	private String hometown;
+	private ArrayList<Work> works;
 	
 	public String getBirthday() {
 		return birthday;
@@ -83,5 +84,13 @@ public class AboutMe {
 	
 	public void setHometown(String hometown) {
 		this.hometown = hometown;
+	}
+	
+	public ArrayList<Work> getWorks() {
+		return works;
+	}
+	
+	public void setWorks(ArrayList<Work> works) {
+		this.works = works;
 	}
 }

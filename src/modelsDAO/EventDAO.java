@@ -35,7 +35,7 @@ public class EventDAO {
 				ps.setString(5, checkIn.getCountry());
 				ps.setString(6, events.get(i).getFbID());
 	
-				ps.execute();
+				ps.executeUpdate();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
