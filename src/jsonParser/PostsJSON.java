@@ -6,9 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import models.CheckIn;
-import models.Likes;
 import models.ToBeProcessed;
-import modelsDAO.LikesDAO;
 import modelsDAO.ToBeProcessedDAO;
 
 public class PostsJSON {

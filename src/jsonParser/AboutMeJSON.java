@@ -9,31 +9,34 @@ import models.AboutMe;
 import models.DirectKnowledge;
 import models.EducationalBackground;
 import models.Family;
+import models.Work;
 import modelsDAO.DirectKnowledgeDAO;
 import modelsDAO.EducationalBackgroundDAO;
 import modelsDAO.FamilyDAO;
+import modelsDAO.WorkDAO;
 
 public class AboutMeJSON {
 
 	private AboutMe aboutMe;
 
-	public AboutMeJSON(JSONObject something, JSONArray family) {
+	public AboutMeJSON(JSONObject data, JSONArray family) {
 		aboutMe = new AboutMe();
 		
-		if (something.get("birthday") != null)
-			aboutMe.setBirthday(something.get("birthday").toString());
-		if (something.get("first_name") != null)
-			aboutMe.setFirstName(something.get("first_name").toString());
-		if (something.get("middle_name") != null)
-			aboutMe.setMiddleName(something.get("middle_name").toString());
-		if (something.get("last_name") != null)
-			aboutMe.setLastName(something.get("last_name").toString());
-		if (something.get("gender") != null)
-			aboutMe.setGender(something.get("gender").toString());
-		aboutMe.setEducations(getEducations((JSONArray) something.get("education")));
+		if (data.get("birthday") != null)
+			aboutMe.setBirthday(data.get("birthday").toString());
+		if (data.get("first_name") != null)
+			aboutMe.setFirstName(data.get("first_name").toString());
+		if (data.get("middle_name") != null)
+			aboutMe.setMiddleName(data.get("middle_name").toString());
+		if (data.get("last_name") != null)
+			aboutMe.setLastName(data.get("last_name").toString());
+		if (data.get("gender") != null)
+			aboutMe.setGender(data.get("gender").toString());
+		aboutMe.setEducations(getEducations((JSONArray) data.get("education")));
 		aboutMe.setFamilies(getFamilies(family));
-		aboutMe.setLocation(getLocation((JSONObject) something.get("location")));
-		aboutMe.setHometown(getHometown((JSONObject) something.get("hometown")));
+		aboutMe.setLocation(getLocation((JSONObject) data.get("location")));
+		aboutMe.setHometown(getHometown((JSONObject) data.get("hometown")));
+		aboutMe.setWorks(getWorks((JSONArray) data.get("work")));
 		
 		//printEverything(aboutMe);
 		addToDKDAO(aboutMe);
@@ -56,7 +59,7 @@ public class AboutMeJSON {
 					
 					if (school.get("name") != null)
 						institution = school.get("name").toString();
-					if (school.get("type") != null)
+					if (education.get("type") != null)
 						type = education.get("type").toString();
 					if (school.get("id") != null)
 						fbID = school.get("id").toString();
@@ -135,14 +138,54 @@ public class AboutMeJSON {
 		return name;
 	}
 	
+	public ArrayList<Work> getWorks(JSONArray data) {
+		ArrayList<Work> works = new ArrayList<Work>();
+		
+		if (data.size() != 0) {
+			for (int i = 0; i < data.size(); i++) {
+				Work work = new Work();
+				
+				JSONObject w = (JSONObject) data.get(i);
+				if (w != null) {
+					String startDate = w.get("start_date").toString();
+					String endDate = w.get("end_date").toString();
+					
+					JSONObject employer = (JSONObject) w.get("employer");
+					if (employer != null) {
+						String employerName = employer.get("name").toString();
+						work.setInstitution(employerName);
+					}
+					
+					JSONObject location = (JSONObject) w.get("location");
+					if (location != null) {
+						String locationName = location.get("name").toString();
+						work.setLocation(locationName);
+					}
+					
+					String fbID = w.get("id").toString();
+					
+					work.setDateStrated(startDate);
+					work.setDateEnded(endDate);
+					work.setFbID(fbID);
+				}
+				
+				works.add(work);
+			}
+		}
+				
+		return works;
+	}
+	
 	public void addToDKDAO(AboutMe aboutMe) {
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
 		FamilyDAO fd = new FamilyDAO();
 		EducationalBackgroundDAO ebd = new EducationalBackgroundDAO();
+		WorkDAO wd = new WorkDAO();
 		
 		ArrayList<DirectKnowledge> dks = new ArrayList<DirectKnowledge> ();
-		ArrayList<EducationalBackground> educations = new ArrayList<EducationalBackground> ();
-		ArrayList<Family> families = new ArrayList<Family> ();
+		ArrayList<EducationalBackground> educations = aboutMe.getEducations();
+		ArrayList<Family> families = aboutMe.getFamilies();
+		ArrayList<Work> works = aboutMe.getWorks();
 		
 		dks.add(new DirectKnowledge(aboutMe.getBirthday(), "birthday"));
 		dks.add(new DirectKnowledge(aboutMe.getFirstName(), "first_name"));
@@ -151,16 +194,11 @@ public class AboutMeJSON {
 		dks.add(new DirectKnowledge(aboutMe.getGender(), "gender"));
 		dks.add(new DirectKnowledge(aboutMe.getLocation(), "location"));
 		dks.add(new DirectKnowledge(aboutMe.getHometown(), "hometown"));
-		for (int i = 0; i < aboutMe.getEducations().size(); i++) {
-			educations.add(aboutMe.getEducations().get(i));
-		}
-		for (int j = 0; j < aboutMe.getFamilies().size(); j++) {
-			families.add(aboutMe.getFamilies().get(j));
-		}
 		
 		dkd.addDirectKnowledge(dks);
-		fd.addFamily(families);
+		fd.addFamilies(families);
 		ebd.AddEducationalBackground(educations);
+		wd.addWorks(works);
 	}
 	
 	public void printEverything(AboutMe aboutMe) {
@@ -182,6 +220,13 @@ public class AboutMeJSON {
 			System.out.println("NAME: " + aboutMe.getFamilies().get(j).getName());
 			System.out.println("RELATIONSHIP: " + aboutMe.getFamilies().get(j).getRelationship());
 			System.out.println("FB ID: " + aboutMe.getFamilies().get(j).getFbID());
+		}
+		for (int k = 0; k < aboutMe.getWorks().size(); k++) {
+			System.out.println("INSTITUTION: " + aboutMe.getWorks().get(k).getInstitution());
+			System.out.println("START DATE: " + aboutMe.getWorks().get(k).getDateStarted());
+			System.out.println("START DATE: " + aboutMe.getWorks().get(k).getDateEnded());
+			System.out.println("LCOATION: " + aboutMe.getWorks().get(k).getLocation());
+			System.out.println("FB ID: " + aboutMe.getWorks().get(k).getFbID());
 		}
 	}
 }
