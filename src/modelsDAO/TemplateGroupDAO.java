@@ -18,8 +18,6 @@ public class TemplateGroupDAO {
 
 	public int getGroupId(String production) {
 		int groupId = -1;
-		production = production.replace("<", "");
-		production = production.replace(">", "");
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;

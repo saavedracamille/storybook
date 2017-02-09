@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-	private String driverName;
+	private static String driverName;
 	private static String url;
 	private static String dbName;
 	private static String username;
@@ -17,11 +17,12 @@ public class DatabaseConnection {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		this.driverName = "com.mysql.jdbc.DriverManager";
-		this.url = "jdbc:mysql://localhost:3306/";
-		this.dbName = "thesis";
-		this.username = "root"; //root
-		this.password = "1234";
+		
+		driverName = "com.mysql.jdbc.DriverManager";
+		url = "jdbc:mysql://localhost:3306/";
+		dbName = "thesis";
+		username = "root"; //root
+		password = "1234";
 	}
 
 	public static Connection getConnection() {

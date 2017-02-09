@@ -1,8 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,14 +12,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import controller.storyGenerationConclusion.GenerateConclusion;
 import controller.storyGenerationIntro.GenerateIntro;
-import jsonParser.AboutMeJSON;
-import jsonParser.EventsJSON;
-import jsonParser.LikesJSON;
-import jsonParser.PostsJSON;
-import models.AboutMe;
-import models.DirectKnowledge;
-import modelsDAO.DirectKnowledgeDAO;
 
 @WebServlet(urlPatterns = { "/Controller","/StartServlet", "/ToDB", "/NewHTML"})
 public class Controller extends HttpServlet {
@@ -58,6 +50,7 @@ public class Controller extends HttpServlet {
 				//ABOUT ME JSON
 				JSONObject about = new JSONObject((JSONObject) parser.parse(strAboutData));
 				JSONArray familyArray = (JSONArray) parser.parse(strFamilyData);
+				System.out.println("ABOUT: " + about);
 				System.out.println("FAMILY ARRAY: " + familyArray);
 				//AboutMeJSON amj = new AboutMeJSON(about, familyArray);
 				
@@ -72,6 +65,8 @@ public class Controller extends HttpServlet {
 				//EventsJSON ej = new EventsJSON(eventsData);
 				
 				GenerateIntro gi = new GenerateIntro();
+				
+				GenerateConclusion gc = new GenerateConclusion();
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

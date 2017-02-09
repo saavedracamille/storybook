@@ -51,7 +51,7 @@ public class LikesDAO {
 
 		try {
 			ps = conn.prepareStatement("SELECT " + Likes.COL_TYPE + " FROM " + Likes.TABLE_LIKES + " GROUP BY ("
-					+ Likes.COL_TYPE + ") ORDER BY COUNT (" + Likes.COL_TYPE + ") DESC LIMIT 5;");
+					+ Likes.COL_TYPE + ") ORDER BY COUNT(" + Likes.COL_TYPE + ") DESC LIMIT 5;");
 
 			rs = ps.executeQuery();
 
@@ -71,30 +71,28 @@ public class LikesDAO {
 		return likesType;
 	}
 	
-	public ArrayList<Likes> getTopFiveInterest(ArrayList<String> topFiveTypes) {
+	public ArrayList<Likes> getTopFiveInterest(String topFiveTypes) {
 		ArrayList<Likes> likes = new ArrayList<Likes> ();
 		
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		for (int i = 0; i < topFiveTypes.size(); i++) {
+		try {
+			ps = conn.prepareStatement("SELECT " + Likes.COL_INTEREST + ", " + Likes.COL_TYPE + " FROM " + Likes.TABLE_LIKES + " WHERE "
+					+ Likes.COL_TYPE + " LIKE '%" + topFiveTypes + "';");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				likes.add(new Likes(rs.getString(Likes.COL_INTEREST), rs.getString(Likes.COL_TYPE)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				ps = conn.prepareStatement("SELECT " + Likes.COL_INTEREST + "," + Likes.COL_TYPE + " FROM " + Likes.TABLE_LIKES + " WHERE "
-						+ Likes.COL_TYPE + " LIKE '% " + topFiveTypes.get(i) + "';");
-	
-				rs = ps.executeQuery();
-	
-				while (rs.next()) {
-					likes.add(new Likes(rs.getString(Likes.COL_INTEREST), rs.getString(Likes.COL_TYPE)));
-				}
+				ps.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					ps.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 		}
 		

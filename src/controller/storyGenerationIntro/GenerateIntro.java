@@ -57,6 +57,8 @@ public class GenerateIntro {
 
 		introduction = generateSentences();
 		System.out.println(introduction);
+
+		// TODO: improve sentence generation.
 	}
 
 	public String generateSentences() {
@@ -80,51 +82,78 @@ public class GenerateIntro {
 		firstSentence += firstName + middleName + " " + lastName + " ";
 
 		for (int i = 1; i < mainTemplate.size(); i++) {
+			ArrayList<String> possbileTemplates = new ArrayList<String>();
+			int groupId = 0;
+			String groupName = "";
+			String production = mainTemplate.get(i);
+			production = production.replace(">", "");
+			production = production.replace("<", "");
+
+			System.out.println(production);
+
 			if (!mainTemplate.get(i).contains(",")) {
-				int groupId = tgd.getGroupId(mainTemplate.get(i));
-				String groupName = getColumn(mainTemplate.get(i));
+				groupId = tgd.getGroupId(production);
+				groupName = getColumn(production);
 
-				ArrayList<String> possbileTemplates = td.getTemplates(groupId, groupName);
-//				for (int j = 0; j < possbileTemplates.size(); j++)
-//					System.out.println(possbileTemplates.get(j));
-				
-				switch (i) {
-				case 1:
-					firstSentence += finalTemplateForBirthday(possbileTemplates);
-					firstSentence = replaceContentBirthday(firstSentence);
-					break;
-
-				case 2:
-					firstSentence += finalTemplateForEducation(possbileTemplates,
-							getEducationType(mainTemplate.get(i)));
-					firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
-					break;
-
-				case 3:
-					firstSentence += finalTemplateForEducation(possbileTemplates,
-							getEducationType(mainTemplate.get(i)));
-					firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
-					break;
-
-				case 4:
-					firstSentence += finalTemplateForEducation(possbileTemplates,
-							getEducationType(mainTemplate.get(i)));
-					firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
-					break;
-
-				case 5:
-					firstSentence += finalTemplateForWork(possbileTemplates);
-					firstSentence = replaceContentWork(firstSentence);
-					break;
-
-				case 7:
-					firstSentence += finalTemplateForFamily(possbileTemplates);
-					firstSentence = replaceContentFamily(firstSentence);
-					break;
-				}
-
+				possbileTemplates = td.getTemplates(groupId, groupName);
 			} else {
-				// for location, hometown
+				//MALI PA TOOOOOO
+				groupId = tgd.getGroupId(production);
+				groupName = getColumn(production);
+
+				possbileTemplates = td.getTemplates(groupId, groupName);
+				
+				String[] locationHometown = production.split(", ");
+
+				for (int j = 0; j < locationHometown.length; j++) {
+					groupId = tgd.getGroupId("intro_"+locationHometown[j]);
+					groupName = getColumn("intro_"+locationHometown[j]);
+
+					possbileTemplates = td.getTemplates(groupId, groupName);
+				}
+			}
+
+			 for (int j = 0; j < possbileTemplates.size(); j++)
+				 System.out.println(possbileTemplates.get(j));
+
+			switch (i) {
+			case 1:
+				firstSentence += " " + finalTemplateForBirthday(possbileTemplates);
+				firstSentence = replaceContentBirthday(firstSentence);
+				break;
+
+			case 2:
+				firstSentence += " "
+						+ finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
+				break;
+
+			case 3:
+				firstSentence += " "
+						+ finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
+				break;
+
+			case 4:
+				firstSentence += " "
+						+ finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
+				break;
+
+			case 5:
+				firstSentence += " " + finalTemplateForWork(possbileTemplates);
+				firstSentence = replaceContentWork(firstSentence);
+				break;
+
+			case 6:
+				firstSentence += " " + finalTemplateForLocHome(possbileTemplates);
+				//firstSentence = replaceContentLocHome(firstSentence);
+				break;
+
+			case 7:
+				firstSentence += " " + finalTemplateForFamily(possbileTemplates);
+				firstSentence = replaceContentFamily(firstSentence);
+				break;
 			}
 		}
 
@@ -301,7 +330,7 @@ public class GenerateIntro {
 		for (int i = 0; i < finalT.size(); i++) {
 			System.out.println(finalT.get(i));
 		}
-		
+
 		String asd = "";
 		int indexTemplate = 0;
 
@@ -350,6 +379,27 @@ public class GenerateIntro {
 		}
 
 		return finalSentence;
+	}
+
+	public String finalTemplateForLocHome(ArrayList<String> possibleTemplates) {
+		ArrayList<String> finalT = new ArrayList<String>();
+
+		for (int i = 0; i < possibleTemplates.size(); i++) {
+			for (int j = 0; j < directKnowledges.size(); j++) {
+				if (directKnowledges.get(j).getType().equals("location") && directKnowledges.get(j).getData() != null
+						&& possibleTemplates.get(i).contains("location")) {
+					finalT.add(possibleTemplates.get(i));
+				}
+				else if (directKnowledges.get(j).getType().equals("hometown") && directKnowledges.get(j).getData() != null
+						&& possibleTemplates.get(i).contains("hometown")) {
+					finalT.add(possibleTemplates.get(i));
+				}
+			}
+		}
+
+		int indexTemplate = chooseRandomTemplate(finalT);
+
+		return finalT.get(indexTemplate);
 	}
 
 	public String finalTemplateForFamily(ArrayList<String> possibleTemplates) {
