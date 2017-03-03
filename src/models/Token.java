@@ -13,6 +13,16 @@ public class Token {
 	private int posID;
 	private int tbpID;
 	
+	public Token() {
+		
+	}
+	
+	public Token(String name, int posID, int tbpID) {
+		this.name = name;
+		this.posID = posID;
+		this.tbpID = tbpID;
+	}
+	
 	public int getId() {
 		return id;
 	}

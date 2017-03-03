@@ -36,7 +36,8 @@ public class AboutMeJSON {
 		aboutMe.setFamilies(getFamilies(family));
 		aboutMe.setLocation(getLocation((JSONObject) data.get("location")));
 		aboutMe.setHometown(getHometown((JSONObject) data.get("hometown")));
-		aboutMe.setWorks(getWorks((JSONArray) data.get("work")));
+		if (data.get("work") != null)
+			aboutMe.setWorks(getWorks((JSONArray) data.get("work")));
 		
 		//printEverything(aboutMe);
 		addToDKDAO(aboutMe);
@@ -141,14 +142,19 @@ public class AboutMeJSON {
 	public ArrayList<Work> getWorks(JSONArray data) {
 		ArrayList<Work> works = new ArrayList<Work>();
 		
-		if (data.size() != 0) {
+		if (data != null) {
 			for (int i = 0; i < data.size(); i++) {
 				Work work = new Work();
 				
 				JSONObject w = (JSONObject) data.get(i);
 				if (w != null) {
-					String startDate = w.get("start_date").toString();
-					String endDate = w.get("end_date").toString();
+					String startDate = "";
+					String endDate = "";
+					
+					if (w.get("start_date") != null)
+						startDate = w.get("start_date").toString();
+					if (w.get("end_date") != null)
+						endDate = w.get("end_date").toString();
 					
 					JSONObject employer = (JSONObject) w.get("employer");
 					if (employer != null) {
@@ -198,7 +204,8 @@ public class AboutMeJSON {
 		dkd.addDirectKnowledge(dks);
 		fd.addFamilies(families);
 		ebd.AddEducationalBackground(educations);
-		wd.addWorks(works);
+		if (works != null)
+			wd.addWorks(works);
 	}
 	
 	public void printEverything(AboutMe aboutMe) {

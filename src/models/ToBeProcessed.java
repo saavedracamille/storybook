@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 public class ToBeProcessed {
 	public static final String TABLE_TBP = "to_be_processed";
 	
@@ -19,11 +17,26 @@ public class ToBeProcessed {
 	private int id;
 	private String data;
 	private String fbID;
-	private ArrayList<String> tagged;
+	private String tagged;
 	private CheckIn checkIn;
 	private String year;
 	private String month;
 	private String day;
+	
+	public ToBeProcessed() {
+		
+	}
+	
+	public ToBeProcessed(int id, String data, String fbID, String tagged, CheckIn checkIn, String year, String month, String day) {
+		this.id = id;
+		this.data = data;
+		this.fbID = fbID;
+		this.tagged = tagged;
+		this.checkIn = checkIn;
+		this.year = year;
+		this.month = month;
+		this.day = day;
+	}
 	
 	public int getId() {
 		return id;
@@ -49,11 +62,11 @@ public class ToBeProcessed {
 		this.fbID = fbID;
 	}
 	
-	public ArrayList<String> getTagged() {
+	public String getTagged() {
 		return tagged;
 	}
 	
-	public void setTagged(ArrayList<String> tagged) {
+	public void setTagged(String tagged) {
 		this.tagged = tagged;
 	}
 	
