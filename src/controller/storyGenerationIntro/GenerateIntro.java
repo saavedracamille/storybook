@@ -66,6 +66,7 @@ public class GenerateIntro {
 		String firstName = "";
 		String middleName = "";
 		String lastName = "";
+		String gender = "";
 
 		TemplateGroupDAO tgd = new TemplateGroupDAO();
 		TemplateDAO td = new TemplateDAO();
@@ -77,9 +78,15 @@ public class GenerateIntro {
 				middleName = directKnowledges.get(j).getData();
 			if (directKnowledges.get(j).getType().equals("last_name") && directKnowledges.get(j).getData() != null)
 				lastName = directKnowledges.get(j).getData();
+			if(directKnowledges.get(j).getType().equals("gender") && directKnowledges.get(j).getData() != null)
+				if(directKnowledges.get(j).getData().equals("female"))
+					gender = "She";
+				else
+					gender = "He";
+					
 		}
 
-		firstSentence += firstName + middleName + " " + lastName + " ";
+		firstSentence += firstName + middleName + " " + lastName;
 
 		for (int i = 1; i < mainTemplate.size(); i++) {
 			ArrayList<String> possbileTemplates = new ArrayList<String>();
@@ -89,7 +96,7 @@ public class GenerateIntro {
 			production = production.replace(">", "");
 			production = production.replace("<", "");
 
-			System.out.println(production);
+			//System.out.println(production);
 
 			if (!mainTemplate.get(i).contains(",")) {
 				groupId = tgd.getGroupId(production);
@@ -97,64 +104,107 @@ public class GenerateIntro {
 
 				possbileTemplates = td.getTemplates(groupId, groupName);
 			} else {
-				//MALI PA TOOOOOO
 				groupId = tgd.getGroupId(production);
 				groupName = getColumn(production);
 
-				possbileTemplates = td.getTemplates(groupId, groupName);
+				possbileTemplates.addAll(td.getTemplates(groupId, groupName));
 				
 				String[] locationHometown = production.split(", ");
-
+				
 				for (int j = 0; j < locationHometown.length; j++) {
 					groupId = tgd.getGroupId("intro_"+locationHometown[j]);
 					groupName = getColumn("intro_"+locationHometown[j]);
 
-					possbileTemplates = td.getTemplates(groupId, groupName);
+					possbileTemplates.addAll(td.getTemplates(groupId, groupName));
 				}
 			}
 
-			 for (int j = 0; j < possbileTemplates.size(); j++)
-				 System.out.println(possbileTemplates.get(j));
-
 			switch (i) {
 			case 1:
-				firstSentence += " " + finalTemplateForBirthday(possbileTemplates);
+				if(!finalTemplateForBirthday(possbileTemplates).contains(",")){
+					firstSentence += " ";
+				}
+				firstSentence += finalTemplateForBirthday(possbileTemplates);
 				firstSentence = replaceContentBirthday(firstSentence);
+				if(!finalTemplateForBirthday(possbileTemplates).isEmpty() && !firstSentence.endsWith(","))
+					firstSentence += ".";
 				break;
 
 			case 2:
-				firstSentence += " "
-						+ finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				
+				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
+					firstSentence += " " + gender + " ";
+				}
+				
+				firstSentence += finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
 				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
+				
+				if(!finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
+					firstSentence += ".";
+				
 				break;
 
 			case 3:
-				firstSentence += " "
-						+ finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
+					firstSentence += " " + gender + " ";
+				}
+				
+				firstSentence += finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
 				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
+				
+				if(!finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
+					firstSentence += ".";
+				
 				break;
 
 			case 4:
-				firstSentence += " "
-						+ finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
+					firstSentence += " " + gender + " ";
+				}
+				firstSentence += finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
 				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
+				
+				if(!finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
+					firstSentence += ".";
+				
 				break;
 
 			case 5:
-				firstSentence += " " + finalTemplateForWork(possbileTemplates);
+				if(firstSentence.endsWith(".") && !finalTemplateForWork(possbileTemplates).isEmpty()){
+					firstSentence += " " + gender + " ";
+				}
+				firstSentence += finalTemplateForWork(possbileTemplates);
 				firstSentence = replaceContentWork(firstSentence);
+				if(!finalTemplateForWork(possbileTemplates).isEmpty())
+					firstSentence += ".";
+				
 				break;
 
 			case 6:
-				firstSentence += " " + finalTemplateForLocHome(possbileTemplates);
-				//firstSentence = replaceContentLocHome(firstSentence);
+				if(firstSentence.endsWith(".") && !finalTemplateForLocHome(possbileTemplates).isEmpty()){
+					firstSentence += " " + gender + " ";
+				}
+				firstSentence += finalTemplateForLocHome(possbileTemplates);
+				firstSentence = replaceContentLocHome(firstSentence);
+				if(!finalTemplateForLocHome(possbileTemplates).isEmpty())
+					firstSentence += ".";
 				break;
 
 			case 7:
 				firstSentence += " " + finalTemplateForFamily(possbileTemplates);
 				firstSentence = replaceContentFamily(firstSentence);
+				if(!finalTemplateForFamily(possbileTemplates).isEmpty())
+					firstSentence += ".";
 				break;
-			}
+			}					
+		}
+		if(gender.equals("She")){
+			
+			firstSentence = firstSentence.replaceAll(" He", " She");
+			firstSentence = firstSentence.replaceAll(" he", " She");
+			firstSentence = firstSentence.replaceAll("his", "her");
+			firstSentence = firstSentence.replaceAll("son", "daughter");
+			
 		}
 
 		return firstSentence;
@@ -180,6 +230,10 @@ public class GenerateIntro {
 						&& directKnowledges.get(j).getData() != null && possibleTemplates.get(i).contains("age")) {
 					finalT.add(possibleTemplates.get(i));
 				}
+				
+				if(directKnowledges.get(j).getType().equals("birth_city") && directKnowledges.get(j).getData() != null) {
+					finalT.add(possibleTemplates.get(i));
+				}
 			}
 		}
 
@@ -192,6 +246,7 @@ public class GenerateIntro {
 		String birthday = "";
 		String gender = "";
 		String age = "";
+		String birth_city = "";
 
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
@@ -202,7 +257,13 @@ public class GenerateIntro {
 					if (directKnowledges.get(j).getType().equals("birthday")
 							&& directKnowledges.get(j).getData() != null) {
 						birthday = directKnowledges.get(j).getData();
-						finalSentence = finalSentence.replace("<birthday>", birthday);
+
+						String[] bday = birthday.split("\\/");
+						String month = getMonth(bday[0]);
+						String day = bday[1];
+						String year = bday[2];
+						
+						finalSentence = finalSentence.replace("<birthday>", month + " " + day + ", " + year);
 					}
 				}
 			}
@@ -284,6 +345,7 @@ public class GenerateIntro {
 	public String replaceContentEducation(String finalSentence, String type) {
 		String institution = "";
 		String year_graduated = "";
+		String temp2 = "";
 
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
@@ -300,10 +362,48 @@ public class GenerateIntro {
 			}
 			if (m.group(1).contains("grad_year")) {
 				for (int j = 0; j < educationalBgs.size(); j++) {
+					System.out.println(educationalBgs.get(j).getType() + " -- " + type);
+					System.out.println(educationalBgs.get(j).getType().contains(type));
+					
 					if (educationalBgs.get(j).getType().contains(type)
-							&& String.valueOf(educationalBgs.get(j).getYear_graduated()) != null) {
+						&& String.valueOf(educationalBgs.get(j).getYear_graduated())!= null
+						&& educationalBgs.get(j).getYear_graduated() != 0){
+						System.out.println("1 j - " + j);
 						year_graduated = String.valueOf(educationalBgs.get(j).getYear_graduated());
 						finalSentence = finalSentence.replace("<grad_year>", year_graduated);
+						
+					} 
+					else if (educationalBgs.get(j).getType().contains(type)){	
+						System.out.println("2 j - " + j);
+						String[] temp = finalSentence.split("\\.");						
+						String lastSentence = "";
+						if(temp.length > 1)
+							lastSentence = temp[temp.length-1];
+						else
+							lastSentence = finalSentence;
+						
+						System.out.println("LAST: " + lastSentence);
+						
+						if(lastSentence.contains("graduated"))
+							lastSentence = lastSentence.replace("graduated", "is studying");
+						else if(lastSentence.contains("diploma"))
+							lastSentence = lastSentence.replace("got his", "has yet to get his");
+						
+						System.out.println(">>> " + lastSentence);
+						
+						finalSentence = "";
+						for(int i = 0; i < temp.length-1; i++)
+							finalSentence += temp[i] + ".";
+						finalSentence += lastSentence;
+						
+					} else {
+						System.out.println("3j - " + j);
+						if (finalSentence.contains("last <grad_year>"))
+							finalSentence = finalSentence.replace(" last <grad_year>", "");
+						else if (finalSentence.contains("in <grad_year>"))
+							finalSentence = finalSentence.replace(" in <grad_year>", "");
+						else if (finalSentence.contains("on <grad_year>"))
+							finalSentence = finalSentence.replace(" on <grad_year>", "");
 					}
 				}
 			}
@@ -327,10 +427,10 @@ public class GenerateIntro {
 			}
 		}
 
-		for (int i = 0; i < finalT.size(); i++) {
+		/*for (int i = 0; i < finalT.size(); i++) {
 			System.out.println(finalT.get(i));
 		}
-
+*/
 		String asd = "";
 		int indexTemplate = 0;
 
@@ -364,7 +464,13 @@ public class GenerateIntro {
 				for (int j = 0; j < works.size(); j++) {
 					if (works.get(j).getDateStarted() != null) {
 						dateStarted = works.get(j).getDateStarted();
-						finalSentence = finalSentence.replace("<job_start>", dateStarted);
+						
+						String[] dateS = dateStarted.split("\\-");
+						String month = getMonth(dateS[1]);
+						String day = dateS[2];
+						String year = dateS[0];
+						
+						finalSentence = finalSentence.replace("<job_start>", month + " " + day + ", " + year);
 					}
 				}
 			}
@@ -372,7 +478,13 @@ public class GenerateIntro {
 				for (int j = 0; j < works.size(); j++) {
 					if (works.get(j).getDateEnded() != null) {
 						dateEnded = works.get(j).getDateEnded();
-						finalSentence = finalSentence.replace("<job_end>", dateEnded);
+						
+						String[] dateE = dateEnded.split("\\-");
+						String month = getMonth(dateE[1]);
+						String day = dateE[2];
+						String year = dateE[0];
+						
+						finalSentence = finalSentence.replace("<job_end>", month + " " + day + ", " + year);
 					}
 				}
 			}
@@ -400,6 +512,39 @@ public class GenerateIntro {
 		int indexTemplate = chooseRandomTemplate(finalT);
 
 		return finalT.get(indexTemplate);
+	}
+	
+	public String replaceContentLocHome(String finalSentence) {
+		String hometown = "";
+		String location = "";
+		
+		Pattern p = Pattern.compile("\\<(.*?)\\>");
+		Matcher m = p.matcher(finalSentence);
+
+		while (m.find()) {
+			if (m.group(1).contains("hometown")) {
+				for (int j = 0; j < directKnowledges.size(); j++) {
+					if (directKnowledges.get(j).getType().equals("hometown")
+							&& directKnowledges.get(j).getData() != null) {
+						hometown = directKnowledges.get(j).getData();
+						finalSentence = finalSentence.replace("<hometown>", hometown);
+					}
+				}
+			}
+			if (m.group(1).contains("location")) {
+				for (int j = 0; j < directKnowledges.size(); j++) {
+					if (directKnowledges.get(j).getType().equals("location")
+							&& directKnowledges.get(j).getData() != null) {
+						location = directKnowledges.get(j).getData();
+						finalSentence = finalSentence.replace("<location>", location);
+					}
+				}
+			}
+			
+		}
+		
+		
+		return finalSentence;
 	}
 
 	public String finalTemplateForFamily(ArrayList<String> possibleTemplates) {
@@ -477,11 +622,11 @@ public class GenerateIntro {
 		String type = "";
 
 		if (groupName.contains("gs"))
-			type = "Grade";
+			type = "Grade School";
 		else if (groupName.contains("hs"))
-			type = "High";
+			type = "High School";
 		else if (groupName.contains("college"))
-			type = "Graduate";
+			type = "Graduate School";
 
 		return type;
 	}
@@ -493,5 +638,23 @@ public class GenerateIntro {
 		chosenTemplate = random.nextInt(templates.size() - 1 - 0 + 1);
 
 		return chosenTemplate;
+	}
+	
+	public String getMonth(String m){
+        switch (m) {
+            case "01":  return "January";
+            case "02":  return"February";
+            case "03":  return"March";
+            case "04":  return "April";
+            case "05":  return "May";
+            case "06":  return "June";
+            case "07":  return "July";
+            case "08":  return "August";
+            case "09":  return"September";
+            case "10": return"October";
+            case "11": return "November";
+            case "12": return "December";
+        }
+		return "month";
 	}
 }
