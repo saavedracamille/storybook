@@ -34,9 +34,15 @@ public class GenerateConclusion {
 		
 		ArrayList<String> topFiveTypes = ld.getTopFiveTypes();
 		
+		conclusion += name + " likes ";
 		for (int i = 0; i < topFiveTypes.size(); i++) {
 			ArrayList<Likes> topFiveInterests = ld.getTopFiveInterest(topFiveTypes.get(i));
+			conclusion += toPlural(topFiveTypes.get(i));
 			conclusion += generateSentences(name, topFiveTypes.get(i), topFiveInterests);
+			if(i != topFiveTypes.size()-2)
+				conclusion += ", " + "\n";
+			else
+				conclusion += "and ";
 		}
 		
 		System.out.println(conclusion);
@@ -51,14 +57,16 @@ public class GenerateConclusion {
 		
 		while(m.find()) {
 			if (m.group(1).contains("name")) {
-				sentence = sentence.replace("<name>", name);
+				sentence = sentence.replace("<name>", "");
 			}
+			
 			if (m.group(1).contains("type")) {
-				sentence = sentence.replace("<type>", type);
+				sentence = sentence.replace("likes <type> ", "");
 			}
+			
 			if (m.group(1).contains("interest")) {
 				String connector = "";
-				for (int i = 0; i < interestPreferences.size(); i++) {
+				for (int i = 0; i < 3; i++) {
 					if (interestPreferences.size() - 2 != i)
 						connector = ", ";
 					else 
@@ -70,11 +78,29 @@ public class GenerateConclusion {
 				interests = interests.substring(0, interests.length() - 2);
 				
 				sentence = sentence.replace("<interest>", interests);
+				sentence.replace("\\.", "");
 			}
+			
 		}
 		
 		//TODO: Add interested events.
 		
 		return sentence;
+	}
+	
+	public String toPlural(String word){
+		int length = word.length();
+		
+		if (word.endsWith("y"))
+			word = word.substring(0, length-1) + "ies";
+		else if(word.endsWith("s"))
+			word = word.substring(0, length-1) + "es";
+		else if(length > 3 && word.charAt(length-1) == 's' && 
+				word.charAt(length-2) == 'u')
+				word = word.substring(0,length-2) + "i";
+		else 
+			word = word.concat("s"); 
+		System.out.println(word);
+		return word;
 	}
 }
