@@ -57,8 +57,6 @@ public class GenerateIntro {
 
 		introduction = generateSentences();
 		System.out.println(introduction);
-
-		// TODO: improve sentence generation.
 	}
 
 	public String generateSentences() {
@@ -385,7 +383,7 @@ public class GenerateIntro {
 						System.out.println("LAST: " + lastSentence);
 						
 						if(lastSentence.contains("graduated"))
-							lastSentence = lastSentence.replace("graduated", "is studying");
+							lastSentence = lastSentence.replace("graduated", "is studying in");
 						else if(lastSentence.contains("diploma"))
 							lastSentence = lastSentence.replace("got his", "has yet to get his");
 						
