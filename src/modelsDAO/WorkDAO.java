@@ -46,8 +46,8 @@ public class WorkDAO {
 		PreparedStatement ps = null;
 
 		try {
-			ps = conn.prepareStatement("SELECT * FROM " + Work.TABLE_WORK);
-
+			ps = conn.prepareStatement("SELECT * FROM " + Work.TABLE_WORK + " ORDER BY " + Work.COL_DATESTARTED + " DESC;");
+			System.out.println("GET LATEST WORK QUERY: " + ps);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
