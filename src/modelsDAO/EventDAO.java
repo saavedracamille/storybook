@@ -2,6 +2,7 @@ package modelsDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -9,6 +10,7 @@ import dbConnection.DatabaseConnection;
 import models.CheckIn;
 import models.Event;
 import models.Family;
+import models.Likes;
 import models.ToBeProcessed;
 
 public class EventDAO {
@@ -46,6 +48,80 @@ public class EventDAO {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public ArrayList<Event> getLatestGoing() {
+		ArrayList<Event> goingEvents = new ArrayList<Event> ();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement("SELECT * FROM " + Event.TABLE_EVENT + " WHERE "
+					+ Event.COL_RSVP + " = \"attending\" LIMIT 5;");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Event event = new Event();
+				CheckIn checkIn = new CheckIn();
+				
+				event.setName(rs.getString(Event.COL_NAME));
+				checkIn.setPlace(rs.getString(Event.COL_PLACE));
+				checkIn.setCity(rs.getString(Event.COL_CITY));
+				checkIn.setCountry(rs.getString(Event.COL_COUNTRY));
+				event.setLocation(checkIn);
+				
+				goingEvents.add(event);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return goingEvents;
+	}
+	
+	public ArrayList<Event> getLatestInterested() {
+		ArrayList<Event> interestedEvents = new ArrayList<Event> ();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement("SELECT * FROM " + Event.TABLE_EVENT + " WHERE "
+					+ Event.COL_RSVP + " = \"interested\" LIMIT 5;");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Event event = new Event();
+				CheckIn checkIn = new CheckIn();
+				
+				event.setName(rs.getString(Event.COL_NAME));
+				checkIn.setPlace(rs.getString(Event.COL_PLACE));
+				checkIn.setCity(rs.getString(Event.COL_CITY));
+				checkIn.setCountry(rs.getString(Event.COL_COUNTRY));
+				event.setLocation(checkIn);
+				
+				interestedEvents.add(event);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return interestedEvents;
 	}
 	
 	public void truncateEvent() {
