@@ -364,7 +364,7 @@ public class GenerateIntro {
 					if (educationalBgs.get(j).getType().contains(type)
 						&& String.valueOf(educationalBgs.get(j).getYear_graduated())!= null
 						&& educationalBgs.get(j).getYear_graduated() != 0){
-						System.out.println("1 j - " + j);
+						//System.out.println("1 j - " + j);
 						year_graduated = String.valueOf(educationalBgs.get(j).getYear_graduated());
 						finalSentence = finalSentence.replace("<grad_year>", year_graduated);
 						
@@ -378,14 +378,14 @@ public class GenerateIntro {
 						else
 							lastSentence = finalSentence;
 						
-						System.out.println("LAST: " + lastSentence);
+						//System.out.println("LAST: " + lastSentence);
 						
 						if(lastSentence.contains("graduated"))
 							lastSentence = lastSentence.replace("graduated", "is studying in");
 						else if(lastSentence.contains("diploma"))
 							lastSentence = lastSentence.replace("got his", "has yet to get his");
 						
-						System.out.println(">>> " + lastSentence);
+						//System.out.println(">>> " + lastSentence);
 						
 						finalSentence = "";
 						for(int i = 0; i < temp.length-1; i++)
@@ -513,6 +513,12 @@ public class GenerateIntro {
 	public String replaceContentLocHome(String finalSentence) {
 		String hometown = "";
 		String location = "";
+		String tempsentence = "";
+		
+		String[] temp = finalSentence.split("\\.");
+		for(int i = 0; i < temp.length - 2; i++){
+			tempsentence += temp[i] + "."; 
+		}
 		
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
@@ -537,12 +543,13 @@ public class GenerateIntro {
 					}
 				}
 			}
-			
 		}
 		
 		if(location != null && hometown != null && hometown.equals(location)){
-			finalSentence = "is living in " + location;
+			finalSentence = tempsentence;
+			finalSentence += "is living in " + location;
 		}
+		
 		
 		
 		return finalSentence;
