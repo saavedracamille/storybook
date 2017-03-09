@@ -13,6 +13,9 @@ public class ToBeProcessed {
 	public static final String COL_YEAR = "year";
 	public static final String COL_MONTH = "month";
 	public static final String COL_DAY = "day";
+	public static final String COL_VERB = "verb";
+	public static final String COL_NOUN = "noun";
+	public static final String COL_PT = "post_type";
 	
 	private int id;
 	private String data;
@@ -22,6 +25,9 @@ public class ToBeProcessed {
 	private String year;
 	private String month;
 	private String day;
+	private String verb;
+	private String noun;
+	private int postType;
 	
 	public ToBeProcessed() {
 		
@@ -100,6 +106,30 @@ public class ToBeProcessed {
 
 	public void setDay(String day) {
 		this.day = day;
+	}
+	
+	public String getVerb() {
+		return verb;
+	}
+
+	public void setVerb(String verb) {
+		this.verb = verb;
+	}
+	
+	public String getNoun() {
+		return noun;
+	}
+
+	public void setNoun(String noun) {
+		this.noun = noun;
+	}
+
+	public int getPostType() {
+		return postType;
+	}
+
+	public void setPostType(int postType) {
+		this.postType = postType;
 	}
 	
 //	public void splitByDateTime(String dateTime) {

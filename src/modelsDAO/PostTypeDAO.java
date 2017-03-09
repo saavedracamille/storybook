@@ -17,16 +17,16 @@ public class PostTypeDAO {
 		DatabaseConnection dc = new DatabaseConnection();
 		conn = dc.getConnection();
 	}
-	
+
 	public ArrayList<Integer> getCategoryIds() {
-		ArrayList<Integer> categoryIds = new ArrayList<Integer> ();
-		
+		ArrayList<Integer> categoryIds = new ArrayList<Integer>();
+
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
 		try {
 			ps = conn.prepareStatement("SELECT " + PostType.COL_ID + " FROM " + PostType.TABLE_PT + ";");
-			System.out.println("GET ALL GENERAL CATEGORIES SQL QUERY: " + ps);
+			//System.out.println("GET ALL GENERAL CATEGORIES SQL QUERY: " + ps);
 
 			rs = ps.executeQuery();
 
@@ -43,7 +43,37 @@ public class PostTypeDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return categoryIds;
+	}
+
+	public String getSpecificCategory(int id) {
+		String category = "";
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement("SELECT " + PostType.COL_POST + " FROM " + PostType.TABLE_PT + " WHERE "
+					+ PostType.COL_ID + " = ?;");
+			ps.setInt(1, id);
+			//System.out.println("GET SPECIFIC CATEGORY SQL QUERY: " + ps);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				category = rs.getString(PostType.COL_POST);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return category;
 	}
 }
