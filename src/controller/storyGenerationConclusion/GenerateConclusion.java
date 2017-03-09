@@ -5,19 +5,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import models.DirectKnowledge;
+import models.Event;
 import models.Likes;
 import modelsDAO.DirectKnowledgeDAO;
+import modelsDAO.EventDAO;
 import modelsDAO.LikesDAO;
 
 public class GenerateConclusion {
 	private String conclusion = "";
-	private String mainTemplate = "<name> likes <type> such as <interest>.";
+	private String mainTemplate = " such as <interest> ";
 	
 	public GenerateConclusion() {
 		LikesDAO ld = new LikesDAO();
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
+		EventDAO ed = new EventDAO();
 		
 		ArrayList<DirectKnowledge> directKnowledges = dkd.getDirectKnowledge();
+		ArrayList<Event> events;
 		String name = "";
 		String firstName = "";
 		String middleName = "";
@@ -40,7 +44,7 @@ public class GenerateConclusion {
 			conclusion += toPlural(topFiveTypes.get(i));
 			conclusion += generateSentences(name, topFiveTypes.get(i), topFiveInterests);
 			if(i != topFiveTypes.size()-2)
-				conclusion += ", " + "\n";
+				conclusion += ", ";
 			else
 				conclusion += "and ";
 		}
@@ -56,13 +60,6 @@ public class GenerateConclusion {
 		Matcher m = p.matcher(mainTemplate);
 		
 		while(m.find()) {
-			if (m.group(1).contains("name")) {
-				sentence = sentence.replace("<name>", "");
-			}
-			
-			if (m.group(1).contains("type")) {
-				sentence = sentence.replace("likes <type> ", "");
-			}
 			
 			if (m.group(1).contains("interest")) {
 				String connector = "";
@@ -81,12 +78,11 @@ public class GenerateConclusion {
 				sentence.replace("\\.", "");
 			}
 			
-		}
-		
-		//TODO: Add interested events.
-		
+		}		
 		return sentence;
 	}
+
+	//TODO: Add interested events.
 	
 	public String toPlural(String word){
 		int length = word.length();
