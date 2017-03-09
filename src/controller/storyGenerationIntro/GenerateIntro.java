@@ -360,8 +360,6 @@ public class GenerateIntro {
 			}
 			if (m.group(1).contains("grad_year")) {
 				for (int j = 0; j < educationalBgs.size(); j++) {
-					System.out.println(educationalBgs.get(j).getType() + " -- " + type);
-					System.out.println(educationalBgs.get(j).getType().contains(type));
 					
 					if (educationalBgs.get(j).getType().contains(type)
 						&& String.valueOf(educationalBgs.get(j).getYear_graduated())!= null
