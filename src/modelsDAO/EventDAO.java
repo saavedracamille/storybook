@@ -59,7 +59,7 @@ public class EventDAO {
 		try {
 			ps = conn.prepareStatement("SELECT * FROM " + Event.TABLE_EVENT + " WHERE "
 					+ Event.COL_RSVP + " = \"attending\" LIMIT 5;");
-
+			System.out.println("GET GOING EVENTS: " + ps);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -96,7 +96,7 @@ public class EventDAO {
 		try {
 			ps = conn.prepareStatement("SELECT * FROM " + Event.TABLE_EVENT + " WHERE "
 					+ Event.COL_RSVP + " = \"interested\" LIMIT 5;");
-
+			System.out.println("GET INTERESTED EVENTS: " + ps);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
