@@ -517,6 +517,7 @@ public class GenerateIntro {
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
 
+		
 		while (m.find()) {
 			if (m.group(1).contains("hometown")) {
 				for (int j = 0; j < directKnowledges.size(); j++) {
@@ -537,6 +538,10 @@ public class GenerateIntro {
 				}
 			}
 			
+		}
+		
+		if(location != null && hometown != null && hometown.equals(location)){
+			finalSentence = "is living in " + location;
 		}
 		
 		
