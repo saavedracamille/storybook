@@ -73,8 +73,8 @@ public class Controller extends HttpServlet {
 			}
 			
 		}
-		else if(path.equals("/NewHTML")){
-			request.getRequestDispatcher("we.html").forward(request, response);
+		else if(path.equals("/OutputPage")){
+			request.getRequestDispatcher("outputPage.jsp").forward(request, response);
 		}
 	}
 
