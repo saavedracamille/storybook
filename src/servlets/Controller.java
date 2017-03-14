@@ -31,7 +31,7 @@ public class Controller extends HttpServlet {
 		String path = request.getServletPath();
 
 		if (path.equals("/StartServlet")) {
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("startPage.jsp").forward(request, response);
 		}
 		else if(path.equals("/ToDB")){
 			String strAboutData = request.getParameter("about");
@@ -44,29 +44,29 @@ public class Controller extends HttpServlet {
 			try {
 				//POSTS JSON
 				JSONArray eventArray = (JSONArray) parser.parse(strPostData);
-				System.out.println("EVENT ARRAY: " + eventArray);
+				//System.out.println("EVENT ARRAY: " + eventArray);
 				//PostsJSON pj = new PostsJSON(eventArray);
 				
 				//ABOUT ME JSON
 				JSONObject about = new JSONObject((JSONObject) parser.parse(strAboutData));
 				JSONArray familyArray = (JSONArray) parser.parse(strFamilyData);
-				System.out.println("ABOUT: " + about);
-				System.out.println("FAMILY ARRAY: " + familyArray);
+				//System.out.println("ABOUT: " + about);
+				//System.out.println("FAMILY ARRAY: " + familyArray);
 				//AboutMeJSON amj = new AboutMeJSON(about, familyArray);
 				
 				//LIKES JSON
 				JSONArray likesArray = (JSONArray) parser.parse(strLikeData);
-				System.out.println("LIKES ARRAY: " + likesArray);
+				//System.out.println("LIKES ARRAY: " + likesArray);
 				//LikesJSON lj = new LikesJSON(likesArray);
 				
 				//EVENTS JSON
 				JSONArray eventsData = (JSONArray) parser.parse(strEventData);
-				System.out.println("EVENTS ARRAY: " + eventsData);
+				//System.out.println("EVENTS ARRAY: " + eventsData);
 				//EventsJSON ej = new EventsJSON(eventsData);
 				
-				GenerateIntro gi = new GenerateIntro();
+				//GenerateIntro gi = new GenerateIntro();
 				
-				GenerateConclusion gc = new GenerateConclusion();
+				//GenerateConclusion gc = new GenerateConclusion();
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
