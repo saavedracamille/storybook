@@ -11,6 +11,11 @@ public class CoLocatingWords {
 	private String clw;
 	private int pit;
 	
+	public CoLocatingWords(String clw, int pit) {
+		this.clw = clw;
+		this.pit = pit;
+	}
+	
 	public int getId() {
 		return id;
 	}

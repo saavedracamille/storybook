@@ -18,8 +18,8 @@ public class CoLocatingWordsDAO {
 		conn = dc.getConnection();
 	}
 	
-	public ArrayList<String> getAllCoLocatingWords() {
-		ArrayList<String> coLocatingWords = new ArrayList<String>();
+	public ArrayList<CoLocatingWords> getAllCoLocatingWords() {
+		ArrayList<CoLocatingWords> coLocatingWords = new ArrayList<CoLocatingWords>();
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -31,7 +31,8 @@ public class CoLocatingWordsDAO {
 
 			while (rs.next()) {
 				String word = rs.getString(CoLocatingWords.COL_WORD);
-				coLocatingWords.add(word);
+				int pit = rs.getInt(CoLocatingWords.COL_PIT);
+				coLocatingWords.add(new CoLocatingWords(word, pit));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

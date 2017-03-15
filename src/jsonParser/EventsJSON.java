@@ -43,11 +43,16 @@ public class EventsJSON {
 						
 						JSONObject location = (JSONObject) place.get("location");
 						if (location != null) {
-							String city = location.get("city").toString();
-							String country = location.get("country").toString();
-							
-							checkIn.setCity(city);
-							checkIn.setCountry(country);
+							String city = "";
+							String country = "";
+							if (location.get("city") != null) {
+								city = location.get("city").toString();
+								checkIn.setCity(city);
+							}
+							if (location.get("country") != null) {
+								country = location.get("country").toString();
+								checkIn.setCountry(country);
+							}
 						}
 						
 						checkIn.setPlace(place_name);
