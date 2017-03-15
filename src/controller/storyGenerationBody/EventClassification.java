@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import models.CoLocatingWords;
 import models.ToBeProcessed;
 import modelsDAO.CoLocatingWordsDAO;
 import modelsDAO.PostTypeDAO;
@@ -15,15 +16,17 @@ public class EventClassification {
 	public void performEventClassification() {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		
-		HashMap<String, String> verbs = tbpd.getAllVerbs();
-		ArrayList<ToBeProcessed> verbPosts = tbpd.getAllPostsWithVerbs();
+		//HashMap<String, String> verbs = tbpd.getAllVerbs();
+		//ArrayList<ToBeProcessed> verbPosts = tbpd.getAllPostsWithVerbs();
+		HashMap<String, String> verbs = null;
+		ArrayList<ToBeProcessed> verbPosts = tbpd.getAllPosts();
 		
 //		for (Map.Entry<String, String> entry : verbs.entrySet()) {
 //		    System.out.println(entry.getKey() + " : " + entry.getValue());
 //		}
 		
-		for (int i = 0; i < verbPosts.size(); i++)
-			System.out.println("verb posts: " + verbPosts.get(i));
+//		for (int i = 0; i < verbPosts.size(); i++)
+//			System.out.println("verb posts: " + verbPosts.get(i));
 		
 		classifyPosts(verbs, verbPosts);
 	}
@@ -32,7 +35,7 @@ public class EventClassification {
 		CoLocatingWordsDAO clwd = new CoLocatingWordsDAO();
 		PostTypeDAO ptd = new PostTypeDAO();
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
-		ArrayList<String> clws = clwd.getAllCoLocatingWords();
+		ArrayList<CoLocatingWords> clws = clwd.getAllCoLocatingWords();
 		
 //		for (Map.Entry<String, String> entry : verbs.entrySet()) {
 //			for (int i = 0; i < clws.size(); i++) {
@@ -43,9 +46,19 @@ public class EventClassification {
 //		}
 		
 		for (int i = 0; i < tbps.size(); i++) {
+			String postType = "";
 			for (int j = 0; j < clws.size(); j++) {
+				String[] words = tbps.get(i).getData().split(" ");
+				
+				for (String word : words) {
+					String wordCompare = word.toLowerCase();
+			        if(wordCompare.equals(clws.get(j).getClw().toLowerCase())) {
+			        	postType += clws.get(j).getPit() + " ";
+			        }
+				}
+				
 //				String post = removeSpecialCharacters(tbps.get(i).getData());
-				String post = tbps.get(i).getData();
+//				String post = tbps.get(i).getData();
 //				Pattern pt = Pattern.compile("\\:\\)|\\:\\(|<3|\\:\\/|\\:-\\/|\\:\\||\\:p");
 //				Matcher match = pt.matcher(post);
 //
@@ -55,12 +68,13 @@ public class EventClassification {
 //					System.out.println("POST: " + post);
 //				}
 				
-				if (post.contains(clws.get(j))) {
-					System.out.println("POST: " + post + ", CLWS: " + clws.get(j));
-					int postTypeID = clwd.getPostTypeID(clws.get(j));
-					tbps.get(i).setPostType(postTypeID);
-				}
+//				if (post.contains(clws.get(j))) {
+//					System.out.println("POST: " + post + ", CLWS: " + clws.get(j));
+//					int postTypeID = clwd.getPostTypeID(clws.get(j));
+//					tbps.get(i).setPostType(postTypeID);
+//				}
 			}
+			System.out.println("POST TYPE IS:" + postType);
 		}
 		
 		tbpd.addPostType(tbps);

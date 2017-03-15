@@ -1,5 +1,6 @@
 package controller.textUnderstanding;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -53,7 +54,7 @@ public class TextUnderstanding {
 		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
 		for (int i = 0; i < posts.size(); i++) {
-			//String text = removeSpecialCharacters(post.getData());
+			String text = removeSpecialCharacters(posts.get(i).getData());
 			Annotation document = new Annotation(posts.get(i).getData());
 			pipeline.annotate(document);
 			List<CoreMap> sentences = document.get(SentencesAnnotation.class);
@@ -90,13 +91,14 @@ public class TextUnderstanding {
 		}
 		
 		//tk.addTokens(tokens);
-		tbpd.addVerb(posts);
-		tbpd.addNoun(posts);
+		//tbpd.addVerb(posts);
+		//tbpd.addNoun(posts);
 	}
 	
 	public String getVerbPhrase(Tree parse) {
 		String verbPhrase = "";
 		Tree t;
+		ArrayList<Tree> verbTrees = new ArrayList<Tree> ();
 		
 		do {
 			t = null;
@@ -104,6 +106,7 @@ public class TextUnderstanding {
             TregexMatcher matcher = pattern.matcher(parse);
             while (matcher.find()) {
             	parse = matcher.getMatch();
+            	verbTrees.add(parse);
             	List<Tree> leaves1 = parse.getChildrenAsList();
             	for (Tree tree1 : leaves1) {
             		String val = tree1.label().value();
@@ -218,16 +221,41 @@ public class TextUnderstanding {
 	}
 
 	public String removeSpecialCharacters(String data) {
-		Pattern pt = Pattern.compile("[XDxd!?0-9<>'():@#$%^&*_+-={}`~\\[\\]]{2,}");
-		Matcher match = pt.matcher(data);
+//		Pattern pt = Pattern.compile("[XDxd!?0-9<>'\\((?)\\):@#$%^&*_+-={}`~\\[\\]]{2,}");
+//		Matcher match = pt.matcher(data);
+//
+//		while (match.find()) {
+//			String s = match.group();
+//			data = data.replaceAll("//" + s, ".");
+//		}
+		
+		String newString = "";
+		
+		try {
+            byte[] utf8Bytes = data.getBytes("UTF-8");
 
-		while (match.find()) {
-			String s = match.group();
-			data = data.replaceAll("//" + s, ".");
-		}
+            newString = new String(utf8Bytes, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+		
+        Pattern unicodeOutliers = Pattern.compile("[^\\x00-\\x7F]", Pattern.UNICODE_CASE | Pattern.CANON_EQ | Pattern.CASE_INSENSITIVE);
+        Matcher unicodeOutlierMatcher = unicodeOutliers.matcher(newString);
 
-		System.out.println(data);
+        //System.out.println("Before: " + utf8tweet);
+        newString = unicodeOutlierMatcher.replaceAll("");
+        
+        System.out.println("After remove special character: " + newString);
+        
+//        Pattern pt = Pattern.compile("[XDxd!?0-9<>\\'?\\(?\\):@#$%^&*_+-={}`~\\[\\]]{2,}");
+//		Matcher match = pt.matcher(newString);
+//        while (match.find()) {
+//			String s = match.group();
+//			newString = newString.replaceAll("//" + s, ".");
+//		}
 
-		return data;
+		//System.out.println(data);
+
+		return newString;
 	}
 }
