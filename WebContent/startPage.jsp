@@ -86,7 +86,7 @@
 		}
 		
 		function callServlet(about) {
-			/* $.ajax({
+			 $.ajax({
 				type : "POST",
 				url : 'ToDB',
 				data : {
@@ -102,7 +102,7 @@
 				error: function (response) {
 			           console.error(response);
 			        }
-		      }); */
+		      }); 
 		}
 
 		var checker = function(response) {
@@ -324,7 +324,10 @@
 				data-auto-logout-link="true">
 			</fb:login-button>
 			<div id="status"></div>
-			<input type="submit" class="button" value="Try Me!">
+			<!-- <form action="OutputPage" method="get">
+   			 	<input type="submit" class="button" value="Try Me!">
+			</form> -->
+			<input type="submit" class="button" onclick="window.location='OutputPage';" value="Try Me!">
 			<input type="submit" class="button" value="Contact Us">
 		</div>
 	</div>

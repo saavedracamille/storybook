@@ -39,7 +39,7 @@
   		</div>
 
   		<div class="button-div" style="left: -10%">
-  			<input type="submit" class="button" value="Try Again">
+  			<input type="submit" class="button" onclick="window.location='OutputPage';" value="Try Again">
 			<input type="submit" class="button" value="Give Us Your Feedback" style="width:25%">
 		</div>
 	</div>
