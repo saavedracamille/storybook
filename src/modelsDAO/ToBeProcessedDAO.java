@@ -113,7 +113,7 @@ public class ToBeProcessedDAO {
 			for (int i = 0; i < toBeProcessed.size(); i++) {
 				ps = conn.prepareStatement("UPDATE " + ToBeProcessed.TABLE_TBP + " SET " + ToBeProcessed.COL_PT
 						+ " = ? " + " WHERE " + ToBeProcessed.COL_ID + " = ?;");
-				ps.setInt(1, toBeProcessed.get(i).getPostType());
+				ps.setString(1, toBeProcessed.get(i).getPostType());
 				ps.setInt(2, toBeProcessed.get(i).getId());
 				//System.out.println("ADD POST TYPE QUERY: " + ps);
 
@@ -137,7 +137,7 @@ public class ToBeProcessedDAO {
 		ResultSet rs = null;
 
 		try {
-			ps = conn.prepareStatement("SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_VERB + "<> \'\';");
+			ps = conn.prepareStatement("SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_VERB + " <> \'\';");
 			System.out.println("GET POSTS WITH VERBS QUERY: " + ps);
 			rs = ps.executeQuery();
 
@@ -153,8 +153,11 @@ public class ToBeProcessedDAO {
 				String year = rs.getString(ToBeProcessed.COL_YEAR);
 				String month = rs.getString(ToBeProcessed.COL_MONTH);
 				String day = rs.getString(ToBeProcessed.COL_DAY);
+				String verb = rs.getString(ToBeProcessed.COL_VERB);
+				String noun = rs.getString(ToBeProcessed.COL_NOUN);
+				String postType = rs.getString(ToBeProcessed.COL_PT);
 
-				verbPosts.add(new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day));
+				verbPosts.add(new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day, verb, noun, postType));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -167,6 +170,48 @@ public class ToBeProcessedDAO {
 		}
 
 		return verbPosts;
+	}
+	
+	public ArrayList<ToBeProcessed> getAllPostsWithNoVerbs() {
+		ArrayList<ToBeProcessed> noVerbPosts = new ArrayList<ToBeProcessed>();
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement("SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_VERB + " = \'\' OR " + ToBeProcessed.COL_VERB + " IS NULL;");
+			System.out.println("GET POSTS WITH NO VERBS QUERY: " + ps);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt(ToBeProcessed.COL_ID);
+				String data = rs.getString(ToBeProcessed.COL_DATA);
+				String fbID = rs.getString(ToBeProcessed.COL_FBID);
+				String tagged = rs.getString(ToBeProcessed.COL_TAGGED);
+				String place = rs.getString(ToBeProcessed.COL_PLACE);
+				String city = rs.getString(ToBeProcessed.COL_CITY);
+				String country = rs.getString(ToBeProcessed.COL_COUNTRY);
+				CheckIn checkIn = new CheckIn(place, city, country);
+				String year = rs.getString(ToBeProcessed.COL_YEAR);
+				String month = rs.getString(ToBeProcessed.COL_MONTH);
+				String day = rs.getString(ToBeProcessed.COL_DAY);
+				String verb = rs.getString(ToBeProcessed.COL_VERB);
+				String noun = rs.getString(ToBeProcessed.COL_NOUN);
+				String postType = rs.getString(ToBeProcessed.COL_PT);
+
+				noVerbPosts.add(new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day, verb, noun, postType));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return noVerbPosts;
 	}
 
 	public ArrayList<ToBeProcessed> getAllPosts() {
@@ -192,8 +237,11 @@ public class ToBeProcessedDAO {
 				String year = rs.getString(ToBeProcessed.COL_YEAR);
 				String month = rs.getString(ToBeProcessed.COL_MONTH);
 				String day = rs.getString(ToBeProcessed.COL_DAY);
+				String verb = rs.getString(ToBeProcessed.COL_VERB);
+				String noun = rs.getString(ToBeProcessed.COL_NOUN);
+				String postType = rs.getString(ToBeProcessed.COL_PT);
 
-				posts.add(new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day));
+				posts.add(new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day, verb, noun, postType));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -251,7 +299,7 @@ public class ToBeProcessedDAO {
 				String verb = rs.getString(ToBeProcessed.COL_VERB);
 				String post = String.valueOf(rs.getInt(ToBeProcessed.COL_ID));
 				
-				if (!verb.equals("")) {
+				if (verb == null || !verb.equals("")) {
 					if (!verbs.containsKey(verb))
 						verbs.put(verb, post);
 					else {

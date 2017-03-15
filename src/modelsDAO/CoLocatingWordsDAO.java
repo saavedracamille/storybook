@@ -25,7 +25,7 @@ public class CoLocatingWordsDAO {
 		ResultSet rs = null;
 
 		try {
-			ps = conn.prepareStatement("SELECT " + CoLocatingWords.COL_WORD + " FROM " + CoLocatingWords.TABLE_CLW + ";");
+			ps = conn.prepareStatement("SELECT * FROM " + CoLocatingWords.TABLE_CLW + ";");
 
 			rs = ps.executeQuery();
 

@@ -27,13 +27,13 @@ public class ToBeProcessed {
 	private String day;
 	private String verb;
 	private String noun;
-	private int postType;
+	private String postType;
 	
 	public ToBeProcessed() {
 		
 	}
 	
-	public ToBeProcessed(int id, String data, String fbID, String tagged, CheckIn checkIn, String year, String month, String day) {
+	public ToBeProcessed(int id, String data, String fbID, String tagged, CheckIn checkIn, String year, String month, String day, String verb, String noun, String postType) {
 		this.id = id;
 		this.data = data;
 		this.fbID = fbID;
@@ -42,6 +42,9 @@ public class ToBeProcessed {
 		this.year = year;
 		this.month = month;
 		this.day = day;
+		this.verb = verb;
+		this.noun = noun;
+		this.postType = postType;
 	}
 	
 	public int getId() {
@@ -124,11 +127,11 @@ public class ToBeProcessed {
 		this.noun = noun;
 	}
 
-	public int getPostType() {
+	public String getPostType() {
 		return postType;
 	}
 
-	public void setPostType(int postType) {
+	public void setPostType(String postType) {
 		this.postType = postType;
 	}
 	

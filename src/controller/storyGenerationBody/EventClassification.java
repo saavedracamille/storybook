@@ -16,24 +16,37 @@ public class EventClassification {
 	public void performEventClassification() {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		
-		//HashMap<String, String> verbs = tbpd.getAllVerbs();
-		//ArrayList<ToBeProcessed> verbPosts = tbpd.getAllPostsWithVerbs();
-		HashMap<String, String> verbs = null;
-		ArrayList<ToBeProcessed> verbPosts = tbpd.getAllPosts();
+		HashMap<String, String> verbs = tbpd.getAllVerbs();
+		ArrayList<ToBeProcessed> verbPosts = tbpd.getAllPostsWithVerbs();
+		ArrayList<ToBeProcessed> noVerbPosts = tbpd.getAllPostsWithNoVerbs();
 		
 //		for (Map.Entry<String, String> entry : verbs.entrySet()) {
 //		    System.out.println(entry.getKey() + " : " + entry.getValue());
 //		}
 		
-//		for (int i = 0; i < verbPosts.size(); i++)
-//			System.out.println("verb posts: " + verbPosts.get(i));
-		
-		classifyPosts(verbs, verbPosts);
+		//classifyPostsWithVerbs(verbs, verbPosts);
+		classifyPostsWithNoVerbs(noVerbPosts);
 	}
 	
-	public void classifyPosts(HashMap<String, String> verbs, ArrayList<ToBeProcessed> tbps) {
+	public void classifyPostsWithVerbs(HashMap<String, String> verbs, ArrayList<ToBeProcessed> tbps) {
 		CoLocatingWordsDAO clwd = new CoLocatingWordsDAO();
-		PostTypeDAO ptd = new PostTypeDAO();
+		ArrayList<CoLocatingWords> clws = clwd.getAllCoLocatingWords();
+		
+		for (Map.Entry<String, String> entry : verbs.entrySet()) {
+		    System.out.println(entry.getKey() + " : " + entry.getValue());
+		    String[] posts = entry.getValue().split(", ");
+			String postType = "";
+			
+			for (int i = 0; i < posts.length; i++) {
+				for (int j = 0; j < clws.size(); j++) {
+					
+				}
+			}
+		}
+	}
+	
+	public void classifyPostsWithNoVerbs(ArrayList<ToBeProcessed> tbps) {
+		CoLocatingWordsDAO clwd = new CoLocatingWordsDAO();
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		ArrayList<CoLocatingWords> clws = clwd.getAllCoLocatingWords();
 		
@@ -47,14 +60,28 @@ public class EventClassification {
 		
 		for (int i = 0; i < tbps.size(); i++) {
 			String postType = "";
-			for (int j = 0; j < clws.size(); j++) {
-				String[] words = tbps.get(i).getData().split(" ");
+			String[] words = tbps.get(i).getData().split(" ");
 				
-				for (String word : words) {
-					String wordCompare = word.toLowerCase();
-			        if(wordCompare.equals(clws.get(j).getClw().toLowerCase())) {
-			        	postType += clws.get(j).getPit() + " ";
-			        }
+			for (String word : words) {
+				String wordCompare = word.toLowerCase();	
+				
+				for (int j = 0; j < clws.size(); j++) {
+					if (clws.get(j).getClw().contains(" ")) {
+						String[] clwsSplit = clws.get(j).getClw().toLowerCase().split(" ");
+						
+						for (int k = 0; k < clwsSplit.length; k++) {
+							if(wordCompare.equals(clwsSplit[k]) && !postType.contains(String.valueOf(clws.get(j).getPit()))) {
+								//System.out.println("1POST: " + tbps.get(i).getData() + " CLW: " + clwsSplit[k]);
+				        		postType += String.valueOf(clws.get(j).getPit()) + " ";
+					        }
+						}
+					} else {
+						if(wordCompare.equals(clws.get(j).getClw().toLowerCase())) {
+				        	//System.out.println("2POST: " + tbps.get(i).getData() + " CLW: " + clws.get(j).getClw());
+				        	if (!postType.contains(String.valueOf(clws.get(j).getPit())))
+				        		postType += String.valueOf(clws.get(j).getPit()) + " ";
+				        }
+					}
 				}
 				
 //				String post = removeSpecialCharacters(tbps.get(i).getData());

@@ -15,11 +15,11 @@ public class GenerateBody {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		this.tbps = tbpd.getAllPosts();
 		
-		Preprocessing p = new Preprocessing(tbps);
-		this.tbps = p.getUpdatedPosts();
-		
-		TextUnderstanding tu = new TextUnderstanding();
-		tu.performTextUnderstanding(tbps);
+//		Preprocessing p = new Preprocessing(tbps);
+//		this.tbps = p.getUpdatedPosts();
+//		
+//		TextUnderstanding tu = new TextUnderstanding();
+//		tu.performTextUnderstanding(tbps);
 		
 		EventClassification ec = new EventClassification();
 		ec.performEventClassification();
