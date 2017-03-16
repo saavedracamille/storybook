@@ -220,15 +220,7 @@ public class TextUnderstanding {
 			dfs(child);
 	}
 
-	public String removeSpecialCharacters(String data) {
-//		Pattern pt = Pattern.compile("[XDxd!?0-9<>'\\((?)\\):@#$%^&*_+-={}`~\\[\\]]{2,}");
-//		Matcher match = pt.matcher(data);
-//
-//		while (match.find()) {
-//			String s = match.group();
-//			data = data.replaceAll("//" + s, ".");
-//		}
-		
+	public String removeSpecialCharacters(String data) {		
 		String newString = "";
 		
 		try {
@@ -242,19 +234,14 @@ public class TextUnderstanding {
         Pattern unicodeOutliers = Pattern.compile("[^\\x00-\\x7F]", Pattern.UNICODE_CASE | Pattern.CANON_EQ | Pattern.CASE_INSENSITIVE);
         Matcher unicodeOutlierMatcher = unicodeOutliers.matcher(newString);
 
-        //System.out.println("Before: " + utf8tweet);
         newString = unicodeOutlierMatcher.replaceAll("");
         
         System.out.println("After remove special character: " + newString);
         
-//        Pattern pt = Pattern.compile("[XDxd!?0-9<>\\'?\\(?\\):@#$%^&*_+-={}`~\\[\\]]{2,}");
-//		Matcher match = pt.matcher(newString);
-//        while (match.find()) {
-//			String s = match.group();
-//			newString = newString.replaceAll("//" + s, ".");
-//		}
-
-		//System.out.println(data);
+        newString = newString.replaceAll("(\\b\\w*?)(\\w)\\2{2,}(\\w*)", "$1$2$2$3");
+        newString = newString.replaceAll("(X|D|x|d|0-9|<|>|\\'|:|@|#|$|%|\\^|&|\\*|_|\\+|\\-|\\=|\\{|\\}|`|~|\\[|\\]|[(]|[)]){2,}", "");
+        
+		System.out.println("Final String " + newString);
 
 		return newString;
 	}
