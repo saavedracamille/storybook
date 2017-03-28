@@ -76,4 +76,33 @@ public class PostTypeDAO {
 
 		return category;
 	}
+	
+	public String getVerb(int id) {
+		String verb = "";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement("SELECT " + PostType.COL_VERB + " FROM " + PostType.TABLE_PT + " WHERE "
+					+ PostType.COL_ID + " = ?;");
+			ps.setInt(1, id);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				verb = rs.getString(PostType.COL_VERB);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return verb;
+	}
 }

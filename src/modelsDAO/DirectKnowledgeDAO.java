@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dbConnection.DatabaseConnection;
+import models.CheckIn;
 import models.DirectKnowledge;
 import models.PredefinedActivities;
 import models.TemplateGroup;
+import models.ToBeProcessed;
 
 public class DirectKnowledgeDAO {
 	private Connection conn;
@@ -64,6 +66,34 @@ public class DirectKnowledgeDAO {
 		}
 		
 		return directKnowledges;
+	}
+	
+	public String getSpecificDirectKnowledge(String type) {
+		String data = "";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement("SELECT " + DirectKnowledge.COL_DATA + " FROM " + DirectKnowledge.TABLE_DK + " WHERE " + DirectKnowledge.COL_TYPE + " = ?;");
+			ps.setString(1, type);
+			
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				data = rs.getString(DirectKnowledge.COL_DATA);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return data;
 	}
 	
 	public void truncateDirectKnowledge() {

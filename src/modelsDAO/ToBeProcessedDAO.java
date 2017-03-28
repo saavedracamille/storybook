@@ -65,12 +65,15 @@ public class ToBeProcessedDAO {
 
 		try {
 			for (int i = 0; i < toBeProcessed.size(); i++) {
-				ps = conn.prepareStatement("UPDATE " + ToBeProcessed.TABLE_TBP + " SET " + ToBeProcessed.COL_VERB
-						+ " = ? " + " WHERE " + ToBeProcessed.COL_ID + " = ?;");
-				ps.setString(1, toBeProcessed.get(i).getVerb());
-				ps.setInt(2, toBeProcessed.get(i).getId());
-
-				ps.execute();
+				if (!toBeProcessed.get(i).getVerb().equals("")) {
+					ps = conn.prepareStatement("UPDATE " + ToBeProcessed.TABLE_TBP + " SET " + ToBeProcessed.COL_VERB
+							+ " = ? " + " WHERE " + ToBeProcessed.COL_ID + " = ?;");
+					ps.setString(1, toBeProcessed.get(i).getVerb());
+					ps.setInt(2, toBeProcessed.get(i).getId());
+					//System.out.println("ADD VERB SQL: " + ps);
+	
+					ps.execute();
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -256,20 +259,35 @@ public class ToBeProcessedDAO {
 		return posts;
 	}
 
-	public String getPost(int id) {
-		String tbp = "";
+	public ToBeProcessed getPost(int id) {
+		ToBeProcessed tbp = null;
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
 		try {
-			ps = conn.prepareStatement("SELECT " + ToBeProcessed.COL_DATA + " FROM " + ToBeProcessed.TABLE_TBP
+			ps = conn.prepareStatement("SELECT * FROM " + ToBeProcessed.TABLE_TBP
 					+ " WHERE " + ToBeProcessed.COL_ID + " = ?;");
+			ps.setInt(1, id);
 
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				tbp = rs.getString(ToBeProcessed.COL_DATA);
+				String data = rs.getString(ToBeProcessed.COL_DATA);
+				String fbID = rs.getString(ToBeProcessed.COL_FBID);
+				String tagged = rs.getString(ToBeProcessed.COL_TAGGED);
+				String place = rs.getString(ToBeProcessed.COL_PLACE);
+				String city = rs.getString(ToBeProcessed.COL_CITY);
+				String country = rs.getString(ToBeProcessed.COL_COUNTRY);
+				CheckIn checkIn = new CheckIn(place, city, country);
+				String year = rs.getString(ToBeProcessed.COL_YEAR);
+				String month = rs.getString(ToBeProcessed.COL_MONTH);
+				String day = rs.getString(ToBeProcessed.COL_DAY);
+				String verb = rs.getString(ToBeProcessed.COL_VERB);
+				String noun = rs.getString(ToBeProcessed.COL_NOUN);
+				String postType = rs.getString(ToBeProcessed.COL_PT);
+				
+				tbp = new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day, verb, noun, postType);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

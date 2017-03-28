@@ -244,7 +244,6 @@ public class GenerateIntro {
 		String birthday = "";
 		String gender = "";
 		String age = "";
-		String birth_city = "";
 
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
@@ -343,7 +342,6 @@ public class GenerateIntro {
 	public String replaceContentEducation(String finalSentence, String type) {
 		String institution = "";
 		String year_graduated = "";
-		String temp2 = "";
 
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
