@@ -2,7 +2,6 @@ package controller.textUnderstanding;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
@@ -10,51 +9,31 @@ import java.util.regex.Pattern;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.Label;
-import edu.stanford.nlp.naturalli.NaturalLogicAnnotations;
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
-import edu.stanford.nlp.ie.util.RelationTriple;
-import edu.stanford.nlp.ling.CoreAnnotations.NamedEntityTagAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.LemmaAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
-import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
-import edu.stanford.nlp.semgraph.SemanticGraph;
-import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations;
-import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations.BasicDependenciesAnnotation;
-import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation;
-import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations.CollapsedDependenciesAnnotation;
-import edu.stanford.nlp.trees.CollinsHeadFinder;
-import edu.stanford.nlp.trees.GrammaticalRelation;
-import edu.stanford.nlp.trees.HeadFinder;
 import edu.stanford.nlp.trees.Tree;
-import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
-import edu.stanford.nlp.trees.TypedDependency;
 import edu.stanford.nlp.trees.tregex.TregexMatcher;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
 import edu.stanford.nlp.util.CoreMap;
 import models.ToBeProcessed;
-import models.Token;
-import modelsDAO.PartOfSpeechDAO;
-import modelsDAO.ToBeProcessedDAO;
-import modelsDAO.TokenDAO;
+import models.VerbObject;
+import modelsDAO.VerbObjectDAO;
 
 public class TextUnderstanding {
 
-	private ArrayList<Token> tokens;
-
 	public void performTextUnderstanding(ArrayList<ToBeProcessed> posts) {
-		PartOfSpeechDAO posd = new PartOfSpeechDAO();
-		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
-		tokens = new ArrayList<Token>();
+		VerbObjectDAO vod = new VerbObjectDAO();
+		ArrayList<VerbObject> verbObjects = new ArrayList<VerbObject> ();
 
 		Properties props = new Properties();
 		props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
 		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
 		for (int i = 0; i < posts.size(); i++) {
-			String text = removeSpecialCharacters(posts.get(i).getData());
 			Annotation document = new Annotation(posts.get(i).getData());
 			pipeline.annotate(document);
 			List<CoreMap> sentences = document.get(SentencesAnnotation.class);
@@ -82,17 +61,44 @@ public class TextUnderstanding {
 				Tree parse = lp.parse(sentence.toString());
 				System.out.println("PARSER: " + parse);
 				
-				verbPhrase = getVerbPhrase(parse);
-				nounPhrase = getNounPhrase(parse);
+				String vp = getVerbPhrase(parse);
+				String np = getNounPhrase(parse);
+				String lemma = "";
+				
+				//System.out.println(vp);
+				
+				Annotation vpDocument = new Annotation(vp);
+				pipeline.annotate(vpDocument);
+				List<CoreMap> sentences2 = vpDocument.get(SentencesAnnotation.class);
+				for (CoreMap s : sentences2) {
+					for (CoreLabel token: s.get(TokensAnnotation.class)) {
+						lemma = token.get(LemmaAnnotation.class);
+//						System.out.println("LEMMA: " + lemma);
+					}
+				}
+				
+				verbObjects.add(new VerbObject(posts.get(i).getId(), lemma, np, sentence.toString()));
+				
+				if (!vp.equals(""))
+					verbPhrase += vp;
+				if (!np.equals(""))
+					nounPhrase += np;
 			}
+			
+//			if (!verbPhrase.equals(""))
+//				verbPhrase = verbPhrase.substring(0, verbPhrase.length() - 2);
+//			if (!nounPhrase.equals(""))
+//				nounPhrase = nounPhrase.substring(0, nounPhrase.length() - 2);
+//			System.out.println("vp: " + verbPhrase);
+			System.out.println("np: " + nounPhrase);
 			
 			posts.get(i).setVerb(verbPhrase);
 			posts.get(i).setNoun(nounPhrase);
 		}
 		
-		//tk.addTokens(tokens);
 		//tbpd.addVerb(posts);
 		//tbpd.addNoun(posts);
+		//vod.addVerbObject(verbObjects);
 	}
 	
 	public String getVerbPhrase(Tree parse) {
@@ -126,6 +132,7 @@ public class TextUnderstanding {
 	
 	public String getNounPhrase(Tree parse) {
 		String nounPhrase = "";
+		String actualNounPhrase = "";
 		Tree t;
 		
 		do {
@@ -134,6 +141,9 @@ public class TextUnderstanding {
             TregexMatcher matcher = pattern.matcher(parse);
             while (matcher.find()) {
             	parse = matcher.getMatch();
+            	actualNounPhrase = getActualNounPhrase(parse);
+            	if (!nounPhrase.contains(actualNounPhrase))
+            		nounPhrase += actualNounPhrase;
             	List<Tree> leaves1 = parse.getChildrenAsList();
             	for (Tree tree1 : leaves1) {
             		String val = tree1.label().value();
@@ -143,10 +153,11 @@ public class TextUnderstanding {
             			break;
             		}
             	}
+            	
             }
         } while (t != null);
 		
-		nounPhrase += getActualNounPhrase(parse);
+//		nounPhrase += getActualNounPhrase(parse);
         
         return nounPhrase;
 	}
@@ -168,7 +179,7 @@ public class TextUnderstanding {
 	        }
         }
         
-        System.out.println("the final stringbilder for verb phrase is: " + stringbuilder);
+//        System.out.println("the final stringbilder for verb phrase is: " + stringbuilder);
     	
     	return stringbuilder.toString();
 	}
@@ -180,7 +191,7 @@ public class TextUnderstanding {
         for (Tree t : leaves1) {
 	        String val = t.label().value();
 	        if (val.equals("NN") || val.equals("NNS") || val.equals("NNP")
-	                || val.equals("NNPS")) {
+	                || val.equals("NNPS") || val.equals("DT")) {
 		    	ArrayList<Label> ss = t.yield();
 		    	for (Label s : ss) {
 		    		stringbuilder.append(s).append(" ");
@@ -188,7 +199,7 @@ public class TextUnderstanding {
 	        }
         }
         
-        System.out.println("the final stringbilder for noun phrase is: " + stringbuilder);
+//        System.out.println("the final stringbilder for noun phrase is: " + stringbuilder);
     	
     	return stringbuilder.toString();
 	}
@@ -241,7 +252,7 @@ public class TextUnderstanding {
         newString = newString.replaceAll("(\\b\\w*?)(\\w)\\2{2,}(\\w*)", "$1$2$2$3");
         newString = newString.replaceAll("(X|D|x|d|0-9|<|>|\\'|:|@|#|$|%|\\^|&|\\*|_|\\+|\\-|\\=|\\{|\\}|`|~|\\[|\\]|[(]|[)]){2,}", "");
         
-		System.out.println("Final String " + newString);
+//		System.out.println("Final String " + newString);
 
 		return newString;
 	}
