@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Date;
+
 public class VerbObject {
 	public static final String TABLE_VO = "verb_object";
 	
@@ -9,6 +11,9 @@ public class VerbObject {
 	public static final String COL_NOUN = "noun";
 	public static final String COL_SENTENCE = "sentence";
 	public static final String COL_PT = "post_type";
+	public static final String COL_TAGGED = "tagged";
+	public static final String COL_LOCATION = "location";
+	public static final String COL_DATE = "date";
 	
 	private int id;
 	private int pi;
@@ -16,6 +21,9 @@ public class VerbObject {
 	private String noun;
 	private String sentence;
 	private String postType;
+	private String tagged;
+	private String location;
+	private Date date;
 	
 	public VerbObject(int id, String postType) {
 		this.id = id;
@@ -35,6 +43,25 @@ public class VerbObject {
 		this.verb = verb;
 		this.noun = noun;
 		this.sentence = sentence;
+	}
+	
+	public VerbObject(int id, String postType, String tagged, String location, Date date) {
+		this.id = id;
+		this.postType = postType;
+		this.tagged = tagged;
+		this.location = location;
+		this.date = date;
+	}
+	
+	public VerbObject(int id, int pi, String verb, String noun, String sentence, String tagged, String location, Date date) {
+		this.id = id;
+		this.pi = pi;
+		this.verb = verb;
+		this.noun = noun;
+		this.sentence = sentence;
+		this.tagged = tagged;
+		this.location = location;
+		this.date = date;
 	}
 	
 	public int getId() {
@@ -83,5 +110,29 @@ public class VerbObject {
 
 	public void setPostType(String postType) {
 		this.postType = postType;
+	}
+
+	public String getTagged() {
+		return tagged;
+	}
+
+	public void setTagged(String tagged) {
+		this.tagged = tagged;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }
