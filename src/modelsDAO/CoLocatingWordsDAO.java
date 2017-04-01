@@ -57,7 +57,7 @@ public class CoLocatingWordsDAO {
 			ps = conn.prepareStatement("SELECT " + CoLocatingWords.COL_WORD + " FROM " + CoLocatingWords.TABLE_CLW
 					+ " WHERE " + CoLocatingWords.COL_PIT + " = ?" + ";");
 			ps.setInt(1, id);
-			System.out.println("GET ALL CO LOCATING WORDS BY ID SQL QUERY: " + ps);
+//			System.out.println("GET ALL CO LOCATING WORDS BY ID SQL QUERY: " + ps);
 
 			rs = ps.executeQuery();
 
@@ -88,7 +88,7 @@ public class CoLocatingWordsDAO {
 			ps = conn.prepareStatement("SELECT " + CoLocatingWords.COL_PIT + " FROM " + CoLocatingWords.TABLE_CLW + " WHERE "
 					+ CoLocatingWords.COL_WORD + " LIKE ?;");
 			ps.setString(1, coLocatingWord);
-			System.out.println("GET POST TYPE ID SQL QUERY: " + ps);
+//			System.out.println("GET POST TYPE ID SQL QUERY: " + ps);
 
 			rs = ps.executeQuery();
 

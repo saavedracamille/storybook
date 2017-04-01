@@ -2,6 +2,7 @@ package controller.textUnderstanding;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
@@ -11,11 +12,18 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.Label;
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
 import edu.stanford.nlp.ling.CoreAnnotations.LemmaAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.trees.GrammaticalStructure;
+import edu.stanford.nlp.trees.GrammaticalStructureFactory;
+import edu.stanford.nlp.trees.PennTreebankLanguagePack;
 import edu.stanford.nlp.trees.Tree;
+import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
+import edu.stanford.nlp.trees.TreebankLanguagePack;
+import edu.stanford.nlp.trees.TypedDependency;
 import edu.stanford.nlp.trees.tregex.TregexMatcher;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
 import edu.stanford.nlp.util.CoreMap;
@@ -37,9 +45,6 @@ public class TextUnderstanding {
 			Annotation document = new Annotation(posts.get(i).getData());
 			pipeline.annotate(document);
 			List<CoreMap> sentences = document.get(SentencesAnnotation.class);
-			
-			String verbPhrase = "";
-			String nounPhrase = "";
 
 			for (CoreMap sentence : sentences) {
 				//for (CoreLabel token : sentence.get(TokensAnnotation.class)) {
@@ -56,17 +61,22 @@ public class TextUnderstanding {
 
 					// tokens.add(new Token(word, posID, post.getId()));
 				//}
+				
+				String vp = "";
+				String np = "";
 			
 				LexicalizedParser lp = LexicalizedParser.loadModel("edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz");
 				Tree parse = lp.parse(sentence.toString());
 				System.out.println("PARSER: " + parse);
 				
-				String vp = getVerbPhrase(parse);
-				String np = getNounPhrase(parse);
+				vp = getVerbFromUniversalDependencies(sentence);
+				np = getNounFromUniversalDependencies(sentence);
+				if (vp.isEmpty() && vp.equals(""))
+					vp = getVerbPhrase(parse);
+				if (np.isEmpty() && np.equals(""))
+					np = getNounPhrase(parse);
+				
 				String lemma = "";
-				
-				//System.out.println(vp);
-				
 				Annotation vpDocument = new Annotation(vp);
 				pipeline.annotate(vpDocument);
 				List<CoreMap> sentences2 = vpDocument.get(SentencesAnnotation.class);
@@ -79,30 +89,22 @@ public class TextUnderstanding {
 				
 				verbObjects.add(new VerbObject(posts.get(i).getId(), lemma, np, sentence.toString()));
 				
-				if (!vp.equals(""))
-					verbPhrase += vp;
-				if (!np.equals(""))
-					nounPhrase += np;
+//				if (!vp.equals(""))
+//					verbPhrase += vp;
+//				if (!np.equals(""))
+//					nounPhrase += np;
+				
+				System.out.println("vp: " + vp);
+				System.out.println("np: " + np);
 			}
-			
-//			if (!verbPhrase.equals(""))
-//				verbPhrase = verbPhrase.substring(0, verbPhrase.length() - 2);
-//			if (!nounPhrase.equals(""))
-//				nounPhrase = nounPhrase.substring(0, nounPhrase.length() - 2);
-//			System.out.println("vp: " + verbPhrase);
-			System.out.println("np: " + nounPhrase);
-			
-			posts.get(i).setVerb(verbPhrase);
-			posts.get(i).setNoun(nounPhrase);
 		}
 		
-		//tbpd.addVerb(posts);
-		//tbpd.addNoun(posts);
-		//vod.addVerbObject(verbObjects);
+		vod.addVerbObject(verbObjects);
 	}
 	
 	public String getVerbPhrase(Tree parse) {
 		String verbPhrase = "";
+		String actualVerbPhrase = "";
 		Tree t;
 		ArrayList<Tree> verbTrees = new ArrayList<Tree> ();
 		
@@ -112,7 +114,10 @@ public class TextUnderstanding {
             TregexMatcher matcher = pattern.matcher(parse);
             while (matcher.find()) {
             	parse = matcher.getMatch();
-            	verbTrees.add(parse);
+            	verbPhrase += getActualVerbPhrase(parse);
+            	actualVerbPhrase = getActualNounPhrase(parse);
+            	if (!verbPhrase.contains(actualVerbPhrase))
+            		verbPhrase += actualVerbPhrase;
             	List<Tree> leaves1 = parse.getChildrenAsList();
             	for (Tree tree1 : leaves1) {
             		String val = tree1.label().value();
@@ -125,7 +130,7 @@ public class TextUnderstanding {
             }
         } while (t != null);
 		
-        verbPhrase += getActualVerbPhrase(parse);
+        //verbPhrase += getActualVerbPhrase(parse);
         
         return verbPhrase;
 	}
@@ -203,6 +208,58 @@ public class TextUnderstanding {
     	
     	return stringbuilder.toString();
 	}
+	
+	public String getNounFromUniversalDependencies(CoreMap sentence) {
+		String noun = "";
+		
+		Tree tree = sentence.get(TreeAnnotation.class);
+		TreebankLanguagePack tlp = new PennTreebankLanguagePack();
+		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
+		GrammaticalStructure gs = gsf.newGrammaticalStructure(tree);
+		Collection<TypedDependency> td = gs.typedDependenciesCollapsed();
+//		System.out.println(td);
+
+		Object[] list = td.toArray();
+		TypedDependency typedDependency;
+		for (Object object : list) {
+			typedDependency = (TypedDependency) object;
+//			System.out.println(typedDependency.dep().toString() + ": " + typedDependency.reln());
+				if (typedDependency.reln().getShortName().equals("dobj")) {
+				   System.out.println("NP FROM UNIV DEPENDENCIES: " + typedDependency.dep().toString().split("/")[0]);
+				   noun = typedDependency.dep().toString().split("/")[0];
+//				   if (np.contains(noun))
+//					   return noun;
+				}
+		}
+		
+		return noun;
+	}
+	
+	public String getVerbFromUniversalDependencies(CoreMap sentence) {
+		String verb = "";
+		
+		Tree tree = sentence.get(TreeAnnotation.class);
+		TreebankLanguagePack tlp = new PennTreebankLanguagePack();
+		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
+		GrammaticalStructure gs = gsf.newGrammaticalStructure(tree);
+		Collection<TypedDependency> td = gs.typedDependenciesCollapsed();
+//		System.out.println(td);
+
+		Object[] list = td.toArray();
+		TypedDependency typedDependency;
+		for (Object object : list) {
+			typedDependency = (TypedDependency) object;
+//			System.out.println(typedDependency.dep().toString() + ": " + typedDependency.reln());
+				if (typedDependency.reln().getShortName().equals("root") && typedDependency.dep().toString().split("/")[1].contains("VB")) {
+				   System.out.println("VP FROM UNIV DEPENDENCIES: " + typedDependency.dep().toString().split("/")[0]);
+				   verb = typedDependency.dep().toString().split("/")[0];
+//				   if (vp.contains(verb))
+//					   return verb;
+				}
+		}
+		
+		return verb;
+	}
 
 	public static void dfs(Tree node) {
 		if (node == null || node.isLeaf())
@@ -229,31 +286,5 @@ public class TextUnderstanding {
 
 		for (Tree child : node.children())
 			dfs(child);
-	}
-
-	public String removeSpecialCharacters(String data) {		
-		String newString = "";
-		
-		try {
-            byte[] utf8Bytes = data.getBytes("UTF-8");
-
-            newString = new String(utf8Bytes, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-		
-        Pattern unicodeOutliers = Pattern.compile("[^\\x00-\\x7F]", Pattern.UNICODE_CASE | Pattern.CANON_EQ | Pattern.CASE_INSENSITIVE);
-        Matcher unicodeOutlierMatcher = unicodeOutliers.matcher(newString);
-
-        newString = unicodeOutlierMatcher.replaceAll("");
-        
-        System.out.println("After remove special character: " + newString);
-        
-        newString = newString.replaceAll("(\\b\\w*?)(\\w)\\2{2,}(\\w*)", "$1$2$2$3");
-        newString = newString.replaceAll("(X|D|x|d|0-9|<|>|\\'|:|@|#|$|%|\\^|&|\\*|_|\\+|\\-|\\=|\\{|\\}|`|~|\\[|\\]|[(]|[)]){2,}", "");
-        
-//		System.out.println("Final String " + newString);
-
-		return newString;
 	}
 }

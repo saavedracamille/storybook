@@ -22,6 +22,7 @@ import models.CheckIn;
 import models.ToBeProcessed;
 import models.VerbObject;
 import modelsDAO.DirectKnowledgeDAO;
+import modelsDAO.PostTypeDAO;
 import modelsDAO.ToBeProcessedDAO;
 import modelsDAO.VerbObjectDAO;
 import simplenlg.features.Feature;
@@ -43,14 +44,14 @@ public class GenerateBody {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		this.tbps = tbpd.getAllPosts();
 
-		// Preprocessing p = new Preprocessing(tbps);
-		// this.tbps = p.getUpdatedPosts();
+		 Preprocessing p = new Preprocessing(tbps);
+		 this.tbps = p.getUpdatedPosts();
 
-		// TextUnderstanding tu = new TextUnderstanding();
-		// tu.performTextUnderstanding(tbps);
+		 TextUnderstanding tu = new TextUnderstanding();
+		 tu.performTextUnderstanding(tbps);
 
-		// EventClassification ec = new EventClassification();
-		// ec.performEventClassification(tbps);
+		 EventClassification ec = new EventClassification();
+		 ec.performEventClassification(tbps);
 
 		this.body = generateWholeBody();
 	}
@@ -65,39 +66,32 @@ public class GenerateBody {
 		Iterator<HashMap.Entry<Integer, HashMap<Integer, VerbObject>>> parent = verbObjects.entrySet().iterator();
 		while (parent.hasNext()) {
 			HashMap.Entry<Integer, HashMap<Integer, VerbObject>> parentPair = parent.next();
-			// System.out.println("parentPair.getKey() : " + parentPair.getKey()
-			// + " parentPair.getValue() : " + parentPair.getValue());
 
 			Iterator<HashMap.Entry<Integer, VerbObject>> child = (parentPair.getValue()).entrySet().iterator();
 			while (child.hasNext()) {
 				HashMap.Entry<Integer, VerbObject> childPair = child.next();
 				VerbObject vo = (VerbObject) childPair.getValue();
 				vos.add(vo);
-				// System.out.println("childPair.getKey() : " +
-				// childPair.getKey() + " childPair.getValue() : " +
-				// vo.getSentence());
 			}
 
-			String output = generateParagraph(arrangeDate(vos), parentPair.getKey());
+			String output = generateParagraph(arrangeByDate(vos), parentPair.getKey());
 
 			sentence += output + "\n";
 
 			vos.clear();
 		}
 
-//		System.out.println("BODY SENTENCE: \n" + sentence);
+		System.out.println("BODY SENTENCE: \n" + sentence);
 
 		return sentence;
 	}
 
-	public ArrayList<VerbObject> arrangeDate(ArrayList<VerbObject> verbObjects) {
+	public ArrayList<VerbObject> arrangeByDate(ArrayList<VerbObject> verbObjects) {
 		Collections.sort(verbObjects, new Comparator<VerbObject>() {
 			@Override
 			public int compare(VerbObject o1, VerbObject o2) {
-
 				return o1.getDate().compareTo(o2.getDate());
 			}
-
 		});
 
 		return verbObjects;
@@ -108,49 +102,15 @@ public class GenerateBody {
 		String doer = "";
 
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
-		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 
 		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
-
-		Lexicon lexicon = Lexicon.getDefaultLexicon();
-		NLGFactory nlgFactory = new NLGFactory(lexicon);
-		Realiser realiser = new Realiser(lexicon);
-
-		ArrayList<DocumentElement> documentElements = new ArrayList<DocumentElement>();
+		
 		ArrayList<String> tags = getFrequentTagged(verbObjects);
 		ArrayList<VerbObject> posts = getPostsWithTag(tags, verbObjects);
-		String firstSentence = genFirstSentence(tags, verbObjects, postType);
-
-		for (int i = verbObjects.size() - 1; i >= 0; i--) {
-			ToBeProcessed data = tbpd.getPost(verbObjects.get(i).getPi());
-
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(verbObjects.get(i).getDate());
-
-			int month = cal.get(Calendar.MONTH);
-			int day = cal.get(Calendar.DAY_OF_MONTH);
-			int year = cal.get(Calendar.YEAR);
-
-			String monthWord = data.getMonth(String.valueOf(month + 1));
-			String date = "On " + monthWord + " " + day + ", " + year + ", ";
-
-			SPhraseSpec p = nlgFactory.createClause();
-			p.addFrontModifier(date);
-			p.setSubject(doer);
-			p.setVerb(verbObjects.get(i).getVerb());
-			p.setObject(verbObjects.get(i).getNoun());
-			p.setComplement(verbObjects.get(i).getTagged());
-			p.setComplement(verbObjects.get(i).getLocation());
-
-			p.setFeature(Feature.TENSE, Tense.PAST);
-
-			DocumentElement documentElement = nlgFactory.createSentence(p);
-
-			documentElements.add(documentElement);
-		}
-
-		DocumentElement par = nlgFactory.createParagraph(documentElements);
-		paragraph = realiser.realiseSentence(par);
+		paragraph += doer + " " + genFirstSentence(tags, verbObjects, postType);
+		paragraph += genSecondSentence(posts, postType);
+		verbObjects.removeAll(posts);
+		paragraph += genSucceedingSentences(verbObjects);
 
 		return paragraph;
 	}
@@ -173,45 +133,17 @@ public class GenerateBody {
 					}
 				}
 			}
-
 		}
+		
 		return sortFrequentTagged(tags);
 	}
 	
-	public String genFirstSentence(ArrayList<String> tags, ArrayList<VerbObject> verbObjects, int postType) {
-		String template = "has <action> with <people>";
-		String action = getAction(postType);
-		
-		Pattern p = Pattern.compile("\\<(.*?)\\>");
-		Matcher m = p.matcher(template);
-		
-		while (m.find()) {
-			if (m.group(1).contains("action")) {
-				template = template.replace("<action>", action);
-			}
-			if (m.group(1).contains("people")) {
-				String tagged = "";
-				for (int i = tags.size()-1; i >= 0; i--) {
-					tagged += tags.get(i);
-					if (i > 1)
-						tagged += ", ";
-					else if(i == 1)
-						tagged += " and ";
-				}
-				template = template.replace("<people>", tagged);
-			}
-		}
-		
-		System.out.println(template);
-		
-		return "";
-	}
-
 	public String[] getTagged(String people) {
 		people = people.substring(5, people.length());
 		String temp[] = null;
 		String user[] = null;
 		String temp1[] = null;
+		
 		if (people.contains(",") && people.contains("and")) {
 			if (people.contains(",")) {
 				temp = people.split(", ");
@@ -219,11 +151,13 @@ public class GenerateBody {
 				for (int j = 0; j < temp.length - 1; j++)
 					user[j] = temp[j];
 			}
+			
 			if (people.contains("and")) {
 				if (temp.length != 0 && temp != null)
 					temp1 = temp[temp.length - 1].split(" and ");
 				else
 					temp1 = people.split(" and ");
+				
 				user[user.length - 2] = temp1[0];
 				user[user.length - 1] = temp1[1];
 			}
@@ -239,21 +173,16 @@ public class GenerateBody {
 		ArrayList<String> mostFreq = new ArrayList<String> ();
 		Entry<String,Integer> maxEntry = null;
 
-		for(Entry<String, Integer> entry : tags.entrySet()) {
-			System.out.println("ENTRY IS " + entry.getKey());
-		    if (maxEntry == null || entry.getValue() > maxEntry.getValue()) {
-		    	System.out.println("MAXENTRY IS " + entry.getKey());
+		for(Entry<String, Integer> entry : tags.entrySet())
+		    if (maxEntry == null || entry.getValue() > maxEntry.getValue())
 		        maxEntry = entry;
-		    }
-		}
-		if(maxEntry!= null){
+		
+		if(maxEntry!= null) {
 			mostFreq.add(maxEntry.getKey());
 			
-			for(Entry<String, Integer> entry : tags.entrySet()) {
-				if (entry.getValue() == maxEntry.getValue() && !mostFreq.contains(entry.getKey())) {
+			for(Entry<String, Integer> entry : tags.entrySet())
+				if (entry.getValue() == maxEntry.getValue() && !mostFreq.contains(entry.getKey()))
 					mostFreq.add(entry.getKey());
-				}
-			}
 		}
 		
 		return mostFreq;
@@ -274,23 +203,137 @@ public class GenerateBody {
 		return posts;
 	}
 	
-	public String getAction(int action){
+	public String getAction(int action) {
 		switch(action){
-		case 1: return "bought new item/s";
-		case 2: return "celebrated most";
-		case 3: return "watched the most";
-		case 4: return "played the most"; 
-		case 5: return "eaten frequently";
-		case 6: return "made the most";
-		case 7: return "mostly drank"; 
-		case 8: return "mostly listened to music"; 
-		case 9: return "read a lot"; 
-		case 10: return "travelled to different places"; 
-		case 11: return "often remembered memories";
-		case 12: return "mostly attended";
-		case 13: return "the many opinions when";
-		case 14: return "laughed a lot"; 
+			case 1: return "bought new item/s";
+			case 2: return "celebrated most";
+			case 3: return "watched the most";
+			case 4: return "played the most"; 
+			case 5: return "eaten frequently";
+			case 6: return "made the most";
+			case 7: return "mostly drank"; 
+			case 8: return "mostly listened to music"; 
+			case 9: return "read a lot"; 
+			case 10: return "travelled to different places"; 
+			case 11: return "often remembered memories";
+			case 12: return "mostly attended";
+			case 13: return "the many opinions when";
+			case 14: return "laughed a lot"; 
 		}
+		
 		return null;
+	}
+	
+	public String genFirstSentence(ArrayList<String> tags, ArrayList<VerbObject> verbObjects, int postType) {
+		String template = "has <action> with <people>. ";
+		String action = getAction(postType);
+		
+		Pattern p = Pattern.compile("\\<(.*?)\\>");
+		Matcher m = p.matcher(template);
+		
+		while (m.find()) {
+			if (m.group(1).contains("action")) {
+				template = template.replace("<action>", action);
+			}
+			
+			if (m.group(1).contains("people")) {
+				String tagged = "";
+				for (int i = tags.size() - 1; i >= 0; i--) {
+					tagged += tags.get(i);
+					if (i > 1)
+						tagged += ", ";
+					else if(i == 1)
+						tagged += " and ";
+				}
+				template = template.replace("<people>", tagged);
+			}
+		}
+		
+		return template;
+	}
+	
+	public String genSecondSentence(ArrayList<VerbObject> posts, int postType) {
+		String template = "They <verb> <object>together. ";
+		
+		PostTypeDAO ptd = new PostTypeDAO();
+		
+//		for (int i = 0; i < posts.size(); i++) {
+//			System.out.println("POSTS: " + i + ": " + posts.get(i).getVerb());
+//		}
+		
+		Pattern p = Pattern.compile("\\<(.*?)\\>");
+		Matcher m = p.matcher(template);
+		
+		while (m.find()) {
+			if (m.group(1).contains("verb")) {
+				String verb = ptd.getVerb(postType);
+				template = template.replace("<verb>", verb);
+			}
+			
+			if (m.group(1).contains("object")) {
+				String noun = "";
+				for (int i = posts.size() - 1; i >= 0; i--) {
+					noun += posts.get(i).getNoun();
+					if (i > 1)
+						noun += ", ";
+					else if(i == 1)
+						noun += " and ";
+				}
+				template = template.replace("<object>", noun);
+			}
+		}
+		
+//		System.out.println(template);
+		
+		return template;
+	}
+	
+	public String genSucceedingSentences(ArrayList<VerbObject> verbObjects) {
+		String doer = "";
+		String paragraph = "";
+
+		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
+
+		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
+
+		Lexicon lexicon = Lexicon.getDefaultLexicon();
+		NLGFactory nlgFactory = new NLGFactory(lexicon);
+		Realiser realiser = new Realiser(lexicon);
+
+		ArrayList<DocumentElement> documentElements = new ArrayList<DocumentElement>();
+		
+		for (int i = verbObjects.size() - 1; i >= 0; i--) {
+			ToBeProcessed data = tbpd.getPost(verbObjects.get(i).getPi());
+
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(verbObjects.get(i).getDate());
+
+			int month = cal.get(Calendar.MONTH);
+			int day = cal.get(Calendar.DAY_OF_MONTH);
+			int year = cal.get(Calendar.YEAR);
+
+			String monthWord = data.getMonth(String.valueOf(month + 1));
+			String date = "On " + monthWord + " " + day + ", " + year + ", ";
+
+			SPhraseSpec p = nlgFactory.createClause();
+			p.addFrontModifier(date);
+			p.setSubject(doer);
+			p.setVerb(verbObjects.get(i).getVerb().toLowerCase());
+			p.setObject(verbObjects.get(i).getNoun().toLowerCase());
+			p.setComplement(verbObjects.get(i).getTagged());
+			p.setComplement(verbObjects.get(i).getLocation());
+
+			p.setFeature(Feature.TENSE, Tense.PAST);
+
+			DocumentElement documentElement = nlgFactory.createSentence(p);
+
+			documentElements.add(documentElement);
+		}
+
+		DocumentElement par = nlgFactory.createParagraph(documentElements);
+		paragraph = realiser.realiseSentence(par);
+		
+		return paragraph;
 	}
 }

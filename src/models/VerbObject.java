@@ -45,8 +45,9 @@ public class VerbObject {
 		this.sentence = sentence;
 	}
 	
-	public VerbObject(int id, String postType, String tagged, String location, Date date) {
+	public VerbObject(int id, int pi, String postType, String tagged, String location, Date date) {
 		this.id = id;
+		this.pi = pi;
 		this.postType = postType;
 		this.tagged = tagged;
 		this.location = location;

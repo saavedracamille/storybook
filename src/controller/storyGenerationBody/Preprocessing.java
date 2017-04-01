@@ -82,8 +82,9 @@ public class Preprocessing {
 	        
 	        newString = newString.replaceAll("(\\b\\w*?)(\\w)\\2{2,}(\\w*)", "$1$2$2$3");
 	        newString = newString.replaceAll("(XD|xD|xd|Xd|<3|:3|:o|:O|:D|:d|(:|<|>|\\'|\\\"|\\^|\\*|_|\\-|\\=|\\{|\\}|`|~|\\[|\\]|[|]|[(]|[)]){2,})*", "");
+	        newString = newString.replace("((H|h)*(A|a)*)*{2,}", "");
 	        
-			//System.out.println("Final String " + newString);
+//			System.out.println("Final String " + newString);
 			
 			tbps.get(i).setData(newString);
 		}
