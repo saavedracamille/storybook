@@ -17,6 +17,7 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import controller.preProcessing.Preprocessing;
 import controller.textUnderstanding.TextUnderstanding;
 import models.CheckIn;
 import models.ToBeProcessed;
@@ -43,9 +44,6 @@ public class GenerateBody {
 	public GenerateBody() throws IOException {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		this.tbps = tbpd.getAllPosts();
-
-		 Preprocessing p = new Preprocessing(tbps);
-		 this.tbps = p.getUpdatedPosts();
 
 		 TextUnderstanding tu = new TextUnderstanding();
 		 tu.performTextUnderstanding(tbps);

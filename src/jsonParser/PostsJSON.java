@@ -1,10 +1,12 @@
 package jsonParser;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import controller.preProcessing.Preprocessing;
 import models.CheckIn;
 import models.ToBeProcessed;
 import modelsDAO.ToBeProcessedDAO;
@@ -21,6 +23,12 @@ public class PostsJSON {
 
 	public ArrayList<ToBeProcessed> getPosts(JSONArray data) {
 		ArrayList<ToBeProcessed> posts = new ArrayList<ToBeProcessed>();
+		Preprocessing p = null;
+		try {
+			p = new Preprocessing();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		for (int i = 0; i < data.size(); i++) {
 			JSONArray postsArray = (JSONArray) data.get(i);
@@ -31,15 +39,13 @@ public class PostsJSON {
 				String tagged = "";
 
 				JSONObject post = (JSONObject) postsArray.get(j);
-				if (post.get("story") == null || !post.get("story").toString().contains("shared")) { // if
-					// not
-					// shared
-					// posts
-					System.out.println(post.toJSONString());
+				if (post.get("story") == null || !post.get("story").toString().contains("shared")) {
+//					System.out.println(post.toJSONString());
 					String message = "";
 					if (post != null) {
 						if (post.get("message") != null && !post.get("message").toString().equals("")) {
-							message = post.get("message").toString();
+							message = p.removeStopwords(post.get("message").toString());
+							message = p.removeSpecialCharacters(message);
 
 							String fbIDs[] = post.get("id").toString().split("_");
 							String fbID = fbIDs[1];
