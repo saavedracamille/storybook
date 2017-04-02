@@ -1,6 +1,7 @@
 package controller.storyGenerationIntro;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Random;
@@ -71,9 +72,9 @@ public class GenerateIntro {
 
 		for (int j = 0; j < directKnowledges.size(); j++) {
 			if (directKnowledges.get(j).getType().equals("first_name") && directKnowledges.get(j).getData() != null)
-				firstName = directKnowledges.get(j).getData();
+				firstName = directKnowledges.get(j).getData() + " ";
 			if (directKnowledges.get(j).getType().equals("middle_name") && directKnowledges.get(j).getData() != null)
-				middleName = directKnowledges.get(j).getData();
+				middleName = directKnowledges.get(j).getData() + " ";
 			if (directKnowledges.get(j).getType().equals("last_name") && directKnowledges.get(j).getData() != null)
 				lastName = directKnowledges.get(j).getData();
 			if(directKnowledges.get(j).getType().equals("gender") && directKnowledges.get(j).getData() != null)
@@ -84,28 +85,28 @@ public class GenerateIntro {
 					
 		}
 
-		firstSentence += firstName + middleName + " " + lastName;
+		firstSentence += firstName + middleName + lastName;
 
 		for (int i = 1; i < mainTemplate.size(); i++) {
-			ArrayList<String> possbileTemplates = new ArrayList<String>();
+			ArrayList<String> possibleTemplates = new ArrayList<String>();
 			int groupId = 0;
 			String groupName = "";
 			String production = mainTemplate.get(i);
 			production = production.replace(">", "");
 			production = production.replace("<", "");
 
-			//System.out.println(production);
+			//System.out.println("\n\nPRODUCTION " + production);
 
 			if (!mainTemplate.get(i).contains(",")) {
 				groupId = tgd.getGroupId(production);
 				groupName = getColumn(production);
 
-				possbileTemplates = td.getTemplates(groupId, groupName);
+				possibleTemplates = td.getTemplates(groupId, groupName);
 			} else {
 				groupId = tgd.getGroupId(production);
 				groupName = getColumn(production);
 
-				possbileTemplates.addAll(td.getTemplates(groupId, groupName));
+				possibleTemplates.addAll(td.getTemplates(groupId, groupName));
 				
 				String[] locationHometown = production.split(", ");
 				
@@ -113,85 +114,90 @@ public class GenerateIntro {
 					groupId = tgd.getGroupId("intro_"+locationHometown[j]);
 					groupName = getColumn("intro_"+locationHometown[j]);
 
-					possbileTemplates.addAll(td.getTemplates(groupId, groupName));
+					possibleTemplates.addAll(td.getTemplates(groupId, groupName));
 				}
 			}
 
 			switch (i) {
 			case 1:
-				if(!finalTemplateForBirthday(possbileTemplates).contains(",")){
+				if(!finalTemplateForBirthday(possibleTemplates).contains(",")){
 					firstSentence += " ";
 				}
-				firstSentence += finalTemplateForBirthday(possbileTemplates);
+				firstSentence += finalTemplateForBirthday(possibleTemplates);
 				firstSentence = replaceContentBirthday(firstSentence);
-				if(!finalTemplateForBirthday(possbileTemplates).isEmpty() && !firstSentence.endsWith(","))
+				if(!finalTemplateForBirthday(possibleTemplates).isEmpty() && !firstSentence.endsWith(","))
 					firstSentence += ".";
 				break;
 
 			case 2:
 				
-				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
+				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
 					firstSentence += " " + gender + " ";
 				}
-				
-				firstSentence += finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				firstSentence += finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i)));
 				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
-				
-				if(!finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
+								
+				if(!finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
 					firstSentence += ".";
 				
 				break;
 
 			case 3:
-				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
+				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
 					firstSentence += " " + gender + " ";
 				}
 				
-				firstSentence += finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				firstSentence += finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i)));
 				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
-				
-				if(!finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
+	
+				if(!finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
 					firstSentence += ".";
 				
 				break;
 
 			case 4:
-				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
+				if(firstSentence.endsWith(".") && !finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i))).isEmpty()){
 					firstSentence += " " + gender + " ";
 				}
-				firstSentence += finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i)));
+				firstSentence += finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i)));
 				firstSentence = replaceContentEducation(firstSentence, getEducationType(mainTemplate.get(i)));
 				
-				if(!finalTemplateForEducation(possbileTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
+				if(!finalTemplateForEducation(possibleTemplates, getEducationType(mainTemplate.get(i))).isEmpty())
 					firstSentence += ".";
 				
 				break;
 
 			case 5:
-				if(firstSentence.endsWith(".") && !finalTemplateForWork(possbileTemplates).isEmpty()){
+				if(firstSentence.endsWith(".") && !finalTemplateForWork(possibleTemplates).isEmpty()){
 					firstSentence += " " + gender + " ";
 				}
-				firstSentence += finalTemplateForWork(possbileTemplates);
+				firstSentence += finalTemplateForWork(possibleTemplates);				
 				firstSentence = replaceContentWork(firstSentence);
-				if(!finalTemplateForWork(possbileTemplates).isEmpty())
+				
+				if(!finalTemplateForWork(possibleTemplates).isEmpty())
 					firstSentence += ".";
 				
 				break;
 
 			case 6:
-				if(firstSentence.endsWith(".") && !finalTemplateForLocHome(possbileTemplates).isEmpty()){
+				if(firstSentence.endsWith(".") && !finalTemplateForLocHome(possibleTemplates).isEmpty()){
 					firstSentence += " " + gender + " ";
 				}
-				firstSentence += finalTemplateForLocHome(possbileTemplates);
+				firstSentence += finalTemplateForLocHome(possibleTemplates);
 				firstSentence = replaceContentLocHome(firstSentence);
-				if(!finalTemplateForLocHome(possbileTemplates).isEmpty())
+				
+				if(!finalTemplateForLocHome(possibleTemplates).isEmpty())
 					firstSentence += ".";
 				break;
 
 			case 7:
-				firstSentence += " " + finalTemplateForFamily(possbileTemplates);
+				if(firstSentence.endsWith(".") && !finalTemplateForFamily(possibleTemplates).isEmpty()){
+					firstSentence += " " + gender + " ";
+				}
+				firstSentence += " " + finalTemplateForFamily(possibleTemplates);
 				firstSentence = replaceContentFamily(firstSentence);
-				if(!finalTemplateForFamily(possbileTemplates).isEmpty())
+				
+				if(!finalTemplateForFamily(possibleTemplates).isEmpty())
 					firstSentence += ".";
 				break;
 			}					
@@ -309,7 +315,7 @@ public class GenerateIntro {
 
 		for (int i = 0; i < possibleTemplates.size(); i++) {
 			for (int j = 0; j < educationalBgs.size(); j++) {
-				if (educationalBgs.get(j).getType().contains(type) && educationalBgs.get(j).getInstitution() != null
+				if (educationalBgs.get(j).getType().contains(type)&& educationalBgs.get(j).getInstitution() != null
 						&& possibleTemplates.get(i).contains("institution")) {
 					finalT.add(possibleTemplates.get(i));
 				}
@@ -318,10 +324,9 @@ public class GenerateIntro {
 
 		String asd = "";
 		int indexTemplate = 0;
-
+		
 		if (finalT.size() > 0) {
 			indexTemplate = chooseRandomTemplate(finalT);
-
 			if (possibleTemplates.get(indexTemplate).contains("intro_education_time")) {
 				int groupId = tgd.getGroupId("intro_education_time");
 				String groupName = getColumn("education");
@@ -332,8 +337,9 @@ public class GenerateIntro {
 
 				introEducationTime = finalTime.get(indexTime);
 			}
-
+			
 			asd = finalT.get(indexTemplate).replace("<intro_education_time>", introEducationTime);
+			
 		}
 
 		return asd;
@@ -345,53 +351,36 @@ public class GenerateIntro {
 
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
-
 		while (m.find()) {
 			if (m.group(1).contains("institution")) {
 				for (int j = 0; j < educationalBgs.size(); j++) {
 					if (educationalBgs.get(j).getType().contains(type)
 							&& educationalBgs.get(j).getInstitution() != null) {
-						institution = educationalBgs.get(j).getInstitution();
+						institution = educationalBgs.get(j).getInstitution();						
 						finalSentence = finalSentence.replace("<institution>", institution);
 					}
 				}
 			}
+			
 			if (m.group(1).contains("grad_year")) {
 				for (int j = 0; j < educationalBgs.size(); j++) {
-					
 					if (educationalBgs.get(j).getType().contains(type)
 						&& String.valueOf(educationalBgs.get(j).getYear_graduated())!= null
 						&& educationalBgs.get(j).getYear_graduated() != 0){
-						//System.out.println("1 j - " + j);
 						year_graduated = String.valueOf(educationalBgs.get(j).getYear_graduated());
-						finalSentence = finalSentence.replace("<grad_year>", year_graduated);
+						LocalDateTime now = LocalDateTime.now();
+						int yr = now.getYear();
+						if(yr > Integer.parseInt(year_graduated))
+							finalSentence = finalSentence.replace("<grad_year>", year_graduated);
+						else
+							finalSentence = replaceToPresent(finalSentence);
 						
 					} 
 					else if (educationalBgs.get(j).getType().contains(type)){	
-						System.out.println("2 j - " + j);
-						String[] temp = finalSentence.split("\\.");						
-						String lastSentence = "";
-						if(temp.length > 1)
-							lastSentence = temp[temp.length-1];
-						else
-							lastSentence = finalSentence;
+						finalSentence = replaceToPresent(finalSentence);
 						
-						//System.out.println("LAST: " + lastSentence);
-						
-						if(lastSentence.contains("graduated"))
-							lastSentence = lastSentence.replace("graduated", "is studying in");
-						else if(lastSentence.contains("diploma"))
-							lastSentence = lastSentence.replace("got his", "has yet to get his");
-						
-						//System.out.println(">>> " + lastSentence);
-						
-						finalSentence = "";
-						for(int i = 0; i < temp.length-1; i++)
-							finalSentence += temp[i] + ".";
-						finalSentence += lastSentence;
-						
-					} else {
-						System.out.println("3j - " + j);
+					} else if(String.valueOf(educationalBgs.get(j).getYear_graduated())!= null
+						&& educationalBgs.get(j).getYear_graduated() != 0){
 						if (finalSentence.contains("last <grad_year>"))
 							finalSentence = finalSentence.replace(" last <grad_year>", "");
 						else if (finalSentence.contains("in <grad_year>"))
@@ -402,7 +391,27 @@ public class GenerateIntro {
 				}
 			}
 		}
-
+		return finalSentence;
+	}
+	
+	public String replaceToPresent(String finalSentence){
+		String[] temp = finalSentence.split("\\.");						
+		String lastSentence = "";
+		if(temp.length > 1)
+			lastSentence = temp[temp.length-1];
+		else
+			lastSentence = finalSentence;
+		
+		
+		if(lastSentence.contains("graduated"))
+			lastSentence = lastSentence.replace("graduated", "is studying in");
+		else if(lastSentence.contains("diploma"))
+			lastSentence = lastSentence.replace("got his", "has yet to get his");
+		
+		finalSentence = "";
+		for(int i = 0; i < temp.length-1; i++)
+			finalSentence += temp[i] + ".";
+		finalSentence += lastSentence;
 		return finalSentence;
 	}
 
@@ -421,10 +430,6 @@ public class GenerateIntro {
 			}
 		}
 
-		/*for (int i = 0; i < finalT.size(); i++) {
-			System.out.println(finalT.get(i));
-		}
-*/
 		String asd = "";
 		int indexTemplate = 0;
 
@@ -514,10 +519,9 @@ public class GenerateIntro {
 		String tempsentence = "";
 		
 		String[] temp = finalSentence.split("\\.");
-		for(int i = 0; i < temp.length - 2; i++){
+		for(int i = 0; i < temp.length - 1; i++){
 			tempsentence += temp[i] + "."; 
 		}
-		
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(finalSentence);
 
@@ -545,7 +549,7 @@ public class GenerateIntro {
 		
 		if(location != null && hometown != null && hometown.equals(location)){
 			finalSentence = tempsentence;
-			finalSentence += "is living in " + location;
+			finalSentence += " He is living in " + location;
 		}
 		
 		
@@ -632,7 +636,7 @@ public class GenerateIntro {
 		else if (groupName.contains("hs"))
 			type = "High School";
 		else if (groupName.contains("college"))
-			type = "Graduate School";
+			type = "College";
 
 		return type;
 	}
