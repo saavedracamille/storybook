@@ -47,13 +47,17 @@ public class GenerateBody {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		this.tbps = tbpd.getAllPosts();
 
-		// TextUnderstanding tu = new TextUnderstanding();
-		// tu.performTextUnderstanding(tbps);
-		//
-		// EventClassification ec = new EventClassification();
-		// ec.performEventClassification(tbps);
+		 TextUnderstanding tu = new TextUnderstanding();
+		 tu.performTextUnderstanding(tbps);
+		
+		 EventClassification ec = new EventClassification();
+		 ec.performEventClassification(tbps);
 
 		this.body = generateWholeBody();
+	}
+	
+	public String getBody() {
+		return body;
 	}
 
 	public String generateWholeBody() {
@@ -102,7 +106,7 @@ public class GenerateBody {
 		String doer = "";
 
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
-		ToBeProcessedDAO tbp = new ToBeProcessedDAO();
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 
 		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
 		String gender = dkd.getSpecificDirectKnowledge("gender");
@@ -125,8 +129,13 @@ public class GenerateBody {
 		}
 
 		if (postType == 10) {
-			paragraph += getTravelledPlaces(tbp.getAllWithLocation(), pronoun);
+			paragraph += getTravelledPlaces(tbpd.getAllWithLocation(), pronoun);
 		}
+
+		if (postType == 2) {
+			paragraph += pronoun + getBirthday(verbObjects);
+		}
+
 		return paragraph;
 	}
 
@@ -340,9 +349,9 @@ public class GenerateBody {
 		HashMap<Integer, ArrayList<VerbObject>> compiledPosts = compileByYear(verbObjects);
 
 		for (HashMap.Entry<Integer, ArrayList<VerbObject>> entry : compiledPosts.entrySet()) {
-			System.out.println(entry.getKey());
-			for (int i = 0; i < entry.getValue().size(); i++)
-				System.out.println(entry.getValue().get(i).getDate().toString());
+//			System.out.println(entry.getKey());
+//			for (int i = 0; i < entry.getValue().size(); i++)
+//				System.out.println(entry.getValue().get(i).getDate().toString());
 			paragraph += determineYear(entry.getKey(), entry.getValue());
 		}
 
@@ -558,10 +567,10 @@ public class GenerateBody {
 	public String determine3(ArrayList<VerbObject> verbObject) {
 		String[] a = { "In the same month, <sentence>", "During that time, <sentence>", "Shortly after, <sentence>",
 				"During that same month, <sentence>", "<sentence> on the same month.", "<sentence> shortly after." };
-		String[] b = { "After <x> months, <sentence>", "<x> months later, <sentence>", "Then, <sentence> <x> months after.",
-				"<sentence> <x> months after.", "In that same year, <sentence>", "A few months later, <sentence>",
-				"<sentence> in that same year", "<sentence> a few months later", "<sentence> <x> months afterwards",
-				"During that same year, <sentence>" };
+		String[] b = { "After <x> months, <sentence>", "<x> months later, <sentence>",
+				"Then, <sentence> <x> months after.", "<sentence> <x> months after.", "In that same year, <sentence>",
+				"A few months later, <sentence>", "<sentence> in that same year", "<sentence> a few months later",
+				"<sentence> <x> months afterwards", "During that same year, <sentence>" };
 
 		String finalSentence = "";
 
@@ -578,7 +587,7 @@ public class GenerateBody {
 			int monthNow = now.getMonthValue();
 
 			int monthDifference = monthNow - month;
-			
+
 			int random = -1;
 
 			Pattern p = Pattern.compile("\\<(.*?)\\>");
@@ -598,7 +607,7 @@ public class GenerateBody {
 						}
 					}
 					sentence += ". ";
-//					sentence += "In that same month, " + s;
+					// sentence += "In that same month, " + s;
 				} else {
 					random = chooseRandomTemplate(b.length);
 					m = p.matcher(b[random]);
@@ -612,7 +621,8 @@ public class GenerateBody {
 						}
 					}
 					sentence += ". ";
-//					sentence += Math.abs(monthDifference) + " months before, " + s;
+					// sentence += Math.abs(monthDifference) + " months before,
+					// " + s;
 				}
 			}
 
@@ -672,20 +682,19 @@ public class GenerateBody {
 			for(int i = 0; i < locations.size(); i ++){
 				ArrayList<String> temp = new ArrayList<String>(); 
 				//local
-				if(currloc.contains(locations.get(i).getCountry())){
+				if(locations.get(i).getCountry() != null && currloc.contains(locations.get(i).getCountry())){
 					if(!loc.containsKey(locations.get(i).getCity())){
 						temp.add(locations.get(i).getPlace());
 						loc.put(locations.get(i).getCity(), temp);
-					}
-					else {
+					} else {
 						temp = loc.get(locations.get(i).getCity());
 						temp.add(locations.get(i).getPlace());
 						loc.put(locations.get(i).getCity(), temp);
 					}
 				}
 				//international
-				else{
-					if(!international.contains(locations.get(i).getCountry()))
+				else {
+					if(locations.get(i).getCountry()!= null && !international.contains(locations.get(i).getCountry()))
 						international.add(locations.get(i).getCountry());
 				}
 			}
@@ -709,9 +718,11 @@ public class GenerateBody {
 				}
 				travelledTo = travelledTo.substring(0, travelledTo.length() - 2) + ".";
 			}
+			
 			if(international.size() == 1){
 				travelledInt = " has visited the foreign country, ";
 			}
+			
 			for(int j = 0; j < international.size(); j++){
 				if (international.size() - 2 != j)
 					connector = ", ";
@@ -719,14 +730,46 @@ public class GenerateBody {
 					connector = " and ";
 				travelledInt += international.get(j) + connector;
 			}
+			
 			travelledInt = travelledInt.substring(0, travelledInt.length() - 2) + ".";
 			
 			if(!loc.isEmpty())
 				wholeSentence += travelledTo;
+			
 			if(international.size() != 0 )
-				wholeSentence += travelledInt;
+				wholeSentence += " " + travelledInt;
 		}
 
 		return wholeSentence;
+	}
+
+	public String getBirthday(ArrayList<VerbObject> verbObjects) {
+		String sentence = " celebrated the birthdays of ";
+		String celebrants = "";
+		String connector = "";
+
+		for (int i = 0; i < verbObjects.size(); i++) {
+			if (verbObjects.size() - 2 != i)
+				connector = ", ";
+			else
+				connector = " and ";
+
+			if (verbObjects.get(i).getSentence().contains("birthday")) {
+				if (verbObjects.get(i).getTagged() != null && !verbObjects.get(i).getTagged().isEmpty()) {
+					String[] tagged = getTagged(verbObjects.get(i).getTagged());
+					for (int j = 0; j < tagged.length; j++) {
+						if (!celebrants.contains(tagged[j]))
+							celebrants += tagged[j] + connector;
+					}
+				}
+			}
+		}
+
+		if (!celebrants.equals(""))
+			sentence += celebrants;
+		else
+			return "";
+
+		return sentence;
 	}
 }
