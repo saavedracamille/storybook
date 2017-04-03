@@ -29,13 +29,13 @@ public class GenerateConclusion {
 		String lastName = "";
 		for (int j = 0; j < directKnowledges.size(); j++) {
 			if (directKnowledges.get(j).getType().equals("first_name") && directKnowledges.get(j).getData() != null)
-				firstName = directKnowledges.get(j).getData();
+				firstName = directKnowledges.get(j).getData() + " ";
 			if (directKnowledges.get(j).getType().equals("middle_name") && directKnowledges.get(j).getData() != null)
-				middleName = directKnowledges.get(j).getData();
+				middleName = directKnowledges.get(j).getData() + " ";
 			if (directKnowledges.get(j).getType().equals("last_name") && directKnowledges.get(j).getData() != null)
 				lastName = directKnowledges.get(j).getData();
 		}
-		name = firstName + middleName + " " + lastName;
+		name = firstName + middleName + lastName;
 		
 		ArrayList<String> topFiveTypes = ld.getTopFiveTypes();
 		
