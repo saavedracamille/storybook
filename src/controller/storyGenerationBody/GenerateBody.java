@@ -102,7 +102,7 @@ public class GenerateBody {
 		String doer = "";
 
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
-		VerbObjectDAO vod = new VerbObjectDAO();
+		ToBeProcessedDAO tbp = new ToBeProcessedDAO();
 
 		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
 		String gender = dkd.getSpecificDirectKnowledge("gender");
@@ -125,10 +125,8 @@ public class GenerateBody {
 		}
 
 		if (postType == 10) {
-			ArrayList<CheckIn> travelledTo = vod.getAllWithLocation();
-			paragraph += pronoun + getTravelledPlaces(travelledTo);
+			paragraph += getTravelledPlaces(tbp.getAllWithLocation(), pronoun);
 		}
-
 		return paragraph;
 	}
 
@@ -658,21 +656,77 @@ public class GenerateBody {
 		return chosenTemplate;
 	}
 
-	public String getTravelledPlaces(ArrayList<CheckIn> verbObjects) {
-		String sentence = " has travelled to ";
-		String connector = "";
+	public String getTravelledPlaces(ArrayList<CheckIn> locations, String pronoun) {
+		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
+		String wholeSentence = "";
+		
+		if(dkd.getSpecificDirectKnowledge("location") != null || !dkd.getSpecificDirectKnowledge("location").isEmpty()){
 
-		for (int i = 0; i < verbObjects.size(); i++) {
-			if (verbObjects.size() - 2 != i)
-				connector = ", ";
-			else
-				connector = " and ";
-
-//			sentence += verbObjects.get(i).getLocation() + connector;
+			HashMap<String, ArrayList<String>> loc = new HashMap<String, ArrayList<String>>();
+			String currloc = dkd.getSpecificDirectKnowledge("location");
+			ArrayList<String> international = new ArrayList<String>();
+			String travelledTo = pronoun + " has been to ";
+			String travelledInt = pronoun + " has visited foreign countries such as ";
+			String connector = "", connector2 = "";
+			
+			for(int i = 0; i < locations.size(); i ++){
+				ArrayList<String> temp = new ArrayList<String>(); 
+				//local
+				if(currloc.contains(locations.get(i).getCountry())){
+					if(!loc.containsKey(locations.get(i).getCity())){
+						temp.add(locations.get(i).getPlace());
+						loc.put(locations.get(i).getCity(), temp);
+					}
+					else {
+						temp = loc.get(locations.get(i).getCity());
+						temp.add(locations.get(i).getPlace());
+						loc.put(locations.get(i).getCity(), temp);
+					}
+				}
+				//international
+				else{
+					if(!international.contains(locations.get(i).getCountry()))
+						international.add(locations.get(i).getCountry());
+				}
+			}
+			//local
+			int counter = 0;
+			for (Entry<String, ArrayList<String>> entry : loc.entrySet()){
+				if (loc.entrySet().size() - 2 != counter) {
+					connector2 = ", ";
+					for (int j = 0; j < entry.getValue().size(); j++) {
+						if (entry.getValue().size() - 2 != j)
+							connector = ", ";
+						else
+							connector = " and ";
+						
+						travelledTo += entry.getValue().get(j) + connector;
+					}
+					counter++;
+					travelledTo = travelledTo.substring(0, travelledTo.length() - 2) + " in " + entry.getKey() + connector2;
+				} else {
+					connector2 = " and ";
+				}
+				travelledTo = travelledTo.substring(0, travelledTo.length() - 2) + ".";
+			}
+			if(international.size() == 1){
+				travelledInt = " has visited the foreign country, ";
+			}
+			for(int j = 0; j < international.size(); j++){
+				if (international.size() - 2 != j)
+					connector = ", ";
+				else
+					connector = " and ";
+				travelledInt += international.get(j) + connector;
+			}
+			travelledInt = travelledInt.substring(0, travelledInt.length() - 2) + ".";
+			
+			if(!loc.isEmpty())
+				wholeSentence += travelledTo;
+			if(international.size() != 0 )
+				wholeSentence += travelledInt;
 		}
 
-		sentence = sentence.substring(0, sentence.length() - 2);
-
-		return sentence;
+		return wholeSentence;
 	}
 }
