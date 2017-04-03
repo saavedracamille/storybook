@@ -98,6 +98,10 @@ public class GenerateConclusion {
 		System.out.println(conclusion);
 	}
 	
+	public String getConclusion() {
+		return conclusion;
+	}
+	
 	public String generateSentences(String type, ArrayList<Likes> interestPreferences) {
 		String interests = "";
 		String sentence = interestTemplate;

@@ -59,6 +59,10 @@ public class GenerateIntro {
 		introduction = generateSentences();
 		System.out.println(introduction);
 	}
+	
+	public String getIntro() {
+		return introduction;
+	}
 
 	public String generateSentences() {
 		String firstSentence = "";
