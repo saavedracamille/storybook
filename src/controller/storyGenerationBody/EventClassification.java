@@ -42,6 +42,7 @@ public class EventClassification {
 			String postType = "";
 			
 			ToBeProcessed tbp = tbpd.getPost(vos.get(i).getPi());
+//			System.out.println("TBP " + tbp.getData());
 			String[] words = vos.get(i).getSentence().split(" ");
 				
 			for (String word : words) {

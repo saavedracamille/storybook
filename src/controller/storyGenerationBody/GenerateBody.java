@@ -3,6 +3,7 @@ package controller.storyGenerationBody;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -104,11 +105,15 @@ public class GenerateBody {
 		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
 		
 		ArrayList<String> tags = getFrequentTagged(verbObjects);
-		ArrayList<VerbObject> posts = getPostsWithTag(tags, verbObjects);
-		paragraph += doer + " " + genFirstSentence(tags, verbObjects, postType);
-		paragraph += genSecondSentence(posts, postType);
-		verbObjects.removeAll(posts);
-		paragraph += genSucceedingSentences(verbObjects);
+		if (tags.size() >= 3) {
+			ArrayList<VerbObject> posts = getPostsWithTag(tags, verbObjects);
+			paragraph += doer + " " + genFirstSentence(tags, verbObjects, postType);
+			paragraph += genSecondSentence(posts, postType);
+			verbObjects.removeAll(posts);
+			paragraph += genSucceedingSentences(verbObjects);
+		} else {
+			paragraph += doer + genSucceedingSentences(verbObjects);
+		}
 
 		return paragraph;
 	}
@@ -121,6 +126,11 @@ public class GenerateBody {
 				String user[] = getTagged(verbObjects.get(i).getTagged());
 				if (user != null && user.length != 0) {
 					for (int j = 0; j < user.length; j++) {
+						if(user[j].startsWith(" "))
+							user[j] = user[j].substring(1, user[j].length());
+						if(user[j].endsWith(" "))
+							user[j] = user[j].substring(0, user[j].length()-1);
+						
 						if (tags.containsKey(user[j])) {
 							int count = tags.get(user[j]);
 							count++;
@@ -236,9 +246,23 @@ public class GenerateBody {
 			
 			if (m.group(1).contains("people")) {
 				String tagged = "";
-				for (int i = tags.size() - 1; i >= 0; i--) {
+				/*for (int i = tags.size() - 1; i >= 0; i--) {
 					tagged += tags.get(i);
 					if (i > 1)
+						tagged += ", ";
+					else if(i == 1)
+						tagged += " and ";
+				}*/
+				int size = 3;
+				if(tags.size() < 3){
+					size = tags.size();
+				}
+				
+				for (int i = size-1; i >= 0; i--) {
+					tagged += tags.get(i);
+					if(size == 0)
+						tagged += "";
+					else if (i > 1)
 						tagged += ", ";
 					else if(i == 1)
 						tagged += " and ";
@@ -287,51 +311,184 @@ public class GenerateBody {
 	}
 	
 	public String genSucceedingSentences(ArrayList<VerbObject> verbObjects) {
-		String doer = "";
 		String paragraph = "";
-
+	
+		HashMap<Integer, ArrayList<VerbObject>> compiledPosts = compileByYear(verbObjects);
+		
+		for (HashMap.Entry<Integer, ArrayList<VerbObject>> entry : compiledPosts.entrySet()) {
+			System.out.println("HASHMAP: " + entry.getKey());
+			for (int i = 0; i < entry.getValue().size(); i++)
+				System.out.println("VO: " + entry.getValue().get(i).getSentence());
+		    paragraph += determineYear(entry.getKey(), entry.getValue()) + " ";
+		}
+		
+		return paragraph;
+	}
+	
+	public String actualGeneration(VerbObject verbObject) {
+		String paragraph = "";
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
-		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
-
-		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
-
+		String doer = "";
+		String pronoun = "";
+		
+		doer = dkd.getSpecificDirectKnowledge("gender");
+		if (doer.equalsIgnoreCase("female")) {
+			pronoun = "She";
+		} else if (doer.equalsIgnoreCase("male")) {
+			pronoun = "He";
+		}
+		
 		Lexicon lexicon = Lexicon.getDefaultLexicon();
 		NLGFactory nlgFactory = new NLGFactory(lexicon);
 		Realiser realiser = new Realiser(lexicon);
-
-		ArrayList<DocumentElement> documentElements = new ArrayList<DocumentElement>();
 		
-		for (int i = verbObjects.size() - 1; i >= 0; i--) {
-			ToBeProcessed data = tbpd.getPost(verbObjects.get(i).getPi());
+		SPhraseSpec p = nlgFactory.createClause();
+		p.setSubject(pronoun);
+		p.setVerb(verbObject.getVerb());
+		p.setObject(verbObject.getNoun());
+		p.setComplement(verbObject.getTagged());
+		p.setComplement(verbObject.getLocation());
 
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(verbObjects.get(i).getDate());
+		p.setFeature(Feature.TENSE, Tense.PAST);
 
-			int month = cal.get(Calendar.MONTH);
-			int day = cal.get(Calendar.DAY_OF_MONTH);
-			int year = cal.get(Calendar.YEAR);
-
-			String monthWord = data.getMonth(String.valueOf(month + 1));
-			String date = "On " + monthWord + " " + day + ", " + year + ", ";
-
-			SPhraseSpec p = nlgFactory.createClause();
-			p.addFrontModifier(date);
-			p.setSubject(doer);
-			p.setVerb(verbObjects.get(i).getVerb().toLowerCase());
-			p.setObject(verbObjects.get(i).getNoun().toLowerCase());
-			p.setComplement(verbObjects.get(i).getTagged());
-			p.setComplement(verbObjects.get(i).getLocation());
-
-			p.setFeature(Feature.TENSE, Tense.PAST);
-
-			DocumentElement documentElement = nlgFactory.createSentence(p);
-
-			documentElements.add(documentElement);
-		}
-
-		DocumentElement par = nlgFactory.createParagraph(documentElements);
-		paragraph = realiser.realiseSentence(par);
+		//DocumentElement documentElement = nlgFactory.createSentence(p);
+		
+		paragraph = realiser.realiseSentence(p);
 		
 		return paragraph;
+	}
+	
+	public String determineYear(int year, ArrayList<VerbObject> verbObjects) {
+		String sentence = "";
+		int yearDifference = 0;
+		
+		LocalDateTime now = LocalDateTime.now();
+		int yearNow = now.getYear();
+		
+		yearDifference = yearNow - year;
+		
+		if (yearDifference == 0) {
+			sentence += "";
+			sentence += determine2A(verbObjects.get(0));
+		} else if (yearDifference == 1) {
+			sentence += "Last year, ";
+			sentence += determine2B(verbObjects.get(0));
+		} else if (yearDifference == 5){
+			sentence += "Last " + yearDifference + " years ago, ";
+			sentence += determine2B(verbObjects.get(0));
+		} else {
+			sentence += "In " + year + ", ";
+			sentence += determine2B(verbObjects.get(0));
+		}
+		
+		sentence += determine3(verbObjects);
+		
+		return sentence;
+	}
+	
+	public String determine2A(VerbObject verbObject) {
+		String sentence = "";
+		String s = actualGeneration(verbObject);
+		s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length());
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(verbObject.getDate());
+		int month = cal.get(Calendar.MONTH);
+		
+		LocalDateTime now = LocalDateTime.now();
+		int monthNow = now.getMonthValue();
+		
+		int monthDifference = monthNow - month;
+		
+		if (monthDifference == 0) {
+			sentence += "Recently, " + s;
+		} else if (monthDifference <= 5) {
+			sentence += "A few months ago, " + s;
+		} else {
+			sentence += "This year, in " + verbObject.getMonth(String.valueOf(month + 1)) + ", " + s;
+		}
+
+		return sentence;
+	}
+	
+	public String determine2B(VerbObject verbObject) {
+		String sentence = "";
+		String s = actualGeneration(verbObject);
+		s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length());
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(verbObject.getDate());
+		
+		int month = cal.get(Calendar.MONTH);
+		int day = cal.get(Calendar.DATE);
+		String monthWord = verbObject.getMonth(String.valueOf(month + 1));
+		
+		if (day >= 1 && day <= 10) {
+			sentence += "early that " + monthWord + ", " + s;
+		} else if (day >= 11 && day <= 20) {
+			sentence += "mid-" + monthWord + ", " + s;
+		} else if (day >= 21 && day <= 31) {
+			sentence += "as the month of " + monthWord + " ends, " + s;
+		}
+		
+		return sentence;
+	}
+	
+	public String determine3(ArrayList<VerbObject> verbObject){
+		String finalSentence = "";
+		
+		for(int i = 1; i < verbObject.size(); i++) {
+			String sentence = "";
+			String s = actualGeneration(verbObject.get(i));
+			s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length());
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(verbObject.get(i).getDate());
+			int month = cal.get(Calendar.MONTH);
+			
+			LocalDateTime now = LocalDateTime.now();
+			int monthNow = now.getMonthValue();
+			
+			int monthDifference = monthNow - month;
+			if(i == 1){
+				if(monthDifference == 0){
+					sentence += "In that same month, " + s;
+				}
+				else{
+					sentence += "After "+ verbObject.get(i).getMonth(String.valueOf(month + 1)) +" months, " + s;
+				}
+			}
+			
+			finalSentence += sentence;
+		}
+
+		return finalSentence;
+	}
+	
+	public HashMap<Integer, ArrayList<VerbObject>> compileByYear(ArrayList<VerbObject> verbObjects) {
+		HashMap<Integer, ArrayList<VerbObject>> vos = new HashMap<Integer, ArrayList<VerbObject>> ();
+		ArrayList<VerbObject> posts = new ArrayList<VerbObject> ();
+		VerbObject verbObject = null;
+		
+		for (int i = verbObjects.size() - 1; i >= 0; i--) {
+			verbObject = verbObjects.get(i);
+
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(verbObject.getDate());
+			int year = cal.get(Calendar.YEAR);
+			
+			if (!vos.containsKey(year)) {
+				posts.add(verbObject);
+				vos.put(year, posts);
+			} else {
+				posts = vos.get(year);
+				posts.add(verbObject);
+				vos.put(year, posts);
+			}
+			
+			posts.clear();
+		}
+		
+		return vos;
 	}
 }

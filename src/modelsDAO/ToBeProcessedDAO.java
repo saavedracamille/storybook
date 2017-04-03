@@ -45,7 +45,7 @@ public class ToBeProcessedDAO {
 				ps.setString(7, toBeProcessed.get(i).getYear());
 				ps.setString(8, toBeProcessed.get(i).getMonth());
 				ps.setString(9, toBeProcessed.get(i).getDay());
-				System.out.println(ps);
+//				System.out.println(ps);
 
 				ps.execute();
 			}

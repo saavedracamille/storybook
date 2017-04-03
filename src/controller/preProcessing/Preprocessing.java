@@ -22,7 +22,7 @@ public class Preprocessing {
 		stopwords = new HashSet<String>();
 
 		BufferedReader br = new BufferedReader(new FileReader(
-				"C:\\Users\\Robee Khyra Te\\Desktop\\thesis\\src\\controller\\storyGenerationBody\\stopwords.txt"));
+				"C:\\Users\\Robee Khyra Te\\Desktop\\thesis\\src\\controller\\preProcessing\\stopwords.txt"));
 		try {
 			String line = br.readLine();
 
@@ -74,9 +74,9 @@ public class Preprocessing {
 		newString = newString.replaceAll(
 				"(XD|xD|xd|Xd|<3|:3|:o|:O|:D|:d|(:|<|>|\\'|\\\"|\\^|\\*|_|\\-|\\=|\\{|\\}|`|~|\\[|\\]|[|]|[(]|[)]){2,})*",
 				"");
-		newString = newString.replace("((H|h)*(A|a)*)*{2,}", "");
+		newString = newString.replaceAll("\\b[h|a|H|A]+\\b(?![,])", "");
 
-		// System.out.println("Final String " + newString);
+//		System.out.println("Final String " + newString);
 
 		return newString;
 	}
