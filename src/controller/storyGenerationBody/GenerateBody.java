@@ -565,12 +565,12 @@ public class GenerateBody {
 	}
 
 	public String determine3(ArrayList<VerbObject> verbObject) {
-		String[] a = { "In the same month, <sentence>", "During that time, <sentence>", "Shortly after, <sentence>",
-				"During that same month, <sentence>", "<sentence> on the same month.", "<sentence> shortly after." };
-		String[] b = { "After <x> months, <sentence>", "<x> months later, <sentence>",
-				"Then, <sentence> <x> months after.", "<sentence> <x> months after.", "In that same year, <sentence>",
-				"A few months later, <sentence>", "<sentence> in that same year", "<sentence> a few months later",
-				"<sentence> <x> months afterwards", "During that same year, <sentence>" };
+		String[] a = { "In the same month, <sentence>", "During that time, <sentence>", "Shortly before, <sentence>",
+				"During that same month, <sentence>", "<sentence> on the same month.", "<sentence> shortly before." };
+		String[] b = { "After <x> months, <sentence>", "<x> months before, <sentence>",
+				"Then, <sentence> <x> months before.", "<sentence> <x> months before.", "In that same year, <sentence>",
+				"A few months earlier, <sentence>", "<sentence> in that same year", "<sentence> a few months before",
+				"<sentence> <x> months before", "During that same year, <sentence>" };
 
 		String finalSentence = "";
 
@@ -600,7 +600,7 @@ public class GenerateBody {
 					sentence = a[random];
 					while (m.find()) {
 						if (m.group(1).contains("x")) {
-							sentence = sentence.replace("<x>", verbObject.get(i).getMonth(String.valueOf(month + 1)));
+							sentence = sentence.replace("<x>", String.valueOf(monthDifference));
 						}
 						if (m.group(1).contains("sentence")) {
 							sentence = sentence.replace("<sentence>", s);
@@ -614,7 +614,7 @@ public class GenerateBody {
 					sentence = b[random];
 					while (m.find()) {
 						if (m.group(1).contains("x")) {
-							sentence = sentence.replace("<x>", verbObject.get(i).getMonth(String.valueOf(month + 1)));
+							sentence = sentence.replace("<x>", String.valueOf(Math.abs(monthDifference)));
 						}
 						if (m.group(1).contains("sentence")) {
 							sentence = sentence.replace("<sentence>", s);

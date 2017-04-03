@@ -54,7 +54,7 @@ public class TokenDAO {
 			ps = conn.prepareStatement("SELECT " + Token.COL_NAME + ", " + Token.COL_TBPID + " FROM " + Token.TABLE_TOKEN + " WHERE "
 					+ Token.COL_POSID + " = 27 OR " + Token.COL_POSID + " = 28 OR " + Token.COL_POSID + " = 29 OR "
 					+ Token.COL_POSID + " = 30 OR " + Token.COL_POSID + " = 31 OR " + Token.COL_POSID + " = 32;");
-			System.out.println("GET ALL VERBS SQL QUERY: " + ps);
+//			System.out.println("GET ALL VERBS SQL QUERY: " + ps);
 
 			rs = ps.executeQuery();
 

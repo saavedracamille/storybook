@@ -24,6 +24,7 @@ import jsonParser.PostsJSON;
 @WebServlet(urlPatterns = { "/Controller","/StartServlet", "/ToDB", "/OutputPage"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private String wholeStory = "";
      
     public Controller() {
         super();
@@ -34,7 +35,6 @@ public class Controller extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
 		String path = request.getServletPath();
-		String wholeStory = "";
 
 		if (path.equals("/StartServlet")) {
 			request.getRequestDispatcher("startPage.jsp").forward(request, response);
