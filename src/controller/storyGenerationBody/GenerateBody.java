@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,11 +47,11 @@ public class GenerateBody {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		this.tbps = tbpd.getAllPosts();
 
-		 TextUnderstanding tu = new TextUnderstanding();
-		 tu.performTextUnderstanding(tbps);
-
-		 EventClassification ec = new EventClassification();
-		 ec.performEventClassification(tbps);
+		// TextUnderstanding tu = new TextUnderstanding();
+		// tu.performTextUnderstanding(tbps);
+		//
+		// EventClassification ec = new EventClassification();
+		// ec.performEventClassification(tbps);
 
 		this.body = generateWholeBody();
 	}
@@ -101,9 +102,17 @@ public class GenerateBody {
 		String doer = "";
 
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
+		VerbObjectDAO vod = new VerbObjectDAO();
 
 		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
-		
+		String gender = dkd.getSpecificDirectKnowledge("gender");
+		String pronoun = "";
+		if (gender.equalsIgnoreCase("female")) {
+			pronoun = "She";
+		} else if (doer.equalsIgnoreCase("male")) {
+			pronoun = "He";
+		}
+
 		ArrayList<String> tags = getFrequentTagged(verbObjects);
 		if (tags.size() >= 3) {
 			ArrayList<VerbObject> posts = getPostsWithTag(tags, verbObjects);
@@ -112,7 +121,12 @@ public class GenerateBody {
 			verbObjects.removeAll(posts);
 			paragraph += genSucceedingSentences(verbObjects);
 		} else {
-			paragraph += doer + genSucceedingSentences(verbObjects);
+			paragraph += genSucceedingSentences(verbObjects);
+		}
+
+		if (postType == 10) {
+			ArrayList<CheckIn> travelledTo = vod.getAllWithLocation();
+			paragraph += pronoun + getTravelledPlaces(travelledTo);
 		}
 
 		return paragraph;
@@ -126,11 +140,11 @@ public class GenerateBody {
 				String user[] = getTagged(verbObjects.get(i).getTagged());
 				if (user != null && user.length != 0) {
 					for (int j = 0; j < user.length; j++) {
-						if(user[j].startsWith(" "))
+						if (user[j].startsWith(" "))
 							user[j] = user[j].substring(1, user[j].length());
-						if(user[j].endsWith(" "))
-							user[j] = user[j].substring(0, user[j].length()-1);
-						
+						if (user[j].endsWith(" "))
+							user[j] = user[j].substring(0, user[j].length() - 1);
+
 						if (tags.containsKey(user[j])) {
 							int count = tags.get(user[j]);
 							count++;
@@ -142,16 +156,16 @@ public class GenerateBody {
 				}
 			}
 		}
-		
+
 		return sortFrequentTagged(tags);
 	}
-	
+
 	public String[] getTagged(String people) {
 		people = people.substring(5, people.length());
 		String temp[] = null;
 		String user[] = null;
 		String temp1[] = null;
-		
+
 		if (people.contains(",") && people.contains("and")) {
 			if (people.contains(",")) {
 				temp = people.split(", ");
@@ -159,13 +173,13 @@ public class GenerateBody {
 				for (int j = 0; j < temp.length - 1; j++)
 					user[j] = temp[j];
 			}
-			
+
 			if (people.contains("and")) {
 				if (temp.length != 0 && temp != null)
 					temp1 = temp[temp.length - 1].split(" and ");
 				else
 					temp1 = people.split(" and ");
-				
+
 				user[user.length - 2] = temp1[0];
 				user[user.length - 1] = temp1[1];
 			}
@@ -173,33 +187,33 @@ public class GenerateBody {
 			user = new String[1];
 			user[0] = people;
 		}
-		
+
 		return user;
 	}
 
 	public ArrayList<String> sortFrequentTagged(HashMap<String, Integer> tags) {
-		ArrayList<String> mostFreq = new ArrayList<String> ();
-		Entry<String,Integer> maxEntry = null;
+		ArrayList<String> mostFreq = new ArrayList<String>();
+		Entry<String, Integer> maxEntry = null;
 
-		for(Entry<String, Integer> entry : tags.entrySet())
-		    if (maxEntry == null || entry.getValue() > maxEntry.getValue())
-		        maxEntry = entry;
-		
-		if(maxEntry!= null) {
+		for (Entry<String, Integer> entry : tags.entrySet())
+			if (maxEntry == null || entry.getValue() > maxEntry.getValue())
+				maxEntry = entry;
+
+		if (maxEntry != null) {
 			mostFreq.add(maxEntry.getKey());
-			
-			for(Entry<String, Integer> entry : tags.entrySet())
+
+			for (Entry<String, Integer> entry : tags.entrySet())
 				if (entry.getValue() == maxEntry.getValue() && !mostFreq.contains(entry.getKey()))
 					mostFreq.add(entry.getKey());
 		}
-		
+
 		return mostFreq;
 	}
-	
-	public ArrayList<VerbObject> getPostsWithTag(ArrayList<String> names, ArrayList<VerbObject> verbObjects){
-		ArrayList<VerbObject> posts = new ArrayList<VerbObject> ();
-		
-		for (int i = 0; i < names.size(); i ++){
+
+	public ArrayList<VerbObject> getPostsWithTag(ArrayList<String> names, ArrayList<VerbObject> verbObjects) {
+		ArrayList<VerbObject> posts = new ArrayList<VerbObject>();
+
+		for (int i = 3; i < names.size(); i++) {
 			for (int j = 0; j < verbObjects.size(); j++) {
 				String tagged = verbObjects.get(j).getTagged();
 				if (tagged.contains(names.get(i)) && !posts.contains(verbObjects.get(j))) {
@@ -207,141 +221,153 @@ public class GenerateBody {
 				}
 			}
 		}
-		
+
 		return posts;
 	}
-	
+
 	public String getAction(int action) {
-		switch(action){
-			case 1: return "bought new item/s";
-			case 2: return "celebrated most";
-			case 3: return "watched the most";
-			case 4: return "played the most"; 
-			case 5: return "eaten frequently";
-			case 6: return "made the most";
-			case 7: return "mostly drank"; 
-			case 8: return "mostly listened to music"; 
-			case 9: return "read a lot"; 
-			case 10: return "travelled to different places"; 
-			case 11: return "often remembered memories";
-			case 12: return "mostly attended";
-			case 13: return "the many opinions when";
-			case 14: return "laughed a lot"; 
+		switch (action) {
+		case 1:
+			return "bought new item/s";
+		case 2:
+			return "celebrated most";
+		case 3:
+			return "watched the most";
+		case 4:
+			return "played the most";
+		case 5:
+			return "eaten frequently";
+		case 6:
+			return "made the most";
+		case 7:
+			return "mostly drank";
+		case 8:
+			return "mostly listened to music";
+		case 9:
+			return "read a lot";
+		case 10:
+			return "travelled to different places";
+		case 11:
+			return "often remembered memories";
+		case 12:
+			return "mostly attended";
+		case 13:
+			return "the many opinions when";
+		case 14:
+			return "laughed a lot";
 		}
-		
+
 		return null;
 	}
-	
+
 	public String genFirstSentence(ArrayList<String> tags, ArrayList<VerbObject> verbObjects, int postType) {
 		String template = "has <action> with <people>. ";
 		String action = getAction(postType);
-		
+
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(template);
-		
+
 		while (m.find()) {
 			if (m.group(1).contains("action")) {
 				template = template.replace("<action>", action);
 			}
-			
+
 			if (m.group(1).contains("people")) {
 				String tagged = "";
-				/*for (int i = tags.size() - 1; i >= 0; i--) {
-					tagged += tags.get(i);
-					if (i > 1)
-						tagged += ", ";
-					else if(i == 1)
-						tagged += " and ";
-				}*/
+				/*
+				 * for (int i = tags.size() - 1; i >= 0; i--) { tagged +=
+				 * tags.get(i); if (i > 1) tagged += ", "; else if(i == 1)
+				 * tagged += " and "; }
+				 */
 				int size = 3;
-				if(tags.size() < 3){
+				if (tags.size() < 3) {
 					size = tags.size();
 				}
-				
-				for (int i = size-1; i >= 0; i--) {
+
+				for (int i = size - 1; i >= 0; i--) {
 					tagged += tags.get(i);
-					if(size == 0)
+					if (size == 0)
 						tagged += "";
 					else if (i > 1)
 						tagged += ", ";
-					else if(i == 1)
+					else if (i == 1)
 						tagged += " and ";
 				}
 				template = template.replace("<people>", tagged);
 			}
 		}
-		
+
 		return template;
 	}
-	
+
 	public String genSecondSentence(ArrayList<VerbObject> posts, int postType) {
-		String template = "They <verb> <object>together. ";
-		
+		String template = "They <verb> <object> together. ";
+
 		PostTypeDAO ptd = new PostTypeDAO();
-		
-//		for (int i = 0; i < posts.size(); i++) {
-//			System.out.println("POSTS: " + i + ": " + posts.get(i).getVerb());
-//		}
-		
+
+		// for (int i = 0; i < posts.size(); i++) {
+		// System.out.println("POSTS: " + i + ": " + posts.get(i).getVerb());
+		// }
+
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(template);
-		
+
 		while (m.find()) {
 			if (m.group(1).contains("verb")) {
 				String verb = ptd.getVerb(postType);
 				template = template.replace("<verb>", verb);
 			}
-			
+
 			if (m.group(1).contains("object")) {
 				String noun = "";
 				for (int i = posts.size() - 1; i >= 0; i--) {
 					noun += posts.get(i).getNoun();
 					if (i > 1)
 						noun += ", ";
-					else if(i == 1)
+					else if (i == 1)
 						noun += " and ";
 				}
 				template = template.replace("<object>", noun);
 			}
 		}
-		
-//		System.out.println(template);
-		
+
+		// System.out.println(template);
+
 		return template;
 	}
-	
+
 	public String genSucceedingSentences(ArrayList<VerbObject> verbObjects) {
 		String paragraph = "";
-	
+
 		HashMap<Integer, ArrayList<VerbObject>> compiledPosts = compileByYear(verbObjects);
-		
+
 		for (HashMap.Entry<Integer, ArrayList<VerbObject>> entry : compiledPosts.entrySet()) {
-			System.out.println("HASHMAP: " + entry.getKey());
+			System.out.println(entry.getKey());
 			for (int i = 0; i < entry.getValue().size(); i++)
-				System.out.println("VO: " + entry.getValue().get(i).getSentence());
-		    paragraph += determineYear(entry.getKey(), entry.getValue()) + " ";
+				System.out.println(entry.getValue().get(i).getDate().toString());
+			paragraph += determineYear(entry.getKey(), entry.getValue());
 		}
-		
+
 		return paragraph;
 	}
-	
+
 	public String actualGeneration(VerbObject verbObject) {
 		String paragraph = "";
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
 		String doer = "";
 		String pronoun = "";
-		
+
 		doer = dkd.getSpecificDirectKnowledge("gender");
 		if (doer.equalsIgnoreCase("female")) {
 			pronoun = "She";
 		} else if (doer.equalsIgnoreCase("male")) {
 			pronoun = "He";
 		}
-		
+
 		Lexicon lexicon = Lexicon.getDefaultLexicon();
 		NLGFactory nlgFactory = new NLGFactory(lexicon);
 		Realiser realiser = new Realiser(lexicon);
-		
+
 		SPhraseSpec p = nlgFactory.createClause();
 		p.setSubject(pronoun);
 		p.setVerb(verbObject.getVerb());
@@ -351,132 +377,265 @@ public class GenerateBody {
 
 		p.setFeature(Feature.TENSE, Tense.PAST);
 
-		//DocumentElement documentElement = nlgFactory.createSentence(p);
-		
+		// DocumentElement documentElement = nlgFactory.createSentence(p);
+
 		paragraph = realiser.realiseSentence(p);
-		
+
 		return paragraph;
 	}
-	
+
 	public String determineYear(int year, ArrayList<VerbObject> verbObjects) {
+		String[] lastYr = { "A year ago, ", "In the previous year, ", "Last year, " };
+		String[] lastNYr = { "<x> years ago, ", "Last <x> years, ", "About <x> years before today, " };
+		String[] inN = { "More than half a decade ago, ", "During <x>, ", "In <x>, " };
 		String sentence = "";
 		int yearDifference = 0;
-		
+
 		LocalDateTime now = LocalDateTime.now();
 		int yearNow = now.getYear();
-		
+
 		yearDifference = yearNow - year;
-		
+
+		int random = -1;
+
+		Pattern p = Pattern.compile("\\<(.*?)\\>");
+		Matcher m = null;
+
 		if (yearDifference == 0) {
-			sentence += "";
 			sentence += determine2A(verbObjects.get(0));
 		} else if (yearDifference == 1) {
-			sentence += "Last year, ";
+			random = chooseRandomTemplate(lastYr.length);
+			sentence += lastYr[random];
+			// sentence += "Last year, ";
 			sentence += determine2B(verbObjects.get(0));
-		} else if (yearDifference == 5){
-			sentence += "Last " + yearDifference + " years ago, ";
+		} else if (yearDifference == 5) {
+			random = chooseRandomTemplate(lastNYr.length);
+			m = p.matcher(lastNYr[random]);
+			sentence = lastNYr[random];
+			while (m.find()) {
+				if (m.group(1).contains("x")) {
+					sentence = sentence.replace("<x>", String.valueOf(year));
+				}
+			}
+			// sentence += "Last " + yearDifference + " years ago, ";
 			sentence += determine2B(verbObjects.get(0));
 		} else {
-			sentence += "In " + year + ", ";
+			random = chooseRandomTemplate(inN.length);
+			m = p.matcher(inN[random]);
+			sentence = inN[random];
+			while (m.find()) {
+				if (m.group(1).contains("x")) {
+					sentence = sentence.replace("<x>", String.valueOf(year));
+				}
+			}
+			// sentence += "In " + year + ", ";
 			sentence += determine2B(verbObjects.get(0));
 		}
-		
+
 		sentence += determine3(verbObjects);
-		
+
 		return sentence;
 	}
-	
+
 	public String determine2A(VerbObject verbObject) {
+		String[] recently = { "Recently, ", "In recent times, ", "In recent past, ", "Not long ago, " };
+		String[] monthsAgo = { "A few months ago, ", "During the past few months, " };
+		String[] thisYr = { "This year, in <month>, ", "Almost a year ago, ", "Many months ago, ", "Early this year," };
 		String sentence = "";
 		String s = actualGeneration(verbObject);
-		s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length());
-		
+		s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length() - 1);
+
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(verbObject.getDate());
 		int month = cal.get(Calendar.MONTH);
-		
+
 		LocalDateTime now = LocalDateTime.now();
 		int monthNow = now.getMonthValue();
-		
+
 		int monthDifference = monthNow - month;
-		
+
+		int random = -1;
+
+		Pattern p = Pattern.compile("\\<(.*?)\\>");
+		Matcher m = null;
+
 		if (monthDifference == 0) {
-			sentence += "Recently, " + s;
+			random = chooseRandomTemplate(recently.length);
+			sentence += recently[random] + s + ". ";
+			// sentence += "Recently, " + s;
 		} else if (monthDifference <= 5) {
-			sentence += "A few months ago, " + s;
+			random = chooseRandomTemplate(monthsAgo.length);
+			sentence += monthsAgo[random] + s + ". ";
+			// sentence += "A few months ago, " + s;
 		} else {
-			sentence += "This year, in " + verbObject.getMonth(String.valueOf(month + 1)) + ", " + s;
+			random = chooseRandomTemplate(thisYr.length);
+			m = p.matcher(thisYr[random]);
+			sentence = thisYr[random];
+			while (m.find()) {
+				if (m.group(1).contains("month")) {
+					sentence = sentence.replace("<month>", verbObject.getMonth(String.valueOf(month + 1)));
+				}
+			}
+			sentence += s + ". ";
+			// sentence += "This year, in " +
+			// verbObject.getMonth(String.valueOf(month + 1)) + ", " + s;
 		}
 
 		return sentence;
 	}
-	
+
 	public String determine2B(VerbObject verbObject) {
+		String[] earlyMonth = { "Early that <month>, <sentence>", "As the month starts that year, <sentence>",
+				"During the start of the month, <sentence>", "<sentence> during the start of the month",
+				"<sentence> as the month starts", "<sentence> early <month> that year" };
+		String[] midMonth = { "In the middle of the <month>, <sentence>", "Mid-<month>, <sentence>",
+				"<sentence> mid-<month>", "During <month>, <sentence>" };
+		String[] endMonth = { "Before the end approaches <month>, <sentence>",
+				"As the month of <month> ends, <sentence>", "Near the end of <month> in that year, <sentence>",
+				"Near the end of that month of <month>, <sentence>", "<sentence> as <month> ends that year",
+				"<sentence> near the end of the <month> that year", "<sentence> when <month> approaches the last day" };
 		String sentence = "";
 		String s = actualGeneration(verbObject);
-		s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length());
-		
+		s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length() - 1);
+
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(verbObject.getDate());
-		
+
 		int month = cal.get(Calendar.MONTH);
 		int day = cal.get(Calendar.DATE);
 		String monthWord = verbObject.getMonth(String.valueOf(month + 1));
-		
+
+		int random = -1;
+
+		Pattern p = Pattern.compile("\\<(.*?)\\>");
+		Matcher m = null;
+
 		if (day >= 1 && day <= 10) {
-			sentence += "early that " + monthWord + ", " + s;
+			random = chooseRandomTemplate(earlyMonth.length);
+			m = p.matcher(earlyMonth[random]);
+			sentence = earlyMonth[random];
+			while (m.find()) {
+				if (m.group(1).contains("month")) {
+					sentence = sentence.replace("<month>", monthWord);
+				}
+				if (m.group(1).contains("sentence")) {
+					sentence = sentence.replace("<sentence>", s);
+				}
+			}
+			sentence += ". ";
+			// sentence += "early that " + monthWord + ", " + s;
 		} else if (day >= 11 && day <= 20) {
-			sentence += "mid-" + monthWord + ", " + s;
+			random = chooseRandomTemplate(midMonth.length);
+			m = p.matcher(midMonth[random]);
+			sentence = midMonth[random];
+			while (m.find()) {
+				if (m.group(1).contains("month")) {
+					sentence = sentence.replace("<month>", monthWord);
+				}
+				if (m.group(1).contains("sentence")) {
+					sentence = sentence.replace("<sentence>", s);
+				}
+			}
+			sentence += ". ";
+			// sentence += "mid-" + monthWord + ", " + s;
 		} else if (day >= 21 && day <= 31) {
-			sentence += "as the month of " + monthWord + " ends, " + s;
+			random = chooseRandomTemplate(endMonth.length);
+			m = p.matcher(endMonth[random]);
+			sentence = endMonth[random];
+			while (m.find()) {
+				if (m.group(1).contains("month")) {
+					sentence = sentence.replace("<month>", verbObject.getMonth(String.valueOf(month + 1)));
+				}
+				if (m.group(1).contains("sentence")) {
+					sentence = sentence.replace("<sentence>", s);
+				}
+			}
+			sentence += ". ";
+			// sentence += "as the month of " + monthWord + " ends, " + s;
 		}
-		
+
 		return sentence;
 	}
-	
-	public String determine3(ArrayList<VerbObject> verbObject){
+
+	public String determine3(ArrayList<VerbObject> verbObject) {
+		String[] a = { "In the same month, <sentence>", "During that time, <sentence>", "Shortly after, <sentence>",
+				"During that same month, <sentence>", "<sentence> on the same month.", "<sentence> shortly after." };
+		String[] b = { "After <x> months, <sentence>", "<x> months later, <sentence>", "Then, <sentence> <x> months after.",
+				"<sentence> <x> months after.", "In that same year, <sentence>", "A few months later, <sentence>",
+				"<sentence> in that same year", "<sentence> a few months later", "<sentence> <x> months afterwards",
+				"During that same year, <sentence>" };
+
 		String finalSentence = "";
-		
-		for(int i = 1; i < verbObject.size(); i++) {
+
+		for (int i = 1; i < verbObject.size(); i++) {
 			String sentence = "";
 			String s = actualGeneration(verbObject.get(i));
-			s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length());
-			
+			s = s.substring(0, 1).toLowerCase() + s.substring(1, s.length() - 1);
+
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(verbObject.get(i).getDate());
 			int month = cal.get(Calendar.MONTH);
-			
+
 			LocalDateTime now = LocalDateTime.now();
 			int monthNow = now.getMonthValue();
-			
+
 			int monthDifference = monthNow - month;
-			if(i == 1){
-				if(monthDifference == 0){
-					sentence += "In that same month, " + s;
-				}
-				else{
-					sentence += "After "+ verbObject.get(i).getMonth(String.valueOf(month + 1)) +" months, " + s;
+			
+			int random = -1;
+
+			Pattern p = Pattern.compile("\\<(.*?)\\>");
+			Matcher m = null;
+
+			if (i == 1) {
+				if (monthDifference == 0) {
+					random = chooseRandomTemplate(a.length);
+					m = p.matcher(a[random]);
+					sentence = a[random];
+					while (m.find()) {
+						if (m.group(1).contains("x")) {
+							sentence = sentence.replace("<x>", verbObject.get(i).getMonth(String.valueOf(month + 1)));
+						}
+						if (m.group(1).contains("sentence")) {
+							sentence = sentence.replace("<sentence>", s);
+						}
+					}
+					sentence += ". ";
+//					sentence += "In that same month, " + s;
+				} else {
+					random = chooseRandomTemplate(b.length);
+					m = p.matcher(b[random]);
+					sentence = b[random];
+					while (m.find()) {
+						if (m.group(1).contains("x")) {
+							sentence = sentence.replace("<x>", verbObject.get(i).getMonth(String.valueOf(month + 1)));
+						}
+						if (m.group(1).contains("sentence")) {
+							sentence = sentence.replace("<sentence>", s);
+						}
+					}
+					sentence += ". ";
+//					sentence += Math.abs(monthDifference) + " months before, " + s;
 				}
 			}
-			
+
 			finalSentence += sentence;
 		}
 
 		return finalSentence;
 	}
-	
+
 	public HashMap<Integer, ArrayList<VerbObject>> compileByYear(ArrayList<VerbObject> verbObjects) {
-		HashMap<Integer, ArrayList<VerbObject>> vos = new HashMap<Integer, ArrayList<VerbObject>> ();
-		ArrayList<VerbObject> posts = new ArrayList<VerbObject> ();
+		HashMap<Integer, ArrayList<VerbObject>> vos = new HashMap<Integer, ArrayList<VerbObject>>();
 		VerbObject verbObject = null;
-		
+
 		for (int i = verbObjects.size() - 1; i >= 0; i--) {
+			ArrayList<VerbObject> posts = new ArrayList<VerbObject>();
 			verbObject = verbObjects.get(i);
 
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(verbObject.getDate());
 			int year = cal.get(Calendar.YEAR);
-			
+
 			if (!vos.containsKey(year)) {
 				posts.add(verbObject);
 				vos.put(year, posts);
@@ -485,10 +644,35 @@ public class GenerateBody {
 				posts.add(verbObject);
 				vos.put(year, posts);
 			}
-			
-			posts.clear();
 		}
-		
+
 		return vos;
+	}
+
+	public int chooseRandomTemplate(int size) {
+		int chosenTemplate = -1;
+
+		Random random = new Random();
+		chosenTemplate = random.nextInt(size - 1 - 0 + 1);
+
+		return chosenTemplate;
+	}
+
+	public String getTravelledPlaces(ArrayList<CheckIn> verbObjects) {
+		String sentence = " has travelled to ";
+		String connector = "";
+
+		for (int i = 0; i < verbObjects.size(); i++) {
+			if (verbObjects.size() - 2 != i)
+				connector = ", ";
+			else
+				connector = " and ";
+
+//			sentence += verbObjects.get(i).getLocation() + connector;
+		}
+
+		sentence = sentence.substring(0, sentence.length() - 2);
+
+		return sentence;
 	}
 }

@@ -65,6 +65,10 @@ public class VerbObject {
 		this.date = date;
 	}
 	
+	public VerbObject(String location) {
+		this.location = location;
+	}
+	
 	public int getId() {
 		return id;
 	}
