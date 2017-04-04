@@ -376,8 +376,11 @@ public class GenerateIntro {
 						int yr = now.getYear();
 						if(yr > Integer.parseInt(year_graduated))
 							finalSentence = finalSentence.replace("<grad_year>", year_graduated);
-						else
+						else{
+							finalSentence = removeGrad(finalSentence);
 							finalSentence = replaceToPresent(finalSentence);
+						}
+							
 						
 					} 
 					else if (educationalBgs.get(j).getType().contains(type)){	
@@ -385,16 +388,21 @@ public class GenerateIntro {
 						
 					} else if(String.valueOf(educationalBgs.get(j).getYear_graduated())!= null
 						&& educationalBgs.get(j).getYear_graduated() != 0){
-						if (finalSentence.contains("last <grad_year>"))
-							finalSentence = finalSentence.replace(" last <grad_year>", "");
-						else if (finalSentence.contains("in <grad_year>"))
-							finalSentence = finalSentence.replace(" in <grad_year>", "");
-						else if (finalSentence.contains("on <grad_year>"))
-							finalSentence = finalSentence.replace(" on <grad_year>", "");
+						finalSentence = removeGrad(finalSentence);
 					}
 				}
 			}
 		}
+		return finalSentence;
+	}
+	
+	public String removeGrad(String finalSentence){
+		if (finalSentence.contains("last <grad_year>"))
+			finalSentence = finalSentence.replace(" last <grad_year>", "");
+		else if (finalSentence.contains("in <grad_year>"))
+			finalSentence = finalSentence.replace(" in <grad_year>", "");
+		else if (finalSentence.contains("on <grad_year>"))
+			finalSentence = finalSentence.replace(" on <grad_year>", "");
 		return finalSentence;
 	}
 	
