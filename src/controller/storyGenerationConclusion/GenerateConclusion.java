@@ -127,7 +127,6 @@ public class GenerateConclusion {
 		return sentence;
 	}
 
-	//TODO: Add interested events.
 	public String generateEvents(Event event){
 		String finalSentence = eventTemplate;
 		String eventname = "";
