@@ -1,10 +1,12 @@
 package jsonParser;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import controller.preProcessing.Preprocessing;
 import models.CheckIn;
 import models.Event;
 import modelsDAO.EventDAO;
@@ -21,6 +23,12 @@ public class EventsJSON {
 	
 	public ArrayList<Event> getEvents(JSONArray data) {
 		ArrayList<Event> allEvents = new ArrayList<Event> ();
+		Preprocessing p = null;
+		try {
+			p = new Preprocessing();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		for (int i = 0; i < data.size(); i++) {
 			JSONArray eventArray = (JSONArray) data.get(i);
@@ -32,7 +40,7 @@ public class EventsJSON {
 				JSONObject events = (JSONObject) eventArray.get(j);
 				
 				if (events != null) {
-					String name = events.get("name").toString();
+					String name = p.removeSpecialCharacters(events.get("name").toString());
 					String rsvp_status = events.get("rsvp_status").toString();
 					String fbID = events.get("id").toString();
 					

@@ -1,10 +1,12 @@
 package jsonParser;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import controller.preProcessing.Preprocessing;
 import models.Likes;
 import modelsDAO.LikesDAO;
 
@@ -21,6 +23,12 @@ public class LikesJSON {
 	
 	public ArrayList<Likes> getLikes(JSONArray data) {
 		ArrayList<Likes> likes = new ArrayList<Likes> ();
+		Preprocessing p = null;
+		try {
+			p = new Preprocessing();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		for (int i = 0; i < data.size(); i++) {
 			JSONArray likesArray = (JSONArray) data.get(i);
@@ -35,7 +43,7 @@ public class LikesJSON {
 					String id = "";
 					
 					if (l.get("name") != null) {
-						name = l.get("name").toString();
+						name = p.removeSpecialCharacters(l.get("name").toString());
 						like.setInterest(name);
 					}
 					if (l.get("category") != null) {
