@@ -1,0 +1,6 @@
+target/
+.settings
+.classpath
+.project
+properties.xml
+properties_min.xml
