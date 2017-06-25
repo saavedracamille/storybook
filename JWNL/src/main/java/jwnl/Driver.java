@@ -23,38 +23,29 @@ public class Driver {
             JWNL.initialize(new FileInputStream("src/main/resources/properties.xml"));
             final Dictionary dictionary = Dictionary.getInstance();
             
-            ArrayList<String> glossList = new ArrayList<String>();
+            Xls xls = new Xls();
+            ArrayList<Morpho> morphs = xls.getMorphList();
             
-            IndexWord indexWord = dictionary.lookupIndexWord(POS.VERB,"bear");
+            int n = 0;
+            n++;
+            
+            ArrayList<String> glossList1 = new ArrayList<String>();
+            IndexWord indexWord = dictionary.lookupIndexWord(POS.VERB,"travel");
             int senseNum = 0;
             for(Synset synset: indexWord.getSenses()){
                 senseNum++;
                 String gloss = synset.getGloss();
                 System.out.println("For sense: " + senseNum + " (" + gloss + ")");
-                glossList.add(gloss);
+                glossList1.add(gloss);
                 Word[] words = synset.getWords();
                 for(Word word: words){
                     System.out.println("\t"+word.getLemma()+"("+word.getPOS()+")"+"("+word.getSenseKey()+")");
                 }
             }
             
-            Xls xls = new Xls();
-            ArrayList<Morpho> morphs = xls.getMorphList();
-            
-            System.out.println();
-            System.out.println("Getting related nouns...");
-            
-            senseNum = 0;
-            for(String gloss: glossList) {
-            	senseNum++;
-            	System.out.println("For sense: " + senseNum + " (" + gloss + ")");
-            	for(Morpho morpho: morphs) {
-            		if(gloss.startsWith(morpho.getGloss1())) {
-            			System.out.println("\t"+ morpho.getSensekey2() + "; " + morpho.getGloss2());
-            		}
-            	}
-            }
-            
+            //get morphosemantic related words (verb-noun relation)
+            ArrayList<String> glossList2 = getRelatedNouns(morphs, glossList1, n++);
+                   
         }
         catch (final FileNotFoundException e) {
             e.printStackTrace();
@@ -63,4 +54,25 @@ public class Driver {
             e.printStackTrace();
         }
     }
+    
+    public static ArrayList<String> getRelatedNouns(ArrayList<Morpho> morphs, ArrayList<String> glossList, int n) {
+    	System.out.println();
+        System.out.println("(" + n + ") " + "Getting morphosemantic related words...");
+        
+        ArrayList<String> glossListResult = new ArrayList<String>();
+        
+        int senseNum = 0;
+        for(String gloss: glossList) {
+        	senseNum++;
+        	System.out.println("For sense: " + senseNum + " (" + gloss + ")");
+        	glossListResult.add(gloss);
+        	for(Morpho morpho: morphs) {
+        		if(gloss.startsWith(morpho.getGloss1())) {
+        			System.out.println("\t"+ morpho.getSensekey1() + " (" + morpho.getRelation() + ") " + morpho.getSensekey2() + "; " + morpho.getGloss2());
+        		}
+        	}
+        }
+        return glossListResult;
+    }
+    
 }
