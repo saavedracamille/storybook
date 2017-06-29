@@ -38,4 +38,16 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	public String getName(){
+		String name = "";
+		if(firstName != null)
+			name += firstName + " ";
+		if(middleName != null)
+			name += middleName + " ";
+		if(lastName != null)
+			name += lastName + " ";
+		
+		return name;
+	}
 }

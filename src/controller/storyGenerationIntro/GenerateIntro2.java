@@ -1,9 +1,12 @@
 package controller.storyGenerationIntro;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import models.EducationalBackground;
 import models.Work;
 import objects.Birth;
+import objects.FamilyRole;
 import objects.Gender;
 import objects.LivingIn;
 import objects.Occupation;
@@ -12,6 +15,8 @@ import simplenlg.features.Feature;
 import simplenlg.features.Form;
 import simplenlg.features.Tense;
 import simplenlg.framework.CoordinatedPhraseElement;
+import simplenlg.framework.DocumentElement;
+import simplenlg.framework.LexicalCategory;
 import simplenlg.framework.NLGElement;
 import simplenlg.framework.NLGFactory;
 import simplenlg.lexicon.Lexicon;
@@ -24,6 +29,7 @@ public class GenerateIntro2 {
 	private Lexicon lexicon;
 	private NLGFactory nlgFactory;
 	private Realiser realiser;
+	private String pronoun;
 
 	public GenerateIntro2() {
 		lexicon = Lexicon.getDefaultLexicon();
@@ -31,36 +37,52 @@ public class GenerateIntro2 {
 		realiser = new Realiser(lexicon);
 	}
 	
-	public NLGElement birthPhrase(Birth birth) {
-		//TODO: CHANGE VERB
+	public String generateIntroduction(IntroObjectInit objects){
+		String intro = "";
+		pronoun = objects.getGender().getPronoun();
+		System.out.println("PRONOUN: "+pronoun );
+		ArrayList<DocumentElement> list = new ArrayList<DocumentElement>();
+		
+		list.add(birthPhrase(objects.getBirth(), objects.getPersonName()));
+		//list.add(genderPhrase(objects.getGender()));
+		list.add(locationPhrase(objects.getLivingIn()));
+		//list.add(occupationPhrase(objects.getOccupation()));
+		list.add(educationPhrase(objects.getEducationalBackground()));		
+		//list.add(motherPhrase(relationships);
+		//list.add(workPhrase(objects.getWorks()));
+				
+		DocumentElement par = nlgFactory.createParagraph(list); 
+		String output = realiser.realise(par).getRealisation();
+	    System.out.println(output);
+		return intro;
+	}
+	
+	public DocumentElement birthPhrase(Birth birth, String name) {
 		String birthday = birth.getBirthday();
 		
 		SPhraseSpec s = new SPhraseSpec(nlgFactory);
-		s.setVerb("born");
+		s.setSubject(name);
+		s.setVerb("is");
+		s.addPostModifier("born");
 		
 		PPPhraseSpec p1 = new PPPhraseSpec(nlgFactory);
 		p1.setPreposition("on");
 		p1.addComplement(birthday);
 		s.addModifier(p1); 
 		
-		String output = realiser.realiseSentence(s);
-		System.out.println("BIRTH: " + output);
-		
-		return s;
+		return nlgFactory.createSentence(s);
 	}
 	
-	public NLGElement genderPhrase(Gender gender) {
+	public DocumentElement genderPhrase(Gender gender) {
 		NPPhraseSpec s = nlgFactory.createNounPhrase(gender.getGender());
 		s.setDeterminer("a");
 		
-		String output = realiser.realiseSentence(s);
-		System.out.println("GENDER: " + output);
-		
-		return s;
+		return nlgFactory.createSentence(s);
 	}
 	
-	public NLGElement locationPhrase(LivingIn livingIn) {
+	public DocumentElement locationPhrase(LivingIn livingIn) {
 		SPhraseSpec s = new SPhraseSpec(nlgFactory);
+		s.setSubject(pronoun);
 		s.setVerb("live");
 		s.setFeature(Feature.FORM, Form.GERUND);
 		
@@ -69,13 +91,11 @@ public class GenerateIntro2 {
 		p1.addComplement(livingIn.getLocation());
 		s.addModifier(p1); 
 		
-		String output = realiser.realiseSentence(s);
-		System.out.println("LIVING IN: " + output);
-		
-		return s;
+		return nlgFactory.createSentence(s);
 	}
 	
-	public NLGElement occupationPhrase(Occupation occupation) {
+	//connect with education
+	public DocumentElement occupationPhrase(Occupation occupation) {
 		NPPhraseSpec s1 = nlgFactory.createNounPhrase(occupation.getOccupation());
 		s1.setDeterminer("a");
 		
@@ -83,16 +103,33 @@ public class GenerateIntro2 {
 		s2.setVerb("is");
 		s2.setObject(s1);
 		
-		String output = realiser.realiseSentence(s2);
-		System.out.println("OCCUPATION: " + output);
-		
-		return s2;
+		return nlgFactory.createSentence(s2);
 	}
 	
-	public NLGElement educationPhrase(ArrayList<EducationalBackground> educationalBackground) {
+	public DocumentElement familyRolePhrase(FamilyRole familyRole) {
+		NPPhraseSpec s1 = nlgFactory.createNounPhrase(familyRole.getRole());
+		s1.setDeterminer("the");
+		
+		SPhraseSpec s2 = new SPhraseSpec(nlgFactory);
+		s2.setSubject(pronoun);
+		s2.setVerb("is");
+		s2.setObject(s1);
+		
+		PPPhraseSpec p1 = new PPPhraseSpec(nlgFactory);
+		p1.setPreposition("of");
+		s2.addModifier(p1);
+		
+		System.out.println(realiser.realiseSentence(s2));
+		
+		return nlgFactory.createSentence(s2);
+	}
+	
+	public DocumentElement educationPhrase(ArrayList<EducationalBackground> educationalBackground) {
+		NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+		
 		CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 		SPhraseSpec s;
-
+		
 		for (int i = 0; i < educationalBackground.size(); i++) {
 			s = new SPhraseSpec(nlgFactory);
 			String course = educationalBackground.get(i).getCourse();
@@ -111,7 +148,7 @@ public class GenerateIntro2 {
 				s.addModifier(p1);
 			}
 			
-			if (!("").equals(yrGraduated) && yrGraduated != null) {
+			if (!("").equals(yrGraduated) && yrGraduated != null && !yrGraduated.equals("0")) {
 				PPPhraseSpec p2 = new PPPhraseSpec(nlgFactory);
 				p2.addComplement(yrGraduated);
 				p2.setPreposition("last");
@@ -124,20 +161,19 @@ public class GenerateIntro2 {
 				s.setFeature(Feature.TENSE, Tense.PAST);	
 			
 			c.addCoordinate(s);
-			String sam = realiser.realiseSentence(c);
-			System.out.println("SAM " + sam);
 		}
-
-		String output = realiser.realiseSentence(c);
-		System.out.println("EDUCATION: " + output);
 		
-		return c;
+		s1.addPostModifier(c);
+		
+		return nlgFactory.createSentence(s1);
 	}
 	
-	public NLGElement workPharse(ArrayList<Work> works) {
+	public DocumentElement workPhrase(ArrayList<Work> works) {
+		NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+		
 		CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 		SPhraseSpec s;
-
+		
 		for (int i = 0; i < works.size(); i++) {
 			s = new SPhraseSpec(nlgFactory);
 			String dateStarted = works.get(i).getDateStarted();
@@ -182,14 +218,13 @@ public class GenerateIntro2 {
 			
 			c.addCoordinate(s);
 		}
-
-		String output = realiser.realiseSentence(c);
-		System.out.println("WORK: " + output);
 		
-		return c;
+		s1.addPostModifier(c);
+		
+		return nlgFactory.createSentence(s1);
 	}
 	
-	public NLGElement motherPhrase(Relationships relationship) {
+	public DocumentElement motherPhrase(Relationships relationship) {
 		//TODO: NEED TO FIX PA
 //		Relationships relationships = new Relationships();
 		ArrayList<String> names = relationship.getNames("mother");
@@ -212,8 +247,6 @@ public class GenerateIntro2 {
 		String output = realiser.realiseSentence(c);
 		System.out.println("MOTHERS: " + output);
 		
-		return s;
+		return nlgFactory.createSentence(c);
 	}
-	
-	//TODO: ADD FAMILY ROLE
 }

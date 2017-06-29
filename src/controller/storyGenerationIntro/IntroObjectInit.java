@@ -18,7 +18,7 @@ import objects.Occupation;
 import objects.Person;
 import objects.Relationships;
 
-public class IntroductionController {
+public class IntroObjectInit {
 	
 	private DirectKnowledgeDAO dkd;
 	private FamilyDAO fd;
@@ -34,7 +34,7 @@ public class IntroductionController {
 	private ArrayList<EducationalBackground> educationalBackground;
 	private ArrayList<Work> works;
 	
-	public IntroductionController() {
+	public IntroObjectInit() {
 		dkd = new DirectKnowledgeDAO();
 		fd = new FamilyDAO();
 		wd = new WorkDAO();
@@ -55,13 +55,15 @@ public class IntroductionController {
 		initializeRelationships();
 		
 		GenerateIntro2 gi2 = new GenerateIntro2();
-		gi2.birthPhrase(birth);
+		gi2.generateIntroduction(this);
+//		gi2.familyRolePhrase(familyRole);
+		/*gi2.birthPhrase(birth);
 		gi2.educationPhrase(educationalBackground);
 		gi2.genderPhrase(gender);
 		gi2.locationPhrase(livingIn);
-//		gi2.motherPhrase(relationships);
+		//gi2.motherPhrase(relationships);
 		gi2.occupationPhrase(occupation);
-		gi2.workPharse(works);
+		gi2.workPharse(works);*/
 	}
 	
 	public void initializePerson() {
@@ -90,11 +92,8 @@ public class IntroductionController {
 	}
 	
 	public void initializeGender() {
-		gender = new Gender();
 		String g = dkd.getSpecificDirectKnowledge("gender");
-		
-		if (g != null && !g.equals(""))
-			gender.setGender(g);
+		gender = new Gender(g);
 	}
 	
 	public void initializeLivingIn() {
@@ -109,6 +108,9 @@ public class IntroductionController {
 		educationalBackground = new ArrayList<EducationalBackground> ();
 		
 		educationalBackground = ebd.getEducations();
+		for(int i = 0; i < educationalBackground.size(); i++){
+			System.out.println("i = " + educationalBackground.get(i).getInstitution());
+		}
 	}
 	
 	public void initializeWorks() {
@@ -168,5 +170,37 @@ public class IntroductionController {
 //		}
 		
 		relationships.setFamilies(fd.getFamilies());
+	}
+	
+	public String getPersonName() {
+		return person.getName();
+	}
+
+	public Birth getBirth() {
+		return birth;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public LivingIn getLivingIn() {
+		return livingIn;
+	}
+
+	public Occupation getOccupation() {
+		return occupation;
+	}
+
+	public FamilyRole getFamilyRole() {
+		return familyRole;
+	}
+
+	public ArrayList<EducationalBackground> getEducationalBackground() {
+		return educationalBackground;
+	}
+
+	public ArrayList<Work> getWorks() {
+		return works;
 	}
 }
