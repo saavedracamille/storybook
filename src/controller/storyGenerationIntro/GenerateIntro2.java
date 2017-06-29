@@ -91,9 +91,10 @@ public class GenerateIntro2 {
 	
 	public NLGElement educationPhrase(ArrayList<EducationalBackground> educationalBackground) {
 		CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
-		SPhraseSpec s = new SPhraseSpec(nlgFactory);
+		SPhraseSpec s;
 
 		for (int i = 0; i < educationalBackground.size(); i++) {
+			s = new SPhraseSpec(nlgFactory);
 			String course = educationalBackground.get(i).getCourse();
 			String institution = educationalBackground.get(i).getInstitution();
 			String yrGraduated = Integer.toString(educationalBackground.get(i).getYear_graduated());
@@ -101,7 +102,7 @@ public class GenerateIntro2 {
 			s.setVerb("study");
 			
 			if (!("").equals(course) && course != null)
-				s.setObject(educationalBackground.get(i).getCourse());
+				s.setObject(course);
 			
 			if (!("").equals(institution) && institution != null) {
 				PPPhraseSpec p1 = new PPPhraseSpec(nlgFactory);
@@ -123,6 +124,8 @@ public class GenerateIntro2 {
 				s.setFeature(Feature.TENSE, Tense.PAST);	
 			
 			c.addCoordinate(s);
+			String sam = realiser.realiseSentence(c);
+			System.out.println("SAM " + sam);
 		}
 
 		String output = realiser.realiseSentence(c);
