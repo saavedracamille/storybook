@@ -7,6 +7,7 @@ import models.Event;
 import models.Likes;
 import simplenlg.features.Feature;
 import simplenlg.features.Form;
+import simplenlg.features.Tense;
 import simplenlg.framework.CoordinatedPhraseElement;
 import simplenlg.framework.DocumentElement;
 import simplenlg.framework.NLGElement;
@@ -40,22 +41,22 @@ public class GenerateConclusion2 {
 		System.out.println(output);
 		return output;
 	}
-	
+	//TODO: split musician bands 
 	public DocumentElement LikesPhrase(ArrayList<Likes> likes) {
 		if (likes.size() != 0) {
 			//he likes
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
 			s.setSubject("he");  //TODO: subj
 			s.setVerb("likes"); //TODO: likes or has attended 
-	
+			
 			CoordinatedPhraseElement categories = nlgFactory.createCoordinatedPhrase();
 			//loop per category
 			for (int i = 0; i < likes.size(); i++) {
 				NPPhraseSpec category = nlgFactory.createNounPhrase(likes.get(i).getType()); 	
-							
+				category.setPlural(true);
 				CoordinatedPhraseElement obj = nlgFactory.createCoordinatedPhrase();
 				for (int j = 0; j < likes.get(i).getInterest().size(); j++) {
-					NPPhraseSpec object1 = nlgFactory.createNounPhrase(likes.get(i).getInterest().get(j).getInterest() + "a");	
+					NPPhraseSpec object1 = nlgFactory.createNounPhrase(likes.get(i).getInterest().get(j).getInterest());	
 					obj.addCoordinate(object1); 
 				}
 				
@@ -81,14 +82,16 @@ public class GenerateConclusion2 {
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
 			s.setSubject("he");  //TODO: subj
 			s.setVerb("attended"); //TODO: likes or has attended 
-	
+			s.setFeature(Feature.TENSE, Tense.PAST);
 			CoordinatedPhraseElement categories = nlgFactory.createCoordinatedPhrase();
 			
-			NPPhraseSpec category = nlgFactory.createNounPhrase("events"); 				
+			NPPhraseSpec category = nlgFactory.createNounPhrase("events"); 
+			category.setPlural(true);
 			CoordinatedPhraseElement obj = nlgFactory.createCoordinatedPhrase();
 			
 			for (int i = 0; i < goingEvents.size(); i++) {
-				NPPhraseSpec object1 = nlgFactory.createNounPhrase(goingEvents.get(i).getName() + "a");
+				NPPhraseSpec object1 = nlgFactory.createNounPhrase(goingEvents.get(i).getName());
+				object1.setPlural(true);
 				String location = generateLocation(goingEvents.get(i).getLocation());
 				
 				if (!("").equals(location)) {
