@@ -136,9 +136,10 @@ public class GenerateIntro2 {
 	
 	public NLGElement workPharse(ArrayList<Work> works) {
 		CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
-		SPhraseSpec s = new SPhraseSpec(nlgFactory);
+		SPhraseSpec s;
 
 		for (int i = 0; i < works.size(); i++) {
+			s = new SPhraseSpec(nlgFactory);
 			String dateStarted = works.get(i).getDateStarted();
 			String dateEnded = works.get(i).getDateEnded();
 			String institution = works.get(i).getInstitution();
