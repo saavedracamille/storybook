@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import dbConnection.DatabaseConnection;
 import models.Family;
+import models.Interest;
 import models.Likes;
 import models.Template;
 
@@ -24,13 +25,15 @@ public class LikesDAO {
 
 		try {
 			for (int i = 0; i < likes.size(); i++) {
-				ps = conn.prepareStatement("INSERT INTO " + Likes.TABLE_LIKES + " (" + Likes.COL_INTEREST + ", "
-						+ Likes.COL_TYPE + ", " + Likes.COL_FBID + ") VALUES(?, ?, ?);");
-				ps.setString(1, likes.get(i).getInterest());
-				ps.setString(2, likes.get(i).getType());
-				ps.setString(3, likes.get(i).getFbID());
-
-				ps.executeUpdate();
+				for (int j = 0; j < likes.get(i).getInterest().size(); j++) {
+					ps = conn.prepareStatement("INSERT INTO " + Interest.TABLE_LIKES + " (" + Interest.COL_INTEREST + ", "
+							+ Interest.COL_TYPE + ", " + Interest.COL_FBID + ") VALUES(?, ?, ?);");
+					ps.setString(1, likes.get(i).getInterest().get(j).getInterest());
+					ps.setString(2, likes.get(i).getType());
+					ps.setString(3, likes.get(i).getInterest().get(j).getFbID());
+	
+					ps.executeUpdate();
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -43,20 +46,20 @@ public class LikesDAO {
 		}
 	}
 
-	public ArrayList<String> getTopFiveTypes() {
+	public ArrayList<String> getTopThreeTypes() {
 		ArrayList<String> likesType = new ArrayList<String>();
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
 		try {
-			ps = conn.prepareStatement("SELECT " + Likes.COL_TYPE + " FROM " + Likes.TABLE_LIKES + " GROUP BY ("
-					+ Likes.COL_TYPE + ") ORDER BY COUNT(" + Likes.COL_TYPE + ") DESC LIMIT 5;");
+			ps = conn.prepareStatement("SELECT " + Interest.COL_TYPE + " FROM " + Interest.TABLE_LIKES + " GROUP BY ("
+					+ Interest.COL_TYPE + ") ORDER BY COUNT(" + Interest.COL_TYPE + ") DESC LIMIT 3;");
 
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				likesType.add(rs.getString(Likes.COL_TYPE));
+				likesType.add(rs.getString(Interest.COL_TYPE));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -71,20 +74,25 @@ public class LikesDAO {
 		return likesType;
 	}
 	
-	public ArrayList<Likes> getTopFiveInterest(String topFiveTypes) {
-		ArrayList<Likes> likes = new ArrayList<Likes> ();
-		
+	public ArrayList<Interest> getTopThreeInterest(String category) {
+		ArrayList<Interest> likedPages = new ArrayList<Interest> ();
+	
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
 		try {
-			ps = conn.prepareStatement("SELECT " + Likes.COL_INTEREST + ", " + Likes.COL_TYPE + " FROM " + Likes.TABLE_LIKES + " WHERE "
-					+ Likes.COL_TYPE + " LIKE '%" + topFiveTypes + "';");
+			ps = conn.prepareStatement("SELECT * FROM " + Interest.TABLE_LIKES + " WHERE "
+					+ Interest.COL_TYPE + " LIKE '%" + category + "' LIMIT 3;");
 
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				likes.add(new Likes(rs.getString(Likes.COL_INTEREST), rs.getString(Likes.COL_TYPE)));
+				Interest interest = new Interest();
+				interest.setId(rs.getInt(Interest.COL_ID));
+				interest.setInterest(rs.getString(Interest.COL_INTEREST));
+				interest.setFbID(rs.getString(Interest.COL_FBID));
+				
+				likedPages.add(interest);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -96,14 +104,14 @@ public class LikesDAO {
 			}
 		}
 		
-		return likes;
+		return likedPages;
 	}
 
 	public void truncateLikes() {
 		PreparedStatement ps = null;
 
 		try {
-			ps = conn.prepareStatement("TRUNCATE " + Likes.TABLE_LIKES);
+			ps = conn.prepareStatement("TRUNCATE " + Interest.TABLE_LIKES);
 
 			ps.execute();
 		} catch (SQLException e) {

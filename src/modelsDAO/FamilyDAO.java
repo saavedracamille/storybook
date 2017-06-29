@@ -62,6 +62,28 @@ public class FamilyDAO {
 		
 		return families;
 	}
+	
+	public ArrayList<Family> getMother(String relationship) {
+		ArrayList<Family> families = new ArrayList<Family> ();
+		
+		ResultSet rs;
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conn.prepareStatement("SELECT * FROM " + Family.TABLE_FAMILY + " WHERE " + Family.COL_RELATIONSHIP + " like ?;");
+			ps.setString(1, relationship);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				families.add(new Family(rs.getString(Family.COL_NAME), relationship));
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return families;
+	}
 
 	public void truncateFamily() {
 		PreparedStatement ps = null;

@@ -1,40 +1,26 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Likes {
-	public static final String TABLE_LIKES = "likes";
 	
-	public static final String COL_ID = "id";
-	public static final String COL_INTEREST = "interest";
-	public static final String COL_TYPE = "type";
-	public static final String COL_FBID = "fbID";
-	
-	private int id;
-	private String interest;
+	private ArrayList<Interest> interest;
 	private String type;
-	private String fbID;
 	
 	public Likes() {
 		
 	}
 	
-	public Likes(String interest, String type) {
-		this.interest = interest;
+	public Likes(String type, ArrayList<Interest> interest) {
 		this.type = type;
+		this.interest = interest;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getInterest() {
+	public ArrayList<Interest> getInterest() {
 		return interest;
 	}
 	
-	public void setInterest(String interest) {
+	public void setInterest(ArrayList<Interest> interest) {
 		this.interest = interest;
 	}
 	
@@ -44,13 +30,5 @@ public class Likes {
 	
 	public void setType(String type) {
 		this.type = type;
-	}
-	
-	public String getFbID() {
-		return fbID;
-	}
-	
-	public void setFbID(String fbID) {
-		this.fbID = fbID;
 	}
 }

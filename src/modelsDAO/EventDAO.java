@@ -50,7 +50,7 @@ public class EventDAO {
 		}
 	}
 	
-	public ArrayList<Event> getLatestGoing() {
+	public ArrayList<Event> getTopThreeGoing() {
 		ArrayList<Event> goingEvents = new ArrayList<Event> ();
 		
 		PreparedStatement ps = null;
@@ -58,7 +58,7 @@ public class EventDAO {
 
 		try {
 			ps = conn.prepareStatement("SELECT * FROM " + Event.TABLE_EVENT + " WHERE "
-					+ Event.COL_RSVP + " = \"attending\" LIMIT 5;");
+					+ Event.COL_RSVP + " = \"attending\" LIMIT 3;");
 //			System.out.println("GET GOING EVENTS: " + ps);
 			rs = ps.executeQuery();
 
@@ -71,6 +71,7 @@ public class EventDAO {
 				checkIn.setCity(rs.getString(Event.COL_CITY));
 				checkIn.setCountry(rs.getString(Event.COL_COUNTRY));
 				event.setLocation(checkIn);
+				event.setRsvp_status("going");
 				
 				goingEvents.add(event);
 			}
@@ -87,7 +88,7 @@ public class EventDAO {
 		return goingEvents;
 	}
 	
-	public ArrayList<Event> getLatestInterested() {
+	public ArrayList<Event> getTopThreeInterested() {
 		ArrayList<Event> interestedEvents = new ArrayList<Event> ();
 		
 		PreparedStatement ps = null;
@@ -95,7 +96,7 @@ public class EventDAO {
 
 		try {
 			ps = conn.prepareStatement("SELECT * FROM " + Event.TABLE_EVENT + " WHERE "
-					+ Event.COL_RSVP + " = \"interested\" LIMIT 5;");
+					+ Event.COL_RSVP + " = \"interested\" LIMIT 3;");
 //			System.out.println("GET INTERESTED EVENTS: " + ps);
 			rs = ps.executeQuery();
 
@@ -108,6 +109,7 @@ public class EventDAO {
 				checkIn.setCity(rs.getString(Event.COL_CITY));
 				checkIn.setCountry(rs.getString(Event.COL_COUNTRY));
 				event.setLocation(checkIn);
+				event.setRsvp_status("interested");
 				
 				interestedEvents.add(event);
 			}

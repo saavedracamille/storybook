@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import models.CheckIn;
 import models.DirectKnowledge;
 import models.Event;
-import models.Likes;
+import models.Interest;
 import modelsDAO.DirectKnowledgeDAO;
 import modelsDAO.EventDAO;
 import modelsDAO.LikesDAO;
@@ -27,18 +27,18 @@ public class GenerateConclusion {
 		EventDAO ed = new EventDAO();
 		
 		directKnowledges = dkd.getDirectKnowledge();
-		topFiveTypes = ld.getTopFiveTypes();
-		eventgoing = ed.getLatestGoing();
-		eventinterested = ed.getLatestInterested();
+		topFiveTypes = ld.getTopThreeTypes();
+		eventgoing = ed.getTopThreeGoing();
+		eventinterested = ed.getTopThreeInterested();
 		
 		String wholeName = getName();
 		
 		conclusion += wholeName + "likes ";
 		
 		for (int i = 0; i < topFiveTypes.size(); i++) {
-			ArrayList<Likes> topFiveInterests = ld.getTopFiveInterest(topFiveTypes.get(i));
+			ArrayList<Interest> topThreeInterests = ld.getTopThreeInterest(topFiveTypes.get(i));
 			conclusion += toPlural(topFiveTypes.get(i));
-			conclusion += generateSentences(topFiveTypes.get(i), topFiveInterests);
+			conclusion += generateSentences(topFiveTypes.get(i), topThreeInterests);
 			
 			if (i < topFiveTypes.size() - 2) {
 				if (conclusion.endsWith(" "))
@@ -95,7 +95,7 @@ public class GenerateConclusion {
 		return this.conclusion;
 	}
 	
-	public String generateSentences(String type, ArrayList<Likes> interestPreferences) {
+	public String generateSentences(String type, ArrayList<Interest> interestPreferences) {
 		String interests = "";
 		String sentence = interestTemplate;
 		
