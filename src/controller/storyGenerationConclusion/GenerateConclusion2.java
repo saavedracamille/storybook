@@ -10,7 +10,6 @@ import simplenlg.features.Form;
 import simplenlg.features.Tense;
 import simplenlg.framework.CoordinatedPhraseElement;
 import simplenlg.framework.DocumentElement;
-import simplenlg.framework.NLGElement;
 import simplenlg.framework.NLGFactory;
 import simplenlg.lexicon.Lexicon;
 import simplenlg.phrasespec.NPPhraseSpec;
@@ -22,6 +21,7 @@ public class GenerateConclusion2 {
 	private Lexicon lexicon;
 	private NLGFactory nlgFactory;
 	private Realiser realiser;
+	private String pronoun;
 
 	public GenerateConclusion2() {
 		lexicon = Lexicon.getDefaultLexicon();
@@ -29,31 +29,55 @@ public class GenerateConclusion2 {
 		realiser = new Realiser(lexicon);
 	}
 	
-	public String generateConclusion(ConclusionController objects){
+	public String generateConclusion(ConclusionController objects) {
+		pronoun = objects.getGender().getPronoun();
+		
 		ArrayList<DocumentElement> list = new ArrayList<DocumentElement>();
 		
 		list.add(LikesPhrase(objects.getLikes()));
 		list.add(EventGoingPhrase(objects.getGoingEvents()));
 		list.add(EventInterested(objects.getInterestedEvents()));
 		
-		DocumentElement par = nlgFactory.createParagraph(list); 
-		String output = realiser.realise(par).getRealisation();
-		System.out.println(output);
-		return output;
+		DocumentElement par = nlgFactory.createParagraph(list);
+		
+		return realiser.realise(par).getRealisation();
 	}
-	//TODO: split musician bands 
+	
 	public DocumentElement LikesPhrase(ArrayList<Likes> likes) {
 		if (likes.size() != 0) {
-			//he likes
+			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+			
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("he");  //TODO: subj
-			s.setVerb("likes"); //TODO: likes or has attended 
+			s.setVerb("likes");
 			
 			CoordinatedPhraseElement categories = nlgFactory.createCoordinatedPhrase();
-			//loop per category
+			
 			for (int i = 0; i < likes.size(); i++) {
-				NPPhraseSpec category = nlgFactory.createNounPhrase(likes.get(i).getType()); 	
-				category.setPlural(true);
+				NPPhraseSpec category;
+				
+				String cat = likes.get(i).getType();
+				String[] likesWords = new String[2];
+				boolean toConnect = false;
+				
+				if (likes.get(i).getInterest().size() > 1) {
+					if (cat.contains("/")) {
+						likesWords = cat.split("\\/");
+						category = nlgFactory.createNounPhrase(likesWords[0]);
+					} else if (cat.contains(" ")) {
+						likesWords = cat.split(" ");
+						category = nlgFactory.createNounPhrase(likesWords[1]);
+						
+						toConnect = true;
+					} else
+						category = nlgFactory.createNounPhrase(cat);
+					
+					category.setPlural(true);
+					
+					if (toConnect)
+						category.addPreModifier(likesWords[0]);
+				} else
+					category = nlgFactory.createNounPhrase(cat);
+				
 				CoordinatedPhraseElement obj = nlgFactory.createCoordinatedPhrase();
 				for (int j = 0; j < likes.get(i).getInterest().size(); j++) {
 					NPPhraseSpec object1 = nlgFactory.createNounPhrase(likes.get(i).getInterest().get(j).getInterest());	
@@ -65,23 +89,21 @@ public class GenerateConclusion2 {
 				categories.addCoordinate(category);
 			}
 			
-			s.setObject(categories);		
-	
-			String output = realiser.realiseSentence(s);
-			System.out.println(output);
+			s.setObject(categories);
 			
-			return nlgFactory.createSentence(s);
-		} else {
+			s1.addPostModifier(s);
+			
+			return nlgFactory.createSentence(s1);
+		} else
 			return null;
-		}
 	}
 	
 	public DocumentElement EventGoingPhrase(ArrayList<Event> goingEvents) {
 		if (goingEvents.size() != 0) {
-			//he likes
+			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+			
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("he");  //TODO: subj
-			s.setVerb("attended"); //TODO: likes or has attended 
+			s.setVerb("attended");
 			s.setFeature(Feature.TENSE, Tense.PAST);
 			CoordinatedPhraseElement categories = nlgFactory.createCoordinatedPhrase();
 			
@@ -91,9 +113,10 @@ public class GenerateConclusion2 {
 			
 			for (int i = 0; i < goingEvents.size(); i++) {
 				NPPhraseSpec object1 = nlgFactory.createNounPhrase(goingEvents.get(i).getName());
-				object1.setPlural(true);
-				String location = generateLocation(goingEvents.get(i).getLocation());
+				if (goingEvents.size() > 1)
+					object1.setPlural(true);
 				
+				String location = generateLocation(goingEvents.get(i).getLocation());
 				if (!("").equals(location)) {
 					PPPhraseSpec pp = new PPPhraseSpec(nlgFactory);
 					pp.addComplement(location);
@@ -108,12 +131,11 @@ public class GenerateConclusion2 {
 			category.addComplement(obj);			
 			categories.addCoordinate(category);
 			
-			s.setObject(categories);		
-	
-			String output = realiser.realiseSentence(s);
-			System.out.println(output);
+			s.setObject(categories);
 			
-			return nlgFactory.createSentence(s);
+			s1.addPostModifier(s);
+			
+			return nlgFactory.createSentence(s1);
 		} else {
 			return null;
 		}
@@ -121,13 +143,11 @@ public class GenerateConclusion2 {
 	
 	public DocumentElement EventInterested(ArrayList<Event> interestedEvents) {
 		if (interestedEvents.size() != 0) {
-			//he is interested
+			NPPhraseSpec s11 = nlgFactory.createNounPhrase(pronoun);
+			
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("he");  //TODO: subj
-			s.setVerb("is interested"); //TODO: likes, has attended or is interested
+			s.setVerb("is interested");
 	
-			//ALL BELOW ARE FOR INTERESTED EVENTS
-			//TODO: gerund phrase: in going/attending/participating -> change verb according to what u like nalang
 			SPhraseSpec s1 = new SPhraseSpec(nlgFactory);
 			s1.setVerb("go");
 			s1.setFeature(Feature.FORM, Form.GERUND);
@@ -137,13 +157,11 @@ public class GenerateConclusion2 {
 			p1.setPreposition("in");
 			s.addModifier(p1); 
 	
-			//TODO: infinitive phrase: to events/activities -> change noune accordingly
 			PPPhraseSpec p2 = new PPPhraseSpec(nlgFactory);
 			p2.addComplement("events");
 			p2.setPreposition("to");
 			s1.addModifier(p2); 
 	
-			//TODO: list grammar rule set -> such as A, B and C
 			CoordinatedPhraseElement obj = nlgFactory.createCoordinatedPhrase();
 			for (int i = 0; i < interestedEvents.size(); i++) {
 				NPPhraseSpec object1 = nlgFactory.createNounPhrase(interestedEvents.get(i).getName());
@@ -161,11 +179,10 @@ public class GenerateConclusion2 {
 	
 			p2.addPostModifier(obj);
 			obj.addPreModifier("such as"); //change to examples, such as, like etc if you want to
-						
-			String output = realiser.realiseSentence(s);
-			System.out.println(output);
 			
-			return nlgFactory.createSentence(s);
+			s11.addPostModifier(s);
+			
+			return nlgFactory.createSentence(s11);
 		} else {
 			return null;
 		}

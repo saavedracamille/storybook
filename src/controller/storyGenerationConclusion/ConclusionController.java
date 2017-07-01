@@ -4,15 +4,24 @@ import java.util.ArrayList;
 
 import models.Event;
 import models.Likes;
+import modelsDAO.DirectKnowledgeDAO;
 import modelsDAO.EventDAO;
 import modelsDAO.LikesDAO;
+import objects.Gender;
 
 public class ConclusionController {
+	
+	private DirectKnowledgeDAO dkd;
 	private LikesDAO ld;
 	private EventDAO ed;
+	private Gender gender;
 	private ArrayList<Likes> likes;
 	private ArrayList<Event> goingEvents;
 	private ArrayList<Event> interestedEvents;
+	
+	public Gender getGender() {
+		return gender;
+	}
 	
 	public ArrayList<Likes> getLikes() {
 		return likes;
@@ -27,6 +36,7 @@ public class ConclusionController {
 	}
 
 	public ConclusionController() {
+		dkd = new DirectKnowledgeDAO();
 		ld = new LikesDAO();
 		ed = new EventDAO();
 		
@@ -34,15 +44,29 @@ public class ConclusionController {
 	}
 	
 	public void initializeObjects() {
+		initializeGender();
 		initializeLikes();
 		initializeGoingEvents();
 		initializeInterestedEvents();
 		
+		generateConclusion();
+	}
+	
+	public String generateConclusion() {
+		String conclusion = "";
+		
 		GenerateConclusion2 gc2 = new GenerateConclusion2();
-		gc2.generateConclusion(this);
-		/*gc2.LikesPhrase(likes);
-		gc2.EventGoingPhrase(goingEvents);
-		gc2.EventInterested(interestedEvents);*/
+		conclusion = gc2.generateConclusion(this);
+//		gc2.LikesPhrase(likes);
+//		gc2.EventGoingPhrase(goingEvents);
+//		gc2.EventInterested(interestedEvents);
+		
+		return conclusion;
+	}
+	
+	public void initializeGender() {
+		String g = dkd.getSpecificDirectKnowledge("gender");
+		gender = new Gender(g);
 	}
 	
 	public void initializeLikes() {

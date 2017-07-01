@@ -1,10 +1,7 @@
 package controller.storyGenerationIntro;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import models.EducationalBackground;
-import models.Family;
 import models.Work;
 import modelsDAO.DirectKnowledgeDAO;
 import modelsDAO.EducationalBackgroundDAO;
@@ -54,16 +51,60 @@ public class IntroObjectInit {
 		initializeFamilyRole();
 		initializeRelationships();
 		
+		generateIntroduction();
+	}
+	
+	public String generateIntroduction() {
+		String introduction = "";
+		
 		GenerateIntro2 gi2 = new GenerateIntro2();
-		gi2.generateIntroduction(this);
+		introduction = gi2.generateIntroduction(this);
 //		gi2.familyRolePhrase(familyRole);
-		/*gi2.birthPhrase(birth);
-		gi2.educationPhrase(educationalBackground);
-		gi2.genderPhrase(gender);
-		gi2.locationPhrase(livingIn);
-		//gi2.motherPhrase(relationships);
-		gi2.occupationPhrase(occupation);
-		gi2.workPharse(works);*/
+//		gi2.birthPhrase(birth);
+//		gi2.educationPhrase(educationalBackground);
+//		gi2.genderPhrase(gender);
+//		gi2.locationPhrase(livingIn);
+//		gi2.motherPhrase(relationships);
+//		gi2.occupationPhrase(occupation);
+//		gi2.workPharse(works);
+		
+		return introduction;
+	}
+	
+	public String getPersonName() {
+		return person.getName();
+	}
+
+	public Birth getBirth() {
+		return birth;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public LivingIn getLivingIn() {
+		return livingIn;
+	}
+
+	public Occupation getOccupation() {
+		return occupation;
+	}
+	
+	public Relationships getRelationships() {
+		return relationships;
+	}
+
+	public FamilyRole getFamilyRole() {
+		return familyRole;
+	}
+
+	public ArrayList<EducationalBackground> getEducationalBackground() {
+		return educationalBackground;
+	}
+
+	public ArrayList<Work> getWorks() {
+		return works;
 	}
 	
 	public void initializePerson() {
@@ -106,16 +147,11 @@ public class IntroObjectInit {
 	
 	public void initializeEducations() {
 		educationalBackground = new ArrayList<EducationalBackground> ();
-		
 		educationalBackground = ebd.getEducations();
-		for(int i = 0; i < educationalBackground.size(); i++){
-			System.out.println("i = " + educationalBackground.get(i).getInstitution());
-		}
 	}
 	
 	public void initializeWorks() {
 		works = new ArrayList<Work> ();
-		
 		works = wd.getWorks();
 	}
 	
@@ -123,14 +159,14 @@ public class IntroObjectInit {
 		occupation = new Occupation();
 		String o = "";
 		
-		for (int i = 0; i < educationalBackground.size(); i++) {
-			String yrGraduated = Integer.toString(educationalBackground.get(i).getYear_graduated());
+		if (educationalBackground.size() != 0) {
+			String yrGraduated = Integer.toString(educationalBackground.get(0).getYear_graduated());
 			if (yrGraduated ==  null || yrGraduated.equals("") || yrGraduated.equals("0"))
 				o = "student";
 		}
-		
-		for (int j = 0; j < works.size(); j++) {
-			String dateEnded = works.get(j).getDateEnded();
+
+		if (works.size() != 0) {
+			String dateEnded = works.get(0).getDateEnded();
 			if (dateEnded == null || dateEnded.equals(""))
 				o = "employee";
 		}
@@ -154,53 +190,6 @@ public class IntroObjectInit {
 	
 	public void initializeRelationships() {
 		relationships = new Relationships();
-		
-//		HashMap<String, ArrayList<String>> relationshipMap = new HashMap<String, ArrayList<String>> ();
-//		ArrayList<Family> families = fd.getFamilies();
-//		ArrayList<String> current = new ArrayList<String> ();
-//		
-//		for (int i = 0; i < families.size(); i++) {
-//			if (relationshipMap.containsKey(families.get(i).getRelationship())) {
-//				current.add(families.get(i).getName());
-//				relationshipMap.put(families.get(i).getRelationship(), current);
-//			} else {
-//				current.add(families.get(i).getName());
-//				relationshipMap.put(families.get(i).getRelationship(), current);
-//			}
-//		}
-		
 		relationships.setFamilies(fd.getFamilies());
-	}
-	
-	public String getPersonName() {
-		return person.getName();
-	}
-
-	public Birth getBirth() {
-		return birth;
-	}
-
-	public Gender getGender() {
-		return gender;
-	}
-
-	public LivingIn getLivingIn() {
-		return livingIn;
-	}
-
-	public Occupation getOccupation() {
-		return occupation;
-	}
-
-	public FamilyRole getFamilyRole() {
-		return familyRole;
-	}
-
-	public ArrayList<EducationalBackground> getEducationalBackground() {
-		return educationalBackground;
-	}
-
-	public ArrayList<Work> getWorks() {
-		return works;
 	}
 }
