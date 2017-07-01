@@ -44,18 +44,25 @@ public class GenerateBody {
 	private String body = "";
 
 	public GenerateBody() throws IOException {
+		Preprocessing p = new Preprocessing();
+		
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		this.tbps = tbpd.getAllPosts();
-
-		 TextUnderstanding tu = new TextUnderstanding();
-		 tu.performTextUnderstanding(tbps);
 		
-		 EventClassification ec = new EventClassification();
-		 ec.performEventClassification(tbps);
+		for (ToBeProcessed tbp : tbps) {
+			String newString = p.removeSpecialCharacters(tbp.getData());
+			tbp.setData(newString);
+		}
+
+		TextUnderstanding tu = new TextUnderstanding();
+		tu.performTextUnderstanding(tbps);
+
+		EventClassification ec = new EventClassification();
+		ec.performEventClassification(tbps);
 
 		this.body = generateWholeBody();
 	}
-	
+
 	public String getBody() {
 		return body;
 	}
@@ -103,19 +110,10 @@ public class GenerateBody {
 
 	public String generateParagraph(ArrayList<VerbObject> verbObjects, int postType) {
 		String paragraph = "";
-		String doer = "";
+		String doer = getDoer();
+		String pronoun = getGender();
 
-		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
-
-		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
-		String gender = dkd.getSpecificDirectKnowledge("gender");
-		String pronoun = "";
-		if (gender.equalsIgnoreCase("female")) {
-			pronoun = "She";
-		} else if (doer.equalsIgnoreCase("male")) {
-			pronoun = "He";
-		}
 
 		ArrayList<String> tags = getFrequentTagged(verbObjects);
 		if (tags.size() >= 3) {
@@ -124,19 +122,40 @@ public class GenerateBody {
 			paragraph += genSecondSentence(posts, postType);
 			verbObjects.removeAll(posts);
 			paragraph += genSucceedingSentences(verbObjects);
-		} else {
+		} else
 			paragraph += genSucceedingSentences(verbObjects);
-		}
 
-		if (postType == 10) {
+		if (postType == 10)
 			paragraph += getTravelledPlaces(tbpd.getAllWithLocation(), pronoun);
-		}
 
-		if (postType == 2) {
+		if (postType == 2)
 			paragraph += pronoun + getBirthday(verbObjects);
-		}
 
 		return paragraph;
+	}
+	
+	public String getDoer() {
+		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
+		
+		String doer = "";
+
+		doer = dkd.getSpecificDirectKnowledge("first_name").split(" ")[0];
+		
+		return doer;
+	}
+	
+	public String getGender() {
+		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
+
+		String gender = dkd.getSpecificDirectKnowledge("gender");
+		String pronoun = "";
+		
+		if (gender.equalsIgnoreCase("female"))
+			pronoun = "She";
+		else if (gender.equalsIgnoreCase("male"))
+			pronoun = "He";
+		
+		return pronoun;
 	}
 
 	public ArrayList<String> getFrequentTagged(ArrayList<VerbObject> verbObjects) {
@@ -328,7 +347,8 @@ public class GenerateBody {
 			if (m.group(1).contains("object")) {
 				String noun = "";
 				for (int i = posts.size() - 1; i >= 0; i--) {
-					noun += posts.get(i).getNoun();
+					if (!posts.get(i).getNoun().equals("") && posts.get(i).getNoun() != null)
+						noun += posts.get(i).getNoun();
 					if (i > 1)
 						noun += ", ";
 					else if (i == 1)
@@ -349,9 +369,9 @@ public class GenerateBody {
 		HashMap<Integer, ArrayList<VerbObject>> compiledPosts = compileByYear(verbObjects);
 
 		for (HashMap.Entry<Integer, ArrayList<VerbObject>> entry : compiledPosts.entrySet()) {
-//			System.out.println(entry.getKey());
-//			for (int i = 0; i < entry.getValue().size(); i++)
-//				System.out.println(entry.getValue().get(i).getDate().toString());
+			// System.out.println(entry.getKey());
+			// for (int i = 0; i < entry.getValue().size(); i++)
+			// System.out.println(entry.getValue().get(i).getDate().toString());
 			paragraph += determineYear(entry.getKey(), entry.getValue());
 		}
 
@@ -360,33 +380,28 @@ public class GenerateBody {
 
 	public String actualGeneration(VerbObject verbObject) {
 		String paragraph = "";
-		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
-		String doer = "";
-		String pronoun = "";
-
-		doer = dkd.getSpecificDirectKnowledge("gender");
-		if (doer.equalsIgnoreCase("female")) {
-			pronoun = "She";
-		} else if (doer.equalsIgnoreCase("male")) {
-			pronoun = "He";
-		}
+		String pronoun = getGender();
 
 		Lexicon lexicon = Lexicon.getDefaultLexicon();
 		NLGFactory nlgFactory = new NLGFactory(lexicon);
 		Realiser realiser = new Realiser(lexicon);
 
-		SPhraseSpec p = nlgFactory.createClause();
-		p.setSubject(pronoun);
-		p.setVerb(verbObject.getVerb());
-		p.setObject(verbObject.getNoun());
-		p.setComplement(verbObject.getTagged());
-		p.setComplement(verbObject.getLocation());
-
-		p.setFeature(Feature.TENSE, Tense.PAST);
-
-		// DocumentElement documentElement = nlgFactory.createSentence(p);
-
-		paragraph = realiser.realiseSentence(p);
+		//if (!verbObject.getNoun().equals("") && !verbObject.getVerb().equals("")) {
+			SPhraseSpec p = nlgFactory.createClause();
+			p.setSubject(pronoun);
+			p.setVerb(verbObject.getVerb().toLowerCase());
+			if (!verbObject.getNoun().equals("") && verbObject.getNoun() != null)
+				p.setObject(verbObject.getNoun().toLowerCase());
+			if (!verbObject.getNoun().contains(verbObject.getTagged()))
+				p.setComplement(verbObject.getTagged());
+			p.setComplement(verbObject.getLocation());
+			
+			p.setFeature(Feature.TENSE, Tense.PAST);
+	
+			// DocumentElement documentElement = nlgFactory.createSentence(p);
+	
+			paragraph = realiser.realiseSentence(p);
+		//}
 
 		return paragraph;
 	}
@@ -421,7 +436,7 @@ public class GenerateBody {
 			sentence = lastNYr[random];
 			while (m.find()) {
 				if (m.group(1).contains("x")) {
-					sentence = sentence.replace("<x>", String.valueOf(year));
+					sentence = sentence.replace("<x>", String.valueOf(Math.abs(yearDifference)));
 				}
 			}
 			// sentence += "Last " + yearDifference + " years ago, ";
@@ -492,14 +507,14 @@ public class GenerateBody {
 	}
 
 	public String determine2B(VerbObject verbObject) {
-		String[] earlyMonth = { "Early that <month>, <sentence>", "As the month starts that year, <sentence>",
-				"During the start of the month, <sentence>", "<sentence> during the start of the month",
-				"<sentence> as the month starts", "<sentence> early <month> that year" };
-		String[] midMonth = { "In the middle of the <month>, <sentence>", "Mid-<month>, <sentence>",
-				"<sentence> mid-<month>", "During <month>, <sentence>" };
-		String[] endMonth = { "Before the end approaches <month>, <sentence>",
-				"As the month of <month> ends, <sentence>", "Near the end of <month> in that year, <sentence>",
-				"Near the end of that month of <month>, <sentence>", "<sentence> as <month> ends that year",
+		String[] earlyMonth = { "early that <month>, <sentence>", "during the start of the month, <sentence>",
+				"<sentence> during the start of the month", "<sentence> as the month starts",
+				"<sentence> early <month> that year" };
+		String[] midMonth = { "in the middle of the <month>, <sentence>", "mid-<month>, <sentence>",
+				"<sentence> mid-<month>", "during <month>, <sentence>" };
+		String[] endMonth = { "before the end approaches <month>, <sentence>",
+				"as the month of <month> ends, <sentence>", "near the end of <month> in that year, <sentence>",
+				"near the end of that month of <month>, <sentence>", "<sentence> as <month> ends that year",
 				"<sentence> near the end of the <month> that year", "<sentence> when <month> approaches the last day" };
 		String sentence = "";
 		String s = actualGeneration(verbObject);
@@ -566,9 +581,9 @@ public class GenerateBody {
 
 	public String determine3(ArrayList<VerbObject> verbObject) {
 		String[] a = { "In the same month, <sentence>", "During that time, <sentence>", "Shortly before, <sentence>",
-				"During that same month, <sentence>", "<sentence> on the same month.", "<sentence> shortly before." };
+				"During that same month, <sentence>", "<sentence> on the same month", "<sentence> shortly before" };
 		String[] b = { "After <x> months, <sentence>", "<x> months before, <sentence>",
-				"Then, <sentence> <x> months before.", "<sentence> <x> months before.", "In that same year, <sentence>",
+				"Then, <sentence> <x> months before", "<sentence> <x> months before", "In that same year, <sentence>",
 				"A few months earlier, <sentence>", "<sentence> in that same year", "<sentence> a few months before",
 				"<sentence> <x> months before", "During that same year, <sentence>" };
 
@@ -617,6 +632,9 @@ public class GenerateBody {
 							sentence = sentence.replace("<x>", String.valueOf(Math.abs(monthDifference)));
 						}
 						if (m.group(1).contains("sentence")) {
+							if (random == 3 || random == 6 || random == 7 || random == 8) {
+								s = s.substring(0, 1).toUpperCase() + s.substring(1, s.length());
+							}
 							sentence = sentence.replace("<sentence>", s);
 						}
 					}
@@ -669,8 +687,9 @@ public class GenerateBody {
 	public String getTravelledPlaces(ArrayList<CheckIn> locations, String pronoun) {
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
 		String wholeSentence = "";
-		
-		if(dkd.getSpecificDirectKnowledge("location") != null || !dkd.getSpecificDirectKnowledge("location").isEmpty()){
+
+		if (dkd.getSpecificDirectKnowledge("location") != null
+				|| !dkd.getSpecificDirectKnowledge("location").isEmpty()) {
 
 			HashMap<String, ArrayList<String>> loc = new HashMap<String, ArrayList<String>>();
 			String currloc = dkd.getSpecificDirectKnowledge("location");
@@ -678,12 +697,12 @@ public class GenerateBody {
 			String travelledTo = pronoun + " has been to ";
 			String travelledInt = pronoun + " has visited foreign countries such as ";
 			String connector = "", connector2 = "";
-			
-			for(int i = 0; i < locations.size(); i ++){
-				ArrayList<String> temp = new ArrayList<String>(); 
-				//local
-				if(locations.get(i).getCountry() != null && currloc.contains(locations.get(i).getCountry())){
-					if(!loc.containsKey(locations.get(i).getCity())){
+
+			for (int i = 0; i < locations.size(); i++) {
+				ArrayList<String> temp = new ArrayList<String>();
+				// local
+				if (locations.get(i).getCountry() != null && currloc.contains(locations.get(i).getCountry())) {
+					if (!loc.containsKey(locations.get(i).getCity())) {
 						temp.add(locations.get(i).getPlace());
 						loc.put(locations.get(i).getCity(), temp);
 					} else {
@@ -692,15 +711,15 @@ public class GenerateBody {
 						loc.put(locations.get(i).getCity(), temp);
 					}
 				}
-				//international
+				// international
 				else {
-					if(locations.get(i).getCountry()!= null && !international.contains(locations.get(i).getCountry()))
+					if (locations.get(i).getCountry() != null && !international.contains(locations.get(i).getCountry()))
 						international.add(locations.get(i).getCountry());
 				}
 			}
-			//local
+			// local
 			int counter = 0;
-			for (Entry<String, ArrayList<String>> entry : loc.entrySet()){
+			for (Entry<String, ArrayList<String>> entry : loc.entrySet()) {
 				if (loc.entrySet().size() - 2 != counter) {
 					connector2 = ", ";
 					for (int j = 0; j < entry.getValue().size(); j++) {
@@ -708,35 +727,35 @@ public class GenerateBody {
 							connector = ", ";
 						else
 							connector = " and ";
-						
+
 						travelledTo += entry.getValue().get(j) + connector;
 					}
 					counter++;
-					travelledTo = travelledTo.substring(0, travelledTo.length() - 2) + " in " + entry.getKey() + connector2;
-				} else {
+					travelledTo = travelledTo.substring(0, travelledTo.length() - 2) + " in " + entry.getKey()
+							+ connector2;
+				} else
 					connector2 = " and ";
-				}
+				
 				travelledTo = travelledTo.substring(0, travelledTo.length() - 2) + ".";
 			}
-			
-			if(international.size() == 1){
+
+			if (international.size() == 1)
 				travelledInt = " has visited the foreign country, ";
-			}
-			
-			for(int j = 0; j < international.size(); j++){
+
+			for (int j = 0; j < international.size(); j++) {
 				if (international.size() - 2 != j)
 					connector = ", ";
 				else
 					connector = " and ";
 				travelledInt += international.get(j) + connector;
 			}
-			
+
 			travelledInt = travelledInt.substring(0, travelledInt.length() - 2) + ".";
-			
-			if(!loc.isEmpty())
+
+			if (!loc.isEmpty())
 				wholeSentence += travelledTo;
-			
-			if(international.size() != 0 )
+
+			if (international.size() != 0)
 				wholeSentence += " " + travelledInt;
 		}
 

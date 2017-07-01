@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import dbConnection.DatabaseConnection;
 import models.CoLocatingWords;
-import models.PostType;
 
 public class CoLocatingWordsDAO {
 	private Connection conn;

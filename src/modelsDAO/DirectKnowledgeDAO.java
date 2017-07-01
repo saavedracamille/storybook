@@ -7,11 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dbConnection.DatabaseConnection;
-import models.CheckIn;
 import models.DirectKnowledge;
-import models.PredefinedActivities;
-import models.TemplateGroup;
-import models.ToBeProcessed;
 
 public class DirectKnowledgeDAO {
 	private Connection conn;

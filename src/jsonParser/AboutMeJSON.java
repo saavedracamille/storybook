@@ -170,7 +170,7 @@ public class AboutMeJSON {
 					
 					String fbID = w.get("id").toString();
 					
-					work.setDateStrated(startDate);
+					work.setDateStarted(startDate);
 					work.setDateEnded(endDate);
 					work.setFbID(fbID);
 				}

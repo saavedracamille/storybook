@@ -2,6 +2,7 @@ package controller.textUnderstanding;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
@@ -12,14 +13,18 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.Label;
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
 import edu.stanford.nlp.ling.CoreAnnotations.LemmaAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.NamedEntityTagAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.trees.GrammaticalStructure;
 import edu.stanford.nlp.trees.GrammaticalStructureFactory;
+import edu.stanford.nlp.trees.HeadFinder;
 import edu.stanford.nlp.trees.PennTreebankLanguagePack;
+import edu.stanford.nlp.trees.SemanticHeadFinder;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
 import edu.stanford.nlp.trees.TreebankLanguagePack;
@@ -47,20 +52,22 @@ public class TextUnderstanding {
 			List<CoreMap> sentences = document.get(SentencesAnnotation.class);
 
 			for (CoreMap sentence : sentences) {
-				//for (CoreLabel token : sentence.get(TokensAnnotation.class)) {
+				String phrasalString = "";
+				
+				for (CoreLabel token : sentence.get(TokensAnnotation.class)) {
 
-					//String word = token.get(TextAnnotation.class);
-					//String pos = token.get(PartOfSpeechAnnotation.class);
-					//String ne = token.get(NamedEntityTagAnnotation.class);
+					String word = token.get(TextAnnotation.class);
+					String pos = token.get(PartOfSpeechAnnotation.class);
+					String ne = token.get(NamedEntityTagAnnotation.class);
 
-					// System.out.println("word: " + word + "\n" +
-					// " pos: " + pos + "\n" +
-					// " ne: " + ne + "\n");
-
-					// int posID = posd.getPosID(pos);
-
-					// tokens.add(new Token(word, posID, post.getId()));
-				//}
+//					 System.out.println("word: " + word + "\n" +
+//					 " pos: " + pos + "\n" +
+//					 " ne: " + ne + "\n");
+					
+					phrasalString += pos.toUpperCase() + " ";
+				}
+				
+				System.out.println(phrasalString);
 				
 				String vp = "";
 				String np = "";
@@ -76,6 +83,9 @@ public class TextUnderstanding {
 				if (np.isEmpty() && np.equals(""))
 					np = getNounPhrase(parse);
 				
+				System.out.println("vp: " + vp);
+				System.out.println("np: " + np);
+				
 				String lemma = "";
 				Annotation vpDocument = new Annotation(vp);
 				pipeline.annotate(vpDocument);
@@ -88,14 +98,6 @@ public class TextUnderstanding {
 				}
 				
 				verbObjects.add(new VerbObject(posts.get(i).getId(), lemma, np, sentence.toString()));
-				
-//				if (!vp.equals(""))
-//					verbPhrase += vp;
-//				if (!np.equals(""))
-//					nounPhrase += np;
-				
-				System.out.println("vp: " + vp);
-				System.out.println("np: " + np);
 			}
 		}
 		
@@ -106,7 +108,6 @@ public class TextUnderstanding {
 		String verbPhrase = "";
 		String actualVerbPhrase = "";
 		Tree t;
-		ArrayList<Tree> verbTrees = new ArrayList<Tree> ();
 		
 		do {
 			t = null;
@@ -227,8 +228,6 @@ public class TextUnderstanding {
 				if (typedDependency.reln().getShortName().equals("dobj")) {
 				   System.out.println("NP FROM UNIV DEPENDENCIES: " + typedDependency.dep().toString().split("/")[0]);
 				   noun = typedDependency.dep().toString().split("/")[0];
-//				   if (np.contains(noun))
-//					   return noun;
 				}
 		}
 		
@@ -253,8 +252,6 @@ public class TextUnderstanding {
 				if (typedDependency.reln().getShortName().equals("root") && typedDependency.dep().toString().split("/")[1].contains("VB")) {
 				   System.out.println("VP FROM UNIV DEPENDENCIES: " + typedDependency.dep().toString().split("/")[0]);
 				   verb = typedDependency.dep().toString().split("/")[0];
-//				   if (vp.contains(verb))
-//					   return verb;
 				}
 		}
 		

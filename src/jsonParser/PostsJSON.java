@@ -24,6 +24,7 @@ public class PostsJSON {
 	public ArrayList<ToBeProcessed> getPosts(JSONArray data) {
 		ArrayList<ToBeProcessed> posts = new ArrayList<ToBeProcessed>();
 		Preprocessing p = null;
+		
 		try {
 			p = new Preprocessing();
 		} catch (IOException e) {
@@ -46,6 +47,7 @@ public class PostsJSON {
 						if (post.get("message") != null && !post.get("message").toString().equals("")) {
 							//message = p.removeStopwords(post.get("message").toString());
 							message = p.removeSpecialCharacters(post.get("message").toString());
+							message = p.removeHashtags(message);
 
 							String fbIDs[] = post.get("id").toString().split("_");
 							String fbID = fbIDs[1];

@@ -2,6 +2,7 @@ package objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import models.Family;
 import modelsDAO.FamilyDAO;
@@ -26,7 +27,9 @@ public class Relationships {
 		ArrayList<String> current = new ArrayList<String> ();
 		
 		for (int i = 0; i < families.size(); i++) {
+			current = new ArrayList<String> ();
 			if (relationshipMap.containsKey(families.get(i).getRelationship())) {
+				current = relationshipMap.get(families.get(i).getRelationship());
 				current.add(families.get(i).getName());
 				relationshipMap.put(families.get(i).getRelationship(), current);
 			} else {

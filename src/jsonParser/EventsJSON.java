@@ -24,6 +24,7 @@ public class EventsJSON {
 	public ArrayList<Event> getEvents(JSONArray data) {
 		ArrayList<Event> allEvents = new ArrayList<Event> ();
 		Preprocessing p = null;
+		
 		try {
 			p = new Preprocessing();
 		} catch (IOException e) {
@@ -41,6 +42,7 @@ public class EventsJSON {
 				
 				if (events != null) {
 					String name = p.removeSpecialCharacters(events.get("name").toString());
+					name = p.removeHashtags(name);
 					String rsvp_status = events.get("rsvp_status").toString();
 					String fbID = events.get("id").toString();
 					

@@ -13,9 +13,7 @@ public class Preprocessing {
 	private HashSet<String> stopwords;
 
 	public Preprocessing() throws IOException {
-		initializeStopwords();
-
-		// TODO: ADD CHECK IF POST IS TAGALOG
+//		initializeStopwords();
 	}
 
 	public void initializeStopwords() throws IOException {
@@ -78,6 +76,15 @@ public class Preprocessing {
 
 //		System.out.println("Final String " + newString);
 
+		return newString;
+	}
+	
+	public String removeHashtags(String sentence) {
+		String newString = "";
+		
+		newString = sentence.replaceAll(",\\s+#[A-Za-z]+", "");
+		System.out.println("String without hashtags: " + newString);
+		
 		return newString;
 	}
 }

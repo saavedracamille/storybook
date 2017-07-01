@@ -23,8 +23,8 @@ public class Work {
 	
 	public Work(String institution, String dateStarted, String dateEnded, String location) {
 		this.institution = institution;
-		this.dateStarted = dateStarted;
-		this.dateEnded = dateEnded;
+		setDateStarted(dateStarted);
+		setDateEnded(dateEnded);
 		this.location = location;
 	}
 	
@@ -48,8 +48,28 @@ public class Work {
 		return dateStarted;
 	}
 	
-	public void setDateStrated(String dateStarted) {
-		this.dateStarted = dateStarted;
+	public void setDateStarted(String dateStarted) {
+		if (dateStarted != null || !("").equals(dateStarted)) {
+			String[] date = null;
+			String month = "";
+			String day = "";
+			String year = "";
+			
+			if (dateStarted.contains("\\/")) {
+				date = dateStarted.split("\\/");
+				month = getMonth(date[0]);
+				day = date[1];
+				year = date[2];
+			} else if (dateStarted.contains("-")) {
+				date = dateStarted.split("-");
+				month = getMonth(date[1]);
+				day = date[2];
+				year = date[0];
+			}
+			
+			this.dateStarted = month + " " + day + ", " + year;
+		} else
+			this.dateStarted = dateStarted;
 	}
 	
 	public String getDateEnded() {
@@ -57,7 +77,27 @@ public class Work {
 	}
 	
 	public void setDateEnded(String dateEnded) {
-		this.dateEnded = dateEnded;
+		if (dateEnded != null || !("").equals(dateEnded)) {
+			String[] date = null;
+			String month = "";
+			String day = "";
+			String year = "";
+			
+			if (dateEnded.contains("\\/")) {
+				date = dateEnded.split("\\/");
+				month = getMonth(date[0]);
+				day = date[1];
+				year = date[2];
+			} else if (dateEnded.contains("-")) {
+				date = dateEnded.split("-");
+				month = date[1];
+				day = date[2];
+				year = date[0];
+			}
+	
+			this.dateEnded = month + " " + day + ", " + year;
+		} else
+			this.dateEnded = dateEnded;
 	}
 	
 	public String getLocation() {
@@ -74,5 +114,24 @@ public class Work {
 	
 	public void setFbID(String fbID) {
 		this.fbID = fbID;
+	}
+	
+	public String getMonth(String m) {
+		switch (m) {
+			case "01": return "January";
+			case "02": return "February";
+			case "03": return "March";
+			case "04": return "April";
+			case "05": return "May";
+			case "06": return "June";
+			case "07": return "July";
+			case "08": return "August";
+			case "09": return "September";
+			case "10": return "October";
+			case "11": return "November";
+			case "12": return "December";
+		}
+
+		return "month";
 	}
 }
