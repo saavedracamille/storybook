@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import controller.storyGenerationBody.BodyController;
 import controller.storyGenerationBody.GenerateBody;
 import controller.storyGenerationConclusion.ConclusionController;
 import controller.storyGenerationConclusion.GenerateConclusion;
@@ -51,6 +52,9 @@ public class Controller extends HttpServlet {
 			System.out.println(ic.generateIntroduction());
 			System.out.println(cc.generateConclusion());
 			
+			BodyController bc = new BodyController();
+			System.out.println(bc.generateBody());
+			
 			//request.getRequestDispatcher("startPage.jsp").forward(request, response);
 		}
 		else if(path.equals("/ToDB")){
@@ -65,33 +69,42 @@ public class Controller extends HttpServlet {
 				//POSTS JSON
 				JSONArray eventArray = (JSONArray) parser.parse(strPostData);
 				System.out.println("EVENT ARRAY: " + eventArray);
-//				PostsJSON pj = new PostsJSON(eventArray);
+				PostsJSON pj = new PostsJSON(eventArray);
 				
 				//ABOUT ME JSON
 				JSONObject about = new JSONObject((JSONObject) parser.parse(strAboutData));
 				JSONArray familyArray = (JSONArray) parser.parse(strFamilyData);
 				System.out.println("ABOUT: " + about);
 				System.out.println("FAMILY ARRAY: " + familyArray);
-//				AboutMeJSON amj = new AboutMeJSON(about, familyArray);
+				AboutMeJSON amj = new AboutMeJSON(about, familyArray);
 				
 				//LIKES JSON
 				JSONArray likesArray = (JSONArray) parser.parse(strLikeData);
 				System.out.println("LIKES ARRAY: " + likesArray);
-//				LikesJSON lj = new LikesJSON(likesArray);
+				LikesJSON lj = new LikesJSON(likesArray);
 				
 				//EVENTS JSON
 				JSONArray eventsData = (JSONArray) parser.parse(strEventData);
 				System.out.println("EVENTS ARRAY: " + eventsData);
-//				EventsJSON ej = new EventsJSON(eventsData);
+				EventsJSON ej = new EventsJSON(eventsData);
 				
-				GenerateIntro gi = new GenerateIntro();
-				wholeStory += gi.getIntro() + "<br />";
+//				GenerateIntro gi = new GenerateIntro();
+//				wholeStory += gi.getIntro() + "<br />";
+//				
+//				GenerateBody gb = new GenerateBody();
+//				wholeStory += gb.getBody() + "<br />";
+//				
+//				GenerateConclusion gc = new GenerateConclusion();
+//				wholeStory += gc.getConclusion() + "<br />";
 				
-				GenerateBody gb = new GenerateBody();
-				wholeStory += gb.getBody() + "<br />";
+				IntroObjectInit ic = new IntroObjectInit();
+				ConclusionController cc = new ConclusionController();
 				
-				GenerateConclusion gc = new GenerateConclusion();
-				wholeStory += gc.getConclusion() + "<br />";
+				System.out.println(ic.generateIntroduction());
+				System.out.println(cc.generateConclusion());
+				
+				BodyController bc = new BodyController();
+				bc.generateBody();
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
