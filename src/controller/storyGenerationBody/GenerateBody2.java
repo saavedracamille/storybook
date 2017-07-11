@@ -64,6 +64,7 @@ public class GenerateBody2 {
 		}
 		
 		DocumentElement par = nlgFactory.createParagraph(list);
+//		System.out.println(realiser.realise(par).getRealisation());
 		
 		return realiser.realise(par).getRealisation();
 	}
@@ -93,7 +94,7 @@ public class GenerateBody2 {
 			
 			s1.addPostModifier(s);
 			
-			System.out.println(realiser.realise(s1).getRealisation());
+			//System.out.println(realiser.realise(s1).getRealisation());
 			
 			return nlgFactory.createSentence(s1);
 		} else
@@ -140,7 +141,7 @@ public class GenerateBody2 {
 			
 			s1.addPostModifier(s);
 			
-			System.out.println(realiser.realise(s1).getRealisation());
+			//System.out.println(realiser.realise(s1).getRealisation());
 			
 			return nlgFactory.createSentence(s1);
 		} else
@@ -179,7 +180,7 @@ public class GenerateBody2 {
 			
 			s1.addPostModifier(s);
 			
-			System.out.println(realiser.realise(s1).getRealisation());
+			//System.out.println(realiser.realise(s1).getRealisation());
 			
 			return nlgFactory.createSentence(s1);
 		} else
@@ -226,7 +227,7 @@ public class GenerateBody2 {
 			
 			s1.addPostModifier(s);
 			
-			System.out.println(realiser.realise(s1).getRealisation());
+			//System.out.println(realiser.realise(s1).getRealisation());
 			
 			return nlgFactory.createSentence(s1);
 		} else
@@ -261,7 +262,7 @@ public class GenerateBody2 {
 				
 				sentences.add(nlgFactory.createSentence(s));
 				
-				System.out.println(realiser.realise(s).getRealisation() + "\n\n");
+//				System.out.println(realiser.realise(s).getRealisation() + "\n\n");
 			}
 			
 			DocumentElement par = nlgFactory.createParagraph(sentences);
@@ -293,13 +294,23 @@ public class GenerateBody2 {
 					pp.setPreposition("in");
 				}
 				
-				s.setObject(pp);
+				if (pp != null)
+					s.addComplement(pp);
+				
+				ToBeProcessed tbp = tbpd.getPost(verbObjects.get(i).getPi());
+				
+				PPPhraseSpec pp2 = new PPPhraseSpec(nlgFactory);
+				pp2.addComplement(tbp.getMonthWord(tbp.getMonth()) + " " + tbp.getDay() + ", " + tbp.getYear() + ",");
+				pp2.setPreposition("On");
+				s.addFrontModifier(pp2);
+				
+				s.setObject(pp2);
 			}
 		}
 		
 		DocumentElement par = nlgFactory.createParagraph(sentences);
 		
-		System.out.println(realiser.realise(par).getRealisation());
+		//System.out.println(realiser.realise(par).getRealisation());
 		
 		return nlgFactory.createParagraph(par);
 	}
@@ -331,19 +342,41 @@ public class GenerateBody2 {
 	public DocumentElement generateCelebratingPosts(ArrayList<VerbObject> verbObjects) {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		ArrayList<DocumentElement> sentences = new ArrayList<DocumentElement> ();
+		ArrayList<VerbObject> vos = new ArrayList<VerbObject> ();
 		
 		if (verbObjects.size() != 0) {
 			for (int i = verbObjects.size() - 1; i >= 0; i--) {
 				ArrayList<String> celebratingType = celebratingType(verbObjects.get(i).getSentence(), verbObjects.get(i).getNoun(), tbpd.getPost(verbObjects.get(i).getPi()).getTagged());
 				
-				if (celebratingType.get(0).equals("anniversary") || celebratingType.get(0).equals("friendversary"))
+				if (celebratingType.get(0).equals("anniversary") || celebratingType.get(0).equals("friendversary")){
 					sentences.add(anniversary(verbObjects.get(i), celebratingType.get(0)));
-				else if (celebratingType.get(0).equals("new year") || celebratingType.get(0).equals("christmas"))
+					System.out.println("anniv or frienversary");
+					vos.add(verbObjects.get(i));
+				}
+				else if (celebratingType.get(0).equals("new year") || celebratingType.get(0).equals("christmas")){
 					sentences.add(anniversary(verbObjects.get(i), celebratingType.get(0)));
-				else if (celebratingType.get(0).equals("welcome"))
+					System.out.println("new year or christmas");
+					vos.add(verbObjects.get(i));
+				}
+				else if (celebratingType.get(0).equals("welcome")){
 					sentences.add(anniversary(verbObjects.get(i), celebratingType.get(0)));
-				else if (celebratingType.get(0).equals("normal"))
+					System.out.println("welcome");
+					vos.add(verbObjects.get(i));
+				}
+				else if (celebratingType.get(0).equals("congratulations")){
+					sentences.add(congrats(verbObjects.get(i), celebratingType.get(0)));
+					System.out.println("congrats");
+					vos.add(verbObjects.get(i));
+				}
+				else if (celebratingType.get(0).equals("birthday")){
+					sentences.add(birthday(verbObjects.get(i), celebratingType.get(0)));
+					System.out.println("birthday");
+					vos.add(verbObjects.get(i));
+				}
+				else if (celebratingType.get(0).equals("normal")) {
+					verbObjects.removeAll(vos);
 					sentences.add(generalSentences(2, verbObjects));
+				}
 				
 //				SPhraseSpec s = new SPhraseSpec(nlgFactory);
 //				s.setSubject(pronoun);
@@ -366,6 +399,7 @@ public class GenerateBody2 {
 	}
 	
 	public DocumentElement anniversary(VerbObject verbObjects, String type) {
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		SPhraseSpec s = new SPhraseSpec(nlgFactory);
 		
 		NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
@@ -380,10 +414,18 @@ public class GenerateBody2 {
 		PPPhraseSpec pp = new PPPhraseSpec(nlgFactory);
 		pp.setPreposition("their");
 		pp.addComplement(type + " together");
+		s.addComplement(pp);
+		
+		ToBeProcessed tbp = tbpd.getPost(verbObjects.getPi());
+		
+		PPPhraseSpec pp2 = new PPPhraseSpec(nlgFactory);
+		pp2.addComplement(tbp.getMonthWord(tbp.getMonth()) + " " + tbp.getDay() + ", " + tbp.getYear() + ",");
+		pp2.setPreposition("On");
+		s.addFrontModifier(pp2);
 		
 		s.setObject(pp);
 		
-		System.out.println(realiser.realise(s).getRealisation());
+		//System.out.println(realiser.realise(s).getRealisation());
 		
 		return nlgFactory.createSentence(s);
 	}
@@ -401,14 +443,24 @@ public class GenerateBody2 {
 		pp.addPreModifier(type);
 		pp.addPostModifier(tbpd.getPost(verbObjects.getPi()).getTagged());
 		
+		s.addComplement(pp);
+		
+		ToBeProcessed tbp = tbpd.getPost(verbObjects.getPi());
+		
+		PPPhraseSpec pp2 = new PPPhraseSpec(nlgFactory);
+		pp2.addComplement(tbp.getMonthWord(tbp.getMonth()) + " " + tbp.getDay() + ", " + tbp.getYear() + ",");
+		pp2.setPreposition("On");
+		s.addFrontModifier(pp2);
+		
 		s.setObject(pp);
 		
-		System.out.println(realiser.realise(s).getRealisation());
+		//System.out.println(realiser.realise(s).getRealisation());
 		
 		return nlgFactory.createSentence(s);
 	}
 	
 	public DocumentElement welcome(VerbObject verbObjects, String type) {
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		SPhraseSpec s = new SPhraseSpec(nlgFactory);
 		
 		s.setSubject(pronoun);
@@ -416,7 +468,68 @@ public class GenerateBody2 {
 		s.setFeature(Feature.TENSE, Tense.PAST);
 		s.setObject(verbObjects.getNoun());
 		
-		System.out.println(realiser.realise(s).getRealisation());
+		ToBeProcessed tbp = tbpd.getPost(verbObjects.getPi());
+		
+		PPPhraseSpec pp2 = new PPPhraseSpec(nlgFactory);
+		pp2.addComplement(tbp.getMonthWord(tbp.getMonth()) + " " + tbp.getDay() + ", " + tbp.getYear() + ",");
+		pp2.setPreposition("On");
+		s.addFrontModifier(pp2);
+		
+		//System.out.println(realiser.realise(s).getRealisation());
+		
+		return nlgFactory.createSentence(s);
+	}
+	
+	public DocumentElement congrats(VerbObject verbObjects, String type) {
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
+		SPhraseSpec s = new SPhraseSpec(nlgFactory);
+		
+		s.setSubject(pronoun);
+		s.setVerb(verbCelebration(type));
+		s.setFeature(Feature.TENSE, Tense.PAST);
+		s.setObject(tbpd.getPost(verbObjects.getPi()).getTagged());
+		
+		ToBeProcessed tbp = tbpd.getPost(verbObjects.getPi());
+		
+		PPPhraseSpec pp2 = new PPPhraseSpec(nlgFactory);
+		pp2.addComplement(tbp.getMonthWord(tbp.getMonth()) + " " + tbp.getDay() + ", " + tbp.getYear() + ",");
+		pp2.setPreposition("On");
+		s.addFrontModifier(pp2);
+		
+		//System.out.println(realiser.realise(s).getRealisation());
+		
+		return nlgFactory.createSentence(s);
+	}
+	
+	public DocumentElement birthday(VerbObject verbObjects, String type) {
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
+		SPhraseSpec s = new SPhraseSpec(nlgFactory);
+		String tagged = tbpd.getPost(verbObjects.getPi()).getTagged();
+		String noun = verbObjects.getNoun();
+		String object = "";	
+		
+		s.setSubject(pronoun);
+		s.setVerb(verbCelebration(type));
+		s.setFeature(Feature.TENSE, Tense.PAST);
+		
+		if(!tagged.isEmpty() && tagged != ""){
+			s.setObject("birthday");
+			PPPhraseSpec pp = new PPPhraseSpec(nlgFactory);
+			pp.setPreposition("with");
+			pp.addComplement(tagged);
+			s.addComplement(pp);
+		} else{
+			s.setObject(noun);
+		}
+		
+		ToBeProcessed tbp = tbpd.getPost(verbObjects.getPi());
+		
+		PPPhraseSpec pp2 = new PPPhraseSpec(nlgFactory);
+		pp2.addComplement(tbp.getMonthWord(tbp.getMonth()) + " " + tbp.getDay() + ", " + tbp.getYear() + ",");
+		pp2.setPreposition("On");
+		s.addFrontModifier(pp2);
+		
+		//System.out.println(realiser.realise(s).getRealisation());
 		
 		return nlgFactory.createSentence(s);
 	}
@@ -426,35 +539,21 @@ public class GenerateBody2 {
 		
 		if (sentence.contains("anniversary")) {
 			info.add("anniversary");
-			info.add(null);
-			info.add(tagged);
 		} else if (sentence.contains("friendversary")) {
 			info.add("friendversary");
-			info.add(null);
-			info.add(tagged);
 		} else if (sentence.contains("congratulation")) {
 			info.add("congratulation");
-			info.add(getObject(noun, tagged).get(0));
-			info.add(getObject(noun, tagged).get(1));
 		} else if (sentence.contains("birthday") || sentence.contains("bday")) {
 			info.add("birthday");
 			info.add(getBirthdayObject(noun, tagged));
 		} else if (sentence.contains("christmas")) {
 			info.add("christmas");
-			info.add(null);
-			info.add(tagged);
 		} else if (sentence.contains("new year")) {
 			info.add("new year");
-			info.add(null);
-			info.add(tagged);
 		} else if (sentence.contains("welcome")) {
-			info.add("");
-			info.add(noun);
-			info.add(null);
+			info.add("welcome");
 		} else if (sentence.contains("proud")) {
 			info.add("proud");
-			info.add(getObject(noun, tagged).get(0));
-			info.add(getObject(noun, tagged).get(1));
 		} else {
 			info.add("normal");
 		}
@@ -534,4 +633,5 @@ public class GenerateBody2 {
 		
 		return verb;
 	}
+
 }

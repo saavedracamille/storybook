@@ -61,17 +61,18 @@ public class EventClassification {
 //						
 						for (int k = 0; k < clwsSplit.length; k++) {
 //							if (wordCompare.equals(clwsSplit[k]) && !postType.contains(String.valueOf(clws.get(j).getPit())) && !wordsChecked.contains(wordCompare)) {
-							if (wordCompare.equals(clwsSplit[k]) && !wordsChecked.contains(wordCompare) && !keywordsChecked.contains(clwsSplit[k])) {	
+							if (wordCompare.equals(clwsSplit[k]) && !wordsChecked.contains(wordCompare) ) {	
 								//System.out.println("1BPOST: " + vos.get(i).getSentence() + " CLW: " + clwsSplit[k]);
 //				        		System.out.println("WORDS MATCHED: " + clwsSplit[k]);
 								addScore(clws.get(j).getPit());
 //								if (clws.get(j).getPit() == 2 || clws.get(j).getPit() == 5 || clws.get(j).getPit() == 7 || clws.get(j).getPit() == 10)
 //									postType += String.valueOf(clws.get(j).getPit()) + " ";
 							}
-							keywordsChecked.add(clwsSplit[k]);
+						//	keywordsChecked.add(clwsSplit[k]);
 						}
 					} else {
-						if (wordCompare.equals(clws.get(j).getClw().toLowerCase()) && !wordsChecked.contains(wordCompare) && !keywordsChecked.contains(clws.get(j).getClw().toLowerCase())) {	
+						if (wordCompare.equals(clws.get(j).getClw().toLowerCase()) && !wordsChecked.contains(wordCompare)
+								) {	
 							//System.out.println("2BPOST: " + vos.get(i).getSentence() + " CLW: " + clws.get(j).getClw());
 //			        		System.out.println("WORDS MATCHED: " + clws.get(j).getClw());
 			        		addScore(clws.get(j).getPit());
@@ -79,7 +80,7 @@ public class EventClassification {
 //								if (clws.get(j).getPit() == 2 || clws.get(j).getPit() == 5 || clws.get(j).getPit() == 7 || clws.get(j).getPit() == 10)
 //									postType += String.valueOf(clws.get(j).getPit()) + " ";
 				        }
-						keywordsChecked.add(clws.get(j).getClw().toLowerCase());
+					//	keywordsChecked.add(clws.get(j).getClw().toLowerCase());
 					}
 				}
 				
@@ -98,7 +99,7 @@ public class EventClassification {
 			
 			if (maxEntry.getValue() > 1) { //score of each post for a category must be at least 2pts
 				postType = String.valueOf(maxEntry.getKey());
-		    	System.out.println("POST TYPE IS: " + postType);
+		    	//System.out.println("POST TYPE IS: " + postType);
 	    	} else 
 	    		postType = "0";
 			

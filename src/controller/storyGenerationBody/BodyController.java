@@ -62,12 +62,12 @@ public class BodyController {
 		restaurants = new ArrayList<Restaurants> ();
 		
 		this.tbps = tbpd.getAllPosts();
-//
+
 //		TextUnderstanding tu = new TextUnderstanding();
 //		tu.performTextUnderstanding(tbps);
 
-//		EventClassification ec = new EventClassification();
-//		ec.performEventClassification(tbps);
+		EventClassification ec = new EventClassification();
+		ec.performEventClassification(tbps);
 		
 		initializeObjects();
 	}

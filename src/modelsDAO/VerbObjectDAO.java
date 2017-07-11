@@ -288,7 +288,6 @@ public class VerbObjectDAO {
 
 			while (rs.next()) {
 				String tagged = tbpd.getTagged(rs.getInt(VerbObject.COL_PI));
-				System.out.println("start: " + tagged);
 				
 				if (tagged != null && !("").equals(tagged)) {
 					String temp[] = null;

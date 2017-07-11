@@ -49,7 +49,8 @@ public class Work {
 	}
 	
 	public void setDateStarted(String dateStarted) {
-		if (dateStarted != null || !("").equals(dateStarted)) {
+		System.out.println(dateStarted);
+		if (dateStarted != null && !("").equals(dateStarted)) {
 			String[] date = null;
 			String month = "";
 			String day = "";
@@ -91,7 +92,7 @@ public class Work {
 	}
 	
 	public void setDateEnded(String dateEnded) {
-		if (dateEnded != null || !("").equals(dateEnded)) {
+		if (dateEnded != null && !("").equals(dateEnded)) {
 			String[] date = null;
 			String month = "";
 			String day = "";
