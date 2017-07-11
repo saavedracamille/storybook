@@ -9,23 +9,19 @@ import java.util.HashMap;
 
 import dbConnection.DatabaseConnection;
 import models.CheckIn;
-import models.DirectKnowledge;
-import models.Family;
-import models.Likes;
 import models.ToBeProcessed;
-import models.Token;
-import models.VerbObject;
 
 public class ToBeProcessedDAO {
+	private DatabaseConnection dc;
 	private Connection conn;
 
 	public ToBeProcessedDAO() {
-		DatabaseConnection dc = new DatabaseConnection();
-		conn = dc.getConnection();
+		dc = new DatabaseConnection();
 	}
 
 	public void addToBeProcessedPost(ArrayList<ToBeProcessed> toBeProcessed) {
 		PreparedStatement ps = null;
+		conn = dc.getConnection();
 
 		try {
 			for (int i = 0; i < toBeProcessed.size(); i++) {
@@ -46,10 +42,10 @@ public class ToBeProcessedDAO {
 				ps.setString(7, toBeProcessed.get(i).getYear());
 				ps.setString(8, toBeProcessed.get(i).getMonth());
 				ps.setString(9, toBeProcessed.get(i).getDay());
-				// System.out.println(ps);
 
 				ps.execute();
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -228,6 +224,7 @@ public class ToBeProcessedDAO {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		conn = dc.getConnection();
 
 		try {
 			ps = conn.prepareStatement("SELECT * FROM " + ToBeProcessed.TABLE_TBP + ";");
@@ -249,6 +246,7 @@ public class ToBeProcessedDAO {
 
 				posts.add(new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -267,6 +265,7 @@ public class ToBeProcessedDAO {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		conn = dc.getConnection();
 
 		try {
 			ps = conn.prepareStatement(
@@ -289,6 +288,7 @@ public class ToBeProcessedDAO {
 
 				tbp = new ToBeProcessed(id, data, fbID, tagged, checkIn, year, month, day);
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -307,21 +307,24 @@ public class ToBeProcessedDAO {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		conn = dc.getConnection();
 
 		try {
-			ps = conn.prepareStatement("SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_CITY
-					+ " <> \'\' OR " + ToBeProcessed.COL_PLACE + " <> \'\' OR " + ToBeProcessed.COL_COUNTRY + " <> \'\';");
+			ps = conn.prepareStatement(
+					"SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_CITY + " <> \'\' OR "
+							+ ToBeProcessed.COL_PLACE + " <> \'\' OR " + ToBeProcessed.COL_COUNTRY + " <> \'\';");
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
 				String city = rs.getString(ToBeProcessed.COL_CITY);
 				String place = rs.getString(ToBeProcessed.COL_PLACE);
 				String country = rs.getString(ToBeProcessed.COL_COUNTRY);
-				
+
 				CheckIn checkIn = new CheckIn(place, city, country);
 
 				tbps.add(checkIn);
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -376,13 +379,126 @@ public class ToBeProcessedDAO {
 	// return verbs;
 	// }
 
+	public ArrayList<String> getCountries(String currentLocation) {
+		ArrayList<String> countries = new ArrayList<String>();
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		conn = dc.getConnection();
+
+		try {
+			ps = conn.prepareStatement(
+					"SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_COUNTRY + " <> \'\';");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String country = rs.getString(ToBeProcessed.COL_COUNTRY);
+
+				if (!currentLocation.contains(country) && !countries.contains(country) && country != null
+						&& !("").equals(country))
+					countries.add(country);
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return countries;
+	}
+
+	public HashMap<String, ArrayList<String>> getLocalPlaces(String currCountry) {
+		HashMap<String, ArrayList<String>> localPlaces = new HashMap<String, ArrayList<String>>();
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		conn = dc.getConnection();
+
+		try {
+			ps = conn.prepareStatement(
+					"SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_CITY + " <> \'\' OR "
+							+ ToBeProcessed.COL_PLACE + " <> \'\' OR " + ToBeProcessed.COL_COUNTRY + "<> \'\';");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				ArrayList<String> places = new ArrayList<String>();
+				String place = rs.getString(ToBeProcessed.COL_PLACE);
+				String city = rs.getString(ToBeProcessed.COL_CITY);
+				String country = rs.getString(ToBeProcessed.COL_COUNTRY);
+
+				if (country != null) {
+					if (!("").equals(country) && currCountry.contains(country)) {
+						if (!localPlaces.containsKey(city) && !("").equals(city)) {
+							if (!places.contains(place))
+								places.add(place);
+							localPlaces.put(city, places);
+						} else {
+							places = localPlaces.get(city);
+							if (!places.contains(place))
+								places.add(place);
+							localPlaces.put(city, places);
+						}
+					}
+				}
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return localPlaces;
+	}
+	
+	public String getTagged(int postID) {
+		String tagged = "";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		conn = dc.getConnection();
+
+		try {
+			ps = conn.prepareStatement(
+					"SELECT * FROM " + ToBeProcessed.TABLE_TBP + " WHERE " + ToBeProcessed.COL_ID + " = ?;");
+			ps.setInt(1, postID);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				tagged = rs.getString(ToBeProcessed.COL_TAGGED);
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return tagged;
+	}
+
 	public void truncateToBeProcessedPost() {
 		PreparedStatement ps = null;
+		conn = dc.getConnection();
 
 		try {
 			ps = conn.prepareStatement("TRUNCATE " + ToBeProcessed.TABLE_TBP);
 
 			ps.execute();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

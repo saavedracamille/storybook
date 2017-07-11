@@ -7,26 +7,26 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import dbConnection.DatabaseConnection;
 import models.CheckIn;
-import models.Event;
 import models.ToBeProcessed;
 import models.VerbObject;
 
 public class VerbObjectDAO {
+	private DatabaseConnection dc;
 	private Connection conn;
 
 	public VerbObjectDAO() {
-		DatabaseConnection dc = new DatabaseConnection();
-		conn = dc.getConnection();
+		dc = new DatabaseConnection();
 	}
 
 	public void addVerbObject(ArrayList<VerbObject> verbObjects) {
 		PreparedStatement ps = null;
+		conn = dc.getConnection();
 
 		try {
 			for (int i = 0; i < verbObjects.size(); i++) {
@@ -40,6 +40,7 @@ public class VerbObjectDAO {
 
 				ps.executeUpdate();
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -58,6 +59,7 @@ public class VerbObjectDAO {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		conn = dc.getConnection();
 
 		try {
 			ps = conn.prepareStatement("SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_VERB
@@ -84,6 +86,7 @@ public class VerbObjectDAO {
 					}
 				}
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -102,6 +105,7 @@ public class VerbObjectDAO {
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		conn = dc.getConnection();
 
 		try {
 //			ps = conn.prepareStatement("SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_VERB
@@ -118,6 +122,7 @@ public class VerbObjectDAO {
 
 				verbObjects.add(new VerbObject(id, postId, verb, noun, sentence));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -133,28 +138,18 @@ public class VerbObjectDAO {
 
 	public void addPostType(ArrayList<VerbObject> verbObject) {
 		PreparedStatement ps = null;
+		conn = dc.getConnection();
 
 		try {
 			for (int i = 0; i < verbObject.size(); i++) {
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(verbObject.get(i).getDate());
-
-				int month = cal.get(Calendar.MONTH);
-				int day = cal.get(Calendar.DAY_OF_MONTH);
-				int year = cal.get(Calendar.YEAR);
-				
-				ps = conn.prepareStatement("UPDATE " + VerbObject.TABLE_VO + " SET " + VerbObject.COL_PT + " = ?, "
-						+ VerbObject.COL_TAGGED + " = ?, " + VerbObject.COL_LOCATION + " = ?, " + VerbObject.COL_DATE
-						+ " = ?" + " WHERE " + VerbObject.COL_PI + " = ? AND " + VerbObject.COL_ID + " = ?;");
+				ps = conn.prepareStatement("UPDATE " + VerbObject.TABLE_VO + " SET " + VerbObject.COL_PT + " = ?  WHERE " + VerbObject.COL_PI + " = ? AND " + VerbObject.COL_ID + " = ?;");
 				ps.setString(1, verbObject.get(i).getPostType());
-				ps.setString(2, verbObject.get(i).getTagged());
-				ps.setString(3, verbObject.get(i).getLocation());
-				ps.setString(4, month+"/"+day+"/"+year);
-				ps.setInt(5, verbObject.get(i).getPi());
-				ps.setInt(6, verbObject.get(i).getId());
+				ps.setInt(2, verbObject.get(i).getPi());
+				ps.setInt(3, verbObject.get(i).getId());
 
 				ps.execute();
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -166,17 +161,18 @@ public class VerbObjectDAO {
 		}
 	}
 
-	public HashMap<Integer, HashMap<Integer, VerbObject>> getClassifiedPosts() {
-		HashMap<Integer, HashMap<Integer, VerbObject>> verbObjects = new HashMap<Integer, HashMap<Integer, VerbObject>>();
+	public HashMap<Integer, ArrayList<VerbObject>> getClassifiedPosts() {
+		HashMap<Integer, ArrayList<VerbObject>> verbObjects = new HashMap<Integer, ArrayList<VerbObject>>();
 
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		conn = dc.getConnection();
 
 		PostTypeDAO ptd = new PostTypeDAO();
 
 		try {
 			ps = conn.prepareStatement(
-					"SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_PT + " <> \'\';");
+					"SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_PT + " <> \'\' AND " + VerbObject.COL_PT + " != 0;");
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -186,37 +182,36 @@ public class VerbObjectDAO {
 				String noun = rs.getString(VerbObject.COL_NOUN);
 				String sentence = rs.getString(VerbObject.COL_SENTENCE);
 				String postType = rs.getString(VerbObject.COL_PT);
-				String tagged = rs.getString(VerbObject.COL_TAGGED);
-				String location = rs.getString(VerbObject.COL_LOCATION);
-				String date = rs.getString(VerbObject.COL_DATE);
 				
-				SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-		        Date d = null;
-				try {
-					d = formatter.parse(date);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-
-				String[] postTypes = postType.split(" ");
-
-				for (int i = 0; i < postTypes.length; i++) {
-					VerbObject vo = new VerbObject(id, postId, verb, noun, sentence, tagged, location, d);
+				boolean toPut = true;
+				
+//				String[] postTypes = null;
+//				if (postType.contains(" "))
+//					postTypes = postType.split(" ");
+//
+//				for (int i = 0; i < postTypes.length; i++) {
+					VerbObject vo = new VerbObject(id, postId, verb, noun, sentence);
 
 					if (vo.getVerb() == null || vo.getVerb().equals("") || vo.getVerb().equals(" "))
-						vo.setVerb(ptd.getVerb(Integer.parseInt(postTypes[i])));
+						vo.setVerb(ptd.getVerb(Integer.parseInt(postType)));
 
-					if (!verbObjects.containsKey(Integer.parseInt(postTypes[i]))) {
-						HashMap<Integer, VerbObject> vos = new HashMap<Integer, VerbObject>();
-						vos.put(postId, vo);
-						verbObjects.put(Integer.parseInt(postTypes[i]), vos);
+					if (!verbObjects.containsKey(Integer.parseInt(postType))) {
+						ArrayList<VerbObject> vos = new ArrayList<VerbObject> ();
+						vos.add(vo);
+						verbObjects.put(Integer.parseInt(postType), vos);
 					} else {
-						HashMap<Integer, VerbObject> temp = verbObjects.get(Integer.parseInt(postTypes[i]));
-						temp.put(postId, vo);
-						verbObjects.put(Integer.parseInt(postTypes[i]), temp);
+						ArrayList<VerbObject> temp = verbObjects.get(Integer.parseInt(postType));
+						for (int i = 0; i < temp.size(); i++) {
+							if (temp.get(i).getId() == vo.getId())
+								toPut = false;
+						}
+						if (toPut)
+							temp.add(vo);
+						verbObjects.put(Integer.parseInt(postType), temp);
 					}
-				}
+//				}
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -228,5 +223,141 @@ public class VerbObjectDAO {
 		}
 
 		return verbObjects;
+	}
+	
+	public HashMap<String, ArrayList<String>> getRestaurants() {
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
+		HashMap<String, ArrayList<String>> restaurants = new HashMap<String, ArrayList<String>> ();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		conn = dc.getConnection();
+		
+		try {
+			ps = conn.prepareStatement(
+					"SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_PT + " = 5 OR " + VerbObject.COL_PT + " = 2;");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				ToBeProcessed tbp = tbpd.getPost(rs.getInt(VerbObject.COL_PI));
+				CheckIn checkIn = tbp.getCheckIn();
+				
+				ArrayList<String> places = new ArrayList<String> ();
+				
+				if (checkIn.getCountry() != null) {
+					if (!("").equals(checkIn.getPlace()) && !restaurants.containsKey(checkIn.getCity())) {
+						places.add(checkIn.getPlace());
+						restaurants.put(checkIn.getCity(), places);
+					} else {
+						places = restaurants.get(checkIn.getCity());
+						places.add(checkIn.getPlace());
+						restaurants.put(checkIn.getCity(), places);
+					}
+				}
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return restaurants;
+	}
+	
+	public ArrayList<String> getCelebrants() {
+		ArrayList<String> celebrants = new ArrayList<String> ();
+		HashMap<String, Integer> tags = new HashMap<String, Integer> ();
+		ArrayList<String> mostFreq = new ArrayList<String>();
+		Entry<String, Integer> maxEntry = null;
+		
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		conn = dc.getConnection();
+		
+		try {
+			ps = conn.prepareStatement(
+					"SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_PT + " = 2;");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String tagged = tbpd.getTagged(rs.getInt(VerbObject.COL_PI));
+				System.out.println("start: " + tagged);
+				
+				if (tagged != null && !("").equals(tagged)) {
+					String temp[] = null;
+					String temp1[] = null;
+					
+					if (!tagged.contains(",") || !tagged.contains("and")) {
+						celebrants.add(tagged);
+					} else {
+						if (tagged.contains(",")) {
+							temp = tagged.split(", ");
+							for (int j = 0; j < temp.length - 1; j++)
+								celebrants.add(temp[j]);
+						}
+	
+						if (tagged.contains("and")) {
+							if (temp != null && temp.length != 0)
+								temp1 = temp[temp.length - 1].split(" and ");
+							else
+								temp1 = tagged.split(" and ");
+	
+							if (temp1[0] != null)
+								celebrants.add(temp1[0]);
+							if (temp1[1] != null)
+								celebrants.add(temp1[1]);
+						}
+					}
+				}
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if (celebrants != null && !celebrants.isEmpty() && celebrants.size() != 0) {
+			for (int j = 0; j < celebrants.size(); j++) {
+				if (celebrants.get(j).startsWith(" "))
+					celebrants.set(j, celebrants.get(j).substring(1, celebrants.get(j).length()));
+				if (celebrants.get(j).endsWith(" "))
+					celebrants.set(j, celebrants.get(j).substring(0, celebrants.get(j).length() - 1));
+	
+				if (tags.containsKey(celebrants.get(j))) {
+					int count = tags.get(celebrants.get(j));
+					count++;
+					tags.put(celebrants.get(j), count);
+				} else {
+					tags.put(celebrants.get(j), 1);
+				}
+			}
+		}
+		
+		for (Entry<String, Integer> entry : tags.entrySet())
+			if (maxEntry == null || entry.getValue() > maxEntry.getValue())
+				maxEntry = entry;
+	
+		if (maxEntry != null) {
+			mostFreq.add(maxEntry.getKey());
+	
+			for (Entry<String, Integer> entry : tags.entrySet())
+				if (entry.getValue() == maxEntry.getValue() && !mostFreq.contains(entry.getKey())) {
+					mostFreq.add(entry.getKey());
+				}
+		}
+		
+		return mostFreq;
 	}
 }

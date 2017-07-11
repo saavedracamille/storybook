@@ -52,22 +52,22 @@ public class TextUnderstanding {
 			List<CoreMap> sentences = document.get(SentencesAnnotation.class);
 
 			for (CoreMap sentence : sentences) {
-				String phrasalString = "";
-				
-				for (CoreLabel token : sentence.get(TokensAnnotation.class)) {
-
-					String word = token.get(TextAnnotation.class);
-					String pos = token.get(PartOfSpeechAnnotation.class);
-					String ne = token.get(NamedEntityTagAnnotation.class);
-
-//					 System.out.println("word: " + word + "\n" +
-//					 " pos: " + pos + "\n" +
-//					 " ne: " + ne + "\n");
-					
-					phrasalString += pos.toUpperCase() + " ";
-				}
-				
-				System.out.println(phrasalString);
+//				String phrasalString = "";
+//				
+//				for (CoreLabel token : sentence.get(TokensAnnotation.class)) {
+//
+//					String word = token.get(TextAnnotation.class);
+//					String pos = token.get(PartOfSpeechAnnotation.class);
+//					String ne = token.get(NamedEntityTagAnnotation.class);
+//
+////					 System.out.println("word: " + word + "\n" +
+////					 " pos: " + pos + "\n" +
+////					 " ne: " + ne + "\n");
+//					
+//					phrasalString += pos.toUpperCase() + " ";
+//				}
+//				
+//				System.out.println(phrasalString);
 				
 				String vp = "";
 				String np = "";

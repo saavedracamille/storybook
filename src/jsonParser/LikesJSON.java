@@ -25,6 +25,7 @@ public class LikesJSON {
 	}
 	
 	public ArrayList<Likes> getLikes(JSONArray data) {
+		ArrayList<Likes> likes2 = new ArrayList<Likes> ();
 		HashMap<String, ArrayList<Interest>> likesMap = new HashMap<String, ArrayList<Interest>> ();
 		Preprocessing p = null;
 		
@@ -35,13 +36,13 @@ public class LikesJSON {
 		}
 		
 		for (int i = 0; i < data.size(); i++) {
-			Likes like = new Likes();
-			ArrayList<Interest> interests = new ArrayList<Interest> ();
 			JSONArray likesArray = (JSONArray) data.get(i);
 			
 			for (int j = 0; j < likesArray.size(); j++) {
 				JSONObject l = (JSONObject) likesArray.get(j);
+				ArrayList<Interest> interests = new ArrayList<Interest> ();
 				Interest interest = new Interest();
+				Likes like = new Likes();
 				
 				if(l != null) {
 					String name = "";
@@ -51,6 +52,7 @@ public class LikesJSON {
 					if (l.get("name") != null) {
 						name = p.removeSpecialCharacters(l.get("name").toString());
 						name = p.removeHashtags(name);
+//						name = p.removeOtherShits(name);
 						interest.setInterest(name);
 					}
 					if (l.get("category") != null) {
@@ -75,9 +77,9 @@ public class LikesJSON {
 		}
 		
 		for (Map.Entry<String, ArrayList<Interest>> entry : likesMap.entrySet())
-		    likes.add(new Likes(entry.getKey(), entry.getValue()));
+			likes2.add(new Likes(entry.getKey(), entry.getValue()));
 		
-		return likes;
+		return likes2;
 	}
 	
 	public void addToLikesDAO(ArrayList<Likes> data) {

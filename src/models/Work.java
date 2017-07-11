@@ -54,22 +54,36 @@ public class Work {
 			String month = "";
 			String day = "";
 			String year = "";
+			boolean flag = true;
 			
 			if (dateStarted.contains("\\/")) {
 				date = dateStarted.split("\\/");
-				month = getMonth(date[0]);
-				day = date[1];
-				year = date[2];
+				if (date.length != 3)
+					flag = false;
+				else {
+					month = getMonth(date[0]);
+					day = date[1];
+					year = date[2];
+				}
 			} else if (dateStarted.contains("-")) {
 				date = dateStarted.split("-");
-				month = getMonth(date[1]);
-				day = date[2];
-				year = date[0];
+				if (date.length != 3) {
+					flag = false;
+				} else {
+					month = getMonth(date[1]);
+					year = date[0];
+					day = date[2];
+				}
+			} else {
+				flag = false;
 			}
 			
-			this.dateStarted = month + " " + day + ", " + year;
+			if (!flag)
+				this.dateStarted = month + " " + day + ", " + year;
+			else
+				this.dateStarted = null;
 		} else
-			this.dateStarted = dateStarted;
+			this.dateStarted = null;
 	}
 	
 	public String getDateEnded() {
@@ -82,22 +96,38 @@ public class Work {
 			String month = "";
 			String day = "";
 			String year = "";
+			boolean flag = true;
+			
+			System.out.println(dateEnded);
 			
 			if (dateEnded.contains("\\/")) {
 				date = dateEnded.split("\\/");
-				month = getMonth(date[0]);
-				day = date[1];
-				year = date[2];
+				if (date.length != 3)
+					flag = false;
+				else {
+					month = getMonth(date[0]);
+					day = date[1];
+					year = date[2];
+				}
 			} else if (dateEnded.contains("-")) {
 				date = dateEnded.split("-");
-				month = date[1];
-				day = date[2];
-				year = date[0];
+				if (date.length != 3)
+					flag = false;
+				else {
+					month = getMonth(date[1]);
+					year = date[0];
+					day = date[2];
+				}
+			} else {
+				flag = false;
 			}
 	
-			this.dateEnded = month + " " + day + ", " + year;
+			if (flag)
+				this.dateEnded = month + " " + day + ", " + year;
+			else
+				this.dateEnded = null;
 		} else
-			this.dateEnded = dateEnded;
+			this.dateEnded = null;
 	}
 	
 	public String getLocation() {

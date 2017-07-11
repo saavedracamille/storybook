@@ -82,9 +82,30 @@ public class Preprocessing {
 	public String removeHashtags(String sentence) {
 		String newString = "";
 		
-		newString = sentence.replaceAll(",\\s+#[A-Za-z]+", "");
+		newString = sentence.replaceAll("(?:^|\\s|[\\p{Punct}&&[^/]])(#[\\p{L}0-9-_]+)", "");
+//		newString = sentence.replaceAll("#[A-Za-z0-9]+", "");
 		System.out.println("String without hashtags: " + newString);
 		
 		return newString;
+	}
+	
+	public String removeWebsites(String sentence) {
+		String newString = "";
+		
+		String urlPattern = "((https?|ftp|gopher|telnet|file|Unsure|http):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+		newString = sentence.replaceAll(urlPattern, "");
+		
+		System.out.println(newString);
+		
+		return newString;
+	}
+	
+	public String removeOtherShits(String sentence) {
+		String newString = "";
+		
+		newString = sentence.replaceAll("[&,-:_]+", "");
+		System.out.println(newString);
+        
+        return newString;
 	}
 }

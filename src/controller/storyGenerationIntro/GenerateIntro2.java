@@ -251,7 +251,7 @@ public class GenerateIntro2 {
 			
 			CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("brother");
+			s.setSubject("father");
 			s.setVerb("is");
 			
 			for (int i = 0; i < names.size(); i++) {
@@ -277,7 +277,7 @@ public class GenerateIntro2 {
 			
 			CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("brother");
+			s.setSubject("mother");
 			s.setVerb("is");
 			
 			for (int i = 0; i < names.size(); i++) {
@@ -329,7 +329,7 @@ public class GenerateIntro2 {
 			
 			CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("brother");
+			s.setSubject("sister");
 			s.setVerb("is");
 			
 			for (int i = 0; i < names.size(); i++) {

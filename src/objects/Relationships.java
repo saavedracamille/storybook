@@ -2,16 +2,13 @@ package objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import models.Family;
-import modelsDAO.FamilyDAO;
 
 public class Relationships {
 	private ArrayList<Family> families = new ArrayList<Family> ();
 	private ArrayList<String> names;
 	private String relationship;
-	private FamilyDAO fd = new FamilyDAO();
 	
 	public Relationships() {
 		

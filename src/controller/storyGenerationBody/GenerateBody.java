@@ -54,8 +54,8 @@ public class GenerateBody {
 			tbp.setData(newString);
 		}
 
-		TextUnderstanding tu = new TextUnderstanding();
-		tu.performTextUnderstanding(tbps);
+//		TextUnderstanding tu = new TextUnderstanding();
+//		tu.performTextUnderstanding(tbps);
 
 		EventClassification ec = new EventClassification();
 		ec.performEventClassification(tbps);
@@ -72,18 +72,17 @@ public class GenerateBody {
 		ArrayList<VerbObject> vos = new ArrayList<VerbObject>();
 
 		VerbObjectDAO vod = new VerbObjectDAO();
-		HashMap<Integer, HashMap<Integer, VerbObject>> verbObjects = vod.getClassifiedPosts();
+		HashMap<Integer, ArrayList<VerbObject>> verbObjects = vod.getClassifiedPosts();
 
-		Iterator<HashMap.Entry<Integer, HashMap<Integer, VerbObject>>> parent = verbObjects.entrySet().iterator();
+		Iterator<HashMap.Entry<Integer, ArrayList<VerbObject>>> parent = verbObjects.entrySet().iterator();
 		while (parent.hasNext()) {
-			HashMap.Entry<Integer, HashMap<Integer, VerbObject>> parentPair = parent.next();
+			HashMap.Entry<Integer, ArrayList<VerbObject>> parentPair = parent.next();
+			
+			ArrayList<VerbObject> a = parentPair.getValue();
 
-			Iterator<HashMap.Entry<Integer, VerbObject>> child = (parentPair.getValue()).entrySet().iterator();
-			while (child.hasNext()) {
-				HashMap.Entry<Integer, VerbObject> childPair = child.next();
-				VerbObject vo = (VerbObject) childPair.getValue();
-				vos.add(vo);
-			}
+//			Iterator<HashMap.Entry<Integer, VerbObject>> child = (parentPair.getValue()).entrySet().iterator();
+			for (int i = 0; i < a.size(); i++)
+				vos.add(a.get(i));
 
 			String output = generateParagraph(arrangeByDate(vos), parentPair.getKey());
 
@@ -98,9 +97,17 @@ public class GenerateBody {
 	}
 
 	public ArrayList<VerbObject> arrangeByDate(ArrayList<VerbObject> verbObjects) {
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
+		ToBeProcessed tbp1 = new ToBeProcessed();
+		ToBeProcessed tbp2 = new ToBeProcessed();
+		
 		Collections.sort(verbObjects, new Comparator<VerbObject>() {
 			@Override
 			public int compare(VerbObject o1, VerbObject o2) {
+				tbp1 = tbpd.getPost(o1.getPi());
+				tbp2 = tbpd.getPost(o2.getPi());
+				Date date1 = new Date();
+				Date date2 = new Date();
 				return o1.getDate().compareTo(o2.getDate());
 			}
 		});
@@ -119,7 +126,7 @@ public class GenerateBody {
 		if (tags.size() >= 3) {
 			ArrayList<VerbObject> posts = getPostsWithTag(tags, verbObjects);
 			paragraph += doer + " " + genFirstSentence(tags, verbObjects, postType);
-			paragraph += genSecondSentence(posts, postType);
+//			paragraph += genSecondSentence(posts, postType);
 			verbObjects.removeAll(posts);
 			paragraph += genSucceedingSentences(verbObjects);
 		} else
@@ -300,12 +307,8 @@ public class GenerateBody {
 
 			if (m.group(1).contains("people")) {
 				String tagged = "";
-				/*
-				 * for (int i = tags.size() - 1; i >= 0; i--) { tagged +=
-				 * tags.get(i); if (i > 1) tagged += ", "; else if(i == 1)
-				 * tagged += " and "; }
-				 */
 				int size = 3;
+				
 				if (tags.size() < 3) {
 					size = tags.size();
 				}
@@ -330,10 +333,6 @@ public class GenerateBody {
 		String template = "They <verb> <object> together. ";
 
 		PostTypeDAO ptd = new PostTypeDAO();
-
-		// for (int i = 0; i < posts.size(); i++) {
-		// System.out.println("POSTS: " + i + ": " + posts.get(i).getVerb());
-		// }
 
 		Pattern p = Pattern.compile("\\<(.*?)\\>");
 		Matcher m = p.matcher(template);
@@ -653,22 +652,33 @@ public class GenerateBody {
 	public HashMap<Integer, ArrayList<VerbObject>> compileByYear(ArrayList<VerbObject> verbObjects) {
 		HashMap<Integer, ArrayList<VerbObject>> vos = new HashMap<Integer, ArrayList<VerbObject>>();
 		VerbObject verbObject = null;
+		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
+		ToBeProcessed tbp = new ToBeProcessed();
 
 		for (int i = verbObjects.size() - 1; i >= 0; i--) {
 			ArrayList<VerbObject> posts = new ArrayList<VerbObject>();
 			verbObject = verbObjects.get(i);
+			tbp = tbpd.getPost(verbObjects.get(i).getPi());
+			String month = tbp.getMonth();
+			String day = tbp.getDay();
+			String year = tbp.getYear();
+			
+			Date date = new Date();
+			date.setMonth(Integer.parseInt(month));
+			date.setDate(Integer.parseInt(day));
+			date.setYear(Integer.parseInt(year));
 
 			Calendar cal = Calendar.getInstance();
-			cal.setTime(verbObject.getDate());
-			int year = cal.get(Calendar.YEAR);
+			cal.setTime(date);
+			int y = cal.get(Calendar.YEAR);
 
-			if (!vos.containsKey(year)) {
+			if (!vos.containsKey(y)) {
 				posts.add(verbObject);
-				vos.put(year, posts);
+				vos.put(y, posts);
 			} else {
-				posts = vos.get(year);
+				posts = vos.get(y);
 				posts.add(verbObject);
-				vos.put(year, posts);
+				vos.put(y, posts);
 			}
 		}
 

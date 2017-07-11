@@ -48,6 +48,8 @@ public class PostsJSON {
 							//message = p.removeStopwords(post.get("message").toString());
 							message = p.removeSpecialCharacters(post.get("message").toString());
 							message = p.removeHashtags(message);
+							message = p.removeWebsites(message);
+//							message = p.removeOtherShits(message);
 
 							String fbIDs[] = post.get("id").toString().split("_");
 							String fbID = fbIDs[1];
