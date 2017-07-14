@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Filename    : appendix_J.tex
+%
+%   Description : This appendix contains the production rules of the introductory part of a life story. 
+%                 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Production Rules of the Introductory Part of a Life Story}
+\label{sec:appendixj}
+
+This appendix contains the prodcution rule to be used in the introductory part of the life story. 
+
+\begin{longtable}{|p{1.5in}|p{4.5in}|}
+\caption{Production Rules of the Introductory Part of a Life Story.} \vspace{0.25em} \\ \hline 
+
+\hline \multicolumn{1}{|p{1.5in}|}{\textbf{Variable}} & \multicolumn{1}{p{4.5in}|}{\textbf{Production Rule}} \\ \hline 
+\endfirsthead
+
+\multicolumn{2}{p{6in}}
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline \multicolumn{1}{|p{1.5in}|}{\textbf{Variable}} & \multicolumn{1}{p{4.5in}|}{\textbf{Production Rule}} \\ \hline 
+\endhead
+
+\hline \multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+INTRODUCTION & $<$FIRST$>$ $<$SECOND$>$ $<$THIRD$>$ \\ \hline
+FIRST & $<$name$>$ $<$OPTIONAL\_CLAUSE$>$ $<$DESCRIPTION\_OF\_CURRENT\_JOB/EDUCATION$>$ $|$ $<$name$>$ $<$OPTIONAL\_CLAUSE$>$ $<$BIRTH\_C IRCUMSTANCES$>$ \\ \hline
+SECOND & ``he is from $<$hometown$>$, and is now living in $<$currently\_in$>$" $|$ ``she is from $<$hometown$>$, and is now living in $<$currently\_in$>$" $|$ ``he hailed from $<$hometown$>$, and is now living in $<$currently\_in$>$" $|$ ``she hailed from $<$hometown$>$, and is now living in $<$currently\_in$>$" $|$ $<$PAST\_EDUCATION$>$ $<$PAST\_EDUCATION\_TIME$>$ $<$DESCRIPTION\_OF\_CURRENT\_JOB/EDUCATION$>$ $|$ $<$PAST\_EDUCATION$>$ $<$PAST\_EDUCATION\_TIME$>$ \\ \hline
+THIRD & ``he $<$DESCRIPTION\_OF\_CURRENT\_JOB/EDUCATION$>$" $|$ ``she $<$DESCRIPTION\_OF\_CURRENT\_JOB/EDUCATION$>$" $|$ ``he is the son of $<$father$>$ and $<$mother$>$" $|$ ``she is the daughter of $<$fathe$>$ and $<$mother$>$" $|$ ``he is the son of $<$father OR mother$>$" $|$ ``she is the daughter of $<$father OR mother$>$" $|$ ``he has $<$sisters.count$>$ sisters, and $<$brothers.count$>$ brothers" $|$ she has $<$sisters.count$>$ sisters, and $<$brothers.count$>$ brothers " $|$ he has $<$siblings.count$>$ siblings, namely $<$for loop print names of siblings$>$" $|$  ``she has $<$siblings.count$>$ siblings, namely $<$for loop print names of siblings$>$" $|$ ``he is in a relationship with $<$significant\_other$>$" $|$ she is in a relationship with $<$significant\_other$>$" $|$ ``he has been in a relationship with $<$significant\_other$>$ since $<$relationship.start\_date$>$" $|$ ``she has been in a relationship with $<$significant\_other$>$ since $<$relationship.start\_date$>$ $|$ ``he has been married to $<$significant\_other$>$ since $<$marriage.start\_date$>$" $|$ ``she has been married to $<$significant\_other$>$ since $<$marriage.start\_date$>$ \\ \hline
+OPTIONAL\_ \newline CLAUSE & ``as he/she is called by his/her friends" $|$ $<$BIRTH\_CIRCUMSTANCES$>$ $|$ ``usually called $<$nickname$>$ by his/her friends" $|$ ``, a $<$age$>$-year old $<$gender$>$," $|$ null \\ \hline
+BIRTH\_ \newline CIRCUMSTANCES & ``born on $<$birth\_date$>$" $|$ ``was born on $<$birth\_date$>$" $|$ ``born on $<$birth\_date$>$ in $<$birth\_city$>$" $|$ ``was born on $<$birth\_date$>$ in $<$birth\_city$>$" \\ \hline
+DESCRIPTION\_OF\_ \newline CURRENT\_ \newline JOB/EDUCATION & ``, and is now $<$studying$>$ at $<$institution$>$." $|$ ``, and is now $<$working$>$ at $<$institution$>$." $|$  ``worked from $<$job\_start\_date$>$ to $<$job\_end\_date$>$ at $<$institution$>$, $<$DESCRIPTION\_OF\_ CURRENT\_JOB/EDUCATION$>$" \\ \hline
+PAST\_EDUCATION & ``$<$nickname$>$ graduated grade school in $<$institution$>$" $|$ ``$<$nickname$>$ finished grade school in $<$institution$>$" $|$ ``$<$nickname$>$ graduated high school in $<$institution$>$"  $|$ ``$<$nickname$>$ finished high school in $<$institution$>$" $|$ ``$<$nickname$>$ graduated college in $<$institution$>$" $|$ ``$<$nickname$>$ finished college in $<$institution$>$" $|$ ``$<$nickname$>$ got his grade school diploma from $<$institution$>$" $|$ ``$<$nickname$>$ got her grade school diploma from $<$institution$>$" $|$ ``$<$nickname$>$ got his high school diploma from $<$institution$>$" ``$<$nickname$>$ got his college diploma from $<$institution$>$" $|$ ``$<$nickname$>$ got her high school diploma from $<$institution$>$" ``$<$nickname$>$ got her college diploma from $<$institution$>$" $|$ "$<$first name$>$ graduated grade school in $<$institution$>$" $|$ ``$<$first name$>$ finished grade school in $<$institution$>$" $|$ ``$<$first name$>$ graduated high school in $<$institution$>$" $|$ ``$<$first name$>$ finished high school in $<$institution$>$" $|$ ``$<$first name$>$ graduated college in $<$institution$>$" $|$ ``$<$first name$>$ finished college in $<$institution$>$" $|$ ``$<$first name$>$ got his grade school diploma from $<$institution$>$" $|$ ``$<$first name$>$ got her grade school diploma from $<$institution$>$" $|$ ``$<$first name$>$ got his high school diploma from $<$institution$>$" $|$ ``$<$first name$>$ got her high school diploma from $<$institution$>$" $|$ ``$<$first name$>$ got his college diploma from $<$institution$>$" $|$ ``$<$first name$>$ got her college diploma from $<$institution$>$" \\ \hline
+PAST\_EDUCTAION\_ \newline TIME & ``last $<$graduation\_time$>$" $|$ ``in $<$graduation\_time$>$" $|$ null
+\end{longtable}
+

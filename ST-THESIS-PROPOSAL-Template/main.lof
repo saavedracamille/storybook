@@ -1,0 +1,74 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Content of Facebook Data .zip File}}{12}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Available Coding Platforms and Code Snippets in Graph API}}{13}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Permissions in an Access Token}}{14}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces A comparison between fastText and deep learning-based methods.}}{18}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Sample output for syntax analysis}}{19}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Sample output for entity recognition}}{20}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Sample Part-of-speech Tagging using Stanford CoreNLP}}{21}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Sample Named Entity Recognition using Stanford CoreNLP}}{21}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Parse Tree Output by Stanford CoreNLP}}{21}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Universal Dependencies Output by Stanford CoreNLP}}{22}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Example Story Tree}}{27}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces An excerpt of Cyc's knowledge base, showing common sense knowledge about a dog named Fido.}}{30}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces An example of ConceptNet's semantic network of knowledge. Concepts consist of a noun phrase along with an optional verb or prepositional phrase.}}{32}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Millennial Demographics in Social Media Platforms }}{37}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A model of the linear structure of a story.}}{40}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The story structure used in Picture Books, which tells the (fictional) story of a child who is disobedient.}}{40}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Facebook content categorized into 13 categories.}}{42}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Sample Code for Creating Pipeline}}{45}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sample Code for Parsing Text}}{45}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sample Code for Named Entity Recognition}}{46}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Actual Named Entity Recognition Output by Stanford CoreNLP}}{46}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Sample Code for Getting the Part-of-Speech Tag of Each Token}}{46}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Sample Part-of-speech Tagging using Stanford CoreNLP}}{47}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Parse Tree Output by Stanford CoreNLP}}{48}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Universal Dependencies Output by Stanford CoreNLP}}{49}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Sample Messages}}{51}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Tree Structure Returned by the Discourse Planning}}{52}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Augmented Transition Network (ATN)}}{53}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces SimpleNLG's lexicon, nlgFactory, and realiser}}{55}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces SimpleNLG's SPhraseSpec}}{56}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces SimpleNLG's SPhraseSpec methods}}{56}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces SimpleNLG's realiser}}{56}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Instantiation of the Dictionary}}{57}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Setting the lemma and part of speech}}{57}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Getting related senses}}{57}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Getting short description of senses}}{58}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Getting words under specific senses}}{58}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Related senses returned by WordNet}}{58}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Morphosemantically related words returned by WordNet}}{59}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sample Incomplete Text with Mixed Languages and Abbreviation.}}{65}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces System Architecture of FB Stories }}{67}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Database Design for Storing Extracted Data.}}{69}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Sample About Me Section in Facebook}}{70}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sample Post in Facebook}}{73}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Sample Interest Preference in Facebook}}{74}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Sample Events in Facebook}}{76}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Database design for storing the processed data.}}{79}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Database design for the knowledge base.}}{80}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Facebook Login Button.}}{85}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Pop-up Login Window.}}{86}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Permission Window.}}{87}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Generated Story Output Window.}}{88}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces A sample parse tree generated using Stanford CoreNLP}}{93}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces An example of a graph representation of RDF data. (A, birthPlace, F) is connected to (F, country, H), for example. }}{103}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

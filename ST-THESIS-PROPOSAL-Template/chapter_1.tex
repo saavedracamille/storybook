@@ -1,0 +1,161 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Filename    : chapter_1.tex 
+%
+%   Description : This file will contain your Research Description.
+%                 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Research Description}
+\label{sec:researchdesc} 
+
+This chapter explains the concept of stories as an important part of human life. It introduces the current state of technology, and discusses the objectives of the research, the scope and limitations, and the significance of the study.
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Overview of the Current State of Technology}
+\label{sec:overview}
+
+The world is full of stories. In his book, \textit{The Storytelling Animal}, Jonathan Gottschall says that human beings are natural storytellers -- ``that they can't help telling and \textit{creating} stories because they like narratives so much" \cite{Gopnik2012}.
+
+Storytelling is an ancient and abiding art. It is one of the things that distinguishes human beings from animals. The reasons why people love stories vary from person to person -- \textit{history} shows that for the longest time, humans loved to tell stories \cite{Gopnik2012}; \textit{theologians} tell stories because their moral lessons influence readers to become better people; and \textit{biology} claims that compared to when one simply explains things to someone, telling a story puts their whole brain to work \cite{Widrich2012} -- but in summary, people love sharing stories because they provide them with enjoyable experiences as well as help them learn. Stories also serve as a reflection of people's own experiences, and they are an effective route in reaching out and connecting to others.
+
+The world of storytelling has changed over the course of history, from oral tradition to online technology. Nowadays, computers are still not capable of fully developing and telling stories on their own; recently however, more storytelling systems (also known as \textit{story generation systems}) are being developed as part of artificial intelligence (AI) trends to build solutions that could support and mimic human tasks.
+
+Aside from storytelling systems, the digital age introduced society to the concept of social media, another method through which people's stories could be preserved. The introduction of social media has allowed storytelling to become more immersive, as it has employed a combination of text, photo, and video in a way that has become more participatory. 
+
+A \textit{social networking site (SNS)} or social media is defined as ``a web-based system that allows individuals to (1) construct a public or semi-public profile within a bounded system, (2) articulate a list of other users with whom they share a connection, and (3) view and traverse their list of connections and those made by others within the system" \cite{BoydEllison2010}. The most popular SNS at the time of this writing is Facebook, which allows users to create their own profile with information about themselves; observe other users' content; and interact with others through reacting, commenting, and sharing. By far the biggest social network worldwide, Facebook has an estimate of over 1.71 billion monthly active users, as of 2016 \cite{Harden2016}.
+
+Facebook is emerging as a near-universal storytelling method. One of the things that make Facebook successful is the unique, freeform nature in which it allows users to share information. Facebook's \textit{timeline} feature provides people with their own way of creating a complete story about themselves, from their birth to the current day. Users, pages, groups, and events each have a timeline containing posts that they are involved in. Information on Facebook can consist of many forms: from text, to photo, to video. These small acts of posting and updating one's status about current events and occurrences on Facebook can be considered small stories as the posts are arranged chronologically similar to a storyline \cite{West20131}. 
+
+Recognizing the appeal and importance of remembering past events, Facebook has recently implemented a feature called \textit{On This Day}, which notifies users of posts that happened on a particular day in the past several years. Facebook also has a feature called \textit{Year in Review}, which collects photos from what Facebook determines to be the user's most significant moments in the past year. However, while Facebook already has features that can potentially tell stories about a person's life through pictures, there is no current work implemented which creates a textual story of a user's Facebook account. Research works in automated story generation have also not explored the use of user-created content (such as social media posts) as a source of knowledge for planning the content of a story to be generated.
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Research Objectives}
+\label{sec:researchobjectives}
+
+This section presents the general and specific objectives of the research in order to be able to address this research gap.
+
+\subsection{General Objective}
+\label{sec:generalobjective}
+
+To develop an application that generates one's story using data collected from his/her Facebook account.
+
+\subsection{Specific Objectives}
+\label{sec:specificobjectives}
+
+\begin{enumerate}
+   \item To define a life story and determine its elements and structure;
+   \item To review the content of Facebook and the existing methods used in extracting data from Facebook;
+   \item To design an algorithm for understanding user-created text content;
+   \item To build a knowledge base from which to model the story structure and to supplement the data extracted from Facebook;
+   \item To select which post types and post classification algorithm to use in classifying each Facebook post;
+   \item To analyze story generation algorithms and design an algorithm for generating stories using data from Facebook; and
+   \item To define the metrics to be used in evaluating the generated story.
+\end{enumerate}
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Scope and Limitations of the Research}
+\label{sec:scopelimitations}
+
+A \textit{life story}, or a biography, is an account of the series of events making up a person's life according to The Free Dictionary \footnote{The Free Dictionary. http://www.thefreedictionary.com/}. In order to apply this concept in the research, the different elements which make up a life story should be examined. However, the idea of a story is not to capture every single detail, but to give the participants something to remember. Therefore, the more important and relevant elements that make up a good story should be determined.
+
+A Facebook user's account can contain gigabytes of unnecessary data, which are irrelevant in generating a complete story. Therefore, this research needs to determine which types of content are appropriate for generating life stories. Furthermore, knowledge of the different types of methods of extracting data from Facebook allows the research to extract the data needed in generating a story.
+
+The story will be based on user-generated data; therefore, consent is necessary not only to provide the necessary data but also to avoid violating privacy and confidentiality. The system to generate stories from Facebook posts will be launched by the users themselves, and not by somebody else. Graphic files such as images and videos will not be included in this research. The number of Likes for each post will be extracted but not the information about the actual users. Private messages will also not be included. Only posts composed in the English language will be used.
+
+Story generation systems require certain predefined knowledge in order to do their task of generating stories. A knowledge base, which is defined as ``the underlying set of facts, assumptions, and rules which a computer needs to solve a problem" according to Oxford Dictionary \footnote{Oxford Dictionary. https://en.oxforddictionaries.com}, helps the system generate the story. This research requires identifying possible knowledge sources as well as designing an appropriate knowledge base structure to provide data to be used for generating a life story.
+
+Social networking sites have been a crowd-sourced knowledge base of people's activities as well as real time events \cite{Jain2016TowardsAE}. Starbird and Palen (2011) stated that rescue workers use SNSs to know and talk to natural disaster survivors. In this research, for stories to have a better flow, it is important to classify posts accurately according to their types. However, there are many post types present in SNSs, and accommodating all these will not be possible in this research. Thus, only the most used post types will be selected. Different classification algorithms will also be reviewed to determine which ones can be adapted for this research.
+
+Story generation algorithms (SGAs) will be reviewed in order to determine which ones are appropriate and can be adapted for the context of this research. These are computational procedures which result in an artifact that can be considered a story \cite{Gervas2012}. The concept of a story in SGAs is functional and not aesthetic, which means that having appealing text is not their primary concern. 
+
+Finally, in order to measure the quality of the generated stories, a set of evaluation metrics will be defined. These metrics will then be used to evaluate the strengths and weaknesses of the system.
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Significance of the Research}
+\label{sec:significance}
+
+As mentioned in Section 1.1, despite the appeal of storytelling as part of human experience, computers are still not capable of fully developing and telling stories on their own, nor understanding stories being told by humans. This research, therefore, contributes to the field of computing technology by contributing to the field of story generation: by enabling computers to make sense of a wide variety of user-generated data in order to tell stories.
+
+This research can be a first step needed by a smart computer to understand a person's life. With this, software agents can use information from Facebook data to make sense of a person's activities and experiences. This can help inform relevant stakeholders regarding aspects of lives of their constituents, with applications in social behavior analysis, community healthcare monitoring, and personalized digital marketing. 
+
+This can lead to a better understanding of people, both as individuals and as a whole community, and open up possibilities of customization and personalization in computer-based support systems and interaction. Furthermore, this research can be of interest to writers and computer scientists looking to learn more about the fields of artificial intelligence and/or story generation.
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Research Methodology}
+\label{sec:methodology}
+This section lists down and elaborates on the specific activities that will be performed by the proponents in the course of conducting the research. The discussion covers the activities from the start to the end of the research, including ethical issues.
+
+\subsection{Research Activities}
+
+\subsubsection{Review of Related Literature}
+During this phase, existing works related to event classification, story generation systems, and text understanding are reviewed and analyzed. In addition, Facebook and other relevant social networking sites are examined to determine which ones are a relevant source for data to be used for the generation of a person's life story. A survey of data extraction tools will help the proponents identify the specific data that can be extracted from Facebook.
+
+\subsubsection{Review of Ethical Issues}
+In this phase, the ethical issues concerned with research are reviewed and identified. The General Research Ethics Checklist (Appendix \ref{sec:appendixe}) was accomplished to be able to identify potential risks to participants. This research involves Facebook users, thus, the Research Ethics Checklist for Investigations Involving Human Participants (Appendix \ref{sec:appendixf}) was also accomplished. 
+
+The data collection process, the sources of data, the sampling details, and the data retention details were provided. Two Informed Consent Forms (Appendix \ref{sec:appendixg} and Appendix \ref{sec:appendixh}) were created to be filled up by the Facebook user and were used during the data gathering process and the actual testing of the software.
+
+Aside from accomplishing these forms, specific steps to address ethical concerns have also been identified. The steps are discussed in Section 1.5.1.6 Testing and Evaluation of this document.
+
+\subsubsection{Data Gathering and Analysis}
+For this phase, sample life stories have been generated manually from the researcher's Facebook accounts to identify the elements present in a life story, and to have a better understanding of what sort of stories can mostly be generated from samples of data returned by Facebook's Graph API (described in Section 2.1, Data Extraction Tools).
+
+Furthermore, to focus on identifying and analyzing the different elements that comprise a story, such as character, setting, and events, Facebook data from different users will be gathered. Part of the data analysis was also learning how the elements can fit each other and whether they are necessary or not in coming up with the story. From there, the scope was narrowed down to the elements that were deemed necessary, such as the subject's childhood, education, likes, and recent events in their life. The expertise of linguists and/or story writers have been consulted as necessary, as well as the knowledge gained from the Review of Related Literature.
+
+\subsubsection{Software Design}
+During this phase, the different modules of the story generation system have been designed. The different elements were identified as follows: (1) the user interface, (2) the knowledge base, (3) the algorithm for text understanding, (4) the algorithm for post classification, and (5) the algorithm for story generation.
+
+The user interface (UI) will have to provide a convenient user experience; therefore, mockups and/or prototypes were created to assess the usability and effectiveness of the UI. Also, with the help of the sample stories gathered in 1.5.1.2, mock stories have been generated manually to get a better understanding of what sort of stories can mostly be generated from Facebook data. From these, story templates were created for generating the introduction part of the actual life stories. These templates were stored in a database with the data extracted from Facebook. Different approaches for post classification, text understanding, and story generation have also been studied in order to adapt an efficient algorithm to be used in the software. 
+
+\subsubsection{Software Implementation}
+The software will be implemented based on the design in 1.5.1.4 using the chosen language. Implementation and testing will be iterative processes to allow redesigning of the software and improvement of the algorithms to achieve the target objectives and produce better stories. Essential steps to follow in software implementation are (1) building the knowledge base, (2) implementing the algorithms for data extraction, post classification, text understanding, and story generation, and basically following the design specifications stated in Chapter 4.
+
+The software development life cycle followed was Scrum, an iterative and incremental agile methodology which splits the whole process into smaller tasks. This development process has series of iterations called Sprints which lasts for no more than a month. This allowed easier adaptation to changes after performing unit testing to allow improvements on the current design.
+
+\subsubsection{Testing and Evaluation}
+The software was tested by several evaluators, who are Facebook users, linguists and story writers. Before the evaluation process, the following steps were conducted:
+
+First, the metrics to be used by these evaluators were defined based on the evaluation metrics in Section 3.7 of this document.
+
+Second, the software underwent usability testing to determine the ease of with which the user can interact with the interface to perform his/her tasks. This was an iterative process because testing and refining the software needs to be done repeatedly in order to ensure that the evaluation metrics are satisfactorily met. During the implementation (1.5.1.5) phase, the software being developed was periodically tested to validate its usability and correctness. Different test cases were designed and executed, such as checking the generated stories of various Facebook accounts. Implementation was continued in order to fix issues that arise.
+
+Third, the Facebook users were briefed on the evaluation process by informing them of the following: (1) introduction of the research topic, (2) demonstration of how the software works, (3) signing of the informed consent, (4) confidentiality in storing the generated story from their Facebook accounts for further improvements, and (5) interview with the Facebook users for their experience in using the software as well as their feedback on the resulting stories. After this, the actual testing of the software was conducted in a room where a computer will be used for testing. Each session with a user lasted only for the duration of generating a minimum of one (1) story from the user's Facebook posts. The testing process ends after evaluating the generated story.
+
+Fourth, an interview will be conducted after testing the software. The Facebook user was asked to answer a survey form containing metrics to evaluate the correctness and completeness of the generated story. Qualitative feedback was also solicited, including suggestions and recommendations to further improve the story generation.
+
+Lastly, linguists and story writers were asked to evaluate the resulting stories using an evaluation form that is based on the evaluation metrics stated in Section 3.7 Evaluation Metrics of this document. These experts evaluated the quality of the generated story in terms of completeness and correctness. Suggestions and recommendations were also solicited to further improve the generated output.
+
+Results from the testing process were used to determine the appropriateness and sufficiency of the knowledge sources and various data extracted from Facebook posts and their impact on the quality of the resulting stories.
+
+\subsubsection{Documentation}
+Documentation was done all throughout the duration of the research. The findings of each activity were documented accordingly.
+
+\subsection{Calendar of Activities}
+
+Table \ref{tab:timetableactivities} shows a Gantt chart of the activities. Each bullet represents approximately one week's worth of activity.
+
+%
+%  the following commands will be used for filling up the bullets in the Gantt chart
+%
+\newcommand{\weekone}{\textbullet}
+\newcommand{\weektwo}{\textbullet \textbullet}
+\newcommand{\weekthree}{\textbullet \textbullet \textbullet}
+\newcommand{\weekfour}{\textbullet \textbullet \textbullet \textbullet}
+
+\begin{sidewaystable}[ph!]   %t means place on top, replace with b if you want to place at the bottom
+\centering
+\caption{Timetable of Activities} \vspace{0.25em}
+\begin{tabular}  {|p{2.1in}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}  \hline
+   & \multicolumn{7}{c|}{2016} & \multicolumn{8}{c|}{2017}\\ \hline
+\centering Activities & Jun & Jul & Aug & Sep & Oct & Nov & Dec & Jan & Feb & Mar & Apr & May & Jun & Jul & Aug\\ \hline
+Review of Related Literature & \weekfour & \weekfour & \weekfour & ~\weekthree & \weekfour & \weekfour & & & & & & & & & \\ \hline
+Data Gathering and Analysis & & & & ~\weekthree & \weekfour & \weekfour & \weektwo ~~ & & & & & & & & \\ \hline
+Review of Ethical Issues & & & ~~\weektwo & & ~~\weektwo & & & & & & & & & & \\ \hline
+System Design & & & & & \weekfour & \weekfour & \weektwo~~ & ~\weekthree & & & & & & & \\ \hline
+System Implementation & & & & & & & & ~\weekthree & \weekfour & \weekfour & \weekfour & \weekfour & \weekfour & \weekfour & \weekone~~~  \\ \hline
+Testing and Evaluation & & & & & & & & & & & ~~\weektwo & ~~\weektwo & ~~\weektwo & \weekfour & \weekone~~~  \\ \hline
+Documentation & \weekfour  & \weekfour & \weekfour & ~\weekthree & \weekfour & \weekfour & \weektwo ~~ & ~\weekthree & \weekfour & \weekfour & \weekfour & \weekfour & \weekfour & \weekfour & \weekone~~~ \\ \hline
+\end{tabular}
+\label{tab:timetableactivities}
+\end{sidewaystable}

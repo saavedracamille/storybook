@@ -1,0 +1,1817 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Abdulkader%
+, Lakshmiratan%
+\BCBL {}\ \BBA {} Zhang%
+}{%
+Abdulkader%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+DeepText2016}
+\APACinsertmetastar {%
+DeepText2016}%
+\begin{APACrefauthors}%
+Abdulkader, A.%
+, Lakshmiratan, A.%
+\BCBL {}\ \BBA {} Zhang, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {Introducing DeepText: Facebook's text understanding engine.}
+  {Introducing deeptext: Facebook's text understanding engine.}
+\newblock
+\begin{APACrefURL}
+  \url{https://code.facebook.com/posts/181565595577955/introducing-deeptext-facebook-s-text-understanding-engine/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Adolfo%
+, Lao%
+, Rivera%
+, Talens%
+\BCBL {}\ \BBA {} Ong%
+}{%
+Adolfo%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+picbooks4}
+\APACinsertmetastar {%
+picbooks4}%
+\begin{APACrefauthors}%
+Adolfo, B\BPBI T.%
+, Lao, J.%
+, Rivera, J\BPBI P.%
+, Talens, J\BPBI Z.%
+\BCBL {}\ \BBA {} Ong, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+\APACrefbtitle {Enhancing Character Interaction in a Multiple-Character Story
+  Generation.} {Enhancing character interaction in a multiple-character story
+  generation.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ang%
+, Antonio%
+, Sanchez%
+, Yu%
+\BCBL {}\ \BBA {} Ong%
+}{%
+Ang%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+ang2010generating}
+\APACinsertmetastar {%
+ang2010generating}%
+\begin{APACrefauthors}%
+Ang, K.%
+, Antonio, J.%
+, Sanchez, D.%
+, Yu, S.%
+\BCBL {}\ \BBA {} Ong, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Generating Stories for a Multi-Scene Input Picture}
+  {Generating stories for a multi-scene input picture}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 7th National Natural Language
+  Processing Research Symposium} {Proceedings of the 7th national natural
+  language processing research symposium}\ (\BPGS\ 21--26).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ang%
+\ \BBA {} Ong%
+}{%
+Ang%
+\ \BBA {} Ong%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+angenhancing}
+\APACinsertmetastar {%
+angenhancing}%
+\begin{APACrefauthors}%
+Ang, K.%
+\BCBT {}\ \BBA {} Ong, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+\APACrefbtitle {Enhancing Event-Based Semantics in the Ontology of Picture
+  Books 2.} {Enhancing event-based semantics in the ontology of picture books
+  2.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Boyd%
+\ \BBA {} Ellison%
+}{%
+Boyd%
+\ \BBA {} Ellison%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+BoydEllison2010}
+\APACinsertmetastar {%
+BoydEllison2010}%
+\begin{APACrefauthors}%
+Boyd, D\BPBI M.%
+\BCBT {}\ \BBA {} Ellison, N\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Social network sites: definition, history, and
+  scholarship} {Social network sites: definition, history, and
+  scholarship}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Engineering Management Review}{38}{3}{16-31}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/EMR.2010.5559139} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chaffey%
+}{%
+Chaffey%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Chaffey2016}
+\APACinsertmetastar {%
+Chaffey2016}%
+\begin{APACrefauthors}%
+Chaffey, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {Global Social Media Statistics Summary 2016.} {Global social
+  media statistics summary 2016.}
+\newblock
+\begin{APACrefURL}
+  \url{http://www.smartinsights.com/social-media-marketing/social-media-strategy/new-global-social-media-research/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chen%
+, Lim%
+, Perez%
+, Reyes%
+\BCBL {}\ \BBA {} Lim%
+}{%
+Chen%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+chen2008natural}
+\APACinsertmetastar {%
+chen2008natural}%
+\begin{APACrefauthors}%
+Chen, H\BPBI W.%
+, Lim, M\BPBI G.%
+, Perez, P\BPBI B.%
+, Reyes, J\BPBI P.%
+\BCBL {}\ \BBA {} Lim, N\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Natural Language Generation of Museum Object
+  Descriptions based on User Model.} {Natural language generation of museum
+  object descriptions based on user model.}{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {PACLIC} {Paclic}\ (\BPGS\ 141--150).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cheung%
+, Chiu%
+\BCBL {}\ \BBA {} Lee%
+}{%
+Cheung%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+CheungChiuLee2011}
+\APACinsertmetastar {%
+CheungChiuLee2011}%
+\begin{APACrefauthors}%
+Cheung, C\BPBI M.%
+, Chiu, P\BHBI Y.%
+\BCBL {}\ \BBA {} Lee, M\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Online social networks: Why do students use facebook?}
+  {Online social networks: Why do students use facebook?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Computers in Human Behavior}{27}{4}{1337--1343}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Choudhury%
+\ \BBA {} Alani%
+}{%
+Choudhury%
+\ \BBA {} Alani%
+}{%
+{\protect \APACyear {2014}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+choudhury2014personal}
+\APACinsertmetastar {%
+choudhury2014personal}%
+\begin{APACrefauthors}%
+Choudhury, S.%
+\BCBT {}\ \BBA {} Alani, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014{\protect \BCnt {1}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Personal life event detection from social media}
+  {Personal life event detection from social media}.{\BBCQ}
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Choudhury%
+\ \BBA {} Alani%
+}{%
+Choudhury%
+\ \BBA {} Alani%
+}{%
+{\protect \APACyear {2014}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+conf/ht/ChoudhuryA14}
+\APACinsertmetastar {%
+conf/ht/ChoudhuryA14}%
+\begin{APACrefauthors}%
+Choudhury, S.%
+\BCBT {}\ \BBA {} Alani, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014{\protect \BCnt {2}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Personal Life Event Detection from Social Media.}
+  {Personal life event detection from social media.}{\BBCQ}
+\newblock
+\BIn{} F.~Cena, A\BPBI S.~da Silva\BCBL {}\ \BBA {} C.~Trattner\ (\BEDS),
+  \APACrefbtitle {HT (Doctoral Consortium / Late-breaking Results / Workshops)}
+  {Ht (doctoral consortium / late-breaking results / workshops)}\ (\BVOL\
+  1210).
+\newblock
+\APACaddressPublisher{}{CEUR-WS.org}.
+\newblock
+\begin{APACrefURL}
+  \url{http://dblp.uni-trier.de/db/conf/ht/ht2014dc.html#ChoudhuryA14}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chua%
+, Cu%
+, Ibarrientos%
+\BCBL {}\ \BBA {} Paguilinan%
+}{%
+Chua%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Chua2016}
+\APACinsertmetastar {%
+Chua2016}%
+\begin{APACrefauthors}%
+Chua, H.%
+, Cu, G.%
+, Ibarrientos, C.%
+\BCBL {}\ \BBA {} Paguilinan, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {ALICE: Promoting Collaborative Story Writing with a Virtual
+  Peer.} {Alice: Promoting collaborative story writing with a virtual peer.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Crymble%
+}{%
+Crymble%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Crymble2010}
+\APACinsertmetastar {%
+Crymble2010}%
+\begin{APACrefauthors}%
+Crymble, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An analysis of Twitter and Facebook use by the archival
+  community} {An analysis of twitter and facebook use by the archival
+  community}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Archivaria}{70}{2}{125--151}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Darwell%
+}{%
+Darwell%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+darwell}
+\APACinsertmetastar {%
+darwell}%
+\begin{APACrefauthors}%
+Darwell, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Facebook brings new status updates to mobile so you can share
+  what you’re watching, eating, feeling and more on the go.} {Facebook brings
+  new status updates to mobile so you can share what you’re watching, eating,
+  feeling and more on the go.}
+\newblock
+\begin{APACrefURL}
+  \url{http://www.adweek.com/socialtimes/facebook-brings-new-status-updates-to-mobile-so-you-can-share-what-youre-watching-eating-feeling-and-more-on-the-go/293460}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Doughty%
+}{%
+Doughty%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+Doughty2015}
+\APACinsertmetastar {%
+Doughty2015}%
+\begin{APACrefauthors}%
+Doughty, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+\APACrefbtitle {Facebook is the most popular social network for the over 50s.}
+  {Facebook is the most popular social network for the over 50s.}
+\newblock
+\APACaddressPublisher{}{Telegraph Media Group}.
+\newblock
+\begin{APACrefURL}
+  \url{http://www.telegraph.co.uk/goodlife/11751851/facebook-is-the-most-popular-social-network-for-the-over-50s.html}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ellison%
+, Steinfield%
+\BCBL {}\ \BBA {} Lampe%
+}{%
+Ellison%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+EllisonSteinfieldLampe2007}
+\APACinsertmetastar {%
+EllisonSteinfieldLampe2007}%
+\begin{APACrefauthors}%
+Ellison, N\BPBI B.%
+, Steinfield, C.%
+\BCBL {}\ \BBA {} Lampe, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Benefits of Facebook “Friends:” Social Capital
+  and College Students’ Use of Online Social Network Sites} {The benefits of
+  facebook “friends:” social capital and college students’ use of online
+  social network sites}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Computer-Mediated
+  Communication}{12}{4}{1143--1168}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.1083-6101.2007.00367.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Facebook%
+}{%
+Facebook%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+{\protect \APACexlab {{\protect \BCntND {1}}}}}]{%
+FacebookJavaScript}
+\APACinsertmetastar {%
+FacebookJavaScript}%
+\begin{APACrefauthors}%
+Facebook.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}{\protect \BCntND {1}}}{}{}.
+\newblock
+\APACrefbtitle {JavaScript SDK - Examples.} {Javascript sdk - examples.}
+\newblock
+\begin{APACrefURL}
+  \url{https://developers.facebook.com/docs/javascript/examples}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Facebook%
+}{%
+Facebook%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+{\protect \APACexlab {{\protect \BCntND {2}}}}}]{%
+FacebookLogin}
+\APACinsertmetastar {%
+FacebookLogin}%
+\begin{APACrefauthors}%
+Facebook.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}{\protect \BCntND {2}}}{}{}.
+\newblock
+\APACrefbtitle {Login Dialog.} {Login dialog.}
+\newblock
+\begin{APACrefURL}
+  \url{https://developers.facebook.com/docs/reference/javascript/fb.login/v2.8}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Facebook%
+}{%
+Facebook%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+FacebookDownload}
+\APACinsertmetastar {%
+FacebookDownload}%
+\begin{APACrefauthors}%
+Facebook.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+\APACrefbtitle {Downloading Your Info.} {Downloading your info.}
+\newblock
+\begin{APACrefURL} \url{https://www.facebook.com/help/131112897028467}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Facebook%
+}{%
+Facebook%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+FacebookToken2013}
+\APACinsertmetastar {%
+FacebookToken2013}%
+\begin{APACrefauthors}%
+Facebook.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+\APACrefbtitle {Access Tokens - Facebook Login - Documentation - Facebook for
+  Developers.} {Access tokens - facebook login - documentation - facebook for
+  developers.}
+\newblock
+\begin{APACrefURL}
+  \url{https://developers.facebook.com/docs/facebook-login/access-tokens/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Facebook%
+}{%
+Facebook%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+FacebookGraphAndroid2016}
+\APACinsertmetastar {%
+FacebookGraphAndroid2016}%
+\begin{APACrefauthors}%
+Facebook.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {The Graph API.} {The graph api.}
+\newblock
+\begin{APACrefURL} \url{https://developers.facebook.com/docs/graph-api}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Farahbakhsh%
+, Han%
+, Cuevas%
+\BCBL {}\ \BBA {} Crespi%
+}{%
+Farahbakhsh%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+FarahbakhshHanCuevasCrespi2013}
+\APACinsertmetastar {%
+FarahbakhshHanCuevasCrespi2013}%
+\begin{APACrefauthors}%
+Farahbakhsh, R.%
+, Han, X.%
+, Cuevas, .%
+\BCBL {}\ \BBA {} Crespi, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Analysis of publicly disclosed information in Facebook
+  profiles} {Analysis of publicly disclosed information in facebook
+  profiles}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Advances in Social Networks Analysis and Mining
+  (ASONAM), 2013 IEEE/ACM International Conference on} {Advances in social
+  networks analysis and mining (asonam), 2013 ieee/acm international conference
+  on}\ (\BPG~699-705).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gerv{\'a}s%
+}{%
+Gerv{\'a}s%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+Gervas2009}
+\APACinsertmetastar {%
+Gervas2009}%
+\begin{APACrefauthors}%
+Gerv{\'a}s, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Computational Approaches to Styorytelling and
+  Creativity} {Computational approaches to styorytelling and
+  creativity}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{AI Magazine. Association for the Advancement of
+  Artificial Intelligence}{}{}{49-62}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gerv{\'a}s%
+}{%
+Gerv{\'a}s%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Gervas2012}
+\APACinsertmetastar {%
+Gervas2012}%
+\begin{APACrefauthors}%
+Gerv{\'a}s, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Story generator algorithms} {Story generator
+  algorithms}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Living Handbook of Narratology. Hamburg:
+  Universidade de Hamburgo. Dispon{\'\i}vel em: http://www. lhn. uni-hamburg.
+  de/article/story-generator-algorithms Acesso em}{19}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Google%
+}{%
+Google%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+GoogleAPI2016}
+\APACinsertmetastar {%
+GoogleAPI2016}%
+\begin{APACrefauthors}%
+Google.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\begin{APACrefURL} \url{https://cloud.google.com/natural-language/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gopnik%
+}{%
+Gopnik%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Gopnik2012}
+\APACinsertmetastar {%
+Gopnik2012}%
+\begin{APACrefauthors}%
+Gopnik, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+\APACrefbtitle {Can Science Explain Why We Tell Stories?} {Can science explain
+  why we tell stories?}
+\newblock
+\begin{APACrefURL}
+  \url{http://www.newyorker.com/books/page-turner/can-science-explain-why-we-tell-stories}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hamilton%
+}{%
+Hamilton%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+Hamilton}
+\APACinsertmetastar {%
+Hamilton}%
+\begin{APACrefauthors}%
+Hamilton, F\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {How to Evaluate Students’ Writing.} {How to evaluate
+  students’ writing.}
+\newblock
+\begin{APACrefURL} \url{http://creation.com/how-to-evaluate-students-writing}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Harden%
+}{%
+Harden%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Harden2016}
+\APACinsertmetastar {%
+Harden2016}%
+\begin{APACrefauthors}%
+Harden, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {Facebook Statistics.} {Facebook statistics.}
+\newblock
+\begin{APACrefURL} \url{http://www.statisticbrain.com/facebook-statistics/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+\APACcitebtitle
+  {http://psych.utoronto.ca/users/reingold/courses/ai/cyc.html}}{%
+\APACcitebtitle
+  {http://psych.utoronto.ca/users/reingold/courses/ai/cyc.html}}{%
+{\protect \APACyear {1999}}%
+}]{%
+cyc1999}
+\APACinsertmetastar {%
+cyc1999}%
+\APACrefYearMonthDay{1999}{}{}.
+\newblock
+\begin{APACrefURL}
+  \url{http://psych.utoronto.ca/users/reingold/courses/ai/cyc.html}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hughes%
+, Rowe%
+, Batey%
+\BCBL {}\ \BBA {} Lee%
+}{%
+Hughes%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+HughesRoweBateyLee2012}
+\APACinsertmetastar {%
+HughesRoweBateyLee2012}%
+\begin{APACrefauthors}%
+Hughes, D\BPBI J.%
+, Rowe, M.%
+, Batey, M.%
+\BCBL {}\ \BBA {} Lee, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A tale of two sites: Twitter vs. Facebook and the
+  personality predictors of social media usage} {A tale of two sites: Twitter
+  vs. facebook and the personality predictors of social media usage}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Computers in Human Behavior}{28}{2}{561--569}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Indurkhya%
+\ \BBA {} Damerau%
+}{%
+Indurkhya%
+\ \BBA {} Damerau%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+IndurkhyaDamerau2010}
+\APACinsertmetastar {%
+IndurkhyaDamerau2010}%
+\begin{APACrefauthors}%
+Indurkhya, N.%
+\BCBT {}\ \BBA {} Damerau, F\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2010}.
+\newblock
+\APACrefbtitle {Handbook of natural language processing} {Handbook of natural
+  language processing}\ (\BVOL~2).
+\newblock
+\APACaddressPublisher{}{CRC Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Jain%
+, Kasiviswanathan%
+\BCBL {}\ \BBA {} Huang%
+}{%
+Jain%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Jain2016TowardsAE}
+\APACinsertmetastar {%
+Jain2016TowardsAE}%
+\begin{APACrefauthors}%
+Jain, A.%
+, Kasiviswanathan, G.%
+\BCBL {}\ \BBA {} Huang, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Towards Accurate Event Detection in Social Media: A
+  Weakly Supervised Approach for Learning Implicit Event Indicators} {Towards
+  accurate event detection in social media: A weakly supervised approach for
+  learning implicit event indicators}.{\BBCQ}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Joulin%
+, Grave%
+, Bojanowski%
+\BCBL {}\ \BBA {} Mikolov%
+}{%
+Joulin%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+FastText2016}
+\APACinsertmetastar {%
+FastText2016}%
+\begin{APACrefauthors}%
+Joulin, A.%
+, Grave, E.%
+, Bojanowski, P.%
+\BCBL {}\ \BBA {} Mikolov, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {fastText.} {fasttext.}
+\newblock
+\begin{APACrefURL} \url{https://research.facebook.com/blog/fasttext/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Keyling%
+\ \BBA {} Jünger%
+}{%
+Keyling%
+\ \BBA {} Jünger%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Facepager2016}
+\APACinsertmetastar {%
+Facepager2016}%
+\begin{APACrefauthors}%
+Keyling, T.%
+\BCBT {}\ \BBA {} Jünger, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {Facepager. An application for generic data retrieval through
+  APIs.} {Facepager. an application for generic data retrieval through apis.}
+\newblock
+\begin{APACrefURL} \url{https://github.com/strohne/Facepager} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kinsella%
+, Passant%
+\BCBL {}\ \BBA {} Breslin%
+}{%
+Kinsella%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+DBLP:conf/ecir/KinsellaPB11}
+\APACinsertmetastar {%
+DBLP:conf/ecir/KinsellaPB11}%
+\begin{APACrefauthors}%
+Kinsella, S.%
+, Passant, A.%
+\BCBL {}\ \BBA {} Breslin, J\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Topic Classification in Social Media Using Metadata from
+  Hyperlinked Objects} {Topic classification in social media using metadata
+  from hyperlinked objects}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Advances in Information Retrieval - 33rd European
+  Conference on {IR} Research, {ECIR} 2011, Dublin, Ireland, April 18-21, 2011.
+  Proceedings} {Advances in information retrieval - 33rd european conference on
+  {IR} research, {ECIR} 2011, dublin, ireland, april 18-21, 2011. proceedings}\
+  (\BPGS\ 201--206).
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/978-3-642-20161-5_20}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/978-3-642-20161-5_20} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Laclaustra%
+, Ledesma%
+, M{\'e}ndez%
+\BCBL {}\ \BBA {} Gerv{\'a}s%
+}{%
+Laclaustra%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+LaclaustraLedesmaMendezGervas2014}
+\APACinsertmetastar {%
+LaclaustraLedesmaMendezGervas2014}%
+\begin{APACrefauthors}%
+Laclaustra, I\BPBI M.%
+, Ledesma, J\BPBI L.%
+, M{\'e}ndez, G.%
+\BCBL {}\ \BBA {} Gerv{\'a}s, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Kill the dragon and rescue the princess: Designing a
+  plan-based multi-agent story generator} {Kill the dragon and rescue the
+  princess: Designing a plan-based multi-agent story generator}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {5th International Conference on Computational
+  Creativity.} {5th international conference on computational creativity.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Liu%
+\ \BBA {} Singh%
+}{%
+Liu%
+\ \BBA {} Singh%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+LiuSingh2004}
+\APACinsertmetastar {%
+LiuSingh2004}%
+\begin{APACrefauthors}%
+Liu, H.%
+\BCBT {}\ \BBA {} Singh, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {ConceptNet—a practical commonsense reasoning tool-kit}
+  {Conceptnet—a practical commonsense reasoning tool-kit}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{BT technology journal}{22}{4}{211--226}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mannes%
+}{%
+Mannes%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Techcrunch2016}
+\APACinsertmetastar {%
+Techcrunch2016}%
+\begin{APACrefauthors}%
+Mannes, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {Facebook's Artificial Intelligence Research lab releases open
+  source fastText on GitHub.} {Facebook's artificial intelligence research lab
+  releases open source fasttext on github.}
+\newblock
+\begin{APACrefURL}
+  \url{https://techcrunch.com/2016/08/18/facebooks-artificial-intelligence-research-lab-releases-open-source-fasttext-on-github/?ncid=rss\&utm_source=feedburner\&utm_medium=feed\&utm_campaign=Feed\%3A\%20Techcrunch\%20(TechCrunch)\&utm_content=FaceBook\&sr_share=facebook}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Manning%
+\ \protect \BOthers {.}}{%
+Manning%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Manning14thestanford}
+\APACinsertmetastar {%
+Manning14thestanford}%
+\begin{APACrefauthors}%
+Manning, C\BPBI D.%
+, Surdeanu, M.%
+, Bauer, J.%
+, Finkel, J.%
+, Inc, P.%
+, Bethard, S\BPBI J.%
+\BCBL {}\ \BBA {} Mcclosky, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Stanford CoreNLP Natural Language Processing
+  Toolkit} {The stanford corenlp natural language processing toolkit}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {In Proceedings of the 52nd Annual Meeting of the
+  Association for Computational Linguistics: System Demonstrations} {In
+  proceedings of the 52nd annual meeting of the association for computational
+  linguistics: System demonstrations}\ (\BPGS\ 55--60).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mars%
+}{%
+Mars%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+mars1995towards}
+\APACinsertmetastar {%
+mars1995towards}%
+\begin{APACrefauthors}%
+Mars, N\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1995}.
+\newblock
+\APACrefbtitle {Towards Very Large Knowledge Bases: Knowledge Building \&
+  Knowledge Sharing 1995} {Towards very large knowledge bases: Knowledge
+  building \& knowledge sharing 1995}.
+\newblock
+\APACaddressPublisher{}{Ios Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Martin%
+\ \BBA {} Jurafsky%
+}{%
+Martin%
+\ \BBA {} Jurafsky%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+JurafskyMartin2000}
+\APACinsertmetastar {%
+JurafskyMartin2000}%
+\begin{APACrefauthors}%
+Martin, J\BPBI H.%
+\BCBT {}\ \BBA {} Jurafsky, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Speech and language processing} {Speech and language
+  processing}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Edition}{710}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mawhorter%
+}{%
+Mawhorter%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Mawhorter2013}
+\APACinsertmetastar {%
+Mawhorter2013}%
+\begin{APACrefauthors}%
+Mawhorter, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Reader-Model-Based Story Generation} {Reader-model-based
+  story generation}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Ninth Artificial Intelligence and Interactive Digital
+  Entertainment Conference.} {Ninth artificial intelligence and interactive
+  digital entertainment conference.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McIntyre%
+\ \BBA {} Lapata%
+}{%
+McIntyre%
+\ \BBA {} Lapata%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+McIntyreLapata2009}
+\APACinsertmetastar {%
+McIntyreLapata2009}%
+\begin{APACrefauthors}%
+McIntyre, N.%
+\BCBT {}\ \BBA {} Lapata, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Learning to tell tales: A data-driven approach to story
+  generation} {Learning to tell tales: A data-driven approach to story
+  generation}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the Joint Conference of the 47th Annual
+  Meeting of the ACL and the 4th International Joint Conference on Natural
+  Language Processing of the AFNLP: Volume 1-Volume 1} {Proceedings of the
+  joint conference of the 47th annual meeting of the acl and the 4th
+  international joint conference on natural language processing of the afnlp:
+  Volume 1-volume 1}\ (\BPGS\ 217--225).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Meehan%
+}{%
+Meehan%
+}{%
+{\protect \APACyear {1977}}%
+}]{%
+Meehan1977}
+\APACinsertmetastar {%
+Meehan1977}%
+\begin{APACrefauthors}%
+Meehan, J\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1977}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {TALE-SPIN, An Interactive Program that Writes Stories}
+  {Tale-spin, an interactive program that writes stories}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {International Joint Conference on Artificial
+  Intelligence} {International joint conference on artificial intelligence}\
+  (\BVOL~77, \BPGS\ 91--98).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+M{\'e}ndez%
+, Gerv{\'a}s%
+\BCBL {}\ \BBA {} Le{\'o}n%
+}{%
+M{\'e}ndez%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+MendezGervasDeleon2014}
+\APACinsertmetastar {%
+MendezGervasDeleon2014}%
+\begin{APACrefauthors}%
+M{\'e}ndez, G.%
+, Gerv{\'a}s, P.%
+\BCBL {}\ \BBA {} Le{\'o}n, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A model of character affinity for agent-based story
+  generation} {A model of character affinity for agent-based story
+  generation}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {9th International Conference on Knowledge, Information
+  and Creativity Support Systems, Limassol, Cyprus} {9th international
+  conference on knowledge, information and creativity support systems,
+  limassol, cyprus}\ (\BVOL~11, \BPG~2014).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Nadkarni%
+\ \BBA {} Hofmann%
+}{%
+Nadkarni%
+\ \BBA {} Hofmann%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+NadkarniHofmann2012}
+\APACinsertmetastar {%
+NadkarniHofmann2012}%
+\begin{APACrefauthors}%
+Nadkarni, A.%
+\BCBT {}\ \BBA {} Hofmann, S\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Why do people use Facebook?} {Why do people use
+  facebook?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Personality and Individual Differences}{52}{3}{243 -
+  249}.
+\newblock
+\begin{APACrefURL}
+  \url{http://www.sciencedirect.com/science/article/pii/S0191886911005149}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+\APACcitebtitle {Overview of Cyc Inferencing}}{%
+\APACcitebtitle {Overview of Cyc Inferencing}}{%
+{\protect \APACyear {1994}}%
+}]{%
+cycinferencing1994}
+\APACinsertmetastar {%
+cycinferencing1994}%
+\APACrefbtitle {Overview of Cyc Inferencing.} {Overview of cyc inferencing.}
+\newblock
+\APACrefYearMonthDay{1994}{}{}.
+\newblock
+\begin{APACrefURL} \url{http://www.cyc.com/overview-cyc-inferencing/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+PearAnalytics%
+}{%
+PearAnalytics%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+PearAnalytics2009}
+\APACinsertmetastar {%
+PearAnalytics2009}%
+\begin{APACrefauthors}%
+PearAnalytics.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+\APACrefbtitle {Twitter Study - August 2009.} {Twitter study - august 2009.}
+\newblock
+\begin{APACrefURL}
+  \url{https://web.archive.org/web/20110715062407/www.pearanalytics.com/blog/wp-content/uploads/2010/05/Twitter-Study-August-2009.pdf}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pehcevski%
+\ \BBA {} Piwowarski%
+}{%
+Pehcevski%
+\ \BBA {} Piwowarski%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+PehcevskiPiwowarski2009}
+\APACinsertmetastar {%
+PehcevskiPiwowarski2009}%
+\begin{APACrefauthors}%
+Pehcevski, J.%
+\BCBT {}\ \BBA {} Piwowarski, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{May}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Evaluation Metrics for Structured Text Retrieval}
+  {Evaluation metrics for structured text retrieval}.{\BBCQ}
+\newblock
+\BIn{} M\BPBI T.~{\"O}zsu\ \BBA {} L.~Liu\ (\BEDS), \APACrefbtitle
+  {Encyclopedia of Database Systems} {Encyclopedia of database systems}\
+  (\BPGS\ 1015--1024).
+\newblock
+\APACaddressPublisher{}{Springer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pradhan%
+}{%
+Pradhan%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+FacebookDownload2}
+\APACinsertmetastar {%
+FacebookDownload2}%
+\begin{APACrefauthors}%
+Pradhan, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+\begin{APACrefURL}
+  \url{https://www.facebook.com/notes/terabug/download-all-facebook-photos-status-wall-posts-together-in-zip-file/10150118571353989/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rao%
+}{%
+Rao%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Rao2010}
+\APACinsertmetastar {%
+Rao2010}%
+\begin{APACrefauthors}%
+Rao, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+\APACrefbtitle {Twitter Added 30 Million Users In The Past Two Months.}
+  {Twitter added 30 million users in the past two months.}
+\newblock
+\begin{APACrefURL} \url{https://techcrunch.com/2010/10/31/twitter-users/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Reiter%
+\ \BBA {} Dale%
+}{%
+Reiter%
+\ \BBA {} Dale%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+ReiterDale1997}
+\APACinsertmetastar {%
+ReiterDale1997}%
+\begin{APACrefauthors}%
+Reiter, E.%
+\BCBT {}\ \BBA {} Dale, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Building applied natural language generation systems}
+  {Building applied natural language generation systems}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Natural Language Engineering}{3}{01}{57--87}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Setty%
+, Jadi%
+, Shaikh%
+, Mattikalli%
+\BCBL {}\ \BBA {} Mudenagudi%
+}{%
+Setty%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+setty2014classification}
+\APACinsertmetastar {%
+setty2014classification}%
+\begin{APACrefauthors}%
+Setty, S.%
+, Jadi, R.%
+, Shaikh, S.%
+, Mattikalli, C.%
+\BCBL {}\ \BBA {} Mudenagudi, U.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Classification of facebook news feeds and sentiment
+  analysis} {Classification of facebook news feeds and sentiment
+  analysis}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Advances in Computing, Communications and Informatics
+  (ICACCI, 2014 International Conference on} {Advances in computing,
+  communications and informatics (icacci, 2014 international conference on}\
+  (\BPGS\ 18--23).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sleimi%
+\ \BBA {} Gardent%
+}{%
+Sleimi%
+\ \BBA {} Gardent%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+sleimi2016generating}
+\APACinsertmetastar {%
+sleimi2016generating}%
+\begin{APACrefauthors}%
+Sleimi, A.%
+\BCBT {}\ \BBA {} Gardent, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Generating Paraphrases from DBPedia using Deep Learning}
+  {Generating paraphrases from dbpedia using deep learning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{WebNLG 2016}{}{}{54}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Solis%
+, Siy%
+, Tabirao%
+\BCBL {}\ \BBA {} Ong%
+}{%
+Solis%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+SolisSiyTabiraoOng2009}
+\APACinsertmetastar {%
+SolisSiyTabiraoOng2009}%
+\begin{APACrefauthors}%
+Solis, C\BPBI J.%
+, Siy, J\BPBI T.%
+, Tabirao, E.%
+\BCBL {}\ \BBA {} Ong, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Planning author and character goals for story
+  generation} {Planning author and character goals for story
+  generation}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the Workshop on Computational Approaches
+  to Linguistic Creativity} {Proceedings of the workshop on computational
+  approaches to linguistic creativity}\ (\BPGS\ 63--70).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Speer%
+\ \BBA {} Havasi%
+}{%
+Speer%
+\ \BBA {} Havasi%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Speer2012}
+\APACinsertmetastar {%
+Speer2012}%
+\begin{APACrefauthors}%
+Speer, R.%
+\BCBT {}\ \BBA {} Havasi, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Representing General Relational Knowledge in ConceptNet
+  5.} {Representing general relational knowledge in conceptnet 5.}{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {LREC} {Lrec}\ (\BPGS\ 3679--3686).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Staff%
+}{%
+Staff%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+Mcgraw2000}
+\APACinsertmetastar {%
+Mcgraw2000}%
+\begin{APACrefauthors}%
+Staff, M\BHBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2000}.
+\newblock
+\APACrefbtitle {Writer's Choice Writing Assessment and Evaluation Rubrics Grade
+  9} {Writer's choice writing assessment and evaluation rubrics grade 9}.
+\newblock
+\APACaddressPublisher{}{McGraw-Hill Education}.
+\newblock
+\begin{APACrefURL} \url{https://books.google.com.ph/books?id=v5mNpk49FMkC}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Syliongka%
+\ \protect \BOthers {.}}{%
+Syliongka%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+syliongka2015combining}
+\APACinsertmetastar {%
+syliongka2015combining}%
+\begin{APACrefauthors}%
+Syliongka, L\BPBI R.%
+, Oco, N.%
+, Lam, A\BPBI J.%
+, Soriano, C\BPBI R.%
+, Roldan, M\BPBI D\BPBI G.%
+, Magno, F.%
+\BCBL {}\ \BBA {} Cheng, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Combining automatic and manual approaches: Towards a
+  framework for discovering themes in disaster-related Tweets} {Combining
+  automatic and manual approaches: Towards a framework for discovering themes
+  in disaster-related tweets}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 24th International Conference on
+  World Wide Web} {Proceedings of the 24th international conference on world
+  wide web}\ (\BPGS\ 1239--1244).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Technopedia%
+}{%
+Technopedia%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+Technopedia2016}
+\APACinsertmetastar {%
+Technopedia2016}%
+\begin{APACrefauthors}%
+Technopedia.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\begin{APACrefURL}
+  \url{https://www.techopedia.com/definition/25328/data-extraction}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tuffield%
+, Millard%
+\BCBL {}\ \BBA {} Shadbolt%
+}{%
+Tuffield%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+Tuffield06ontologicalapproaches}
+\APACinsertmetastar {%
+Tuffield06ontologicalapproaches}%
+\begin{APACrefauthors}%
+Tuffield, M\BPBI M.%
+, Millard, D\BPBI E.%
+\BCBL {}\ \BBA {} Shadbolt, N\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Ontological Approaches to Modelling Narratives}
+  {Ontological approaches to modelling narratives}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {2nd AKT DTA Symposium, AKT. Aberdeen.} {2nd akt dta
+  symposium, akt. aberdeen.}
+\newblock
+\APACaddressPublisher{}{University, UK}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Varol%
+, Ferrara%
+, Davis%
+, Menczer%
+\BCBL {}\ \BBA {} Flammini%
+}{%
+Varol%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+DBLP:journals/corr/VarolFDMF17}
+\APACinsertmetastar {%
+DBLP:journals/corr/VarolFDMF17}%
+\begin{APACrefauthors}%
+Varol, O.%
+, Ferrara, E.%
+, Davis, C\BPBI A.%
+, Menczer, F.%
+\BCBL {}\ \BBA {} Flammini, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Online Human-Bot Interactions: Detection, Estimation,
+  and Characterization} {Online human-bot interactions: Detection, estimation,
+  and characterization}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{CoRR}{abs/1703.03107}{}{}.
+\newblock
+\begin{APACrefURL} \url{http://arxiv.org/abs/1703.03107} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wang%
+, Can%
+, Kazemzadeh%
+, Bar%
+\BCBL {}\ \BBA {} Narayanan%
+}{%
+Wang%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+wang2012system}
+\APACinsertmetastar {%
+wang2012system}%
+\begin{APACrefauthors}%
+Wang, H.%
+, Can, D.%
+, Kazemzadeh, A.%
+, Bar, F.%
+\BCBL {}\ \BBA {} Narayanan, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A system for real-time twitter sentiment analysis of
+  2012 us presidential election cycle} {A system for real-time twitter
+  sentiment analysis of 2012 us presidential election cycle}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the ACL 2012 System Demonstrations}
+  {Proceedings of the acl 2012 system demonstrations}\ (\BPGS\ 115--120).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Weaver%
+\ \BBA {} Tarjan%
+}{%
+Weaver%
+\ \BBA {} Tarjan%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+WeaverTarjan2013}
+\APACinsertmetastar {%
+WeaverTarjan2013}%
+\begin{APACrefauthors}%
+Weaver, J.%
+\BCBT {}\ \BBA {} Tarjan, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Facebook linked data via the graph API} {Facebook linked
+  data via the graph api}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Semantic Web}{4}{3}{245--250}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+West%
+}{%
+West%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+West20131}
+\APACinsertmetastar {%
+West20131}%
+\begin{APACrefauthors}%
+West, L\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Facebook sharing: A sociolinguistic analysis of
+  computer-mediated storytelling} {Facebook sharing: A sociolinguistic analysis
+  of computer-mediated storytelling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Discourse, Context and Media}{2}{1}{1-13}.
+\newblock
+\begin{APACrefURL}
+  \url{http://www.sciencedirect.com/science/article/pii/S2211695812000682}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Westlake%
+}{%
+Westlake%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+Westlake2008}
+\APACinsertmetastar {%
+Westlake2008}%
+\begin{APACrefauthors}%
+Westlake, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Friend me if you Facebook: Generation Y and performative
+  surveillance} {Friend me if you facebook: Generation y and performative
+  surveillance}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{TDR/The Drama Review}{52}{4}{21--40}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Widrich%
+}{%
+Widrich%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Widrich2012}
+\APACinsertmetastar {%
+Widrich2012}%
+\begin{APACrefauthors}%
+Widrich, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+\APACrefbtitle {The Science of Storytelling: Why Telling a Story is the Most
+  Powerful Way to Activate Our Brains.} {The science of storytelling: Why
+  telling a story is the most powerful way to activate our brains.}
+\newblock
+\begin{APACrefURL}
+  \url{http://lifehacker.com/5965703/the-science-of-storytelling-why-telling-a-story-is-the-most-powerful-way-to-activate-our-brains}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Youse%
+}{%
+Youse%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+Youse2005}
+\APACinsertmetastar {%
+Youse2005}%
+\begin{APACrefauthors}%
+Youse.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{}{}.
+\newblock
+\APACrefbtitle {Ten Elements of Biography.} {Ten elements of biography.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zhang%
+\ \BBA {} LeCun%
+}{%
+Zhang%
+\ \BBA {} LeCun%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+ZhangLecun2015}
+\APACinsertmetastar {%
+ZhangLecun2015}%
+\begin{APACrefauthors}%
+Zhang, X.%
+\BCBT {}\ \BBA {} LeCun, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Text understanding from scratch} {Text understanding
+  from scratch}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv preprint arXiv:1502.01710}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

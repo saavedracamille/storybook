@@ -1,0 +1,324 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdftex 2016.7.10)  16 OCT 2016 14:37
+entering extended mode
+**"C:/Users/Robee Khyra Te/Desktop/10th Term/THS-ST1/ST-THESIS-PROPOSAL-Templat
+e/myreferences.bib"
+
+("C:/Users/Robee Khyra Te/Desktop/10th Term/THS-ST1/ST-THESIS-PROPOSAL-Template
+/myreferences.bib"
+Overfull \hbox (47.0099pt too wide) in paragraph at lines 2--9
+[]\tenrm @miscGopnik2012, ti-tle=Can Sci-ence Ex-plain Why We Tell Sto-ries?, u
+rl=http://www.newyorker.com/books/page-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (0.482pt too wide) in paragraph at lines 2--9
+\tenrm turner/can-science-explain-why-we-tell-stories, jour-nal=The New Yorker,
+ au-thor=Gopnik, Adam, year=2012|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\tenrm t
+.\tenrm u
+.\tenrm r
+.\tenrm n
+.\tenrm e
+.etc.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--9
+
+
+\hbox(0.0+0.0)x469.75499
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (25.02385pt too wide) in paragraph at lines 10--18
+\tenrm the-most-powerful-way-to-activate-our-brains, jour-nal=Lifehacker, au-th
+or=Widrich, Leo, year=2012, month=May|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm t
+.\tenrm h
+.\tenrm e
+.\tenrm -
+.\discretionary
+.etc.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--18
+
+
+\hbox(0.0+0.0)x469.75499
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (83.87141pt too wide) in paragraph at lines 79--92
+\tenrm ics;Automation;Collaboration;Computational mod-el-ing;Computers;Manuals;
+Visualization, doi=10.1109/TCIAIG.2016.2546063,|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\tenrm i
+.\tenrm c
+.\tenrm s
+.\tenrm ;
+.\tenrm A
+.etc.
+
+
+Overfull \hbox (176.63545pt too wide) in paragraph at lines 93--100
+[]\tenrm @miscFacebookDownload, ti-tle=Downloading Your Info, au-thor=Facebook,
+ year=2012, url=https://www.facebook.com/help/131112897028467,|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (3.91269pt too wide) in paragraph at lines 101--108
+[]\tenrm @articleGervas2012, ti-tle=Story gen-er-a-tor al-go-rithms, au-thor=Ge
+rvas, Pablo, jour-nal=The Liv-ing Hand-|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm a
+.\tenrm r
+.\tenrm t
+.etc.
+
+
+Overfull \hbox (144.24643pt too wide) in paragraph at lines 130--137
+[]\tenrm @miscFacebookFile, ti-tle=Accessing Your Data, au-thor=Facebook, year=
+2012, url=https://www.facebook.com/help/405183566203254/,|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (24.94038pt too wide) in paragraph at lines 199--208
+[]\tenrm @inproceedingsMeehan1977, title=TALE-SPIN, An In-ter-ac-tive Pro-gram 
+that Writes Sto-ries, au-thor=Meehan,|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm i
+.\tenrm n
+.\tenrm p
+.etc.
+
+
+Overfull \hbox (8.13383pt too wide) in paragraph at lines 225--232
+[]\tenrm @miscFacebookGraphAndroid2016, ti-tle=Using The Graph API - An-droid, 
+au-thor=Facebook, year=2016,|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+
+Overfull \hbox (150.45468pt too wide) in paragraph at lines 247--254
+[]\tenrm @miscChaffey2016, ti-tle=Global So-cial Me-dia Statis-tics Sum-mary 20
+16, au-thor=Chaffey, Dave, url=http://www.smartinsights.com/social-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (11.49602pt too wide) in paragraph at lines 247--254
+\tenrm media-marketing/social-media-strategy/new-global-social-media-research/,
+ jour-nal=Smart In-sights, year=2016|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\tenrm m
+.\tenrm e
+.\tenrm d
+.\tenrm i
+.\tenrm a
+.etc.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--254
+
+
+\hbox(0.0+0.0)x469.75499
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (199.46869pt too wide) in paragraph at lines 255--263
+[]\tenrm @miscDoughty2015, ti-tle=Facebook is the most pop-u-lar so-cial net-wo
+rk for the over 50s, url=http://www.telegraph.co.uk/goodlife/11751851/facebook-
+|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+[2]
+Overfull \hbox (20.35707pt too wide) in paragraph at lines 275--285
+[]\tenrm @articleCheungChiuLee2011, ti-tle=Online so-cial net-works: Why do stu
+-dents use face-book?, au-thor=Cheung,|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm a
+.\tenrm r
+.\tenrm t
+.etc.
+
+
+Overfull \hbox (168.13545pt too wide) in paragraph at lines 295--313
+\tenrm "0191-8869", doi = "http://dx.doi.org/10.1016/j.paid.2011.11.007", url =
+ "http://www.sciencedirect.com/science/article/pii/S0191886911005149",|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\tenrm "
+.\tenrm 0
+.\tenrm 1
+.\tenrm 9
+.\tenrm 1
+.etc.
+
+
+Overfull \hbox (111.44049pt too wide) in paragraph at lines 326--333
+[]\tenrm @miscRao2010, ti-tle=Twitter Added 30 Mil-lion Users In The Past Two M
+onths, url=https://techcrunch.com/2010/10/31/twitter-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (46.13515pt too wide) in paragraph at lines 334--344
+\tenrm thor=Crymble, Adam, jour-nal=Archivaria, vol-ume=70, num-ber=2, pages=12
+5--151, year=2010, pub-lisher=Association|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm t
+.\tenrm h
+.\tenrm o
+.\tenrm r
+.\tenrm =
+.etc.
+
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Å in font cmr10!
+
+Overfull \hbox (11.2043pt too wide) in paragraph at lines 345--355
+[]\tenrm @INPROCEEDINGSFarahbakhshHanCuevasCrespi2013, au-thor=R. Farah-bakhsh 
+and X. Han and  Cuevas|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm I
+.\tenrm N
+.\tenrm P
+.etc.
+
+
+Overfull \hbox (3.3295pt too wide) in paragraph at lines 345--355
+\tenrm in-for-ma-tion anal-y-sis;sensitive in-for-ma-tion;virtual en-vi-ron-men
+t;worldwide pop-u-la-tion dis-tri-bu-tion;Educational|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm i
+.\tenrm n
+.\discretionary
+..\tenrm -
+.\tenrm f
+.\tenrm o
+.etc.
+
+
+Overfull \hbox (123.42696pt too wide) in paragraph at lines 345--355
+\tenrm in-sti-tu-tions;Games;Motion pic-tures;TV;Facebook;Information Dis-clo-s
+ure;Online So-cial Net-works;Privacy, doi=10.1145/2492517.2492625,|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\tenrm i
+.\tenrm n
+.\discretionary
+..\tenrm -
+.\tenrm s
+.\tenrm t
+.etc.
+
+
+Overfull \hbox (292.3022pt too wide) in paragraph at lines 356--362
+[]\tenrm @miscPearAnalytics2009, ti-tle=Twitter Study - Au-gust 2009, au-thor=P
+earAnalytics, url=https://web.archive.org/web/20110715062407/www.pearanalytics.
+com/blog/wp-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (242.1077pt too wide) in paragraph at lines 363--370
+[]\tenrm @miscDeepText2016, ti-tle=Introducing Deep-Text: Face-book's text un-d
+er-stand-ing en-gine, url=https://code.facebook.com/posts/181565595577955/intro
+ducing-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm m
+.\tenrm i
+.\tenrm s
+.etc.
+
+)
+*
+! Emergency stop.
+<*> ...-THESIS-PROPOSAL-Template/myreferences.bib"
+                                                  
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
