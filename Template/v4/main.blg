@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+The style file: apacite.bst
+A level-1 auxiliary file: title_page.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: chapter_1.aux
+A level-1 auxiliary file: chapter_2.aux
+A level-1 auxiliary file: chapter_3.aux
+A level-1 auxiliary file: chapter_4.aux
+A level-1 auxiliary file: chapter_5.aux
+A level-1 auxiliary file: chapter_6.aux
+A level-1 auxiliary file: chapter_7.aux
+A level-1 auxiliary file: appendix_A.aux
+A level-1 auxiliary file: appendix_B.aux
+A level-1 auxiliary file: appendix_C.aux
+A level-1 auxiliary file: appendix_D.aux
+A level-1 auxiliary file: appendix_E.aux
+A level-1 auxiliary file: appendix_F.aux
+A level-1 auxiliary file: appendix_G.aux
+A level-1 auxiliary file: appendix_H.aux
+A level-1 auxiliary file: appendix_I.aux
+A level-1 auxiliary file: appendix_J.aux
+A level-1 auxiliary file: appendix_K.aux
+A level-1 auxiliary file: appendix_L.aux
+A level-1 auxiliary file: appendix_M.aux
+Database file #1: myreferences.bib
+Warning--entry type for "picbooks4" isn't style-file defined
+--line 263 of file myreferences.bib
+I was expecting an "="---line 547 of file myreferences.bib
+ :   url={https://en.wikipedia.org/wiki/List_of_Facebook_features#News_Feed},[break] 
+ :                                                                                   urldate={2016-11-2},
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "DBLP:conf/ecir/KinsellaPB11"
+refers to entry "DBLP:conf/ecir/2011", which doesn't exist
+A bad cross reference---entry "conf/ht/ChoudhuryA14"
+refers to entry "conf/ht/2014dc", which doesn't exist
+Warning--I didn't find a database entry for "Liu12sentimentanalysi"
+Warning--I didn't find a database entry for "conf/ht/2014dc"
+Warning--I didn't find a database entry for "DBLP:conf/ecir/2011"
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+Warning--No journal in choudhury2014personal
+ptr=1, stack=
+
+---the literal stack isn't empty for entry GoogleAPI2016
+while executing---line 5079 of file apacite.bst
+Warning--No author, editor, title, type, and howpublished in cyc1999
+ptr=1, stack=
+
+---the literal stack isn't empty for entry cyc1999
+while executing---line 5079 of file apacite.bst
+ptr=1, stack=
+
+---the literal stack isn't empty for entry FacebookDownload2
+while executing---line 5079 of file apacite.bst
+ptr=1, stack=
+
+---the literal stack isn't empty for entry Technopedia2016
+while executing---line 5079 of file apacite.bst
+(There were 7 error messages)

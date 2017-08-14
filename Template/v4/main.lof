@@ -1,0 +1,73 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Content of Facebook Data .zip File}}{11}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Available Coding Platforms and Code Snippets in Graph API}}{12}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Permissions in an Access Token}}{13}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces A comparison between fastText and deep learning-based methods.}}{17}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Sample output for syntax analysis}}{18}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Sample output for entity recognition}}{19}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Sample Part-of-speech Tagging using Stanford CoreNLP}}{19}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Sample Named Entity Recognition using Stanford CoreNLP}}{20}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Parse Tree Output by Stanford CoreNLP}}{20}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Universal Dependencies Output by Stanford CoreNLP}}{21}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Example Story Tree}}{26}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Millennial Demographics in Social Media Platforms }}{29}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces An excerpt of Cyc's knowledge base, showing common sense knowledge about a dog named Fido.}}{32}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces An example of ConceptNet's semantic network of knowledge. Concepts consist of a noun phrase along with an optional verb or prepositional phrase.}}{33}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces A model of the linear structure of a story.}}{39}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The story structure used in Picture Books, which tells the (fictional) story of a child who is disobedient.}}{39}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Facebook content categorized into 13 categories.}}{41}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Sample Code for Creating Pipeline}}{44}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sample Code for Parsing Text}}{44}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sample Code for Named Entity Recognition}}{45}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Actual Named Entity Recognition Output by Stanford CoreNLP}}{45}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Sample Code for Getting the Part-of-Speech Tag of Each Token}}{45}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Sample Part-of-speech Tagging using Stanford CoreNLP}}{46}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Parse Tree Output by Stanford CoreNLP}}{47}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Universal Dependencies Output by Stanford CoreNLP}}{48}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Sample Messages}}{50}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Tree Structure Returned by the Discourse Planning}}{51}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Augmented Transition Network (ATN)}}{52}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces SimpleNLG's lexicon, nlgFactory, and realiser}}{54}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces SimpleNLG's SPhraseSpec}}{55}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces SimpleNLG's SPhraseSpec methods}}{55}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces SimpleNLG's realiser}}{55}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Instantiation of the Dictionary}}{56}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Setting the lemma and part of speech}}{56}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Getting related senses}}{56}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Getting short description of senses}}{57}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Getting words under specific senses}}{57}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Related senses returned by WordNet}}{57}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Morphosemantically related words returned by WordNet}}{58}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sample Incomplete Text with Mixed Languages and Abbreviation.}}{64}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Architecture Design of FB Stories }}{66}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Facebook Login Button.}}{69}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Pop-up Login Window.}}{69}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Permission Window.}}{70}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Generated Story Output Window.}}{71}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces System Architecture of FB Stories }}{74}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Database Design for Storing Extracted Data.}}{75}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Sample About Me Section in Facebook}}{77}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Sample Post in Facebook}}{81}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Sample Interest Preference in Facebook}}{82}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Database design for storing the processed data.}}{86}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces A sample parse tree generated using Stanford CoreNLP}}{91}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces An example of a graph representation of RDF data. (A, birthPlace, F) is connected to (F, country, H), for example. }}{106}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

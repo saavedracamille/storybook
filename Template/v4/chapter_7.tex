@@ -1,0 +1,153 @@
+\chapter{Conclusions and Recommendations}
+\label{sec:conclusionsandrecommendations} 
+This chapter presents the overall assessment on the development of the system, FB Stories. It discusses how the general and specific objectives of the research were met, the issues currently encountered by the system and recommendations for the future development of this and other relevant systems.
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Conclusions}
+The main goal of the research was to develop an application that generates one's story using data collected from his/her Facebook account. To accomplish this objective, we did the following: 
+\begin{itemize}
+	\item Defined a life story and its elements;
+	\item Reviewed Facebook data, identified the data that can be derived and the available methods to gather the data;
+	\item Characterized user-generated text content to develop algorithms that can work with the noisy data;
+	\item Built a knowledge base to store the extracted data;
+	\item Designed the algorithms for event detection, event classification, event details extraction, and story generation; and 
+	\item Validated the system using a set of evaluation metrics.
+\end{itemize}
+
+FB Stories is able to generate life stories using natural language processing and natural language generation techniques. It is able to utilize user data such as their profile information and preferences.  It can detect and classify posts regarding celebrating events; eating and drinking meals; and travelling across places. The system supports posts written in, and writes posts in, the English language. It generates life stories with the use of a story grammar and scripts, which makes the design of this module more scalable. There is an abstract representation of the story plan that is composed of a set of messages that the system would like to convey to the reader. Each message in the story plan follows the abstract representation of the form:
+
+\begin{center} Verb(doer, object, tagged, date, location). \end{center}
+
+FB Stories is able to achieve the following specific software objectives as stated in Section 4.2.2:
+\begin{itemize}
+	\item Extract the needed data from Facebook based on permissions and filters. \newline\newline
+	The system was able to sift through the data present in a user's Facebook account and extract the [1] data that can be used as is, such as the user's birthday, Facebook Events, and likes; and the [2] data which have to be processed since knowledge taken from them has to be processed first via parsing, classification, and sequencing. \newline\newline
+	Throughout this process, ethical considerations that may arise from the use of personal data were taken into account. This was done via the use of an informed consent form and an orientation for participants prior to undertaking the study. Participants were clearly informed of the procedure as well as any risks that may occur, and how the researchers deal with these risks, especially in terms of protecting the confidentiality of their data. \newline\newline
+	
+	\item Use data processing techniques to analyze the input. \newline\newline
+	Facebook posts are hard to deal with because user-generated data are informal, brief, and noisy. To deal with these, the collected posts have to be preprocessed to remove foreign characters, emoticons, hashtags, laughter; and for posts with missing doers, the poster is assumed to be the assumed doer. A thorough discussion of the data preprocessing and text understanding techniques used to analyze user-generated data and represent them in an abstract story representation are found in Sections 4.2, Software Objectives, and 5.1, Processing User-Generated Data. The posts are simplified into clauses, then subsequently fed to the text understanding module, which utilized Stanford CoreNLP to extract event details that are needed by the story generator. \newline\newline
+	
+	\item Classify each post according to its type. \newline\newline
+	The preprocessed text underwent classification as described in Sections 4.3.3, Post Classification, as well as in Section 5.2, Event Classification. Multiple versions of the classification algorithm were designed. At first, it was a simple algorithm which simply checked if a given sentence contained one or more words in the post classification table of keywords (the old version of which is shown in Table X in Section 5.2.1, Keywords). \newline\newline
+	Later on, the algorithm was improved, which consisted of augmenting the table of keywords with knowledge from ConceptNet and WordNet as well as adding a scoring system with a minimum threshold of 2 and an enforced bias between events. The best performing algorithm among these versions, which is the latter version, was then selected. The classification of a post is stored as part of its event model. 
+	\newline\newline
+	The classification hinges largely on the textual content of the post. We encountered posts that rarely provide sufficient data from which useful details about the event can be extracted. These posed numerous challenges to our classifier, which despite achieving a reasonable accuracy of 88.08\% and 93.83\% for no-score and score-based approaches, respectively, also had low precision and recall values (shown in Table NLP1 in Section 6.2.3, Post Classification Module). \newline\newline
+	
+	\item Use text generation techniques to generate a story. \newline\newline
+	From the initial template-based story generation approach, a story grammar or script has been defined in order to be able to more easily generate varying sentences for the paragraphs without having to manually define new templates: the focus then goes to the grammar and the script. There are three sets of grammars; one for the introduction paragraph, another for the body paragraphs, and another for the conclusion paragraph. These grammars are used to determine what to put in a given sentence, and the script dictates how the sentence types should be organized or sequenced in general. The information that was then stored and processed earlier is modeled in the abstract story representation in the form of frames that are easily accessible to the system, and used to generate the story. \newline\newline
+	
+	\item Allow users to save the generated stories into a text file. \newline\newline
+	After generating the complete story, the system provides a Save function which allows the user to store the story into their own system, allowing them to make use of it later on. \newline\newline
+	
+	Our system can generate a complete story about a user assuming the user has at least the following minimum data:
+	\begin{itemize}
+		\item \textbf{Name.} This is required by Facebook, except for the middle name.
+		\item \textbf{Gender.} Like the name, this is required by Facebook. Aside from ``male” or ``female”, the user can actually enter a custom gender. However, Facebook still forces the user to choose a pronoun, which allows our story generator to work either way.
+		\item \textbf{At least one educational background OR work history.} Facebook does not require this; however, this information is necessary to generate a complete story according to (Youse, 2005).
+		\item \textbf{At least one of: current location (currently living in), and hometown.} Facebook does not require this.
+		\item \textbf{Birthdate.} Facebook requires this: the month, date, and year. From here, the age can be derived easily.
+		\item \textbf{At least two posts pertaining to an action.} The user must have at least two posts talking about: [1] travelling, [2] celebrating, [3] eating, OR [4] drinking. Note that this does not include posts which use only predefined activities (e.g. ``Robee Khyra Te is \textit{feeling sad}.”); these two posts should have a caption entered by the user (e.g. ``Happy monthsary!”). These posts already have metadata such as the date posted, or co-participants (if any other users are tagged), so it is not necessary to ask the user for the dates when, or the  locations where, the posts occurred.
+		\item \textbf{Liked pages.} At least two. They may or may not be under the same category.
+		\item \textbf{At least one Facebook Event,} where the user said ``Attending” or ``Interested.”
+	\end{itemize}
+	
+	The following are optional, but help:
+	\begin{itemize}
+		\item \textbf{Posts with activities we can classify; Liked pages; and Facebook Events.} The more posts with activities posted; the more pages Liked; and the more Facebook Events attended or interested in, the better.
+		\item \textbf{Family members.} These can be used for the introduction, but are not required by Facebook to be entered by the user. These allow the system to provide more information in the introduction; however, not everyone has at least one family member using Facebook.
+		\item \textbf{Check-ins.} These help the story generator system tell the location of events that occurred in the user’s life.
+		\item \textbf{Tagged friends.} These let the story generator tell who the user was doing their activity / activities with.
+	\end{itemize}
+
+	From these, it can be concluded that Facebook provides enough data to generate a complete life story about a person.
+\end{itemize}
+
+FB Stories is composed of different modules and works with the help of different tools for these modules. Because of the type of data the research deals with and the scope of the system, several issues were encountered. The following are the analyses for the components of the system, detailing how they affect the performance of FB Stories.
+
+\underline{\textbf{Graph API and Extraction}} \newline
+Extracted data from Graph API gives the system the raw data. Each piece of data extracted from Facebook retains its integrity because the system cross-checks its Facebook ID. However, as mentioned earlier, the extracted data is noisy, which means that it needs to be preprocessed to remove unnecessary characters and symbols, and classified properly to become information that can be used by the system.
+
+\underline{\textbf{Part-of-Speech Tagger}} \newline
+Some of the results of the tagger were different from what was expected. During testing, several issues were identified, which included not being able to distinguish some pronouns correctly; difficulty in interpreting verbs that end with \textit{ing} due to ambiguities in English; and the high impact of punctuations such as commas and periods in changing the result of the tagger when assigning POS tags on words in a sentence.
+
+\underline{\textbf{Lemmatizer}} \newline
+Stanford's lemmatizer did not have a problem in retrieving the lemmatized form of the verb. The only issue was when the part-of-speech tagger incorrectly identified the supposed verb as a noun or other part-of-speech tag, as it is highly dependent on the result of the tagger.
+
+\underline{\textbf{WordNet and ConceptNet}} \newline
+In constructing the keywords list, related words and concepts of the words \textit{celebrating}, \textit{eating}, \textit{drinking}, and \textit{travelling} were derived from WordNet and ConceptNet. A total of 1,697 related words were retrieved -- 1,691 words are in English and only 6 are in Filipino. It can be argued from the results that some words taken from WordNet and ConceptNet negatively affected the precision of post classification. This is because these words were not checked for their relevance to the category. There were certain keywords present in the \textit{travelling} category such as \textit{businessman}, \textit{scientists}, which are not closely related to the category. On the other hand, the addition of these keywords significantly increased recall, since there were more keywords used which resulted to more posts being classified correctly.
+
+\underline{\textbf{Dealing with Noisy User-Generated Data}} \newline
+Posts extracted and gathered from Facebook have to be preprocessed to clean the data of unnecessary symbols and non-alphanumeric characters, unstructured posts that contains incomplete posts, and a variety of quotes, words and phrases. This is a challenge for any research dealing with user-generated data.
+
+\underline{\textbf{GenIntro and GenConclusion}} \newline
+The introduction paragraphs are meant to present the Facebook user to the reader, to provide a background as if in a real biography. In a real biography, the following elements should be present toward the beginning: [1] birthday, and birthplace; [2] family members; and [3] childhood and education /cite{Youse2005}. Each of these pieces of information can be easily obtained from a Facebook user's About Me section. The only part here that is not described in detail is \textit{childhood}; however, some writers circumvent this lack of information by describing parents, order of siblings, and the family's hometown.
+
+The conclusion paragraphs, meanwhile, are meant to synthesize the user's experiences that were displayed in the body section of the biography by summarizing their preferences and interests. This is present in order for the reader to be able to understand the subject better. For the conclusion paragraphs, the goals were to present [1] hobbies and interests \cite{Youse2005}, as well as [2] events that they have attended. Both of these are obtainable from Facebook.
+
+From here it can be seen that a Facebook profile, provided that the user is somewhat active, can provide enough information to generate textual data about the user which introduces him or her to other people.
+
+\underline{\textbf{GenBody}} \newline
+The body paragraphs, meanwhile, are meant to talk about events regarding \textit{celebrating}, \textit{eating}, \textit{drinking}, and \textit{travelling}, with the observation that these posts are most explicitly stated by Facebook users. However, in the dataset for this research, only 6\% were tagged as either of these four events. While that may seem low, it is important to note that these are only four types of events, while there are plenty of other types of events posted on social networking sites, such as posts about \textit{watching}, \textit{listening}, or \textit{playing a game}. 
+
+There is also a lot of data on social networking sites such as Facebook which do not talk about a person's activity, but are simply attempts at humor or spreading news to other people. Therefore, while it can be observed that data from Facebook is noisy, it can also be concluded that this \textit{noise} leaves room for improvement in the future for other systems to take advantage of.
+
+\underline{\textbf{SimpleNLG}} \newline
+SimpleNLG was utilized in the story generation module. Initially, templates were used rather than natural language generation, which resulted in a ``fill-in-the-blanks” style of story generation with lots of grammar errors which had to be worked around in the system, since the templates are rigid. However, since changing to grammar-based story generation, these grammar errors can be fixed much more easily with the help of SimpleNLG. No issues were found with the tool itself as it was able to construct sentences properly based on what was fed into it. 
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Recommendations}
+The research was able to achieve its objectives, and FB Stories was able to perform its necessary functions. However, several areas could be improved to increase the effectiveness of the system. The following describes some recommendations for future work:
+
+\underline{\textbf{Python}} \newline
+Java and Python are both powerful programming languages. The big difference between them is that Python is dynamically typed while Java has to deal with the overhead of static types. This allows names to be bound to objects at execution time which makes it more convenient to use and call assertions in the system and carry out information without having the need to pass everything from one function to another. 
+
+Python also supports more APIs geared towards ML processes compared to Java as well as APIs which distinguish between languages in a sentence. This would help identify sentences containing multiple languages and further improve the text processing module.
+
+\underline{\textbf{Use Machine Learning for Event Classification}} \newline
+Machine learning shows its significance when the system is exposed to new data. With machine learning, a system could adapt independently and learn from previous knowledge and be able to produce reliable results. The current system's event classification could benefit from using machine learning techniques because Facebook posts are highly subjective to the individual user, and also dynamically change over time. No single set of predefined rules will be able to capture this current and future variability. This way the system also would not be limited with the set keywords.
+
+\underline{\textbf{Utilize Facebook's Predefined Activities feature}} \newline
+Facebook was chosen for its freeform nature and the many ways a user could post information. This includes the ability to predefine what the user is doing at the time of posting, which helps out immensely in researches such as life event detection in social media. However, no method currently exists (as of the time of writing) for extracting predefined activities from posts in Facebook; this is the main motivation for post classification in our research. In the future, being able to utilize Facebook's Predefined Activities feature, through either first-party or third-party data extraction tools, would enable the system to work faster for certain posts (since the system no longer has to classify posts with a predefined classification already). 
+
+In addition, this \textit{would} enable the system to more easily extend its support for other types of posts beyond \textit{celebrating}, \textit{eating}, \textit{drinking}, and \textit{travelling} by being able to quickly classify posts as \textit{watching}, for example. When combined with machine learning, the system could theoretically learn new post types by itself without having to be trained, so long as that post type is one of the predefined activities of Facebook.
+
+Story generation will then arguably be improved as more activity types are introduced. It would allow for a greater variety of possible sentences, which, if combined with other recommendations for NLG, would arguably make the story look more natural. The grammar can handle any new activity types easily because they were not made with only four types of posts in mind (e.g. none of the verbs are specifically stated in the grammar and can thus be \textit{anything}); they were made with thoroughness and traceability in mind (the user must be able to trace any given sentence in the body paragraphs back to one or more Facebook posts).
+
+\underline{\textbf{Improve the natural language generation}} \newline
+The story generator uses RDF data to construct descriptive sentences. However, the current implementation does not take advantage of RDF because the grammar only generates one type of sentence (e.g. for the birthday, the system can only write, ``Robee Khyra Te was born on May 25, 1996”). Therefore the full potential of RDF to construct varied, dynamic sentences was not realized. Further works can therefore improve on story generation by improving the use of RDF.
+
+The current implementation of the story generator makes use of temporal and topical relations that exist between events, but is constrained to a select set of topic categories, as well as temporal rule sets to add cohesion and coherence to the sentences. Events should not only be limited to such categories but to more relevant events such as those identified by \cite{conf/ht/ChoudhuryA14} as being the most important: [1] graduation, [2] marriage, [3] new job, [4] having a newborn child in the family, and [5] undergoing surgery. Of note is that in Choudhury \& Alani's (2014) research, they also used keywords in order to find tweets related to the topics they want to find (e.g. marriage ⇒ ``wedding”, ``tied the knot”).
+
+In addition, causal relations between events can also further enhance the story generation as it increases the value of context within the story. For example, it can show that a successful thesis defense is the cause of a happy graduation; or that a holiday (a holiday present in the calendar such as Christmas) is the result of a traveling trip (which happened on Christmas), which makes the story more dynamic.
+
+\underline{\textbf{Investigate the use of sentiment analysis to improve post classification}}
+\underline{\textbf{ and story generation}} \newline
+Sentiment analysis is a field of study that analyzes people's opinions, attitudes, evaluations, and emotions towards different topics, from people, to issues, to products, to events, among others \cite{Liu12sentimentanalysi}. It is a powerful tool to describe the emotions conveyed by a piece of text, and more broadly, the attitude or mood of an entire conversation \cite{DBLP:journals/corr/VarolFDMF17}. Adding sentiment analysis to the topic enables the system to determine which posts signify the user's most emotional moments in life, which may help in determining the most interesting content. These may be accomplishments such as graduation or marriage, or setbacks such as a broken tire in the middle of a road trip. 
+
+Combining sentiment analysis with the system's post classification algorithm will enable the system to determine which content should be included in the final story (since it can eliminate posts perceived as boring or inconsequential). It can also allow the body paragraphs to be organized in terms of emotional intensity in addition to the different types of events that happen in the user's lives (and this could, for example, allow the life story to have a sort of \textit{climax} event written before the conclusion, which signifies the most significant moment in this user's life so far). Put simply, sentiment analysis may help improve the content determination of the system by enabling it to work with emotions; also, it may help the story generation become more interesting by further improving the flow of the story.
+
+\underline{\textbf{Using phrasal tagging}} \newline
+Currently, in POS tagging, each word (separated by spaces) is tagged separately. This causes problems for when phrases such as ``watch out!”, wherein instead of \textit{watch} being tagged as a verb and out being tagged as a particle, the two tokens are tagged as a noun and a preposition respectively. A mistake like this can change the entire meaning of the sentence.
+
+Our keywords list also contains phrases, such as ``Happy mother's day” for \textit{celebrating}. However, when the keywords are searched in a given text, such as, ``So happy my mother made me soup on this rainy day,” the system finds the words \textit{happy}, \textit{mother}, and \textit{day}, and thus equates this to ``Happy mother's day.”
+
+A solution to these problems is phrasal tagging, wherein the system tags phrases like ``Happy mother's day” only for instances wherein the sentence actually says, as is, ``Happy mother's day.” It would remove the misclassification errors specified earlier. 
+
+\underline{\textbf{Being More Sensitive to Context: Classifying Implicit Facebook Posts}} \newline
+Many posts on social media do not have explicit actions stated, being reliant on context that not everyone has. In our current classification algorithm, these posts, instead of having been classified in the correct category, are tagged as being not events. Examples are posts of eating wherein only the name of the restaurant or a picture of the food being eaten is posted; or instead of drinking, only the brand of the drink is stated. To this end, future researchers can look into things such as the following:
+\begin{itemize}
+	\item Using metadata from hyperlinks (e.g. YouTube videos have a title, description, category, and miscellaneous tags) in order to help get context for a post; \cite{DBLP:conf/ecir/KinsellaPB11}
+	\item Being able to augment the knowledge base with additional real-world knowledge such as relevant nouns (e.g. ``Starbucks” -> ``coffee” -> ``drinking”), so that text posts or metadata containing those nouns are not simply ignored; or 
+	\item Use of a gazetteer, in order for places, food, or other relevant proper nouns to be easily recognized by the named entity recognizer;
+	\item Being able to use image processing techniques to find out the presence of objects such as food, airplane tickets, or drinks in order to be able to find objects related to activities such as \textit{eating}, \textit{drinking}, or \textit{travelling}.
+\end{itemize}
+These will aid in post classification and content determination for the generated story.
+
+\underline{\textbf{Investigate Different Event Types}} \newline
+The results of the system showed misclassification errors because the post categories have some overlap with each other. For example, in \textit{celebrating} an event such as a birthday, one might \textit{drink} and \textit{eat}. Further researchers can investigate different event types for classification and see whether more Facebook categories get included into the life story, as well as whether these classifications are more accurate and result in a more comprehensive life story.
+
+\underline{\textbf{Addressing Redundant User Posts}} \newline
+Unlike Twitter, which checks if a tweet is identical to another from the same user, a Facebook post can be identical to another post, thus allowing redundant posts (with the only difference being the \textit{fbID} attribute). In our current system, this phenomenon could generate multiple identical sentences (if the redundant posts all have events). In order to solve this, checks can be added in the \textit{to\_be\_processed} table to remove redundant posts.
+
+\underline{\textbf{Creating Personas from Generated Facebook Posts}} \newline
+One of the uses of life story generation from Facebook is for software agents to be able to use information from Facebook data to make sense of a person's activities and experiences. Assuming the ethical issues are taken care of, one of the possible uses for this is for defining personas. These are imaginary people which characterize the archetypical users of a system \footnote{Ambler. http://www.agilemodeling.com/artifacts/personas.htm}, conceived to show an example of the kind of people for whom a system is designed. They are meant to be based off of knowledge of real users, and Facebook provides plenty of real-world knowledge. To this end, work can be undertaken to determine if it is possible to create personas from life stories generated by a computer.
