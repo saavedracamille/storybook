@@ -1,0 +1,4283 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  14 AUG 2017 15:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+\@input{preamble.aux}
+\openout2 = `preamble.aux'.
+
+(./preamble.tex (/usr/local/texlive/2017/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 1994/05/28 v5.02 eXternal References (DPC)
+)
+Package xr Info: IMPORTING LABELS FROM chapter_4.aux on input line 21.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip43
+\LTright=\skip44
+\LTpre=\skip45
+\LTpost=\skip46
+\LTchunksize=\count88
+\LTcapwidth=\dimen103
+\LT@head=\box26
+\LT@firsthead=\box27
+\LT@foot=\box28
+\LT@lastfoot=\box29
+\LT@cols=\count89
+\LT@rows=\count90
+\c@LT@tables=\count91
+\c@LT@chunks=\count92
+\LT@p@ftn=\toks14
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\enitkv@toks@=\toks15
+\labelindent=\skip47
+\enit@outerparindent=\dimen104
+\enit@toks=\toks16
+\enit@inbox=\box30
+\enitdp@description=\count93
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
+\c@tracingmulticols=\count94
+\mult@box=\box31
+\multicol@leftmargin=\dimen105
+\c@unbalance=\count95
+\c@collectmore=\count96
+\doublecol@number=\count97
+\multicoltolerance=\count98
+\multicolpretolerance=\count99
+\full@width=\dimen106
+\page@free=\dimen107
+\premulticols=\dimen108
+\postmulticols=\dimen109
+\multicolsep=\skip48
+\multicolbaselineskip=\skip49
+\partial@page=\box32
+\last@line=\box33
+\maxbalancingoverflow=\dimen110
+\mult@rightbox=\box34
+\mult@grightbox=\box35
+\mult@gfirstbox=\box36
+\mult@firstbox=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\c@columnbadness=\count100
+\c@finalcolumnbadness=\count101
+\last@try=\dimen111
+\multicolovershoot=\dimen112
+\multicolundershoot=\dimen113
+\mult@nat@firstbox=\box55
+\colbreak@box=\box56
+\mc@col@check@num=\count102
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box57
+\UL@hyphenbox=\box58
+\UL@skip=\skip50
+\UL@hook=\toks17
+\UL@height=\dimen114
+\UL@pe=\count103
+\UL@pixel=\dimen115
+\ULC@box=\box59
+Package: ulem 2012/05/18
+\ULdepth=\dimen116
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/apacite/apacite.sty
+Package: apacite 2013/07/21 v6.03 APA citation
+\c@BibCnt=\count104
+\bibleftmargin=\skip51
+\bibindent=\skip52
+\bibparsep=\skip53
+\bibitemsep=\skip54
+\biblabelsep=\skip55
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip56
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen117
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen118
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count105
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count106
+\leftroot@=\count107
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count108
+\DOTSCASE@=\count109
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box60
+\strutbox@=\box61
+\big@size=\dimen119
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count110
+\c@MaxMatrixCols=\count111
+\dotsspace@=\muskip10
+\c@parentequation=\count112
+\dspbrk@lvl=\count113
+\tag@help=\toks19
+\row@=\count114
+\column@=\count115
+\maxfields@=\count116
+\andhelp@=\toks20
+\eqnshift@=\dimen120
+\alignsep@=\dimen121
+\tagshift@=\dimen122
+\tagwidth@=\dimen123
+\totwidth@=\dimen124
+\lineht@=\dimen125
+\@envbody=\toks21
+\multlinegap=\skip57
+\multlinetaggap=\skip58
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks23
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count117
+))
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2017/01/14 v0.5h Insert pages of external PDF documents (AM)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count118
+\calc@Bcount=\count119
+\calc@Adimen=\dimen128
+\calc@Bdimen=\dimen129
+\calc@Askip=\skip59
+\calc@Bskip=\skip60
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count120
+\calc@Cskip=\skip61
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+))
+\AM@pagewidth=\dimen130
+\AM@pageheight=\dimen131
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2017/01/14 v0.5h Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box62
+\AM@global@opts=\toks24
+\AM@toc@title=\toks25
+\c@AM@survey=\count121
+\AM@templatesizebox=\box63
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks26
+\verbatim@line=\toks27
+\verbatim@in@stream=\read1
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+\c@r@tfl@t=\count122
+\rotFPtop=\skip62
+\rotFPbot=\skip63
+\rot@float@box=\box64
+\rot@mess@toks=\toks28
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count123
+\float@exts=\toks29
+\float@box=\box65
+\@float@everytoks=\toks30
+\@floatcapt=\box66
+)
+
+LaTeX Warning: Unused global option(s):
+    [onepage].
+
+(./main.aux (./title_page.aux) (./abstract.aux) (./chapter_1.aux)
+(./chapter_2.aux
+
+LaTeX Warning: Label `tab:KnowledgeBase' multiply defined.
+
+) (./chapter_3.aux) (./chapter_4.aux
+
+LaTeX Warning: Label `sec:FB Stories ' multiply defined.
+
+
+LaTeX Warning: Label `fig:MixedLanguage' multiply defined.
+
+
+LaTeX Warning: Label `fig:AD' multiply defined.
+
+
+LaTeX Warning: Label `fig:ExtractedDataDB' multiply defined.
+
+
+LaTeX Warning: Label `fig:AboutMe' multiply defined.
+
+
+LaTeX Warning: Label `tab:DirectKnowledge' multiply defined.
+
+
+LaTeX Warning: Label `tab:EducationalBG' multiply defined.
+
+
+LaTeX Warning: Label `tab:work' multiply defined.
+
+
+LaTeX Warning: Label `tab:Family' multiply defined.
+
+
+LaTeX Warning: Label `fig:SamplePost' multiply defined.
+
+
+LaTeX Warning: Label `tab:ToBeProcessed' multiply defined.
+
+
+LaTeX Warning: Label `fig:LikedPage' multiply defined.
+
+
+LaTeX Warning: Label `tab:Likes' multiply defined.
+
+
+LaTeX Warning: Label `fig:events' multiply defined.
+
+
+LaTeX Warning: Label `tab:events1' multiply defined.
+
+
+LaTeX Warning: Label `tab:sampleVO' multiply defined.
+
+
+LaTeX Warning: Label `fig:dbdesign' multiply defined.
+
+
+LaTeX Warning: Label `fig:KnowledgeBaseDB' multiply defined.
+
+
+LaTeX Warning: Label `tab:TemplateGrp' multiply defined.
+
+
+LaTeX Warning: Label `tab:Template' multiply defined.
+
+
+LaTeX Warning: Label `tab:ProdRule' multiply defined.
+
+
+LaTeX Warning: Label `tab:sampleUpVO' multiply defined.
+
+
+LaTeX Warning: Label `fig:Login' multiply defined.
+
+
+LaTeX Warning: Label `fig:Login2' multiply defined.
+
+
+LaTeX Warning: Label `fig:Permission' multiply defined.
+
+
+LaTeX Warning: Label `fig:Output' multiply defined.
+
+) (./chapter_5.aux) (./chapter_6.aux
+
+LaTeX Warning: Label `tab:eventclassification-results' multiply defined.
+
+) (./chapter_7.aux) (./appendix_A.aux) (./appendix_B.aux) (./appendix_C.aux)
+(./appendix_D.aux) (./appendix_E.aux) (./appendix_F.aux) (./appendix_G.aux)
+(./appendix_H.aux) (./appendix_I.aux) (./appendix_J.aux) (./appendix_K.aux)
+(./appendix_L.aux) (./appendix_M.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+\c@maskedRefs=\count124
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/apacite/english.apc
+File: english.apc 2013/07/21 v6.03 apacite language file
+LaTeX Info: Redefining \BPBI on input line 129.
+LaTeX Info: Redefining \BHBI on input line 130.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count125
+\scratchdimen=\dimen132
+\scratchbox=\box67
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen133
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks32
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\AtBeginShipoutBox=\box68
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+))
+\openout2 = `title_page.aux'.
+
+
+(./title_page.tex [1
+
+
+
+
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+\openout2 = `abstract.aux'.
+
+ (./abstract.tex
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+])
+(./main.toc [2
+
+
+] [3] [4] [5] [6]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [7])
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [8] (./main.lof [9
+
+] [10])
+\tf@lof=\write4
+\openout4 = `main.lof'.
+
+ [11] (./main.lot [12
+
+]
+Overfull \hbox (1.32521pt too wide) in paragraph at lines 25--25
+ [][] []\OT1/cmr/m/n/12 Classification of Face-book Posts Based on Words Iden-t
+i-fied Through 
+ []
+
+
+Overfull \hbox (1.32521pt too wide) in paragraph at lines 26--26
+ [][] []\OT1/cmr/m/n/12 Classification of Face-book Posts Based on Words Iden-t
+i-fied Through 
+ []
+
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+[13])
+\tf@lot=\write5
+\openout5 = `main.lot'.
+
+ [14]
+\openout2 = `chapter_1.aux'.
+
+ (./chapter_1.tex
+Chapter 1.
+[1
+
+
+] [2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 143.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
+
+Overfull \hbox (84.6008pt too wide) in paragraph at lines 140--152
+ [][] 
+ []
+
+) [8] [9]
+\openout2 = `chapter_2.aux'.
+
+ (./chapter_2.tex
+Chapter 2.
+Missing character: There is no √ in font cmr12!
+Missing character: There is no º in font cmr12!
+[10
+
+
+
+] <figures/fbdatazip.png, id=90, 604.50844pt x 223.58531pt>
+File: figures/fbdatazip.png Graphic file (type png)
+
+<use figures/fbdatazip.png>
+Package pdftex.def Info: figures/fbdatazip.png used on input line 35.
+(pdftex.def)             Requested size: 415.55249pt x 153.69745pt.
+ [11 <./figures/fbdatazip.png>]
+<figures/graphplatforms.png, id=96, 466.74374pt x 245.41687pt>
+File: figures/graphplatforms.png Graphic file (type png)
+
+<use figures/graphplatforms.png>
+Package pdftex.def Info: figures/graphplatforms.png used on input line 49.
+(pdftex.def)             Requested size: 361.36656pt x 190.00887pt.
+
+<figures/graphpermissions.png, id=97, 417.81094pt x 353.06906pt>
+File: figures/graphpermissions.png Graphic file (type png)
+
+<use figures/graphpermissions.png>
+Package pdftex.def Info: figures/graphpermissions.png used on input line 56.
+(pdftex.def)             Requested size: 342.09079pt x 289.08212pt.
+ [12 <./figures/graphplatforms.png>] [13 <./figures/graphpermissions.png>] [14
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
+[]\OT1/cmr/m/n/12 Extraction of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+[]\OT1/cmr/m/n/12 Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/cmr/m/n/12 Face-book
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+[]\OT1/cmr/m/n/12 Facebook User
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/cmr/m/n/12 *Only re-quires
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+\OT1/cmr/m/n/12 ing html files
+ []
+
+
+Underfull \hbox (badness 2591) in paragraph at lines 75--75
+\OT1/cmr/m/n/12 and the me-dia
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+\OT1/cmr/m/n/12 or Face-book
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 76--76
+[]\OT1/cmr/m/n/12 Object ID and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+\OT1/cmr/m/n/12 Android
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--78
+\OT1/cmr/m/n/12 Public Twit-ter
+ []
+
+
+Underfull \hbox (badness 4940) in paragraph at lines 78--78
+\OT1/cmr/m/n/12 Public youtube
+ []
+
+
+Underfull \hbox (badness 2237) in paragraph at lines 78--78
+[]\OT1/cmr/m/n/12 Data stored in
+ []
+
+
+Overfull \hbox (66.12454pt too wide) in paragraph at lines 73--81
+ [][] 
+ []
+
+[15] <figures/FastText.png, id=112, 447.17062pt x 88.07906pt>
+File: figures/FastText.png Graphic file (type png)
+
+<use figures/FastText.png>
+Package pdftex.def Info: figures/FastText.png used on input line 105.
+(pdftex.def)             Requested size: 447.16953pt x 88.07883pt.
+
+Overfull \hbox (31.61703pt too wide) in paragraph at lines 105--106
+ [][] 
+ []
+
+[16
+
+
+] [17 <./figures/FastText.png>]
+<figures/google-syntax.png, id=121, 840.13875pt x 188.95593pt>
+File: figures/google-syntax.png Graphic file (type png)
+
+<use figures/google-syntax.png>
+Package pdftex.def Info: figures/google-syntax.png used on input line 126.
+(pdftex.def)             Requested size: 415.55249pt x 93.46283pt.
+
+<figures/google-entities.png, id=122, 535.2497pt x 247.67531pt>
+File: figures/google-entities.png Graphic file (type png)
+
+<use figures/google-entities.png>
+Package pdftex.def Info: figures/google-entities.png used on input line 135.
+(pdftex.def)             Requested size: 415.55249pt x 192.29784pt.
+ [18 <./figures/google-syntax.png>]
+<figures/new-postag.png, id=127, 637.38126pt x 123.46124pt>
+File: figures/new-postag.png Graphic file (type png)
+
+<use figures/new-postag.png>
+Package pdftex.def Info: figures/new-postag.png used on input line 149.
+(pdftex.def)             Requested size: 415.55249pt x 80.49185pt.
+
+<figures/new-ner.png, id=128, 625.33624pt x 109.40875pt>
+File: figures/new-ner.png Graphic file (type png)
+
+<use figures/new-ner.png>
+Package pdftex.def Info: figures/new-ner.png used on input line 156.
+(pdftex.def)             Requested size: 415.55249pt x 72.70747pt.
+
+<figures/new-parsetree.png, id=129, 393.47pt x 328.22626pt>
+File: figures/new-parsetree.png Graphic file (type png)
+
+<use figures/new-parsetree.png>
+Package pdftex.def Info: figures/new-parsetree.png used on input line 163.
+(pdftex.def)             Requested size: 393.46902pt x 328.22545pt.
+
+<figures/new-dependencies.png, id=130, 274.02374pt x 341.275pt>
+File: figures/new-dependencies.png Graphic file (type png)
+
+<use figures/new-dependencies.png>
+Package pdftex.def Info: figures/new-dependencies.png used on input line 170.
+(pdftex.def)             Requested size: 274.02307pt x 341.27415pt.
+ [19 <./figures/google-entities.png> <./figures/new-postag.png>] [20 <./figures
+/new-ner.png> <./figures/new-parsetree.png>]
+[21 <./figures/new-dependencies.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+[]\OT1/cmr/m/n/12 Languages
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+[]\OT1/cmr/m/n/12 Classification of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+\OT1/cmr/m/n/12 French, and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+[]\OT1/cmr/m/n/12 Used FBLearner
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+[]\OT1/cmr/m/n/12 Entity recog-ni-tion,
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 183--183
+\OT1/cmr/m/n/12 Nat-u-ral Lan-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+[]\OT1/cmr/m/n/12 Entity recog-ni-tion,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+\OT1/cmr/m/n/12 Sen-ti-ment ana-lysis,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+[]\OT1/cmr/m/n/12 English,
+ []
+
+
+Underfull \hbox (badness 1681) in paragraph at lines 183--183
+\OT1/cmr/m/n/12 Span-ish, and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]\OT1/cmr/m/n/12 Stanford
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 184--184
+\OT1/cmr/m/n/12 glish, French, Ger-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]\OT1/cmr/m/n/12 Part-of-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OT1/cmr/m/n/12 Speech Tag-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OT1/cmr/m/n/12 ger, Named
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OT1/cmr/m/n/12 Sen-ti-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OT1/cmr/m/n/12 Ana-lysis,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OT1/cmr/m/n/12 Coref-er-ence,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OT1/cmr/m/n/12 pen-den-cies,
+ []
+
+[22
+
+] [23] [24] [25] <figures/storytree.png, id=158, 271.76532pt x 112.92188pt>
+File: figures/storytree.png Graphic file (type png)
+
+<use figures/storytree.png>
+Package pdftex.def Info: figures/storytree.png used on input line 231.
+(pdftex.def)             Requested size: 271.76465pt x 112.92159pt.
+ [26 <./figures/storytree.png>]
+Underfull \hbox (badness 3396) in paragraph at lines 245--245
+[]\OT1/cmr/m/n/12 Novel Writer
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 245--245
+[]\OT1/cmr/m/n/12 Not spec-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--245
+[]\OT1/cmr/m/n/12 Weekend
+ []
+
+
+Overfull \hbox (1.57861pt too wide) in paragraph at lines 245--245
+[]\OT1/cmr/m/n/12 Murderer/s 
+ []
+
+
+Overfull \hbox (1.7439pt too wide) in paragraph at lines 245--245
+\OT1/cmr/m/n/12 Description
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--245
+[]\OT1/cmr/m/n/12 Text-based
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+[]\OT1/cmr/m/n/12 Aesop's
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+\OT1/cmr/m/n/12 Fable-like
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 246--246
+[]\OT1/cmr/m/n/12 Not spec-i-
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 246--246
+[]\OT1/cmr/m/n/12 Not spec-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+[]\OT1/cmr/m/n/12 Initial
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+\OT1/cmr/m/n/12 Traits or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+\OT1/cmr/m/n/12 morals of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+[]\OT1/cmr/m/n/12 Text-based
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
+[]\OT1/cmr/m/n/12 Children
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 247--247
+\OT1/cmr/m/n/12 (age 4 to
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 247--247
+[]\OT1/cmr/m/n/12 Not spec-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
+[]\OT1/cmr/m/n/12 Text-based
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
+[]\OT1/cmr/m/n/12 Author-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
+\OT1/cmr/m/n/12 Character-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]\OT1/cmr/m/n/12 Learning To
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 248--248
+[]\OT1/cmr/m/n/12 Not spec-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]\OT1/cmr/m/n/12 Young
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]\OT1/cmr/m/n/12 Depends
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 on the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 gath-ered
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 in-for-ma-
+ []
+
+
+Underfull \hbox (badness 5519) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 Length of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]\OT1/cmr/m/n/12 Text-based
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 story
+ []
+
+
+Underfull \hbox (badness 5022) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 (based on
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 the length
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 spec-i-fied
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 by the
+ []
+
+
+Overfull \hbox (2.81888pt too wide) in paragraph at lines 248--248
+[]\OT1/cmr/m/n/12 Knowledge-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\OT1/cmr/m/n/12 based
+ []
+
+[27] [28
+
+
+] <figures/snsdemographics.png, id=170, 596.98032pt x 280.79906pt>
+File: figures/snsdemographics.png Graphic file (type png)
+
+<use figures/snsdemographics.png>
+Package pdftex.def Info: figures/snsdemographics.png used on input line 272.
+(pdftex.def)             Requested size: 415.55249pt x 195.46112pt.
+ [29 <./figures/snsdemographics.png>] [30]
+<figures/cyc.png, id=178, 420.06938pt x 307.90031pt>
+File: figures/cyc.png Graphic file (type png)
+ <use figures/cyc.png>
+Package pdftex.def Info: figures/cyc.png used on input line 313.
+(pdftex.def)             Requested size: 420.06836pt x 307.89955pt.
+
+Overfull \hbox (4.51587pt too wide) in paragraph at lines 313--314
+ [][] 
+ []
+
+[31] [32 <./figures/cyc.png>]
+<figures/conceptnet.png, id=186, 487.8225pt x 314.67563pt>
+File: figures/conceptnet.png Graphic file (type png)
+
+<use figures/conceptnet.png>
+Package pdftex.def Info: figures/conceptnet.png used on input line 336.
+(pdftex.def)             Requested size: 325.21667pt x 209.78482pt.
+ [33 <./figures/conceptnet.png>] [34]
+Underfull \hbox (badness 1320) in paragraph at lines 351--351
+[]\OT1/cmr/m/n/12 magazine, news ar-
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 351--351
+\OT1/cmr/m/n/12 ti-cles, en-cy-clo-pe-dia,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+[]\OT1/cmr/m/n/12 word re-la-tions
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+\OT1/cmr/m/n/12 like hy-per-onymy,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+\OT1/cmr/m/n/12 hy-ponymy, ISA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+\OT1/cmr/m/n/12 re-la-tion, antonym,
+ []
+
+
+Underfull \hbox (badness 4353) in paragraph at lines 352--352
+[]\OT1/cmr/m/n/12 English words and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+\OT1/cmr/m/n/12 in-for-ma-tion about
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 353--353
+[]\OT1/cmr/m/n/12 concepts (words or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+[]\OT1/cmr/m/n/12 semantic re-la-tions
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 like Lo-ca-tionOf,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 IsA, Ca-pa-bleOf,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 SubeventOf, Ef-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 fectOf, Used-For,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+[]\OT1/cmr/m/n/12 Common sense
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 Sense, DB-Pe-dia,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 Wik-tionary, Word-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 Net, Open-Cyc,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--353
+\OT1/cmr/m/n/12 Ver-bosity, Re-Verb,
+ []
+
+[35] [36
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]\OT1/cmr/m/n/12 Kinsella, et al.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]\OT1/cmr/m/n/12 Multinomial Naive
+ []
+
+
+Underfull \hbox (badness 3977) in paragraph at lines 380--380
+[]\OT1/cmr/m/n/12 SVM, Lo-gis-tic Re-
+ []
+
+
+Underfull \hbox (badness 3849) in paragraph at lines 381--381
+[]\OT1/cmr/m/n/12 AUC: 77%; Pre-ci-
+ []
+
+
+Underfull \hbox (badness 1303) in paragraph at lines 381--381
+\OT1/cmr/m/n/12 sion: 80%; Re-call:
+ []
+
+[37])
+\openout2 = `chapter_3.aux'.
+
+ (./chapter_3.tex
+Chapter 3.
+[38
+
+
+
+
+
+] <figures/linearstructure.png, id=208, 357.58594pt x 96.36pt>
+File: figures/linearstructure.png Graphic file (type png)
+
+<use figures/linearstructure.png>
+Package pdftex.def Info: figures/linearstructure.png used on input line 28.
+(pdftex.def)             Requested size: 415.55249pt x 111.98643pt.
+
+<figures/storystructure.png, id=209, 432.86719pt x 214.55156pt>
+File: figures/storystructure.png Graphic file (type png)
+
+<use figures/storystructure.png>
+Package pdftex.def Info: figures/storystructure.png used on input line 37.
+(pdftex.def)             Requested size: 415.55249pt x 205.97696pt.
+ [39 <./figures/linearstructure.png> <./figures/storystructure.png>] [40]
+<figures/facebookcontent.png, id=219, 464.4853pt x 180.675pt>
+File: figures/facebookcontent.png Graphic file (type png)
+
+<use figures/facebookcontent.png>
+Package pdftex.def Info: figures/facebookcontent.png used on input line 68.
+(pdftex.def)             Requested size: 415.55249pt x 161.64383pt.
+ [41 <./figures/facebookcontent.png>] [42]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ¶ in font cmr12!
+
+[43] <figures/stanford-pipeline.png, id=230, 632.3625pt x 60.225pt>
+File: figures/stanford-pipeline.png Graphic file (type png)
+
+<use figures/stanford-pipeline.png>
+Package pdftex.def Info: figures/stanford-pipeline.png used on input line 118.
+(pdftex.def)             Requested size: 415.55249pt x 39.57677pt.
+
+<figures/stanford-parsing.png, id=231, 505.89pt x 144.54pt>
+File: figures/stanford-parsing.png Graphic file (type png)
+
+<use figures/stanford-parsing.png>
+Package pdftex.def Info: figures/stanford-parsing.png used on input line 127.
+(pdftex.def)             Requested size: 415.55249pt x 118.73087pt.
+
+<figures/stanford-ner.png, id=232, 461.725pt x 157.58875pt>
+File: figures/stanford-ner.png Graphic file (type png)
+
+<use figures/stanford-ner.png>
+Package pdftex.def Info: figures/stanford-ner.png used on input line 136.
+(pdftex.def)             Requested size: 415.55249pt x 141.83095pt.
+
+<figures/stanford-aner.png, id=233, 642.4pt x 123.46124pt>
+File: figures/stanford-aner.png Graphic file (type png)
+
+<use figures/stanford-aner.png>
+Package pdftex.def Info: figures/stanford-aner.png used on input line 147.
+(pdftex.def)             Requested size: 415.55249pt x 79.86641pt.
+ [44 <./figures/stanford-pipeline.png> <./figures/stanford-parsing.png>]
+<figures/stanford-parsing-token.png, id=239, 454.69875pt x 37.13875pt>
+File: figures/stanford-parsing-token.png Graphic file (type png)
+
+<use figures/stanford-parsing-token.png>
+Package pdftex.def Info: figures/stanford-parsing-token.png used on input line 
+159.
+(pdftex.def)             Requested size: 415.55249pt x 33.94194pt.
+
+Overfull \hbox (77.00592pt too wide) in paragraph at lines 164--165
+[]\OT1/cmr/m/n/12 Part-of-speech tag of each to-ken can be re-trieved us-ing th
+e get(PartOfSpeechAnnotation.class)
+ []
+
+<figures/stanford-parsingsample.png, id=240, 632.3625pt x 118.4425pt>
+File: figures/stanford-parsingsample.png Graphic file (type png)
+
+<use figures/stanford-parsingsample.png>
+Package pdftex.def Info: figures/stanford-parsingsample.png used on input line 
+168.
+(pdftex.def)             Requested size: 415.55249pt x 77.83432pt.
+ [45 <./figures/stanford-ner.png> <./figures/stanford-aner.png> <./figures/stan
+ford-parsing-token.png>]
+<figures/stanford-parsetree2.png, id=247, 394.47375pt x 333.245pt>
+File: figures/stanford-parsetree2.png Graphic file (type png)
+
+<use figures/stanford-parsetree2.png>
+Package pdftex.def Info: figures/stanford-parsetree2.png used on input line 180
+.
+(pdftex.def)             Requested size: 415.55249pt x 351.0515pt.
+ [46 <./figures/stanford-parsingsample.png>] [47 <./figures/stanford-parsetree2
+.png>]
+<figures/stanford-dependencies2.png, id=257, 266.9975pt x 346.29375pt>
+File: figures/stanford-dependencies2.png Graphic file (type png)
+
+<use figures/stanford-dependencies2.png>
+Package pdftex.def Info: figures/stanford-dependencies2.png used on input line 
+193.
+(pdftex.def)             Requested size: 289.10667pt x 374.96921pt.
+ [48
+
+ <./figures/stanford-dependencies2.png>] [49
+
+]
+<figures/ContentDeterminition.png, id=265, 350.05782pt x 348.55219pt>
+File: figures/ContentDeterminition.png Graphic file (type png)
+
+<use figures/ContentDeterminition.png>
+Package pdftex.def Info: figures/ContentDeterminition.png used on input line 21
+1.
+(pdftex.def)             Requested size: 289.10037pt x 287.85692pt.
+ [50
+
+ <./figures/ContentDeterminition.png>]
+<figures/TreeStructureDiscoursePlanning.png, id=270, 352.31625pt x 188.95593pt>
+File: figures/TreeStructureDiscoursePlanning.png Graphic file (type png)
+<use figures/TreeStructureDiscoursePlanning.png>
+Package pdftex.def Info: figures/TreeStructureDiscoursePlanning.png used on inp
+ut line 225.
+(pdftex.def)             Requested size: 289.0786pt x 155.04pt.
+ [51 <./figures/TreeStructureDiscoursePlanning.png>]
+<figures/AugmentedTransitionNetwork.png, id=275, 326.72063pt x 259.7203pt>
+File: figures/AugmentedTransitionNetwork.png Graphic file (type png)
+
+<use figures/AugmentedTransitionNetwork.png>
+Package pdftex.def Info: figures/AugmentedTransitionNetwork.png used on input l
+ine 240.
+(pdftex.def)             Requested size: 289.08043pt x 229.79895pt.
+ [52
+
+ <./figures/AugmentedTransitionNetwork.png>] [53] <figures/simplenlgA.png, id=2
+84, 618.31pt x 78.2925pt>
+File: figures/simplenlgA.png Graphic file (type png)
+
+<use figures/simplenlgA.png>
+Package pdftex.def Info: figures/simplenlgA.png used on input line 275.
+(pdftex.def)             Requested size: 289.08676pt x 36.60513pt.
+
+<figures/simplenlgB.png, id=285, 364.36125pt x 27.10126pt>
+File: figures/simplenlgB.png Graphic file (type png)
+
+<use figures/simplenlgB.png>
+Package pdftex.def Info: figures/simplenlgB.png used on input line 284.
+(pdftex.def)             Requested size: 289.0876pt x 21.50238pt.
+
+<figures/simplenlgC.png, id=286, 323.2075pt x 146.5475pt>
+File: figures/simplenlgC.png Graphic file (type png)
+
+<use figures/simplenlgC.png>
+Package pdftex.def Info: figures/simplenlgC.png used on input line 293.
+(pdftex.def)             Requested size: 289.09384pt x 131.07979pt.
+ [54 <./figures/simplenlgA.png>]
+<figures/simplenlgD.png, id=291, 349.305pt x 32.12pt>
+File: figures/simplenlgD.png Graphic file (type png)
+
+<use figures/simplenlgD.png>
+Package pdftex.def Info: figures/simplenlgD.png used on input line 302.
+(pdftex.def)             Requested size: 289.09692pt x 26.5836pt.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [55 <./figures/simplenlgB.png> <./figures/simplenlgC.png> <./figures/simplenlg
+D.png>]
+<figures/jwnl-instantiation.png, id=298, 566.115pt x 39.14626pt>
+File: figures/jwnl-instantiation.png Graphic file (type png)
+
+<use figures/jwnl-instantiation.png>
+Package pdftex.def Info: figures/jwnl-instantiation.png used on input line 320.
+
+(pdftex.def)             Requested size: 289.08627pt x 19.99pt.
+
+<figures/wn-indexword.png, id=299, 447.6725pt x 26.0975pt>
+File: figures/wn-indexword.png Graphic file (type png)
+
+<use figures/wn-indexword.png>
+Package pdftex.def Info: figures/wn-indexword.png used on input line 331.
+(pdftex.def)             Requested size: 289.08467pt x 16.85246pt.
+
+<figures/wn-senses.png, id=300, 348.30125pt x 32.12pt>
+File: figures/wn-senses.png Graphic file (type png)
+
+<use figures/wn-senses.png>
+Package pdftex.def Info: figures/wn-senses.png used on input line 340.
+(pdftex.def)             Requested size: 289.09528pt x 26.66006pt.
+
+<figures/wn-gloss.png, id=301, 276.03125pt x 28.105pt>
+File: figures/wn-gloss.png Graphic file (type png)
+
+<use figures/wn-gloss.png>
+Package pdftex.def Info: figures/wn-gloss.png used on input line 349.
+(pdftex.def)             Requested size: 289.10847pt x 29.43648pt.
+
+<figures/wn-words.png, id=302, 269.005pt x 21.07875pt>
+File: figures/wn-words.png Graphic file (type png)
+
+<use figures/wn-words.png>
+Package pdftex.def Info: figures/wn-words.png used on input line 358.
+(pdftex.def)             Requested size: 289.08443pt x 22.6521pt.
+ [56 <./figures/jwnl-instantiation.png> <./figures/wn-indexword.png> <./figures
+/wn-senses.png>]
+<figures/wn-output.png, id=309, 587.19376pt x 230.8625pt>
+File: figures/wn-output.png Graphic file (type png)
+
+<use figures/wn-output.png>
+Package pdftex.def Info: figures/wn-output.png used on input line 367.
+(pdftex.def)             Requested size: 289.0804pt x 113.65553pt.
+
+<figures/wn-output2.png, id=310, 599.23875pt x 423.5825pt>
+File: figures/wn-output2.png Graphic file (type png)
+
+<use figures/wn-output2.png>
+Package pdftex.def Info: figures/wn-output2.png used on input line 376.
+(pdftex.def)             Requested size: 289.08517pt x 204.34496pt.
+ [57 <./figures/wn-gloss.png> <./figures/wn-words.png> <./figures/wn-output.png
+>] [58 <./figures/wn-output2.png>] [59
+
+] [60])
+[61]
+\openout2 = `chapter_4.aux'.
+
+ (./chapter_4.tex
+Chapter 4.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[62
+
+
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [63]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ <figures/MixedLanguage.png, id=337, 164.86594pt x 106.89937pt>
+File: figures/MixedLanguage.png Graphic file (type png)
+
+<use figures/MixedLanguage.png>
+Package pdftex.def Info: figures/MixedLanguage.png used on input line 58.
+(pdftex.def)             Requested size: 180.68138pt x 117.15413pt.
+ [64]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [65 <./figures/MixedLanguage.png>]
+[66] <figures/AD.png, id=349, 776.9025pt x 770.88pt>
+File: figures/AD.png Graphic file (type png)
+ <use figures/AD.png>
+Package pdftex.def Info: figures/AD.png used on input line 87.
+(pdftex.def)             Requested size: 415.55249pt x 412.34027pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--95
+
+ []
+
+[67
+
+ <./figures/AD.png>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
+
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--107
+
+ []
+
+<figures/ExtractedDataDB2.png, id=354, 542.77782pt x 225.84375pt>
+File: figures/ExtractedDataDB2.png Graphic file (type png)
+
+<use figures/ExtractedDataDB2.png>
+Package pdftex.def Info: figures/ExtractedDataDB2.png used on input line 112.
+(pdftex.def)             Requested size: 415.55249pt x 172.91463pt.
+ [68] [69 <./figures/ExtractedDataDB2.png>]
+<figures/AboutMe.png, id=362, 645.16031pt x 449.42906pt>
+File: figures/AboutMe.png Graphic file (type png)
+
+<use figures/AboutMe.png>
+Package pdftex.def Info: figures/AboutMe.png used on input line 131.
+(pdftex.def)             Requested size: 414.98817pt x 289.08745pt.
+ [70
+
+ <./figures/AboutMe.png>]
+Overfull \hbox (2.39311pt too wide) in paragraph at lines 164--164
+\OT1/cmr/bx/n/12 graduated| 
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 165--165
+[]\OT1/cmr/m/n/12 De La Salle
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+[]\OT1/cmr/m/n/12 Bachelor of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/cmr/m/n/12 Sci-ence in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/cmr/m/n/12 Com-puter
+ []
+
+
+Underfull \hbox (badness 4872) in paragraph at lines 165--165
+\OT1/cmr/m/n/12 Sci-ence with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/cmr/m/n/12 spe-cial-iza-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+\OT1/cmr/m/n/12 in Soft-ware
+ []
+
+
+Overfull \hbox (1.84389pt too wide) in paragraph at lines 165--165
+[]\OT1/cmr/m/n/12 1127420994| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+[]\OT1/cmr/m/n/12 Chiang Kai
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+[]\OT1/cmr/m/n/12 High
+ []
+
+
+Overfull \hbox (1.84389pt too wide) in paragraph at lines 166--166
+[]\OT1/cmr/m/n/12 4322911189| 
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--186
+[]\OT1/cmr/m/n/12 University Stu-dent
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--186
+[]\OT1/cmr/m/n/12 Manila,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--186
+\OT1/cmr/m/n/12 Philip-
+ []
+
+
+Overfull \hbox (5.24232pt too wide) in paragraph at lines 187--188
+[]\OT1/cmr/m/n/12 3459628907221| 
+ []
+
+
+Overfull \hbox (20.92726pt too wide) in paragraph at lines 184--191
+ [][] 
+ []
+
+[71] [72] <figures/SamplePost.png, id=374, 530.98375pt x 543.02875pt>
+File: figures/SamplePost.png Graphic file (type png)
+
+<use figures/SamplePost.png>
+Package pdftex.def Info: figures/SamplePost.png used on input line 228.
+(pdftex.def)             Requested size: 282.67587pt x 289.08818pt.
+ [73
+
+ <./figures/SamplePost.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+[]\OT1/cmr/m/n/12 writing our
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+\OT1/cmr/m/n/12 the-sis pa-per
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+[]\OT1/cmr/m/n/12 Janica Mae
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+\OT1/cmr/m/n/12 Saave-dra,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+[]\OT1/cmr/m/n/12 Gokongwei
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+\OT1/cmr/m/n/12 Build-ing,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+\OT1/cmr/m/n/12 De La
+ []
+
+
+Underfull \hbox (badness 3354) in paragraph at lines 252--252
+\OT1/cmr/m/n/12 Salle Uni-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+\OT1/cmr/m/n/12 ver-sity -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+[]\OT1/cmr/m/n/12 2016-
+ []
+
+
+Overfull \hbox (1.29485pt too wide) in paragraph at lines 250--255
+ [][] 
+ []
+
+<figures/LikedPage.png, id=379, 586.44093pt x 443.40656pt>
+File: figures/LikedPage.png Graphic file (type png)
+
+<use figures/LikedPage.png>
+Package pdftex.def Info: figures/LikedPage.png used on input line 261.
+(pdftex.def)             Requested size: 361.34357pt x 273.211pt.
+ [74 <./figures/LikedPage.png>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [75]
+<figures/events.png, id=387, 642.90187pt x 450.18187pt>
+File: figures/events.png Graphic file (type png)
+
+<use figures/events.png>
+Package pdftex.def Info: figures/events.png used on input line 308.
+(pdftex.def)             Requested size: 361.35674pt x 253.03433pt.
+ [76
+
+ <./figures/events.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--345
+
+ []
+
+[77
+
+]
+Overfull \hbox (32.67923pt too wide) in paragraph at lines 361--362
+[]\OT1/cmr/m/n/12 location - the lo-ca-tion where the event took place ac-quire
+d from the to[]be[]processed
+ []
+
+[78]
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+[]\OT1/cmr/m/n/12 thesis pa-per
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+[]\OT1/cmr/m/n/12 writing our
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
+\OT1/cmr/m/n/12 the-sis pa-per
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]\OT1/cmr/m/n/12 Janica Mae
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+\OT1/cmr/m/n/12 Saave-dra,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]\OT1/cmr/m/n/12 Gokongwei
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+\OT1/cmr/m/n/12 Build-ing,
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 379--379
+\OT1/cmr/m/n/12 De La Salle
+ []
+
+<figures/dbdesign.png, id=399, 397.485pt x 549.05125pt>
+File: figures/dbdesign.png Graphic file (type png)
+
+<use figures/dbdesign.png>
+Package pdftex.def Info: figures/dbdesign.png used on input line 387.
+(pdftex.def)             Requested size: 156.95937pt x 216.81003pt.
+ [79
+
+ <./figures/dbdesign.png>]
+<figures/TemplateDB.png, id=404, 326.72063pt x 91.84312pt>
+File: figures/TemplateDB.png Graphic file (type png)
+
+<use figures/TemplateDB.png>
+Package pdftex.def Info: figures/TemplateDB.png used on input line 397.
+(pdftex.def)             Requested size: 216.80783pt x 60.94597pt.
+ [80 <./figures/TemplateDB.png>]
+Underfull \hbox (badness 6526) in paragraph at lines 434--434
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 name$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n/
+12 OPTIONAL CLAUSE$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 name$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n/
+12 OPTIONAL[]CLAUSE$\OML/cmm/m/it/12 >$
+ []
+
+
+Overfull \hbox (4.239pt too wide) in paragraph at lines 453--453
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 DESCRIPTION[]OF[]CURRENT[]JOB/EDUCATION$\OML
+/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
+\OMS/cmsy/m/n/12 j$ $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 name$\OML/cmm/m/it/12 >
+$ $<$\OT1/cmr/m/n/12 OPTIONAL[]CLAUSE$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n/12 BI
+RTH[]C
+ []
+
+
+Overfull \hbox (5.9325pt too wide) in paragraph at lines 451--457
+ [][] 
+ []
+
+[81
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [82]
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]\OT1/cmr/m/n/12 thesis pa-per
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]\OT1/cmr/m/n/12 writing our
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+\OT1/cmr/m/n/12 the-sis pa-per
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--486
+[]\OT1/cmr/m/n/12 Janica Mae
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--486
+\OT1/cmr/m/n/12 Lam, Camille
+ []
+
+
+Underfull \hbox (badness 7415) in paragraph at lines 486--486
+\OT1/cmr/m/n/12 Saave-dra, Alds
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--486
+[]\OT1/cmr/m/n/12 Gokongwei
+ []
+
+[83
+
+]
+Overfull \hbox (32.13962pt too wide) in paragraph at lines 503--504
+\OT1/cmr/m/n/12 ments of a mes-sage. Specif-i-cally, these time el-e-ments in-c
+lude ``last $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 year/month/week$\OML/cmm/m/it/1
+2 >$\OT1/cmr/m/n/12 ''
+ []
+
+
+Overfull \hbox (9.07504pt too wide) in paragraph at lines 503--504
+\OT1/cmr/m/n/12 ``ev-ery $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 year/month/week$\O
+ML/cmm/m/it/12 >$\OT1/cmr/m/n/12 '', ``of-ten'', ``re-cently'', ``$\OML/cmm/m/i
+t/12 <$\OT1/cmr/m/n/12 n$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 week(s)/month(s)/y
+ear(s)
+ []
+
+[84] <figures/login1.png, id=423, 190.7125pt x 56.21pt>
+File: figures/login1.png Graphic file (type png)
+
+<use figures/login1.png>
+Package pdftex.def Info: figures/login1.png used on input line 528.
+(pdftex.def)             Requested size: 216.81793pt x 63.90422pt.
+
+<figures/login2.png, id=424, 476.53032pt x 252.19218pt>
+File: figures/login2.png Graphic file (type png)
+
+<use figures/login2.png>
+Package pdftex.def Info: figures/login2.png used on input line 535.
+(pdftex.def)             Requested size: 415.55249pt x 219.93262pt.
+ [85 <./figures/login1.png>]
+<figures/permission.png, id=430, 326.72063pt x 261.97874pt>
+File: figures/permission.png Graphic file (type png)
+
+<use figures/permission.png>
+Package pdftex.def Info: figures/permission.png used on input line 547.
+(pdftex.def)             Requested size: 415.55249pt x 333.20898pt.
+
+<figures/GeneratedStoryOutputWindow.png, id=431, 652.68843pt x 366.61969pt>
+File: figures/GeneratedStoryOutputWindow.png Graphic file (type png)
+
+<use figures/GeneratedStoryOutputWindow.png>
+Package pdftex.def Info: figures/GeneratedStoryOutputWindow.png used on input l
+ine 557.
+(pdftex.def)             Requested size: 415.55249pt x 233.42746pt.
+ [86 <./figures/login2.png>]
+[87 <./figures/permission.png>] [88 <./figures/GeneratedStoryOutputWindow.png>]
+) [89]
+\openout2 = `chapter_5.aux'.
+
+ (./chapter_5.tex
+Chapter 5.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[90
+
+
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Overfull \hbox (4.37381pt too wide) in paragraph at lines 32--33
+\OT1/cmr/m/it/12 Includes: pres-ence of un-nec-es-sary char-ac-ters; pres-ence 
+of for-eign char-ac-ters; emoti-
+ []
+
+[91]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ <figures/sf-parsetree.png, id=454, 478.78876pt x 219.82124pt>
+File: figures/sf-parsetree.png Graphic file (type png)
+
+<use figures/sf-parsetree.png>
+Package pdftex.def Info: figures/sf-parsetree.png used on input line 49.
+(pdftex.def)             Requested size: 415.55249pt x 190.7901pt.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [92]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [93 <./figures/sf-parsetree.png>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [94]
+[95] [96
+
+]
+Overfull \hbox (0.85718pt too wide) in paragraph at lines 135--135
+[]\OT1/cmr/bx/n/14.4 Keywords from Ex-ist-ing Re-sources (Con-cept-Net and
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[97] [98
+
+] [99
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ô in font cmti12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ô in font cmti12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [100]
+Overfull \hbox (7.47871pt too wide) in paragraph at lines 244--245
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 NAME$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/it
+/12 birth cir-cum-stance$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/it/12 current ed-u-c
+a-tion$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/it/12 location$\OML/cmm/m/it/12 >$ $<$
+\OT1/cmr/m/it/12 family$\OML/cmm/m/it/12 >$ 
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[101] <figures/graph-rdf.jpg, id=488, 363.759pt x 200.54926pt>
+File: figures/graph-rdf.jpg Graphic file (type jpg)
+
+<use figures/graph-rdf.jpg>
+Package pdftex.def Info: figures/graph-rdf.jpg used on input line 275.
+(pdftex.def)             Requested size: 325.22093pt x 179.30226pt.
+ [102] [103 <./figures/graph-rdf.jpg>]
+Underfull \hbox (badness 1314) in paragraph at lines 321--323
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 article$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n/
+12 noun$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 [$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/1
+2 preposition
+ []
+
+[104] [105]
+Overfull \hbox (16.92958pt too wide) in paragraph at lines 369--370
+ []$ 
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+[106]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ´ in font cmr12!
+Missing character: There is no ¬ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ≠ in font cmr12!
+ [107]
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ´ in font cmr12!
+Missing character: There is no ¬ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ≠ in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ´ in font cmr12!
+Missing character: There is no ¬ in font cmr12!
+Missing character: There is no ∞ in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no √ in font cmr12!
+Missing character: There is no ≠ in font cmr12!
+ [108]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--413
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 GERUND[]PHRASE$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--413
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 INFINITIVE[]PHRASE$\OML/cmm/m/it/12 >$
+ []
+
+[109
+
+]
+Underfull \hbox (badness 4328) in paragraph at lines 438--438
+[]\OT1/cmr/m/n/12 Happy an-niver-sary Jamie
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+[110]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [111]
+Underfull \hbox (badness 10000) in paragraph at lines 481--481
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 SENTENCE[]SPECIFIC$\OML/cmm/m/it/12 >$ $\
+OMS/cmsy/m/n/12 j$$j$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 time$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n/
+12 subject$\OML/cmm/m/it/12 >$
+ []
+
+
+Overfull \hbox (16.88847pt too wide) in paragraph at lines 487--487
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 subject$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m
+/n/12 PREDICATE[]SUMMARIZED$\OML/cmm/m/it/12 >$| 
+ []
+
+
+Overfull \hbox (2.4154pt too wide) in paragraph at lines 488--488
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 PREDICATE[]SUMMARIZED$\OML/cmm/m/it/12 >$
+| 
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[112
+
+]
+Overfull \hbox (3.61786pt too wide) in paragraph at lines 510--512
+[]$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 name[]nickname$\OML/cmm/m/it/12 >$ $<$\OT
+1/cmr/m/n/12 optional[]clause$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n/12 birth[]cir
+cumstance$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 (and then each
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+) [113]
+\openout2 = `chapter_6.aux'.
+
+ (./chapter_6.tex
+Chapter 6.
+[114
+
+
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [115]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ò in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [116]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [117]
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+[]\OT1/cmr/m/n/12 Current ver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+\OT1/cmr/m/n/12 sion (with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+[]\OT1/cmr/m/n/12 Current ver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+\OT1/cmr/m/n/12 sion (with
+ []
+
+
+Overfull \hbox (5.79745pt too wide) in paragraph at lines 70--77
+ [][] 
+ []
+
+[118]
+Overfull \hbox (5.79745pt too wide) in paragraph at lines 86--95
+ [][] 
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ì in font cmti12!
+
+Overfull \hbox (2.36867pt too wide) in paragraph at lines 104--112
+ [][] 
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[119
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [120] [121]
+Missing character: There is no ‚ in font cmbx12!
+Missing character: There is no Ä in font cmbx12!
+Missing character: There is no ô in font cmbx12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [122]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [123]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 1226) in paragraph at lines 187--188
+[]\OT1/cmr/m/n/12 The in-for-ma-tion about the
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 1546) in paragraph at lines 189--190
+[]\OT1/cmr/m/n/12 Family mem-bers are in-tro-
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+[124]
+Underfull \hbox (badness 2662) in paragraph at lines 208--208
+[]\OT1/cmr/m/n/12 Events in a para-graph are se-
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[125]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ú in font cmti12!
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ù in font cmti12!
+ [126]
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\OT1/cmr/m/n/12 Kathleen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--268
+[]\OT1/cmr/m/n/12 Janica Mae
+ []
+
+
+Underfull \hbox (badness 5802) in paragraph at lines 269--269
+[]\OT1/cmr/m/n/12 Wilson Mar-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--270
+[]\OT1/cmr/m/n/12 Eden Mar-
+ []
+
+[127] [128]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+) [129]
+\openout2 = `chapter_7.aux'.
+
+ (./chapter_7.tex
+Chapter 7.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[130
+
+
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+
+ []
+
+[131]
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+[132]
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[133]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [134]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [135]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no á in font cmr12!
+Missing character: There is no í in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+ [136]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+
+LaTeX Warning: Citation `Liu12sentimentanalysi' undefined on input line 103.
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Overfull \hbox (17.71228pt too wide) in paragraph at lines 101--104
+[]$[]$
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+[137]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+) [138]
+\openout2 = `appendix_A.aux'.
+
+ (./appendix_A.tex
+Appendix A.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 14--89
+
+ []
+
+[139
+
+
+
+]
+\openout2 = `appendix_B.aux'.
+
+ (./appendix_B.tex
+Appendix B.
+<SIMILARITYRESULT.pdf, id=611, 614.295pt x 794.97pt>
+File: SIMILARITYRESULT.pdf Graphic file (type pdf)
+
+<use SIMILARITYRESULT.pdf>
+Package pdftex.def Info: SIMILARITYRESULT.pdf used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: SIMILARITYRESULT.pdf Graphic file (type pdf)
+ <use SIMILARITYRESULT.pdf>
+Package pdftex.def Info: SIMILARITYRESULT.pdf used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<SIMILARITYRESULT.pdf, id=614, page=1, 614.295pt x 794.97pt>
+File: SIMILARITYRESULT.pdf Graphic file (type pdf)
+
+<use SIMILARITYRESULT.pdf, page 1>
+Package pdftex.def Info: SIMILARITYRESULT.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [140
+
+
+
+]
+File: SIMILARITYRESULT.pdf Graphic file (type pdf)
+ <use SIMILARITYRESULT.pdf, page 1>
+Package pdftex.def Info: SIMILARITYRESULT.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: SIMILARITYRESULT.pdf Graphic file (type pdf)
+
+<use SIMILARITYRESULT.pdf, page 1>
+Package pdftex.def Info: SIMILARITYRESULT.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: SIMILARITYRESULT.pdf Graphic file (type pdf)
+ <use SIMILARITYRESULT.pdf, page 1>
+Package pdftex.def Info: SIMILARITYRESULT.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [141 <./SIMILARITYRESULT.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./SIMILARITYRESULT.pdf): PDF
+ inclusion: invalid other resource which is no dict (key 'ProcSets', type <arra
+y>); ignored.
+>])
+\openout2 = `appendix_C.aux'.
+
+ (./appendix_C.tex
+Appendix C.
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--15
+
+ []
+
+[142
+
+
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ¶ in font cmr12!
+ [143]) [144]
+\openout2 = `appendix_D.aux'.
+
+ (./appendix_D.tex
+Appendix D.
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--15
+
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ¶ in font cmr12!
+[145
+
+
+
+]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ¶ in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [146]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+) [147]
+\openout2 = `appendix_E.aux'.
+
+ (./appendix_E.tex
+Appendix E.
+<STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, id=664, 614.295pt x 794.97pt>
+File: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf Graphic file (type pdf)
+
+<use STUDENTRESEARCHETHICSCLEARANCEFORM.pdf>
+Package pdftex.def Info: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf used on input l
+ine 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf Graphic file (type pdf)
+
+<use STUDENTRESEARCHETHICSCLEARANCEFORM.pdf>
+Package pdftex.def Info: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf used on input l
+ine 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, id=667, page=1, 614.295pt x 794.97pt>
+File: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf Graphic file (type pdf)
+
+<use STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page 1>
+Package pdftex.def Info: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page1 used on 
+input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [148
+
+
+
+]
+File: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf Graphic file (type pdf)
+
+<use STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page 1>
+Package pdftex.def Info: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page1 used on 
+input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf Graphic file (type pdf)
+
+<use STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page 1>
+Package pdftex.def Info: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page1 used on 
+input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf Graphic file (type pdf)
+
+<use STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page 1>
+Package pdftex.def Info: STUDENTRESEARCHETHICSCLEARANCEFORM.pdf, page1 used on 
+input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [149 <./STUDENTRESEARCHETHICSCLEARANCEFORM.pdf>])
+\openout2 = `appendix_F.aux'.
+
+ (./appendix_F.tex
+Appendix F.
+<REOGENERALCHECKLIST.pdf, id=704, 614.295pt x 794.97pt>
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+ <use REOGENERALCHECKLIST.pdf>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<REOGENERALCHECKLIST.pdf, id=707, page=1, 614.295pt x 794.97pt>
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf, page 1>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [150
+
+
+
+]
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf, page 1>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+ <use REOGENERALCHECKLIST.pdf, page 1>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf, page 1>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page1 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [151 <./REOGENERALCHECKLIST.pdf>]
+<REOGENERALCHECKLIST.pdf, id=752, page=2, 614.295pt x 794.97pt>
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf, page 2>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page2 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+ <use REOGENERALCHECKLIST.pdf, page 2>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page2 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf, page 2>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page2 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [152 <./REOGENERALCHECKLIST.pdf>]
+<REOGENERALCHECKLIST.pdf, id=757, page=3, 614.295pt x 794.97pt>
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf, page 3>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page3 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+ <use REOGENERALCHECKLIST.pdf, page 3>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page3 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOGENERALCHECKLIST.pdf Graphic file (type pdf)
+
+<use REOGENERALCHECKLIST.pdf, page 3>
+Package pdftex.def Info: REOGENERALCHECKLIST.pdf, page3 used on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [153 <./REOGENERALCHECKLIST.pdf>])
+\openout2 = `appendix_G.aux'.
+
+
+(./appendix_G.tex
+Appendix G.
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=769, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf used on input line 
+14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf used on input line 
+14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=772, page=1, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 1>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page1 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [154
+
+
+
+]
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 1>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page1 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 1>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page1 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 1>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page1 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [155 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>]
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=815, page=2, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 2>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page2 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 2>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page2 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 2>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page2 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [156 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>]
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=845, page=3, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 3>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page3 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 3>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page3 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 3>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page3 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [157 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>]
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=850, page=4, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 4>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page4 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 4>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page4 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 4>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page4 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [158 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>]
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=855, page=5, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 5>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page5 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 5>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page5 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 5>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page5 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [159 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>]
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=868, page=6, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 6>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page6 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 6>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page6 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 6>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page6 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [160 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>]
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=898, page=7, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 7>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page7 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 7>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page7 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 7>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page7 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [161 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>]
+<REOCHECKLISTAHUMANPARTICIPANTS.pdf, id=906, page=8, 614.295pt x 794.97pt>
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 8>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page8 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 8>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page8 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: REOCHECKLISTAHUMANPARTICIPANTS.pdf Graphic file (type pdf)
+
+<use REOCHECKLISTAHUMANPARTICIPANTS.pdf, page 8>
+Package pdftex.def Info: REOCHECKLISTAHUMANPARTICIPANTS.pdf, page8 used on inpu
+t line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [162 <./REOCHECKLISTAHUMANPARTICIPANTS.pdf>])
+\openout2 = `appendix_H.aux'.
+
+ (./appendix_H.tex
+Appendix H.
+<STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, id=911, 614.295pt x 794.97pt>
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf used on inp
+ut line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf used on inp
+ut line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, id=914, page=1, 614.295pt x 794.97
+pt>
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+ <use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page1 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [163
+
+
+
+]
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page1 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page1 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page1 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [164 <./STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf>]
+<STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, id=950, page=2, 614.295pt x 794.97
+pt>
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+ <use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 2>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page2 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 2>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page2 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 2>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page2 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [165 <./STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf>]
+<STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, id=955, page=3, 614.295pt x 794.97
+pt>
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+ <use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 3>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page3 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 3>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page3 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page 3>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf, page3 used
+ on input line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [166 <./STORYBOOK-INFORMEDCONSENTDATAGATHERING.pdf>])
+\openout2 = `appendix_I.aux'.
+
+ (./appendix_I.tex
+Appendix I.
+<STORYBOOK-INFORMEDCONSENTTESTING.pdf, id=975, 614.295pt x 794.97pt>
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf used on input lin
+e 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf used on input lin
+e 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<STORYBOOK-INFORMEDCONSENTTESTING.pdf, id=978, page=1, 614.295pt x 794.97pt>
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page1 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [167
+
+
+
+]
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page1 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page1 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 1>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page1 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [168 <./STORYBOOK-INFORMEDCONSENTTESTING.pdf>]
+<STORYBOOK-INFORMEDCONSENTTESTING.pdf, id=1021, page=2, 614.295pt x 794.97pt>
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 2>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page2 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 2>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page2 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 2>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page2 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [169 <./STORYBOOK-INFORMEDCONSENTTESTING.pdf>]
+<STORYBOOK-INFORMEDCONSENTTESTING.pdf, id=1027, page=3, 614.295pt x 794.97pt>
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 3>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page3 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 3>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page3 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: STORYBOOK-INFORMEDCONSENTTESTING.pdf Graphic file (type pdf)
+
+<use STORYBOOK-INFORMEDCONSENTTESTING.pdf, page 3>
+Package pdftex.def Info: STORYBOOK-INFORMEDCONSENTTESTING.pdf, page3 used on in
+put line 14.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [170 <./STORYBOOK-INFORMEDCONSENTTESTING.pdf>])
+\openout2 = `appendix_J.aux'.
+
+ (./appendix_J.tex
+Appendix J.
+
+Overfull \hbox (5.9325pt too wide) in alignment at lines 15--19
+ [] [] 
+ []
+
+
+Overfull \hbox (5.9325pt too wide) in alignment at lines 19--24
+ [] [] 
+ []
+
+
+Overfull \hbox (5.9325pt too wide) in alignment at lines 24--27
+ [] [] 
+ []
+
+
+Overfull \hbox (5.9325pt too wide) in alignment at lines 27--30
+ [] [] 
+ []
+
+
+Overfull \hbox (15.28291pt too wide) in paragraph at lines 33--33
+[]|\OT1/cmr/m/n/12 birthday| 
+ []
+
+
+Overfull \hbox (24.09532pt too wide) in paragraph at lines 34--34
+[]|\OT1/cmr/m/n/12 hometown| 
+ []
+
+
+Overfull \hbox (12.34544pt too wide) in paragraph at lines 35--35
+[]|\OT1/cmr/m/n/12 location| 
+ []
+
+
+Overfull \hbox (5.49135pt too wide) in paragraph at lines 37--37
+[]|\OT1/cmr/m/n/12 gender| 
+ []
+
+
+Overfull \hbox (66.7082pt too wide) in paragraph at lines 38--38
+[]|\OT1/cmr/m/n/12 relationship[]status| 
+ []
+
+
+Overfull \hbox (5.9325pt too wide) in alignment at lines 30--39
+ [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+[]|\OT1/cmr/bx/n/12 Table J.2 --
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+\OT1/cmr/bx/n/12 con-tin-ued
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+[]|\OT1/cmr/bx/n/12 Table J.3 --
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+\OT1/cmr/bx/n/12 con-tin-ued
+ []
+
+[171
+
+
+
+] [172] [173] [174] [175] [176]
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+[]|\OT1/cmr/bx/n/12 Part of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
+[]|\OT1/cmr/bx/n/12 Part of
+ []
+
+[177] [178] [179]
+Overfull \hbox (10.25024pt too wide) in alignment at lines 419--423
+ [] [] [] 
+ []
+
+
+Overfull \hbox (10.25024pt too wide) in alignment at lines 423--428
+ [] [] [] 
+ []
+
+
+Overfull \hbox (10.25024pt too wide) in alignment at lines 428--431
+ [] [] [] 
+ []
+
+
+Overfull \hbox (10.25024pt too wide) in alignment at lines 431--434
+ [] [] [] 
+ []
+
+
+Overfull \hbox (21.94572pt too wide) in paragraph at lines 439--439
+[]|\OT1/cmr/m/n/12 ORGANIZATION| 
+ []
+
+
+Overfull \hbox (16.62521pt too wide) in paragraph at lines 441--441
+[]|\OT1/cmr/m/n/12 WORK[]OF[]ART| 
+ []
+
+
+Overfull \hbox (37.60751pt too wide) in paragraph at lines 442--442
+[]|\OT1/cmr/m/n/12 CONSUMER[]GOOD| 
+ []
+
+
+Overfull \hbox (10.25024pt too wide) in alignment at lines 434--444
+ [] [] [] 
+ []
+
+) [180]
+\openout2 = `appendix_K.aux'.
+
+ (./appendix_K.tex
+Appendix K.
+
+Overfull \hbox (42.0675pt too wide) in alignment at lines 14--18
+ [] [] 
+ []
+
+
+Overfull \hbox (42.0675pt too wide) in alignment at lines 18--23
+ [] [] 
+ []
+
+
+Overfull \hbox (42.0675pt too wide) in alignment at lines 23--26
+ [] [] 
+ []
+
+
+Overfull \hbox (42.0675pt too wide) in alignment at lines 26--29
+ [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+[]|$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 name$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n
+/12 OPTIONAL[]CLAUSE$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 DESCRIPTION[]OF[]CURRENT[]JOB/EDUCATION$\OML
+/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+\OMS/cmsy/m/n/12 j$ $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 name$\OML/cmm/m/it/12 >
+$ $<$\OT1/cmr/m/n/12 OPTIONAL[]CLAUSE$\OML/cmm/m/it/12 >$ $<$\OT1/cmr/m/n/12 BI
+RTH[]C
+ []
+
+
+Underfull \hbox (badness 6526) in paragraph at lines 33--33
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``she is from $\OML/cmm/m/it/12 <$\OT1/cmr/
+m/n/12 hometown$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 , and is now liv-ing in
+ []
+
+
+Underfull \hbox (badness 6284) in paragraph at lines 33--33
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 currently[]in$\OML/cmm/m/it/12 >$\OT1/cmr/m/
+n/12 " $\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``he hailed from $\OML/cmm/m/it/12 
+<$\OT1/cmr/m/n/12 hometown$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 , and
+ []
+
+
+Underfull \hbox (badness 6380) in paragraph at lines 33--33
+\OT1/cmr/m/n/12 is now liv-ing in $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 currently
+[]in$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 " $\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 
+``she hailed from
+ []
+
+
+Underfull \hbox (badness 4429) in paragraph at lines 33--33
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 hometown$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 
+, and is now liv-ing in $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 currently[]in$\OML/
+cmm/m/it/12 >$\OT1/cmr/m/n/12 " $\OMS/cmsy/m/n/12 j$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 PAST[]EDUCATION$\OML/cmm/m/it/12 >$ $<$\OT1/
+cmr/m/n/12 PAST[]EDUCATION[]TIME$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 DESCRIPTION[]OF[]CURRENT[]JOB/EDUCATION$\OML
+/cmm/m/it/12 >$ $\OMS/cmsy/m/n/12 j$
+ []
+
+
+Underfull \hbox (badness 1194) in paragraph at lines 34--34
+[]|\OT1/cmr/m/n/12 ``he $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 DESCRIPTION[]OF[]CU
+RRENT[]JOB/EDUCATION$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Overfull \hbox (4.79393pt too wide) in paragraph at lines 34--34
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``she $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 D
+ESCRIPTION[]OF[]CURRENT[]JOB/EDUCATION$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\OT1/cmr/m/n/12 with $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 significant[]other$\OM
+L/cmm/m/it/12 >$ \OT1/cmr/m/n/12 since $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 rela
+tionship.start[]date$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\OT1/cmr/m/n/12 since $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 relationship.start[]d
+ate$\OML/cmm/m/it/12 >$ $\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``he has been mar-
+
+ []
+
+
+Underfull \hbox (badness 5787) in paragraph at lines 34--34
+\OT1/cmr/m/n/12 ried to $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 significant[]other$
+\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 since $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 m
+arriage.start[]date$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 6445) in paragraph at lines 34--34
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``she has been mar-ried to $\OML/cmm/m/it/1
+2 <$\OT1/cmr/m/n/12 significant[]other$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 sinc
+e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+[]|\OT1/cmr/m/n/12 ``as he/she is called by his/her friends" $\OMS/cmsy/m/n/12 
+j$
+ []
+
+
+Underfull \hbox (badness 4403) in paragraph at lines 38--38
+[]|\OT1/cmr/m/n/12 ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickname$\OML/cmm/m/it
+/12 >$ \OT1/cmr/m/n/12 grad-u-ated grade school in $\OML/cmm/m/it/12 <$\OT1/cmr
+/m/n/12 institution$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 3849) in paragraph at lines 38--38
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickn
+ame$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 fin-ished grade school in $\OML/cmm/m/i
+t/12 <$\OT1/cmr/m/n/12 institution$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 2253) in paragraph at lines 38--38
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickn
+ame$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 grad-u-ated high school in $\OML/cmm/m/
+it/12 <$\OT1/cmr/m/n/12 institution$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 5817) in paragraph at lines 38--38
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickn
+ame$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 fin-ished high school in $\OML/cmm/m/it
+/12 <$\OT1/cmr/m/n/12 institution$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickn
+ame$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 grad-u-ated col-lege in $\OML/cmm/m/it/
+12 <$\OT1/cmr/m/n/12 institution$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 "
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickn
+ame$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 fin-ished col-lege in $\OML/cmm/m/it/12
+ <$\OT1/cmr/m/n/12 institution$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 " $\OMS/cmsy/
+m/n/12 j$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickn
+ame$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 got her grade school diploma from
+ []
+
+
+Underfull \hbox (badness 1552) in paragraph at lines 38--38
+\OT1/cmr/m/n/12 from $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 institution$\OML/cmm/m
+/it/12 >$\OT1/cmr/m/n/12 " $\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cmm/m/i
+t/12 <$\OT1/cmr/m/n/12 nickname$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 got her hig
+h school
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 38--38
+\OT1/cmr/m/n/12 diploma from $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 institution$\O
+ML/cmm/m/it/12 >$\OT1/cmr/m/n/12 " $\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 "$\OML/
+cmm/m/it/12 <$\OT1/cmr/m/n/12 first name$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 gr
+ad-u-ated
+ []
+
+
+Underfull \hbox (badness 1859) in paragraph at lines 38--38
+\OT1/cmr/m/n/12 grade school in $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 institution
+$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 " $\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\
+OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 first name$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/1
+2 fin-ished
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 38--38
+\OT1/cmr/m/n/12 school in $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 institution$\OML/
+cmm/m/it/12 >$\OT1/cmr/m/n/12 " $\OMS/cmsy/m/n/12 j$ \OT1/cmr/m/n/12 ``$\OML/cm
+m/m/it/12 <$\OT1/cmr/m/n/12 first name$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 grad
+-u-ated col-
+ []
+
+
+Overfull \hbox (3.65524pt too wide) in paragraph at lines 39--39
+[]|\OT1/cmr/m/n/12 PAST[]EDUCTAION[] 
+ []
+
+
+Overfull \hbox (42.0675pt too wide) in alignment at lines 29--40
+ [] [] 
+ []
+
+[181
+
+
+
+] [182]) [183]
+\openout2 = `appendix_L.aux'.
+
+ (./appendix_L.tex
+Appendix L.
+
+Overfull \hbox (17.9325pt too wide) in alignment at lines 14--18
+ [] [] [] 
+ []
+
+
+Overfull \hbox (17.9325pt too wide) in alignment at lines 18--23
+ [] [] [] 
+ []
+
+
+Overfull \hbox (17.9325pt too wide) in alignment at lines 23--26
+ [] [] [] 
+ []
+
+
+Overfull \hbox (17.9325pt too wide) in alignment at lines 26--29
+ [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 optional clause$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 description of cur-rent
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 33--36
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 optional clause$\OML/cmm/m/it/12 >$ $<$\OT1/
+cmr/m/n/12 birth
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+[]|\OT1/cmr/m/n/12 OPTIONAL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+\OT1/cmr/m/n/12 2. `` ($\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 birth
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+\OT1/cmr/m/n/12 3. ``(usu-ally called
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--52
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickname$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12
+ by his/her
+ []
+
+
+Underfull \hbox (badness 1077) in paragraph at lines 43--52
+\OT1/cmr/m/n/12 4. ``, a $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 age$\OML/cmm/m/it/
+12 >$\OT1/cmr/m/n/12 -year old
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 53--60
+\OT1/cmr/m/n/12 3. Ken Hosoya, usu-ally
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+[]|\OT1/cmr/m/n/12 BIRTH CIR-CUM-
+ []
+
+
+Underfull \hbox (badness 7433) in paragraph at lines 63--66
+\OT1/cmr/m/n/12 2. [``born" OR ``was
+ []
+
+
+Underfull \hbox (badness 5985) in paragraph at lines 73--80
+[]|\OT1/cmr/m/n/12 1. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/
+12 >$ \OT1/cmr/m/n/12 is from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--80
+\OT1/cmr/m/n/12 3. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 past education$\OML/cmm/
+m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--80
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 past ed-u-ca-tion time$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--80
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 current[]education /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
+[]|\OT1/cmr/m/n/12 1. ``$\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 nickname
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
+\OT1/cmr/m/n/12 OR first name$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 graduated/finished$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 6978) in paragraph at lines 91--94
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 high school OR grade
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
+\OT1/cmr/m/n/12 school OR college$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
+\OT1/cmr/m/n/12 name$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 got $\OML/cmm/m/it/12 
+<$\OT1/cmr/m/n/12 his/her$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 6978) in paragraph at lines 91--94
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 high school OR grade
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 1728) in paragraph at lines 95--98
+[]|\OT1/cmr/m/n/12 1. Alds grad-u-ated high
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--106
+\OT1/cmr/m/n/12 2. ``last
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
+[]|\OT1/cmr/m/n/12 DESCRIPTION
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
+\OT1/cmr/m/n/12 OF CUR-RENT
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+[]|\OT1/cmr/m/n/12 1. ``, and is now
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 studying / working$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OT1/cmr/m/n/12 2. ``worked from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 job[]start[]date$\OML/cmm/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OT1/cmr/m/n/12 to $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 job[]end[]date$\OML/cmm/
+m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OT1/cmr/m/n/12 at $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 institution$\OML/cmm/m/i
+t/12 >$\OT1/cmr/m/n/12 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 current[]education /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+[]|\OT1/cmr/m/n/12 1. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/
+12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 current[]education /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 2. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/12 
+>$ \OT1/cmr/m/n/12 is the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 son/daughter$\OML/cmm/m/it/12 >$ \OT1/cmr/m/
+n/12 of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 3. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/12 
+>$ \OT1/cmr/m/n/12 is the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 4. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/12 
+>$ \OT1/cmr/m/n/12 has
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 sisters.count$\OML/cmm/m/it/12 >$ \OT1/cmr/m
+/n/12 sis-ters,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 and $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 brothers.count$\OML/cmm
+/m/it/12 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 5. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/12 
+>$ \OT1/cmr/m/n/12 has
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 siblings.count$\OML/cmm/m/it/12 >$ \OT1/cmr/
+m/n/12 sib-
+ []
+
+
+Underfull \hbox (badness 5374) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 lings, namely $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 for loop
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 6. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/12 
+>$ \OT1/cmr/m/n/12 is in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 a re-la-tion-ship with
+ []
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 7. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/12 
+>$ \OT1/cmr/m/n/12 has been
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 in a re-la-tion-ship with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 significant[]other$\OML/cmm/m/it/12 >$ \OT1/
+cmr/m/n/12 since
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 8. $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 he/she$\OML/cmm/m/it/12 
+>$ \OT1/cmr/m/n/12 has
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OT1/cmr/m/n/12 been mar-ried to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--140
+\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 significant[]other$\OML/cmm/m/it/12 >$ \OT1/
+cmr/m/n/12 since
+ []
+
+
+Overfull \hbox (17.9325pt too wide) in alignment at lines 29--157
+ [] [] [] 
+ []
+
+[184
+
+
+
+] [185]) [186]
+\openout2 = `appendix_M.aux'.
+
+ (./appendix_M.tex
+Appendix M.
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[]|\OT1/cmr/bx/n/12 Table M.1
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+\OT1/cmr/bx/n/12 -- con-tin-ued
+ []
+
+[187
+
+
+
+] [188] [189] [190] [191] [192] [193] [194] [195] [196] [197]) [198]
+(./main.bbl
+Underfull \hbox (badness 1755) in paragraph at lines 16--31
+[]\OT1/cmr/m/n/12 Abdulkader, A., Lak-sh-mi-ratan, A., & Zhang, J.  (2016).  \O
+T1/cmr/m/it/12 In-tro-duc-ing
+ []
+
+
+Underfull \hbox (badness 4872) in paragraph at lines 16--31
+\OT1/cmr/m/it/12 deep-text: Face-book's text un-der-stand-ing en-gine.  \OT1/cm
+r/m/n/12 Re-trieved from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--31
+\OT1/cmtt/m/n/12 https :// code [] .facebook [] .com / posts / 181565595577955 
+/ introducing []
+ []
+
+[199
+
+
+]
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ô in font cmti12!
+
+Underfull \hbox (badness 1742) in paragraph at lines 356--371
+[]\OT1/cmr/m/n/12 Darwell, B.  (n.d.[]).  \OT1/cmr/m/it/12 Face-book brings new
+ sta-tus up-dates to mo-bile so
+ []
+
+
+Underfull \hbox (badness 3128) in paragraph at lines 356--371
+\OT1/cmr/m/it/12 you can share what youre watch-ing, eat-ing, feel-ing and more
+ on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--371
+\OT1/cmr/m/it/12 the go.  \OT1/cmr/m/n/12 Re-trieved from $\OT1/cmtt/m/n/12 htt
+p :// www [] .adweek [] .com / socialtimes /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--371
+\OT1/cmtt/m/n/12 facebook [] -brings [] -new [] -status [] -updates [] -to [] -
+mobile [] -so [] -you [] -can [] -share []
+ []
+
+
+Underfull \hbox (badness 3849) in paragraph at lines 383--398
+[]\OT1/cmr/m/n/12 Doughty, E.  (2015).  \OT1/cmr/m/it/12 Face-book is the most 
+pop-u-lar so-cial net-work
+ []
+
+
+Underfull \hbox (badness 5681) in paragraph at lines 383--398
+\OT1/cmr/m/it/12 for the over 50s.  \OT1/cmr/m/n/12 Tele-graph Me-dia Group.  R
+e-trieved from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--398
+\OT1/cmtt/m/n/12 http :// www [] .telegraph [] .co [] .uk / goodlife / 11751851
+ / facebook [] -is [] -the []
+ []
+
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+
+Underfull \hbox (badness 3690) in paragraph at lines 645--654
+[]\OT1/cmr/m/n/12 Google.  (2016).  Re-trieved from $\OT1/cmtt/m/n/12 https ://
+ cloud [] .google [] .com / natural []
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 666--679
+[]\OT1/cmr/m/n/12 Gopnik, A.  (2012).  \OT1/cmr/m/it/12 Can sci-ence ex-plain w
+hy we tell sto-ries?  \OT1/cmr/m/n/12 Re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--679
+\OT1/cmr/m/n/12 trieved from $\OT1/cmtt/m/n/12 http :// www [] .newyorker [] .c
+om / books / page [] -turner /
+ []
+
+Missing character: There is no ‚ in font cmti12!
+Missing character: There is no Ä in font cmti12!
+Missing character: There is no ô in font cmti12!
+
+Underfull \hbox (badness 2020) in paragraph at lines 715--726
+[]\OT1/cmr/m/n/12 Harden, S.  (2016).  \OT1/cmr/m/it/12 Face-book statis-tics. 
+ \OT1/cmr/m/n/12 Re-trieved from $\OT1/cmtt/m/n/12 http :// www []
+ []
+
+[200]
+Missing character: There is no √ in font cmr12!
+Missing character: There is no º in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no î in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 987--1001
+\OT1/cmtt/m/n/12 2016 / 08 / 18 / facebooks [] -artificial [] -intelligence [] 
+-research [] -lab []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 987--1001
+\OT1/cmtt/m/n/12 -releases [] -open [] -source [] -fasttext [] -on [] -github /
+ []?ncid = rss \ &utm []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 987--1001
+[]\OT1/cmtt/m/n/12 source = feedburner \ &utm [] []medium = feed \ &utm [] []ca
+mpaign = Feed \ %3A \
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 987--1001
+\OT1/cmtt/m/n/12 %20Techcrunch \ %20(TechCrunch ) \&utm [] []content = FaceBook
+ \ &sr [] []share =
+ []
+
+[201]
+Underfull \hbox (badness 10000) in paragraph at lines 1255--1267
+\OT1/cmtt/m/n/12 web [] .archive [] .org / web / 20110715062407 / www [] .peara
+nalytics [] .com / blog /
+ []
+
+
+Underfull \hbox (badness 5985) in paragraph at lines 1309--1319
+[]\OT1/cmr/m/n/12 Pradhan, K.  (2010).  Re-trieved from $\OT1/cmtt/m/n/12 https
+ :// www [] .facebook [] .com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1319
+\OT1/cmtt/m/n/12 notes / terabug / download [] -all [] -facebook [] -photos [] 
+-status [] -wall [] -posts []
+ []
+
+[202]
+Underfull \hbox (badness 4193) in paragraph at lines 1559--1569
+[]\OT1/cmr/m/n/12 Technopedia.  (2016).  Re-trieved from $\OT1/cmtt/m/n/12 http
+s :// www [] .techopedia [] .com /
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 1704--1720
+[]\OT1/cmr/m/n/12 West, L. E.  (2013).  Face-book shar-ing: A so-ci-olin-guis-t
+ic ana-lysis of
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 1756--1770
+\OT1/cmr/m/it/12 most pow-er-ful way to ac-ti-vate our brains.  \OT1/cmr/m/n/12
+ Re-trieved from $\OT1/cmtt/m/n/12 http ://
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1756--1770
+\OT1/cmtt/m/n/12 lifehacker [] .com / 5965703 / the [] -science [] -of [] -stor
+ytelling [] -why [] -telling []
+ []
+
+) [203] (./main.aux (./title_page.aux) (./abstract.aux) (./chapter_1.aux)
+(./chapter_2.aux) (./chapter_3.aux) (./chapter_4.aux) (./chapter_5.aux)
+(./chapter_6.aux) (./chapter_7.aux) (./appendix_A.aux) (./appendix_B.aux)
+(./appendix_C.aux) (./appendix_D.aux) (./appendix_E.aux) (./appendix_F.aux)
+(./appendix_G.aux) (./appendix_H.aux) (./appendix_I.aux) (./appendix_J.aux)
+(./appendix_K.aux) (./appendix_L.aux) (./appendix_M.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5954 strings out of 492995
+ 89993 string characters out of 6132704
+ 199340 words of memory out of 5000000
+ 9158 multiletter control sequences out of 15000+600000
+ 13367 words of font info for 53 fonts, out of 8000000 for 9000
+ 1143 hyphenation exceptions out of 8191
+ 43i,18n,48p,1716b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (218 pages, 8448509 bytes).
+PDF statistics:
+ 1187 PDF objects out of 1200 (max. 8388607)
+ 755 compressed objects within 8 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 456 words of extra memory for PDF output out of 10000 (max. 10000000)
+
