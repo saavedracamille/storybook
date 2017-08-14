@@ -1,0 +1,146 @@
+\contentsline {chapter}{\numberline {1}Research Description}{1}
+\contentsline {section}{\numberline {1.1}Overview of the Current State of Technology}{1}
+\contentsline {section}{\numberline {1.2}Research Objectives}{3}
+\contentsline {subsection}{\numberline {1.2.1}General Objective}{3}
+\contentsline {subsection}{\numberline {1.2.2}Specific Objectives}{3}
+\contentsline {section}{\numberline {1.3}Scope and Limitations of the Research}{3}
+\contentsline {section}{\numberline {1.4}Significance of the Research}{5}
+\contentsline {section}{\numberline {1.5}Research Methodology}{5}
+\contentsline {subsection}{\numberline {1.5.1}Research Activities}{6}
+\contentsline {subsubsection}{\numberline {1.5.1.1}Review of Related Literature}{6}
+\contentsline {subsubsection}{\numberline {1.5.1.2}Review of Ethical Issues}{6}
+\contentsline {subsubsection}{\numberline {1.5.1.3}Data Gathering and Analysis}{6}
+\contentsline {subsubsection}{\numberline {1.5.1.4}Software Design}{7}
+\contentsline {subsubsection}{\numberline {1.5.1.5}Software Implementation}{7}
+\contentsline {subsubsection}{\numberline {1.5.1.6}Testing and Evaluation}{8}
+\contentsline {subsubsection}{\numberline {1.5.1.7}Documentation}{9}
+\contentsline {subsection}{\numberline {1.5.2}Calendar of Activities}{9}
+\contentsline {chapter}{\numberline {2}Review of Related Literature}{11}
+\contentsline {section}{\numberline {2.1}Data Extraction Tools}{11}
+\contentsline {subsection}{\numberline {2.1.1}Download Facebook Data}{12}
+\contentsline {subsection}{\numberline {2.1.2}Graph API}{13}
+\contentsline {subsection}{\numberline {2.1.3}Facepager}{15}
+\contentsline {section}{\numberline {2.2}Text Understanding Tools}{17}
+\contentsline {subsection}{\numberline {2.2.1}FastText}{17}
+\contentsline {subsection}{\numberline {2.2.2}DeepText}{18}
+\contentsline {subsection}{\numberline {2.2.3}Google Cloud Natural Language API}{19}
+\contentsline {subsection}{\numberline {2.2.4}Stanford CoreNLP}{20}
+\contentsline {section}{\numberline {2.3}Story Generation Systems}{23}
+\contentsline {subsection}{\numberline {2.3.1}Novel Writer System (1973)}{24}
+\contentsline {subsection}{\numberline {2.3.2}TALE-SPIN (1977)}{24}
+\contentsline {subsection}{\numberline {2.3.3}Picture Books (2008-2015)}{25}
+\contentsline {subsection}{\numberline {2.3.4}Learning To Tell Tales (2009)}{26}
+\contentsline {section}{\numberline {2.4}Knowledge Base}{29}
+\contentsline {subsection}{\numberline {2.4.1}Cyc}{29}
+\contentsline {subsection}{\numberline {2.4.2}WordNet}{31}
+\contentsline {subsection}{\numberline {2.4.3}ConceptNet}{31}
+\contentsline {section}{\numberline {2.5}Post Classification}{34}
+\contentsline {section}{\numberline {2.6}Social Networking Sites}{36}
+\contentsline {subsection}{\numberline {2.6.1}Twitter}{36}
+\contentsline {subsection}{\numberline {2.6.2}Facebook}{37}
+\contentsline {chapter}{\numberline {3}Theorerical Framework}{39}
+\contentsline {section}{\numberline {3.1}Life Stories}{39}
+\contentsline {subsection}{\numberline {3.1.1}Elements and Structure of a Story}{39}
+\contentsline {section}{\numberline {3.2}Facebook}{42}
+\contentsline {subsection}{\numberline {3.2.1}Facebook Content}{42}
+\contentsline {subsection}{\numberline {3.2.2}Facebook Components}{42}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Status or Posts}{43}
+\contentsline {section}{\numberline {3.3}Data Extraction Tool}{43}
+\contentsline {subsection}{\numberline {3.3.1}Structure}{43}
+\contentsline {subsection}{\numberline {3.3.2}JSON File}{44}
+\contentsline {section}{\numberline {3.4}Text Understanding}{44}
+\contentsline {subsection}{\numberline {3.4.1}Named Entity Recognition}{44}
+\contentsline {subsection}{\numberline {3.4.2}Part-of-Speech Tagging}{46}
+\contentsline {subsection}{\numberline {3.4.3}Parsing}{47}
+\contentsline {subsection}{\numberline {3.4.4}Universal Dependencies}{49}
+\contentsline {section}{\numberline {3.5}Text Generation}{50}
+\contentsline {subsection}{\numberline {3.5.1}Content Determination}{50}
+\contentsline {subsection}{\numberline {3.5.2}Discourse Planning}{51}
+\contentsline {subsubsection}{\numberline {3.5.2.1}Text Schemata}{52}
+\contentsline {subsubsection}{\numberline {3.5.2.2}Rhetorical Relations}{53}
+\contentsline {subsection}{\numberline {3.5.3}Sentence Aggregation}{54}
+\contentsline {subsection}{\numberline {3.5.4}Lexicalization}{54}
+\contentsline {subsection}{\numberline {3.5.5}Referring Expression Generation}{54}
+\contentsline {subsection}{\numberline {3.5.6}Linguistic Realization}{55}
+\contentsline {subsection}{\numberline {3.5.7}SimpleNLG}{55}
+\contentsline {section}{\numberline {3.6}Knowledge Base}{57}
+\contentsline {subsection}{\numberline {3.6.1}WordNet}{57}
+\contentsline {subsection}{\numberline {3.6.2}ConceptNet}{58}
+\contentsline {section}{\numberline {3.7}Evaluation Metrics}{59}
+\contentsline {chapter}{\numberline {4}FB Stories }{62}
+\contentsline {section}{\numberline {4.1}Software Overview}{62}
+\contentsline {section}{\numberline {4.2}Software Objectives}{63}
+\contentsline {subsection}{\numberline {4.2.1}General Objective}{63}
+\contentsline {subsection}{\numberline {4.2.2}Specific Objectives}{63}
+\contentsline {section}{\numberline {4.3}Scope and Limitations of the Software}{64}
+\contentsline {subsection}{\numberline {4.3.1}Data Extraction}{64}
+\contentsline {subsection}{\numberline {4.3.2}Data Processing}{64}
+\contentsline {subsection}{\numberline {4.3.3}Post Classification}{65}
+\contentsline {subsection}{\numberline {4.3.4}Text Generation}{65}
+\contentsline {subsection}{\numberline {4.3.5}Save to Text File}{66}
+\contentsline {section}{\numberline {4.4}Architectural Design}{67}
+\contentsline {subsection}{\numberline {4.4.1}User}{67}
+\contentsline {subsection}{\numberline {4.4.2}Initialization}{68}
+\contentsline {subsection}{\numberline {4.4.3}Data Extraction}{68}
+\contentsline {subsection}{\numberline {4.4.4}Inferencing}{77}
+\contentsline {subsection}{\numberline {4.4.5}Data Processing}{77}
+\contentsline {subsection}{\numberline {4.4.6}Knowledge Base}{79}
+\contentsline {subsection}{\numberline {4.4.7}Text Generation}{82}
+\contentsline {subsection}{\numberline {4.4.8}Generate Output}{85}
+\contentsline {section}{\numberline {4.5}Software Functions}{85}
+\contentsline {subsection}{\numberline {4.5.1}Login Window}{85}
+\contentsline {subsection}{\numberline {4.5.2}Permission Window}{86}
+\contentsline {subsection}{\numberline {4.5.3}Generated Story Output Window}{86}
+\contentsline {section}{\numberline {4.6}Physical Enviroment and Resources}{87}
+\contentsline {subsection}{\numberline {4.6.1}Tools}{88}
+\contentsline {subsubsection}{\numberline {4.6.1.1}Facebook Login API}{88}
+\contentsline {subsubsection}{\numberline {4.6.1.2}Graph API}{89}
+\contentsline {subsubsection}{\numberline {4.6.1.3}Stanford CoreNLP}{89}
+\contentsline {subsubsection}{\numberline {4.6.1.4}WordNet}{89}
+\contentsline {subsubsection}{\numberline {4.6.1.5}ConceptNet}{89}
+\contentsline {subsubsection}{\numberline {4.6.1.6}SimpleNLG}{89}
+\contentsline {chapter}{\numberline {5}Design and Implementation}{90}
+\contentsline {section}{\numberline {5.1}Processing User-Generated Data}{90}
+\contentsline {subsection}{\numberline {5.1.1}Brevity of Posts}{91}
+\contentsline {subsection}{\numberline {5.1.2}Informal Nature of Posts}{92}
+\contentsline {subsection}{\numberline {5.1.3}Parsing Sentences}{92}
+\contentsline {subsection}{\numberline {5.1.4}Other Identified Characters}{94}
+\contentsline {section}{\numberline {5.2}Event Classification}{94}
+\contentsline {subsection}{\numberline {5.2.1}Keywords (Handcrafted)}{95}
+\contentsline {subsection}{\numberline {5.2.2}Keywords from Existing Resources (ConceptNet and WordNet)}{97}
+\contentsline {subsection}{\numberline {5.2.3}Scoring System}{100}
+\contentsline {section}{\numberline {5.3}Life Story Generation}{100}
+\contentsline {subsection}{\numberline {5.3.1}Template-Based Generation}{101}
+\contentsline {subsection}{\numberline {5.3.2}Scripts}{102}
+\contentsline {subsection}{\numberline {5.3.3}Generating the Introduction}{106}
+\contentsline {subsection}{\numberline {5.3.4}Generating the Conclusion}{107}
+\contentsline {subsection}{\numberline {5.3.5}Generating the Body}{109}
+\contentsline {subsection}{\numberline {5.3.6}Switching to Grammar-Based Generation}{112}
+\contentsline {chapter}{\numberline {6}Results and Observations}{114}
+\contentsline {section}{\numberline {6.1}Objectives of Testing}{114}
+\contentsline {section}{\numberline {6.2}Black-box Testing}{115}
+\contentsline {subsection}{\numberline {6.2.1}Extraction}{115}
+\contentsline {subsection}{\numberline {6.2.2}Text Understanding Module}{115}
+\contentsline {subsection}{\numberline {6.2.3}Post Classification Module}{117}
+\contentsline {subsection}{\numberline {6.2.4}Text Generation Module}{120}
+\contentsline {section}{\numberline {6.3}End User Testing}{121}
+\contentsline {subsection}{\numberline {6.3.1}Evaluation Forms}{122}
+\contentsline {subsection}{\numberline {6.3.2}Facebook Users’ Evaluation}{122}
+\contentsline {subsection}{\numberline {6.3.3}Traceability Evaluation}{127}
+\contentsline {chapter}{\numberline {7}Conclusions and Recommendations}{130}
+\contentsline {section}{\numberline {7.1}Conclusions}{130}
+\contentsline {section}{\numberline {7.2}Recommendations}{135}
+\contentsline {chapter}{\numberline {A}Resource Persons}{139}
+\contentsline {chapter}{\numberline {B}Similarity Report}{140}
+\contentsline {chapter}{\numberline {C}Mr. Genaro Gojo-Cruz Interview Transcript}{142}
+\contentsline {chapter}{\numberline {D}Ms. Maria Clara Pacis Interview Transcript}{145}
+\contentsline {chapter}{\numberline {E}Student Research Ethics Clearance Form}{148}
+\contentsline {chapter}{\numberline {F}General Research Ethics Checklist}{150}
+\contentsline {chapter}{\numberline {G}Research Ethics Checklist for Investigations involving Human Participants}{154}
+\contentsline {chapter}{\numberline {H}Informed Consent - Data Gathering}{163}
+\contentsline {chapter}{\numberline {I}Informed Consent - Testing}{167}
+\contentsline {chapter}{\numberline {J}Content Description of Database Tables}{171}
+\contentsline {chapter}{\numberline {K}Production Rules of the Introductory Part of a Life Story}{181}
+\contentsline {chapter}{\numberline {L}Template for the System to Follow - Introductory Part}{184}
+\contentsline {chapter}{\numberline {M}Content Description of Database Tables}{187}
+\contentsline {chapter}{References}{199}
