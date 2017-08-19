@@ -1,46 +1,48 @@
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Timetable of Activities}}{10}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Timetable of Activities}}{9}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Comparison among the different data extraction tools.}}{16}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Comparison among the different data extraction tools.}}{15}
 \contentsline {table}{\numberline {2.2}{\ignorespaces Comparison of the text understanding tools.}}{23}
 \contentsline {table}{\numberline {2.3}{\ignorespaces Comparison among the different story generation systems.}}{28}
-\contentsline {table}{\numberline {2.4}{\ignorespaces Comparison among the different knowledge base systems.}}{33}
-\contentsline {table}{\numberline {2.5}{\ignorespaces Comparison among the different works regarding post classification and life story detection}}{35}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Sample data in the direct\_knowledge table.}}{70}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Sample data in the educational background table.}}{71}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Sample data in the work table.}}{71}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Sample data in the family table.}}{72}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Sample data in the to\_be\_processed table.}}{74}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Sample data in the likes table.}}{75}
-\contentsline {table}{\numberline {4.7}{\ignorespaces Sample data in the events table.}}{76}
-\contentsline {table}{\numberline {4.8}{\ignorespaces Sample data in the verb object table.}}{79}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Sample data in the template\_group table.}}{80}
-\contentsline {table}{\numberline {4.10}{\ignorespaces Production rile of the introductory and conclusion part of a life story.}}{81}
-\contentsline {table}{\numberline {4.11}{\ignorespaces Production Rule of the Introductory Part of a Life Story.}}{81}
-\contentsline {table}{\numberline {4.12}{\ignorespaces Sample data in the updated verb object table.}}{83}
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Classification of Facebook Posts based on Keywords}}{96}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Classification of Facebook Posts Based on Words Identified Through WordNet}}{98}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Classification of Facebook Posts Based on Words Identified Through ConceptNet}}{99}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Distribution of the co-locating words per event type and source}}{99}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Grammar Rules Used for the Introductory Paragraphs}}{104}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Grammar Rules Used for the Conclusion Paragraphs}}{109}
-\contentsline {table}{\numberline {5.7}{\ignorespaces Sample Facebook posts classified as \textit {celebrating} posts, along with their metadata}}{110}
-\contentsline {table}{\numberline {5.8}{\ignorespaces Grammar Rules Used for the Body Paragraphs}}{112}
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Results of event classification with the current list of keywords}}{118}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Results of event classification broken down per event type This is for the new keyword list only}}{119}
-\contentsline {table}{\numberline {6.3}{\ignorespaces Sample posts of their classifcations. \textit {(NS – no-score classifier; SB – score-based classifier; Act – actual classification)}}}{119}
-\contentsline {table}{\numberline {6.4}{\ignorespaces Average Results in the Language Composition Section}}{123}
-\contentsline {table}{\numberline {6.5}{\ignorespaces Average Results in the Introduction Specifics Section}}{124}
-\contentsline {table}{\numberline {6.6}{\ignorespaces Average Results in the Body Specific Section}}{125}
-\contentsline {table}{\numberline {6.7}{\ignorespaces Average Results in the Conclusion Specific Section}}{126}
-\contentsline {table}{\numberline {6.8}{\ignorespaces Family Relationship Stored in the Database}}{128}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Comparison among the different knowledge base systems.}}{36}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Comparison among the different works regarding post classification and life story detection}}{39}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Sample data in the direct\_knowledge table.}}{82}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Sample data in the educational\_bg table.}}{82}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Sample data in the work table.}}{83}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Sample data in the family table.}}{85}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Sample data in the to\_be\_processed table.}}{87}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Sample data in the likes table.}}{88}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Sample data in the events table.}}{89}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Sample data in the verb object table.}}{91}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Sample data in the template\_group table.}}{92}
+\contentsline {table}{\numberline {5.10}{\ignorespaces Sample data in the template\_group table.}}{93}
+\contentsline {table}{\numberline {5.11}{\ignorespaces Sample data in the template\_group table.}}{93}
+\contentsline {table}{\numberline {5.12}{\ignorespaces Classification of Facebook Posts based on Keywords}}{102}
+\contentsline {table}{\numberline {5.13}{\ignorespaces List of semantic relations and their descriptions}}{104}
+\contentsline {table}{\numberline {5.14}{\ignorespaces Keywords Derived from ConceptNet (see Appendix M\hbox {} for full list)}}{105}
+\contentsline {table}{\numberline {5.15}{\ignorespaces Keywords Derived from WordNet (see Appendix M\hbox {} for full list)}}{106}
+\contentsline {table}{\numberline {5.16}{\ignorespaces Keywords Derived from ConceptNet (see Appendix M\hbox {} for full list)}}{107}
+\contentsline {table}{\numberline {5.17}{\ignorespaces Number of the co-locating words per event type and source}}{107}
+\contentsline {table}{\numberline {5.18}{\ignorespaces Number of the co-locating words per event type and source after pruning process}}{109}
+\contentsline {table}{\numberline {5.19}{\ignorespaces Grammar Rules Used for the Introductory Paragraphs}}{117}
+\contentsline {table}{\numberline {5.20}{\ignorespaces Grammar Rules Used for the Conclusion Paragraphs}}{124}
+\contentsline {table}{\numberline {5.21}{\ignorespaces Sample Facebook posts classified as \textit {celebrating} posts, along with their metadata}}{126}
+\contentsline {table}{\numberline {5.22}{\ignorespaces Grammar Rules Used for the Body Paragraphs}}{129}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Results of event classification with the current list of keywords}}{137}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Results of event classification broken down per event type This is for the new keyword list only}}{137}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Results of event classification for the two additional combinations.}}{138}
+\contentsline {table}{\numberline {6.4}{\ignorespaces Results of event classification broken down per event type. This is for the pruned keywords list only.}}{139}
+\contentsline {table}{\numberline {6.5}{\ignorespaces Sample posts of their classifcations. \textit {(NS – no-score classifier; SB – score-based classifier; Act – actual classification)}}}{139}
+\contentsline {table}{\numberline {6.6}{\ignorespaces Average Results in the Language Composition Section}}{143}
+\contentsline {table}{\numberline {6.7}{\ignorespaces Average Results in the Introduction Specifics Section}}{145}
+\contentsline {table}{\numberline {6.8}{\ignorespaces Average Results in the Body Specific Section}}{147}
+\contentsline {table}{\numberline {6.9}{\ignorespaces Average Results in the Conclusion Specific Section}}{150}
+\contentsline {table}{\numberline {6.10}{\ignorespaces Family Relationship Stored in the Database}}{150}
+\contentsline {table}{\numberline {6.11}{\ignorespaces Family Relationship Stored in the Database}}{152}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -49,16 +51,19 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {J.1}{Direct Knowledge Table.}}{171}
-\contentsline {table}{\numberline {J.2}{Educational Background Table.}}{171}
-\contentsline {table}{\numberline {J.3}{Family Table.}}{172}
-\contentsline {table}{\numberline {J.4}{Likes Table.}}{173}
-\contentsline {table}{\numberline {J.5}{Part of Speech Table.}}{177}
-\contentsline {table}{\numberline {J.6}{Relation Table.}}{177}
-\contentsline {table}{\numberline {J.7}{Entity Category Table.}}{180}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {K.1}{Production Rules of the Introductory Part of a Life Story.}}{181}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {L.1}{Template for the system to follow - Introductory part. This list is subject to change.}}{184}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {M.1}{Keywords List}}{187}
+\contentsline {table}{\numberline {J.1}{Direct Knowledge Table.}}{200}
+\contentsline {table}{\numberline {J.2}{Educational Background Table.}}{200}
+\contentsline {table}{\numberline {J.3}{Family Table.}}{201}
+\contentsline {table}{\numberline {J.4}{Likes Table.}}{202}
+\contentsline {table}{\numberline {J.5}{Part of Speech Table.}}{207}
+\contentsline {table}{\numberline {J.6}{Relation Table.}}{207}
+\contentsline {table}{\numberline {J.7}{Entity Category Table.}}{210}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {K.1}{Production Rules of the Introductory Part of a Life Story.}}{211}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {L.1}{Template for the system to follow - Introductory part. This list is subject to change.}}{214}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {M.1}{Keywords List}}{218}

@@ -100,8 +100,6 @@ FastText is an open-source library for building text representation and classifi
 
 The bag of n-grams process is fast because it focuses more on the occurrences of a word as opposed to word order \cite{Techcrunch2016}. Words are represented in a multidimensional space, and linear algebra is used to calculate the relationship between a query and a categorized set of words. Via this method, a problem which is \textit{qualitative} in nature-- text analysis-- becomes qualitative through the addition of statistics. Essentially, this enables fastText to be faster than traditional deep learning methods. \figref{fig:FastText} shows a comparison between fastText and other text representation libraries. 
 
-The bag of n-grams process is fast because it focuses more on the occurrences of a word as opposed to word order \cite{Techcrunch2016}. Words are represented in a multidimensional space, and linear algebra is used to calculate the relationship between a query and a categorized set of words. Via this method, a problem which is qualitative in nature-- text analysis-- becomes \textit{qualitative} through the addition of statistics. Essentially, this enables fastText to be faster than traditional deep learning methods. \figref{fig:FastText} shows a comparison between fastText and other text representation libraries. 
-
 \begin{figure}[!htb]               %-- use [t] to place figure at top, [b] to place at the bottom, [h] for here
    \centering                    %-- use this to center the figure
    \includegraphics {FastText.png}      %-- include image file named as "disneychart.png" 
@@ -254,6 +252,35 @@ Learning To Tell Tales & Not specified  & Young Children  & Depends on the gathe
 \clearpage
 
 %section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Social Networking Sites}
+Social networking sites (SNS) are popular tools for social interaction as well as information exchange between individuals \cite{HughesRoweBateyLee2012}. They serve as virtual communities which allow people to connect and interact with each other on a  particular subject, or to just ``hang out'' together online \cite{CheungChiuLee2011}.
+
+The social networking sites reviewed here are Facebook and Twitter.
+
+\subsection{Twitter}
+Twitter is commonly referred as a micro-blogging website. This is a combination of instant messaging and blogging that allows users to post or send a short message, but is limited to 140 characters, called ``tweets'' \cite{Crymble2010}. In 2010, Twitter's population grew to 175 million registered users from 30 million users early that year \cite{Rao2010}. Registered users can read and post tweets, retweet other's tweet, and follow other users or industry figures for updates, while unregistered users can only read tweets from public accounts.
+
+Twitter has become popular in today's society for several reasons. It is one of the first sites to introduce the \textit{following} and \textit{followers} concepts that appeal to the audience as they can easily follow or unfollow other users. It is also one of the most simple social media sites to use because of its simplicity and easily navigable interface. In addition, Twitter allows users to easily share information.
+
+However, Twitter has some downsides. First, there is no system of accuracy as users can just say about anything. Second, users are limited to 140 characters, which means, they may not be able to explain themselves or their thoughts in detail. Many tweets involve either a use of  ``(con't.)'' and/or a reply to the own tweet to signify a chain of tweets that are altogether expressing a single thought. And lastly, Pear Analytics, a firm that specializes in marketing analytics, conducted a study that categorized tweets into 6 areas - News, Spam, Self-Promotion, Pointless Babble, Conversational and Pass-Along Value. They found out that 40.55\% of the tweets in the gathered sample fit into the category of Pointless Babble, followed by a 37.55\% in conversational \cite{PearAnalytics2009}.
+
+\subsection{Facebook}
+Facebook is the most active SNS today. It consists of multiple avenues of social interactions and billions of page views, with more than 21 million users as of 2007 \cite{EllisonSteinfieldLampe2007} and has dramatically increased to almost one billion users worldwide as of 2013 \cite{FarahbakhshHanCuevasCrespi2013}. The comScore Media Metrix Multi-Platform conducted a study in 2015 showing a huge gap between other social networks and Facebook for being the most accessed site for millennials as shown in \figref{fig:snsdemographics} below. According to Dave Chaffey \citeyear{Chaffey2016}, Facebook continues to dominate the social landscape, leading number one on social media platforms around the world.
+
+\begin{figure}[!htb]                %-- use [t] to place figure at top, [b] to place at the bottom, [h] for here
+	\centering                    %-- use this to center the figure
+	\includegraphics [width=\textwidth]{snsdemographics.png}      %-- include image file named as "disneychart.png" 
+	\caption{Millennial Demographics in Social Media Platforms } \cite{Chaffey2016}
+	\label{fig:snsdemographics}
+\end{figure}
+
+Facebook is a convenient and open social media platform that welcomes not just individuals but also companies and organizations to communicate and interact with one another. Westlake \citeyear{Westlake2008} states that ``Facebook develops technologies that facilitate the spread of information through social networks allowing people to share information online the same way they do it in the real world''. It promotes interactions between users, through simple status updates, posts, or shares, and enables users to inform others about their whereabouts and actions.
+
+In Facebook, users are required to create visible profiles providing their name, gender, date of birth and email address. In addition to that, more information such as contact information, personal interests, background information and favorites (books, movies and music) can also be added to the profile at the discretion of the user \cite{NadkarniHofmann2012}. Posting information about their interest enables others to get a grasp of one's characteristics or personality \cite{FarahbakhshHanCuevasCrespi2013}. Derek Coles \citeyear{Doughty2015} said that ``Facebook is the modern way of not being on your own'' as it also allows you to interact and meet people you don't know and enables people to discuss topics with common interests. 
+
+A study by Ashwini Nadkami and Stefan G. Hofmann \citeyear{NadkarniHofmann2012}, showed that people tend to stay online and use Facebook because posting in Facebook allows self-promotion and influences one's self-esteem and self-worth. Self-esteem and self-worth are affiliated with the sense of belonging in the society or a acceptability to a group, which, according to Nadkami \& Hoffman, can be measured by the number of likes and comments received on one's share or post or a simple act like being tagged in a group picture. The study concluded that ``Facebook creates an environment where information is shared proactively because of the site's influence on a  user's need for popularity'' \cite{NadkarniHofmann2012}.
+
+%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Knowledge Base}
 According to the American Heritage Dictionary (2011), a \textit{knowledge} base is a collection of data organized in a form that facilitates analysis by automated deductive processes. It can be perceived as an expert system \cite{mars1995towards}. It uses a \textit{knowledge representation language} for expressing rules and/or objects.
 
@@ -356,32 +383,3 @@ Choudhury and Alani \citeyear{choudhury2014personal} further noted that most res
 	\label{tab:KnowledgeBase}
 \end{sidewaystable}
 \clearpage
-
-%section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\section{Social Networking Sites}
-Social networking sites (SNS) are popular tools for social interaction as well as information exchange between individuals \cite{HughesRoweBateyLee2012}. They serve as virtual communities which allow people to connect and interact with each other on a  particular subject, or to just ``hang out'' together online \cite{CheungChiuLee2011}.
-
-The social networking sites reviewed here are Facebook and Twitter.
-
-\subsection{Twitter}
-Twitter is commonly referred as a micro-blogging website. This is a combination of instant messaging and blogging that allows users to post or send a short message, but is limited to 140 characters, called ``tweets'' \cite{Crymble2010}. In 2010, Twitter's population grew to 175 million registered users from 30 million users early that year \cite{Rao2010}. Registered users can read and post tweets, retweet other's tweet, and follow other users or industry figures for updates, while unregistered users can only read tweets from public accounts.
-
-Twitter has become popular in today's society for several reasons. It is one of the first sites to introduce the \textit{following} and \textit{followers} concepts that appeal to the audience as they can easily follow or unfollow other users. It is also one of the most simple social media sites to use because of its simplicity and easily navigable interface. In addition, Twitter allows users to easily share information.
-
-However, Twitter has some downsides. First, there is no system of accuracy as users can just say about anything. Second, users are limited to 140 characters, which means, they may not be able to explain themselves or their thoughts in detail. Many tweets involve either a use of  ``(con't.)'' and/or a reply to the own tweet to signify a chain of tweets that are altogether expressing a single thought. And lastly, Pear Analytics, a firm that specializes in marketing analytics, conducted a study that categorized tweets into 6 areas - News, Spam, Self-Promotion, Pointless Babble, Conversational and Pass-Along Value. They found out that 40.55\% of the tweets in the gathered sample fit into the category of Pointless Babble, followed by a 37.55\% in conversational \cite{PearAnalytics2009}.
-
-\subsection{Facebook}
-Facebook is the most active SNS today. It consists of multiple avenues of social interactions and billions of page views, with more than 21 million users as of 2007 \cite{EllisonSteinfieldLampe2007} and has dramatically increased to almost one billion users worldwide as of 2013 \cite{FarahbakhshHanCuevasCrespi2013}. The comScore Media Metrix Multi-Platform conducted a study in 2015 showing a huge gap between other social networks and Facebook for being the most accessed site for millennials as shown in \figref{fig:snsdemographics} below. According to Dave Chaffey \citeyear{Chaffey2016}, Facebook continues to dominate the social landscape, leading number one on social media platforms around the world.
-
-\begin{figure}[!htb]                %-- use [t] to place figure at top, [b] to place at the bottom, [h] for here
-   \centering                    %-- use this to center the figure
-   \includegraphics [width=\textwidth]{snsdemographics.png}      %-- include image file named as "disneychart.png" 
-   \caption{Millennial Demographics in Social Media Platforms } \cite{Chaffey2016}
-    \label{fig:snsdemographics}
-\end{figure}
-
-Facebook is a convenient and open social media platform that welcomes not just individuals but also companies and organizations to communicate and interact with one another. Westlake \citeyear{Westlake2008} states that ``Facebook develops technologies that facilitate the spread of information through social networks allowing people to share information online the same way they do it in the real world''. It promotes interactions between users, through simple status updates, posts, or shares, and enables users to inform others about their whereabouts and actions.
-
-In Facebook, users are required to create visible profiles providing their name, gender, date of birth and email address. In addition to that, more information such as contact information, personal interests, background information and favorites (books, movies and music) can also be added to the profile at the discretion of the user \cite{NadkarniHofmann2012}. Posting information about their interest enables others to get a grasp of one's characteristics or personality \cite{FarahbakhshHanCuevasCrespi2013}. Derek Coles \citeyear{Doughty2015} said that ``Facebook is the modern way of not being on your own'' as it also allows you to interact and meet people you don't know and enables people to discuss topics with common interests. 
-
-A study by Ashwini Nadkami and Stefan G. Hofmann \citeyear{NadkarniHofmann2012}, showed that people tend to stay online and use Facebook because posting in Facebook allows self-promotion and influences one's self-esteem and self-worth. Self-esteem and self-worth are affiliated with the sense of belonging in the society or a acceptability to a group, which, according to Nadkami \& Hoffman, can be measured by the number of likes and comments received on one's share or post or a simple act like being tagged in a group picture. The study concluded that ``Facebook creates an environment where information is shared proactively because of the site's influence on a  user's need for popularity'' \cite{NadkarniHofmann2012}.

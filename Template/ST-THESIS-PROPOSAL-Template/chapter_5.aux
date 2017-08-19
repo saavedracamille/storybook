@@ -1,52 +1,104 @@
 \relax 
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Design and Implementation}{90}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Design and Implementation}{79}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:designandimplementation}{{5}{90}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Processing User-Generated Data}{90}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Brevity of Posts}{91}}
+\newlabel{sec:designandimplementation}{{5}{79}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}System Design}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces System Architecture of FB Stories }}{79}}
+\newlabel{fig:IAD}{{5.1}{79}}
+\citation{FacebookLogin}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Generating Access Tokens}{80}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Data Extraction}{80}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Database Design for Storing Extracted Data.}}{80}}
+\newlabel{fig:ExtractedDataDB}{{5.2}{80}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Sample About Me Section in Facebook}}{81}}
+\newlabel{fig:AboutMe}{{5.3}{81}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Sample data in the direct\_knowledge table.}}{82}}
+\newlabel{tab:DirectKnowledge}{{5.1}{82}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Sample data in the educational\_bg table.}}{82}}
+\newlabel{tab:EducationalBG}{{5.2}{82}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Sample data in the work table.}}{83}}
+\newlabel{tab:work}{{5.3}{83}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Sample data in the family table.}}{85}}
+\newlabel{tab:Family}{{5.4}{85}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Sample Post in Facebook}}{86}}
+\newlabel{fig:SamplePost}{{5.4}{86}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Sample data in the to\_be\_processed table.}}{87}}
+\newlabel{tab:ToBeProcessed}{{5.5}{87}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Sample Interest Preference in Facebook}}{87}}
+\newlabel{fig:LikedPage}{{5.5}{87}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Sample data in the likes table.}}{88}}
+\newlabel{tab:Likes}{{5.6}{88}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Sample Events in Facebook}}{89}}
+\newlabel{fig:events}{{5.6}{89}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Sample data in the events table.}}{89}}
+\newlabel{tab:events1}{{5.7}{89}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Inferencing}{89}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.4}Data Processing}{90}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Sample data in the verb object table.}}{91}}
+\newlabel{tab:sampleVO}{{5.8}{91}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.5}Knowledge Base}{91}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Database design for the Knowledge Base}}{92}}
+\newlabel{fig:Template}{{5.7}{92}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces Sample data in the template\_group table.}}{92}}
+\newlabel{tab:Template1}{{5.9}{92}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.10}{\ignorespaces Sample data in the template\_group table.}}{93}}
+\newlabel{tab:Template2}{{5.10}{93}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.11}{\ignorespaces Sample data in the template\_group table.}}{93}}
+\newlabel{tab:Template3}{{5.11}{93}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.6}Text Generation}{94}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Processing User-Generated Data}{96}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Brevity of Posts}{96}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Informal Nature of Posts}{97}}
 \citation{Manning14thestanford}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Informal Nature of Posts}{92}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Parsing Sentences}{92}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces A sample parse tree generated using Stanford CoreNLP}}{93}}
-\newlabel{fig:sf-parsetree}{{5.1}{93}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.4}Other Identified Characters}{94}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Event Classification}{94}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Keywords (Handcrafted)}{95}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Classification of Facebook Posts based on Keywords}}{96}}
-\newlabel{tab:EventClassification}{{5.1}{96}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Keywords from Existing Resources (ConceptNet and WordNet)}{97}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Classification of Facebook Posts Based on Words Identified Through WordNet}}{98}}
-\newlabel{tab:EventClassificationWordNet}{{5.2}{98}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Classification of Facebook Posts Based on Words Identified Through ConceptNet}}{99}}
-\newlabel{tab:EventClassificationConceptNet}{{5.3}{99}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Distribution of the co-locating words per event type and source}}{99}}
-\newlabel{tab:Co-locatingWords}{{5.4}{99}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Scoring System}{100}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Life Story Generation}{100}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Template-Based Generation}{101}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Parsing Sentences}{98}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces A sample parse tree generated using Stanford CoreNLP}}{98}}
+\newlabel{fig:sf-parsetree}{{5.8}{98}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Other Identified Characters}{99}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Event Classification}{100}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Keywords (Handcrafted)}{101}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.12}{\ignorespaces Classification of Facebook Posts based on Keywords}}{102}}
+\newlabel{tab:EventClassification}{{5.12}{102}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Keywords from Existing Resources (ConceptNet and WordNet)}{103}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.13}{\ignorespaces List of semantic relations and their descriptions}}{104}}
+\newlabel{tab:SemanticsDescription}{{5.13}{104}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.14}{\ignorespaces Keywords Derived from ConceptNet (see Appendix M\hbox {} for full list)}}{105}}
+\newlabel{tab:EventClassificationConceptNet}{{5.14}{105}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.15}{\ignorespaces Keywords Derived from WordNet (see Appendix M\hbox {} for full list)}}{106}}
+\newlabel{tab:EventClassificationWordNet}{{5.15}{106}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.16}{\ignorespaces Keywords Derived from ConceptNet (see Appendix M\hbox {} for full list)}}{107}}
+\newlabel{tab:EventClassificationConceptNet}{{5.16}{107}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.17}{\ignorespaces Number of the co-locating words per event type and source}}{107}}
+\newlabel{tab:Co-locatingWords}{{5.17}{107}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Pruned Keywords}{108}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.18}{\ignorespaces Number of the co-locating words per event type and source after pruning process}}{109}}
+\newlabel{tab:pruning-result}{{5.18}{109}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Naive-based System}{109}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Scoring System}{110}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Life Story Generation}{111}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Template-Based Generation}{112}}
 \citation{chen2008natural}
 \citation{sleimi2016generating}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Scripts}{102}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces An example of a graph representation of RDF data. (A, birthPlace, F) is connected to (F, country, H), for example. }}{103}}
-\newlabel{fig:rdf}{{5.2}{103}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Grammar Rules Used for the Introductory Paragraphs}}{104}}
-\newlabel{tab:GrammarRules}{{5.5}{104}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Generating the Introduction}{106}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Generating the Conclusion}{107}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Grammar Rules Used for the Conclusion Paragraphs}}{109}}
-\newlabel{tab:GrammarRules-Conclusion}{{5.6}{109}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Generating the Body}{109}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces Sample Facebook posts classified as \textit  {celebrating} posts, along with their metadata}}{110}}
-\newlabel{tab:GrammarRules-celeb}{{5.7}{110}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Scripts}{114}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces An example of a graph representation of RDF data. (A, birthPlace, F) is connected to (F, country, H), for example. }}{116}}
+\newlabel{fig:rdf}{{5.9}{116}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.19}{\ignorespaces Grammar Rules Used for the Introductory Paragraphs}}{117}}
+\newlabel{tab:GrammarRules}{{5.19}{117}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Generating the Introduction}{119}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Generating the Conclusion}{121}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.20}{\ignorespaces Grammar Rules Used for the Conclusion Paragraphs}}{124}}
+\newlabel{tab:GrammarRules-Conclusion}{{5.20}{124}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.5}Generating the Body}{125}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.21}{\ignorespaces Sample Facebook posts classified as \textit  {celebrating} posts, along with their metadata}}{126}}
+\newlabel{tab:GrammarRules-celeb}{{5.21}{126}}
 \citation{Tuffield06ontologicalapproaches}
-\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Grammar Rules Used for the Body Paragraphs}}{112}}
-\newlabel{tab:GrammarRules-bodypar}{{5.8}{112}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Switching to Grammar-Based Generation}{112}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.22}{\ignorespaces Grammar Rules Used for the Body Paragraphs}}{129}}
+\newlabel{tab:GrammarRules-bodypar}{{5.22}{129}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.6}Switching to Grammar-Based Generation}{130}}
 \@setckpt{chapter_5}{
-\setcounter{page}{114}
+\setcounter{page}{132}
 \setcounter{equation}{0}
-\setcounter{enumi}{3}
+\setcounter{enumi}{5}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
@@ -54,19 +106,21 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{5}
-\setcounter{section}{3}
+\setcounter{section}{4}
 \setcounter{subsection}{6}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{2}
-\setcounter{table}{8}
+\setcounter{figure}{9}
+\setcounter{table}{22}
 \setcounter{LT@tables}{0}
 \setcounter{LT@chunks}{0}
+\setcounter{lstnumber}{19}
 \setcounter{BibCnt}{2}
 \setcounter{parentequation}{0}
 \setcounter{AM@survey}{0}
 \setcounter{r@tfl@t}{5}
-\setcounter{float@type}{4}
+\setcounter{float@type}{8}
+\setcounter{lstlisting}{0}
 \setcounter{maskedRefs}{0}
 }

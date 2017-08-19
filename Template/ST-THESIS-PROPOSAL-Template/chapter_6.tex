@@ -1,13 +1,13 @@
 \chapter{Results and Observations}
 \label{sec:resultsandobservations} 
 
-Chapter 6 discusses the different testing methods done on the system. Furthermore, it also shows the evaluation results from the Facebook users and experts.
+Chapter 6 discusses the different testing methods done on the system. Furthermore, it also shows the evaluation results from the Facebook users.
 
 %section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{Objectives of Testing}
 The system underwent testing for the following reasons:
 \begin{itemize}
-	\item It is necessary to test the system in order to determine that it works as expected (i.e. each module behaves properly, without bugs or glitches);
+	\item To determine that it works as expected (i.e. there are no bugs or glitches);
 	\item To ensure that the system satisfies its end-users; and
 	\item To know how to improve on the system (and how much improvement is necessary) based on user feedback.
 \end{itemize}
@@ -18,13 +18,15 @@ Black-box testing was done to verify if a particular function or module behaved 
 
 User acceptance tests were performed by the target or end users. This test ensures that the features and behavior of the system satisfy the users. Furthermore, the test aims to determine possible revisions with the system based on user feedback.
 
+
 \section{Black-box Testing}
 Black-box testing was done to verify if a particular function or module behaved and worked as expected. This section presents the discussion of the different test cases for each module in the system.
 
 \subsection{Extraction}
-Graph API is used to extract data from Facebook and the system is responsible for storing the extracted data accordingly. FB Stories requires the presence of user-generated data to be able to generate a story; therefore, the data extracted from Facebook must have retained its integrity. To ensure this, the data is cross-checked with Facebook via the Facebook ID attribute to make sure that the data from the user’s profile and posts, to the JSON objects, to the database, was not tampered with or corrupted.
+Graph API is used to extract data from Facebook and the system is responsible for storing the extracted data accordingly. FB Stories requires the presence of user-generated data to be able to generate a story; therefore, the data extracted from Facebook must have retained its integrity. To ensure this, the data is cross-checked with Facebook via the Facebook ID attribute to make sure that the data from the user's profile and posts, to the JSON objects, to the database, was not tampered with or corrupted.
 
-This process of checking integrity was first applied to a small selection of data. At first, only a small portion of the user’s account data was extracted and stored in order for the developers to be able to manually check the veracity of each piece of information extracted. When the process was confirmed to be effective in maintaining integrity, it enabled the system to extract all the data needed for story generation. This process of manual checking also ensured that all data extracted could be used by the system in some way using our current system architecture.
+This process of checking integrity was first applied to a small selection of data. At first, only a small portion of the user's account data was extracted and stored in order for the developers to be able to manually check the veracity of each of the data. When the process was confirmed to be effective in maintaining integrity, thes system extracted all the data needed for story generation. This process of manual checking also ensured that all data extracted could be used by the system in some way using our current system architecture.
+
 
 \subsection{Text Understanding Module}
 \underline{\textbf{Pre-processing}}
@@ -35,26 +37,24 @@ During testing, there were several issues found in the system that could be trac
 
 Below are the issues associated with text segmentation:
 \begin{itemize}
-	\item When splitting text into sentences, Stanford CoreNLP is highly dependent on the use of periods, often associating it as the end of a sentence. Thus, when a text is in a form of a list, (e.g. ``1. Hi 2. Hello”) instead of splitting it into two parts ``1. Hi” being the first sentence and ``2. Hello” being the second, it splits it into three parts: ``1.”, ``Hi 2.”, and ``Hello”. 
-	\item Stanford CoreNLP is problematic with words that contain apostrophes. It splits contractions into two tokens in ways which occasionally pose a problem during POS tagging. For example, it can split up the contraction, ``I’m,” by turning it into two words, ``I”, and ``‘m”.
+	\item When splitting text into sentences, Stanford CoreNLP is highly dependent on the use of periods, often associating it as the end of a sentence. Thus, when a text is in a form of a list, (e.g. ``1. Hi 2. Hello'') instead of splitting it into two parts ``1. Hi'' being the first sentence and ``2. Hello'' being the second, it splits it into three parts: ``1.'', ``Hi 2.'', and ``Hello''. 
+	\item Stanford CoreNLP is problematic with words that contain apostrophes. It splits contractions into two tokens in ways which occasionally pose a problem during POS tagging. For example, it can split up the contraction, ``I'm,'' by turning it into two words, ``I'', and ``'m''.
 \end{itemize}
 
-The following issues were identified when assigning POS tags on words in a sentence:
+The following issues were identified when assigning POS tags:
 \begin{itemize}
-	\item Periods and commas are treated like any other token, thus influencing the tag chosen. Given the sentence``Robee is drinking.”, the POS tagger correctly identifies the word \textit{drinking} as a verb. However, after removing the period at the end, leaving the sentence now as ``Robee is drinking”, the tagger associates \textit{drinking} as a noun.
-	\item Since there are a lot of ambiguities in English (as there are in all other human languages), Stanford’s POS tagger has difficulty in interpreting forms ending in ing as verbs, nouns, or adjectives. For example, ``Robee is flagging an issue.” \textit{Flagging} is a common verb used by many modern Internet developers, but it is tagged as an adjective.
-	\item The tagger incorrectly annotates pronouns such as \textit{anyone} and \textit{anybody} as nouns. (E.g. ``Anyone could have done that.”) results to the word \textit{anyone} being identified as a noun.
-	\item For words that are not in English, there are instances where the POS tagger is able to identify the verb or the parts correctly, and instances where it fails to do so. Given the text ``Gumising kana.”, Stanford is able to correctly identify the word \textit{gumising as a verb}. However, given the text ``Kumain ng mansanas.”, \textit{kumain} is identified to be as a noun instead of a verb. This is a problem when mixed language sentences are parsed, e.g. ``I’m okay \textit{lang}.”
+	\item Periods and commas are treated like any other token, thus influencing the tag chosen. Given the sentence``Robee is drinking.'', the POS tagger correctly identifies the word \textit{drinking} as a verb. However, after removing the period at the end, leaving the sentence now as ``Robee is drinking'', the tagger associates \textit{drinking} as a noun.
+	\item Since there are a lot of ambiguities in English (as there are in all other human languages), Stanford's POS tagger has difficulty in interpreting forms ending in \textit{ing} as verbs, nouns, or adjectives. For example, ``Robee is flagging an issue.'' \textit{Flagging} is a common verb used by many modern Internet developers, but it is tagged as an adjective.
+	\item The tagger incorrectly annotates pronouns such as \textit{anyone} and \textit{anybody} as nouns. (E.g. ``Anyone could have done that.'') results to the word \textit{anyone} being identified as a noun.
+	\item For words that are not in English, there are instances where the POS tagger is able to identify the verb or the parts correctly, and instances where it fails to do so. Given the text ``Gumising kana.'', Stanford is able to correctly identify the word \textit{gumising} as a verb. However, given the text ``Kumain ng mansanas.'', \textit{kumain} is identified to be as a noun instead of a verb. This is a problem when mixed language sentences are parsed, e.g. ``I'm okay \textit{lang}.''
 \end{itemize}
 
-With regards to lemmatization, the output of the lemmatizer depends on the part-of-speech tag assigned to the original word. For example, given the text ``Currently painting.”, the POS tagger tags the word \textit{painting} as a noun, when in fact it should be identified as a verb. As a result, the lemmatizer returns the lemma of the noun \textit{painting} as \textit{painting} instead of \textit{paint}.
+With regards to lemmatization, the output of the lemmatizer depends on the part-of-speech tag assigned to the original word. For example, given the text ``Currently painting'', the POS tagger tags the word \textit{painting} as a noun, when in fact it should be identified as a verb. As a result, the lemmatizer returns the lemma of the noun \textit{painting} as \textit{painting} instead of \textit{paint}.
 
-In instances where Stanford is unable to identify and obtain the necessary data -- when no explicit verbs can be found in the text, the system relies on the classification algorithm to determine its category. Given the text, ``Merry Christmas”, the classifier classifies the text as a \textit{celebrating} post because of the keyword ``Christmas”, thus, the verb to be used is ``\textit{celebrated}”. However, for posts missing other details such as a direct object, it is found to be more challenging, since the sentence that is to be generated later on during story generation would be, in a sense, incomplete.
+In instances where Stanford is unable to identify and obtain the necessary data, such as when no explicit verbs can be found in the text, the system relies on the classification algorithm to determine its category. Given the text, ``Merry Christmas'', the classifier categorizes the text as a \textit{celebrating} post because of the keyword ``Christmas'', thus, the verb to be used is ``\textit{celebrated}''. However, for posts missing other details such as a direct object, it is found to be more challenging, since the sentence that is to be generated later on during story generation would be, in a sense, incomplete.
  
 \subsection{Post Classification Module}
-Much of the work done in the system was on the post classification module. It is necessary for FB Stories to be able to classify posts properly because the classifications are used in generating the life story later on, and having the wrong classification would lead to the story either being incoherent (not easily understandable) or incohesive (if it can be understood, it will sound bad because an event that was misclassified would end up in the wrong paragraph).
-
-Section 5.2 mentions the improvements done to the keywords list, as well as the fact that the system initially did not have a scoring system and was augmented. Both were done with the aim of improving the results of the post classification module. Therefore, the system was tested with the following combinations:
+Much of the work done in the system was on the post classification module. Section 5.2 mentions the improvements done to the keywords list, as well as the fact that the system initially did not have a scoring system. Both were done with the aim of improving the results of the post classification module. Therefore, the system was tested with the following combinations:
 \begin{itemize}
 	\item Non-scoring-based algorithm (or older version of the system) with old keywords;
 	\item Scoring-based algorithm (or current version) with old keywords;
@@ -62,7 +62,27 @@ Section 5.2 mentions the improvements done to the keywords list, as well as the 
 	\item Scoring-based algorithm (or current version) with new keywords.
 \end{itemize}
 
-The dataset was first subjected to manual labeling before being ran by the classifier. Our dataset composed of 21,412 posts, and out of those, 1,298 (or 6.06\%) posts were identified as being either \textit{celebrating}, \textit{traveling}, \textit{eating}, or \textit{drinking}. Broken down, there are 643 celebrating posts, 193 eating posts, 53 drinking posts, and 409 traveling posts. The complete dataset, including the posts with no events, is then fed to the automated classifiers, without scoring and with scoring, to assess their performance. 
+The dataset was gathered from the myPersonality Project \footnote{http://mypersonality.org/wiki}. It contained posts from 250 Facebook users from June 2009 to January 2010. In addition to this, the system also extracted posts from 16 Facebook users. These posts were first subjected to manual labeling before being ran by the classifier. For this research, the dataset was composed of 21,412 posts after the posts were split into separate sentences. Out of those, 1,298 (or 6.06\%) posts were identified as being either \textit{celebrating}, \textit{traveling}, \textit{eating}, or \textit{drinking}. Broken down, there are 643 celebrating posts, 193 eating posts, 53 drinking posts, and 409 traveling posts. The complete dataset, including the posts with no events, is then fed to the automated classifiers, without scoring and with scoring, to assess their performance. 
+
+In order to compare which combination produces the best outcome, the precision, recall, and accuracy were computed. But to be able to compute for these, the True Positive (actual events classified as events), True Negative (actual non-events classified as non-events), False Positive (actual non-events classified as events), and False Negative (actual events classified as not events), were computed.
+
+The formula used to compute for the precision or the number of correctly classified events over the total number of classified events is:
+\begin{equation}
+Precision = True Positive / (True Positive + False Negative)
+\end{equation}
+
+The formula used for recall or the number of correctly classified events over the total number of actual events is:
+\begin{equation}
+Recall = True Positive / (True Positive + False Positive)
+\end{equation}
+
+And the formula used for accuracy is:
+\begin{equation}
+Accuracy = (True Negative + True Positive) / total number of posts
+\end{equation}
+
+The three performance measures are computed for all four combinations and the results were shown in \ref{tab:eventclassification-results}.
+\clearpage
 
 \begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
 	\centering
@@ -76,10 +96,10 @@ The dataset was first subjected to manual labeling before being ran by the class
 	\label{tab:eventclassification-results}
 \end{table}
 
-As shown in \figref{tab:eventclassification-results}, the no-score automated classifier using the old keywords list has a precision of 21.92\% (the number of correctly classified event divided by the total number of classified events) and recall of 37.75\% (the number of correctly classified events divided by the total number of actual events). The score-based classifier using the old keywords list, on the other hand, has a precision of 45.02\% and recall of 8.01\%. While instances of misclassified events have been reduced, the recall is drastically low for the score-based classifier because of the implementation of the threshold value. 
+As shown in Table \ref{tab:eventclassification-results}, the no-score automated classifier using the old keywords list has a precision of 21.92\% (the number of correctly classified event divided by the total number of classified events) and recall of 37.75\% (the number of correctly classified events divided by the total number of actual events). The score-based classifier using the old keywords list, on the other hand, has a precision of 45.02\% and recall of 8.01\%. While instances of misclassified events have been reduced, the recall is drastically low for the score-based classifier because of the implementation of the threshold value. 
 
 A similar observation was made in the results of the two systems after feeding the new keyword list. For both the no-score based and score-based classifier, using the new keywords resulted for a lower precision and higher recall. The reason for this was that the new keywords list was taken directly from WordNet and ConceptNet, and these words were not checked for their relevance to the category. There were certain keywords present in the \textit{travelling} category such as \textit{businessman}, \textit{scientists}, that is far related to the category, resulting in the decreased precision. On the other hand, the recall significantly increased, since there were more keywords used which resulted to more posts being classified correctly.
-\clearpage
+
 \begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
 	\centering
 	\caption{Results of event classification broken down per event type This is for the new keyword list only} \vspace{0.25em}
@@ -91,12 +111,50 @@ A similar observation was made in the results of the two systems after feeding t
 		Drinking & 18.02\% & 83.78\%  & 20.00\% & 80.00\% \\ \hline
 		Travelling & 8.56\% & 74.21\%  & 8.47\% & 83.33\% \\ \hline
 	\end{tabular}
-	\label{tab:eventclassification-results}
+	\label{tab:eventclassification-results2}
 \end{table}
 
-Table NLP2 shows the performance of the no-score and score-based classifiers for each category of events. In the no-score classifier, celebrating events achieved the highest precision (45.47\%) and recall (97.60\%) among all event types. This is because events tagged as celebrating are more explicitly stated compared to the other types of events, as seen in posts such as ``\textit{Happy anniversary to my parents,}” and, ``\textit{Merry Christmas!}” Events under drinking and travelling have low precision because posts in these categories are usually implied through the use of proper nouns, such as the name of a drinking place or the food, instead of the actual action. An example is, ``\textit{Beach!}”. Since the list of keywords does not contain any proper nouns, our two classifiers cannot tag sentences such as ``\textit{at Mt. Tremblant for today!}” as travelling and ``\textit{enjoying my daily cup of Starbucks}” as drinking. 
+Table \ref{tab:eventclassification-results2} shows the performance of the no-score and score-based classifiers for each category of events. In the no-score classifier, celebrating events achieved the highest precision (45.47\%) and recall (97.60\%) among all event types. This is because events tagged as celebrating are more explicitly stated compared to the other types of events, as seen in posts such as ``\textit{Happy anniversary to my parents,}'' and, ``\textit{Merry Christmas!}'' Events under drinking and travelling have low precision because posts in these categories are usually implied through the use of proper nouns, such as the name of a drinking place or the food, instead of the actual action. An example is, ``\textit{Beach!}''. Since the list of keywords does not contain any proper nouns, our two classifiers cannot tag sentences such as ``\textit{at Mt. Tremblant for today!}'' as travelling and ``\textit{enjoying my daily cup of Starbucks}'' as drinking. 
 
-In the score-based classifier, celebrating events still achieved good precision and recall values. The threshold did not affect the classification because most posts contained at least two of the celebrating keywords, such as ``\textit{happy}” and ``\textit{birthday}”. The 100\% recall value in the category eating means all 193 posts on eating were correctly classified. Again, events under drinking and travelling have low precision following the same problems identified previously. Should the post be stated as ``\textit{drinking my daily cup of Starbucks coffee}”, the threshold would have been met with the keywords ``\textit{drinking}” and ``\textit{coffee}”. 
+In the score-based classifier, celebrating events still achieved good precision and recall values. The threshold did not affect the classification because most posts contained at least two of the celebrating keywords, such as ``\textit{happy}'' and ``\textit{birthday}''. The 100\% recall value in the category eating means all 193 posts on eating were correctly classified. Again, events under drinking and travelling have low precision following the same problems identified previously. Should the post be stated as ``\textit{drinking my daily cup of Starbucks coffee}'', the threshold would have been met with the keywords ``\textit{drinking}'' and ``\textit{coffee}''. 
+
+Analysis of the results showed that adding the keywords list was not enough to produce a better result. Thus, the keywords list was pruned to see if the results would be better. Two combinations were added and the results were shown in Table \ref{tab:classification-pruned}: 
+\begin{itemize}
+	\item Non-scoring-based algorithm (or older version of the system) with the pruned keywords;
+	\item Scoring-based algorithm (or current version) with the pruned keywords.
+\end{itemize}
+
+\begin{table}[ph!]
+\centering
+\caption{Results of event classification for the two additional combinations.}
+\begin{tabular}{|p{1in}|p{2in}|p{2in}|} \hline
+Metric    & Older version (no scoring) - pruned keyword & Older version (no scoring) - pruned keyword \\ \hline
+Precision & 14.71\%                                    & 23.60\%                                     \\ \hline
+Recall    & 56.24\%                                     & 19.80\%                                     \\ \hline
+Accuracy  & 77.59\%                                     & 91.25\%                                    \\ \hline
+\end{tabular}
+\label{tab:classification-pruned}
+\end{table}
+
+\clearpage
+\begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
+	\centering
+	\caption{Results of event classification broken down per event type. This is for the pruned keywords list only.} \vspace{0.25em}
+	\begin{tabular}{|p{1in}|p{1in}|p{1in}|p{1in}|p{1in}|} \hline
+		\centering Event Type & \multicolumn{2}{|c|}{Older version (no scoring)} &\multicolumn{2}{|c|}{Current version (with scoring)} \\ \cline{2-2}\hline
+		& Rrecision & Recall & Precision &Recall\\\hline
+		Celebrating & 25.08\% & 91.22\% & 49.63\% & 92.17\% \\ \hline
+		Eating & 31.51\% & 87.50\% & 12.58\% & 57.14\% \\ \hline
+		Drinking & 6.02\% & 66.67\%  & 5.46\% & 58.82\% \\ \hline
+		Travelling & 8.38\% & 83.00\%  & 7.85\% & 69.23\% \\ \hline
+	\end{tabular}
+	\label{tab:eventclassification-pruned2}
+\end{table}
+
+Based on the results in Table \ref{tab:eventclassification-pruned2}, the same observation was made. The precision of the celebrating category had increased. This was still because majority of the keywords contained two words such as ``Merry'' and ``Christmas'' and ``Happy'' and ``Birthday'', which causes the system to be more precise in tagging the posts. While, for the drinking and eating categories, the precision decreased mostly because the keywords still contain one word which does not satisfy the threshold value.
+
+
+\ref{tab:classification-sampleposts} shows some sample posts and their classifications. The first post is classified correctly, from the keywords ``\textit{happy}'' and ``\textit{birthday}''. The second post is also correctly classified, from the keywords ``\textit{drinking}'' and ``\textit{tea}''. The third post, however, was misclassified by the score-based system because it has insufficient keywords to satisfy the threshold. The last post was misclassified by both classifiers due to the keywords ``\textit{drive}'' and ``\textit{adventure}'' which pertain to travelling. However, looking at the post’s context, it is wishful, pertaining to something that did not actually happen as of the time of writing. Therefore, it should not be considered an actual event.
 
 \begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
 	\centering
@@ -111,18 +169,17 @@ In the score-based classifier, celebrating events still achieved good precision 
 	\label{tab:classification-sampleposts}
 \end{table}
 
-\figref{tab:classification-sampleposts} shows some sample posts and their classifications. The first post is classified correctly, from the keywords ``\textit{happy}” and ``\textit{birthday}”. The second post is also correctly classified, from the keywords ``\textit{drinking}” and ``\textit{tea}”. The third post, however, was misclassified by the score-based system because it has insufficient keywords to satisfy the threshold. The last post was misclassified by both classifiers due to the keywords ``\textit{drive}” and ``\textit{adventure}” which pertain to travelling. However, looking at the post’s context, it is wishful, pertaining to something that did not actually happen as of the time of writing. Therefore, it should not be considered an actual event.
 
 \subsection{Text Generation Module}
 \underline{\textbf{Template-Based}}
-Story generation systems rely on text generation modules to generate sentences and paragraphs befitting the story plan. In the first few iterations, a template-based system was used to generate sentences for the introduction and conclusion. The main template consists of the following categories: person’s birth, education, working experience, family and location. If no information is found in a specific category, then, no sentence would be generated under it. Each category has multiple sets of sentence templates that only requires the insertion of information to be deemed as a complete sentence. To choose one template from the pool of templates, a randomizer is implemented which allows a variety of outputs per run.
+Story generation systems rely on text generation modules to generate sentences and paragraphs befitting the story plan. In the first few iterations, a template-based system was used to generate sentences for the introduction and conclusion. The main template consists of the following categories: birth, education, working experience, family and location. If no information is found in a specific category, then, no sentence would be generated under it. Each category has multiple sets of sentence templates that only requires the insertion of information to be deemed as a complete sentence. To choose one template from the pool of templates, a randomizer is implemented which allows a variety of outputs per run.
 
 Valuing the importance of integrity, information retrieved from the database to the story generation module are double-checked. Data inserted into the templates are simply backtracked from the database and user profile itself to ensure that the information are observed to be true. Some data needs to be converted or translated such as the date format to become more understandable and fitting for the story, but the integrity of these instances are still tested through manually checking the root source of information.
 
 Several grammar issues were observed in the template-based system regarding the inappropriate usage of tenses for verbs, misuse of the subject-verb grammatical number (singular or plural), and improper and incorrect use of punctuations. Since templates are already preset formats for the story generations, the words used are predetermined based on assumptions. In addition, since the implemented rules for the template-based system were minimal, they sometimes resulted to grammatical errors. This was a problem which initially we dealt with by coding exceptions in the system; however, moving to a grammar-based system dealt with these problems.
 
 \underline{\textbf{Grammar-Based}}
-The template-based system for introduction and conclusion later on switched to a more flexible and adaptable method and turned into a script-based, or grammar-based, system. It follows a grammar rule rather than a fixed predetermined set of sentences. Grammar rules and sentence structure weigh more in script-based systems compared to template-based ones.
+The template-based approach for generating introduction and conclusion later on switched to a more flexible and adaptable method and turned into a script-based, or grammar-based approach. It follows a set of grammar rule rather than a set of predefined templates. Grammar rules and sentence structures weigh more in script-based systems compared to template-based ones.
 
 The body script, on the other hand, depends per category but it contains similar grammar rules to the introduction and conclusion. For the body, two types of sentences can be formed: either sentences talking about a specific post, or a generalization or summary of multiple posts.
 
@@ -130,29 +187,30 @@ Grammatical errors that were present in the template-based system can also be ob
 
 Missing values also occurred whilst testing. Since Facebook users have different information stored in Facebook, some information are not provided while some are. This caused false assumptions regarding the sufficiency of data for all users allowing nullable and empty data be inserted into the sentence. This caused incomplete sentences to be generated. 
 
-The body also encountered redundancy of data. There are assertions where the object is one of the person tagged allowing the sentence to mention the person twice within the sentence. Other than people, location such as cities and name of places have also encountered this issue.
+The body text also encountered redundancy of data. There are assertions where the object is one of the person tagged allowing the sentence to mention the person twice within the sentence. Other than people, location such as cities and name of places have also encountered this issue.
 
 Sentence structure plays a vital role in a script-based system since the system relies on this. It follows rules set whether how the sentence would be presented. Data are input in sentence structures for testing and are manually checked whether the nouns, verbs, and prepositional phrases are all in place according to the rule.
 
 %section~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \section{End User Testing}
-End user testings were performed to know their thoughts on the content in the generated story and to identify the points that needs to be improved on. There were twelve gathered evaluators who will be evaluating the resulting story generated by the system. The evaluation form and criteria that the Facebook users will use consists of four parts, namely [1] language composition, [2] introduction, [3] body, and [4] conclusion.
+This type of testing was performed to gather user feedback regarding the contents of the generated story and to identify the points that need to be improved on. Twelve (12) participants who evaluated the resulting story generated by the system. The evaluation form and criteria used consists of four parts, namely [1] language composition, [2] introduction, [3] body, and [4] conclusion.
 
-All evaluators are Facebook users who are 18 years old and above. They were briefed about the features of the system. After which, they logged in with their Facebook credentials and waited for the system to generate the story. After reading the story, they were asked to evaluate the system by answering the evaluation forms. Comments and suggestions for improvement were gathered for future improvement of the system.
+All evaluators were Facebook users who are 18 years old and above. They were briefed about the features of the system, after which, they logged in with their Facebook credentials and waited for the system to generate the story. After reading the story, they were asked to evaluate the system by answering the evaluation forms. Comments and suggestions for improvement were gathered for future improvement of the system.
 
-The twelve respondents which varies from age and occupation  were asked to evaluate the resulting story. There were 5 female respondents and 7 male respondents. The testing and evaluation were done individually and took place in De La Salle University.
+The twelve respondents, which vary in age and occupation, were asked to evaluate the resulting story. There were 5 female respondents and 7 male respondents. The testing and evaluation were done individually and took place in De La Salle University.
 
 \subsection{Evaluation Forms}
-The evaluation form is divided into four sections, namely [1] language composition, [2] introduction, [3] body, and [4] conclusion. As mentioned in Section 3.7, this research, the primary component to be evaluated is the quality of the resulting life stories, in terms of completeness. This is the reason for coming up with the latter three parts of the evaluation form. In addition, the style of writing must be analyzed, mainly to check spelling, grammar, and coherence in the story, which resulted in the formation of the part for language composition.
+The evaluation form is divided into four sections as shown in Appendix \ref{sec:appendixn}, namely [1] language composition, [2] introduction, [3] body, and [4] conclusion.  Each metric is rated from 1 to 4; 1 being the lowest and 4 being the highest. As mentioned in Section 3.7, the primary component to be evaluated in this research is the quality of the resulting life stories, in terms of completeness. This is the reason for coming up with the latter three parts of the evaluation form. In addition, the style of writing must be analyzed, mainly to check spelling, grammar, and coherence in the story, necessitating for language composition criterion.
 
-\subsection{Facebook Users’ Evaluation}
+\subsection{Facebook Users' Evaluation}
 \underline{\textbf{Language Composition}}
-The criteria language composition focuses on the system’s story generation modules which evaluates the resulting sentence’s sentence structure, grammar, and readability. This section contained most of the lower scores with average scores of 2.5 to 3.7 As seen in \figref{tab:criteria1}.
+This criterion focuses on the system's story generation modules to evaluate the resulting sentence structure, grammar, and readability. This area contained most of the lower scores with averages of 2.5 to 3.7 as seen in \ref{tab:criteria1}.
 
-The garnered average score shows the diversity of Facebook in terms of the use in mixed languages, it was difficult for the Stanford CoreNLP’s POS tagger to identify the verbs befitting the object pertained to form complete sentences. Some problems present here includes posts having long sentences with multiple verbs like “Happiness is really not bought but it is given by God and we should cherish these happy moments with our love ones and our father is one of them. Fathers are  big blessing by God to us and I really thank God for giving me great father like him. Dad, thank you for everything. I maybe stubborn son but you were always there to teach me the rights and wrongs. Happy Birthday Dad, i hope you had great one!” returned “\textit{bought}” as the verb, which was true because it was the first verb present in the sentence and “\textit{moments}” as the noun or object being referred to which is incorrect. 
+The garnered average score shows the diversity of Facebook in terms of the use of mixed languages, it was difficult for the POS tagger to identify the verbs befitting the object pertained to form complete sentences. Some problems present here include posts having long sentences with multiple verbs. For example, ``\textit{Happiness is really not bought but it is given by God and we should cherish these happy moments with our love ones and our father is one of them. Fathers are  big blessing by God to us and I really thank God for giving me great father like him. Dad, thank you for everything. I maybe stubborn son but you were always there to teach me the rights and wrongs. Happy Birthday Dad, i hope you had great one!}'' returned ``bought'' as the verb, which was true because it was the first verb present in the sentence. However, ``moments'' was returned as the main object, which is incorrect.
 
-Another problem is the mixture of upper and lower cases in some words like “THank You to all! MAy God Bless You!!!” which tagged “bless” as the verb and “\textit{May God}” as the object. The grammar here was mixed up and it cannot realize the capitalization of the words. This caused the POS tagger to tag “\textit{May}” as a proper noun because it is capitalized. This shows how dependent the POS tagged is to the data.
-The major problem identified in the outputs was the flow of each paragraph. This is caused by paragraphs which contains few sentences; some of which does not even make sense so it resulted to a sudden jump of thoughts. An example of this shows that the first paragraph talked about birthday celebrations and followed by a paragraph which contains only the sentence “On May 27, 2010, He tied Lakers.”. Afterwhich, it jumped to the next paragraph because it only tagged one sentence as a travelling post.  Additional to this, the only sentence (actual sentence is “Series tied at 2-2 for Lakers and PHX Suns ........... lets go Lakers lets go”) present in the \textit{travelling} paragraph was misclassified as \textit{travelling} because he was cheering using the words “go” which is a keyword under the \textit{travelling} category.
+Another problem is the mixture of upper and lower cases in some cases, such as, ``THank You to all! MAy God Bless You!!!'' which tagged ``bless'' as the verb and ``\textit{May God}'' as the object. The grammar here was mixed up and the system could not adapt to the capitalization of the words. This caused the POS tagger to tag ``\textit{May}'' as a proper noun because it is capitalized. This shows how dependent the POS tagger is to the data.
+
+The major problem identified in the outputs was the flow of each paragraph. This is caused by paragraphs which contain few sentences; some of which do not even make sense and result in a sudden jump of thoughts. An example of this is a case when the first paragraph talked about birthday celebrations and followed by a paragraph which contains only the sentence ``On May 27, 2010, He tied Lakers.''. Afterwards, it jumped to the next paragraph because it only tagged one sentence as a travelling post. In addition to this, the only sentence (actual sentence is ``Series tied at 2-2 for Lakers and PHX Suns ........... lets go Lakers lets go'') present in the \textit{travelling} paragraph was misclassified as \textit{travelling} because he was cheering using the words ``go'' which is a keyword under the \textit{travelling} category.
 
 \begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
 	\centering
@@ -164,38 +222,41 @@ The major problem identified in the outputs was the flow of each paragraph. This
 		Punctuations are properly used. & 3.17 \\ \hline
 		Capitalizations of proper nouns are correct. & 3.58 \\ \hline
 		There is no redundant information present in the life story. & 2.92 \\ \hline
-		Sentences within a paragraph have good flow (e.g. no sudden jump from talking about “travelling” to “eating” in the same paragraph). & 2.58 \\ \hline
+		Sentences within a paragraph have good flow (e.g. no sudden jump from talking about “travelling'' to “eating'' in the same paragraph). & 2.58 \\ \hline
 		Words used are understandable. & 3.17 \\ \hline
-		Words used are appropriate (or respectful). & 3.5 \\ \hline
+		Words used are appropriate (or respectful). & 3.50 \\ \hline
 		The entire composition can be considered a life story or an autobiography. & 2.83 \\ \hline
 	\end{tabular}
 	\label{tab:criteria1}
 \end{table}
 
 \underline{\textbf{Introduction Specific}}
-As seen in \figref{tab:criteria2}, most of the scores are high because the introduction requires less analysis and understanding compared to the body paragraph of the generated story. The correctness of information, flow of sequence and historical background received a lower score compared to the other criteria within the introduction specific as it includes temporal relations and user background and these information are more analyzed than fixed information like birthdays, gender and current locations.
+As seen in \ref{tab:criteria2}, most of the scores are high for this part because the introduction requires less analysis and understanding compared to the body paragraph of the generated story. The correctness of information, flow of sequence and historical background received a lower score compared to the other criteria as it includes temporal relations and user background and these information are more analyzed than fixed information like birthdays, gender and current locations.
 
-Compared to the other sections (language composition, body and conclusion specific), Introduction specific has the highest average of scores. It were easier to generate the introduction since the assertions were simpler and hard facts were easily inserted to the grammar rules prepared.
+Compared to the other areas (language composition, body and conclusion specific), \textit{introduction-specific} has the highest average of scores. It was easier to generate the introduction since the assertions were simpler and hard facts were easily inserted to the grammar rules prepared.
 
 \begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
 	\centering
 	\caption{Average Results in the Introduction Specifics Section} \vspace{0.25em}
 	\begin{tabular}{|p{2.5in}|c|} \hline
 		\centering Criteria & Average Score \\ \hline
-		The subject’s birthday is correctly displayed. & 4 \\ \hline
-		If available from the subject’s Facebook profile: \\ \begin{itemize}
+		The subject's birthday is correctly displayed. & 4.00 \\ \hline
+		If available from the subject's Facebook profile: \\ \begin{itemize}
 		\item The information about the subject’s education is correct and is sequenced from the oldest to the most recent.
-		\item The subject’s employment history is stated.
+		\item The subject's employment history is stated.
 		\item Family members are introduced in the story and are correctly labeled.
-		\item The subject’s status or relationship is stated. \end{itemize} & 3.58 \\ \hline
-		The subject’s contact information is NOT revealed. & 4 \\ \hline
+		\item The subject's status or relationship is stated. \end{itemize} & 3.58 \\ \hline
+		The subject's contact information is NOT revealed. & 4.00 \\ \hline
 		Overall, the Introduction provides a clear background of the user, including his/her education, work (if applicable), and family members. & 3.75 \\ \hline
 	\end{tabular}
 	\label{tab:criteria2}
 \end{table}
 
+\clearpage
 \underline{\textbf{Body Specific}}
-Most of the low scores are in the body paragraphs where because of the text understanding, event classification and story generation modules that are highly reliant to the tools used by the system. The low scores are mostly caused by the misclassification and distinction of categories between each paragraph. The average scores as seen in \figref{tab:criteria3} are not that low, but there are some criterias that were individually scored as ones (1’s), mostly because of the incomplete ideas and misclassification of posts. An example of this was the generated sentence in the body paragraph “On September 09, 2016, She looked kind.” under the category travelling. The sentence that it was rooted from was “When life brings you down, look at the sky and you'll see all kinds of beautiful things”.
+Most of the low scores are in the body paragraphs were caused by issues in text understanding, event classification and story generation modules, which are highly reliant on the tools used by the system. The low scores are mostly caused by the misclassification and distinction of categories between each paragraph. The average scores as seen in \ref{tab:criteria3} are not that low, but there are some criteria that were individually scored as ones (1's), mostly because of the incomplete ideas and misclassification of posts. 
+
+An example of this was the generated sentence in the body paragraph ``On September 09, 2016, She looked kind.'' under the category \textit{travelling}. Its source sentence was ``When life brings you down, look at the sky and you'll see all kinds of beautiful things.''.
 
 \begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
 	\centering
@@ -216,7 +277,7 @@ Most of the low scores are in the body paragraphs where because of the text unde
 \end{table}
 
 \underline{\textbf{Conclusion Specific}}
-Conclusion Specific Section has the best results among the four sections. The lowest score given was 2 under the first and last criteria as shown in \figref{tab:criteria4}. The generated story mentioned and listed the liked pages of the user but it does not necessarily mean that it specifies one’s hobbies and interest, as such, lower scores were given. In relevance to this, the list of attended events do not have much relevance to the hobbies of interests stated. Some events are simply created for eating out or attending debuts.
+The conclusion-specific section has the best results among the four sections. The lowest score given was 2 under the first and last criteria as shown in \ref{tab:criteria4}. The generated story mentioned and listed the Liked pages of the user, but it does not necessarily mean that it specifies one's hobbies and interest. As such, lower scores were given. The list of attended events do not have any relevance to the stated hobbies of interests. Some events are simply created for eating out or attending debuts.
 
 \begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
 	\centering
@@ -231,28 +292,32 @@ Conclusion Specific Section has the best results among the four sections. The lo
 	\label{tab:criteria4}
 \end{table}
 
-\textit{``Melissa Chan is born on May 22, 1995. She's living in Davao City. She studied at Davao Christian High School, studied at De La Salle University and studying at Davao Christian High School. Mother is Ellie Chan.}
- \newline
-\textit{She likes Communities such as Bagshoppe master, Engineers of La Salle and DLSU Crushes, Medias such as Bright Side, National Geographic and WBP We Blog Ph and App Pages such as The Price Is Right Community, Cafe Life and Hotel City. She attended events such as Regina @ 18 in Glass Garden in Pasig and BBQ Night in Krus na Ligas, UP Diliman Quezon City in Quezon City.''}
+\begin{lstlisting} [frame=single,breaklines, label={lst:Highest}, caption={Output with the Highest Average Score}]
+Melissa Chan is born on May 22, 1995. She's living in Davao City. She studied at Davao Christian High School, studied at De La Salle University and studying at Davao Christian High School. Mother is Ellie Chan.
+ 
+She likes Communities such as Bagshoppe master, Engineers of La Salle and DLSU Crushes, Medias such as Bright Side, National Geographic and WBP We Blog Ph and App Pages such as The Price Is Right Community, Cafe Life and Hotel City. She attended events such as Regina @ 18 in Glass Garden in Pasig and BBQ Night in Krus na Ligas, UP Diliman Quezon City in Quezon City.
+\end{lstlisting}
 
-The generated story of the anonymized evaluator above garnered the highest score over all other generated stories because there was no missing information, all data extracted from Facebook was properly used, and it does not contain a body paragraph. The body is the most problematic part of the story because the system needs to fully analyze, tag, and classify each posts to be able to generate a good story. In this case, the score was high because it only uses facts from the extracted data and no further processing was made. 
+The generated story above (Listing \ref{lst:Highest}) garnered the highest score over all other generated stories because there were no missing information, all data extracted from Facebook were properly used, and it does not contain a body paragraph. The body is the most problematic part of the story because the system needs to fully analyze, tag, and classify each posts to be able to generate a good story. In this case, the score was high because it only uses facts from the extracted data and no further processing was made. 
 
-\textit{“Stephanie Reyes is born on September 19, 1996. She's living in Quezon City, Philippines. She studied at St. Stephen's High School, Manila last 2013 and studying at De La Salle University. Brother is Heinson J. Reyes. Sister is Christly Pagola, Kara Ko, Kimberly Pavon, Alyette Ang, 'Jaylica Anne Tan, Aryll Dy, Janica Mae Lam, Trisha Mae W. Pablo, Jenea Yu, Azalea Lee and Eizel Tan.}
- \newline
-\textit{On September 20, 2016, She celebrated you. On February 19, 2015, celebrated their new year together. On February 19, 2015, celebrated their new year together. On January 17, 2015, She celebrated birthday this gal !!!. On October 17, 2014, She celebrated birthday guama. On October 13, 2014, She celebrated birthday Francesm Flores !!. On September 21, 2014, She celebrated friends these birthday surprises. On July 06, 2014, She celebrated birthday Joey Timothy Jao !!!.}
- \newline
-\textit{On June 19, 2017, She went it.}
- \newline
-\textit{On June 19, 2017, She explored LSCS. On June 19, 2017, She made LSCS thinking. On September 09, 2016, She looked kind. On May 23, 2016, She went this place these gals. On December 24, 2016, She walked @flores. On November 24, 2014, She got ticket.}
- \newline
-\textit{She celebrated the most with Heinson J. Tan, Danielle Abuan, Rose Daryl Abuan, Jean Benard Zach Abuan, Dylan E Jao, Ivan Floyd Flores and Jeiyo Jao.}
-\newline
-\textit{She likes Communities such as DLSU University Vision-Mission Week, Sports on Facebook and CCS Month 2016: Festivo, Artists such as Jake Vargas, Pekoiman and Calleftgraphy and Musicians such as Pedro the Pianist, ELF's SJ Fanclub and EXO-M. She attended events such as LEAP 2K17, SLC 2017 Dinner in Canton Road Restaurant, Shangrila Fort in Taguig and Huling Hirit 2017 in Amphitheater, De La Salle University.”}
+\begin{lstlisting} [frame=single,breaklines, label={lst:Lowest}, caption={Output with the Lowest Average Score}]
+Stephanie Reyes is born on September 19, 1996. She's living in Quezon City, Philippines. She studied at St. Stephen's High School, Manila last 2013 and studying at De La Salle University. Brother is Heinson J. Reyes. Sister is Christly Pagola, Kara Ko, Kimberly Pavon, Alyette Ang, 'Jaylica Anne Tan, Aryll Dy, Janica Mae Lam, Trisha Mae W. Pablo, Jenea Yu, Azalea Lee and Eizel Tan.
 
-The lowest result garnered is from the anonymized evaluator under the name Stephanie Reyes. The low score was caused by the lack of cohesion and coherence within the paragraphs and misclassification of other posts. In this case, most of her posts are promotional like inviting friends for a particular activity and sentimental such as sharing insights or rants. Most of her posts does not contain any check ins, tagged friends or other information that could help the system get more information about the tagged events so the idea of the sentences are incomplete. Promotional and organizational posts are also misclassified as events because words used are categorized under keywords that the event classification module uses. The flow within the story is not clear as well since there are paragraphs are composed of incomplete sentences.
+On September 20, 2016, She celebrated you. On February 19, 2015, celebrated their new year together. On February 19, 2015, celebrated their new year together. On January 17, 2015, She celebrated birthday this gal !!!. On October 17, 2014, She celebrated birthday guama. On October 13, 2014, She celebrated birthday Francesm Flores !!. On September 21, 2014, She celebrated friends these birthday surprises. On July 06, 2014, She celebrated birthday Joey Timothy Jao !!!.
+
+On June 19, 2017, She went it.
+
+On June 19, 2017, She explored LSCS. On June 19, 2017, She made LSCS thinking. On September 09, 2016, She looked kind. On May 23, 2016, She went this place these gals. On December 24, 2016, She walked @flores. On November 24, 2014, She got ticket.
+
+She celebrated the most with Heinson J. Tan, Danielle Abuan, Rose Daryl Abuan, Jean Benard Zach Abuan, Dylan E Jao, Ivan Floyd Flores and Jeiyo Jao.
+
+She likes Communities such as DLSU University Vision-Mission Week, Sports on Facebook and CCS Month 2016: Festivo, Artists such as Jake Vargas, Pekoiman and Calleftgraphy and Musicians such as Pedro the Pianist, ELF's SJ Fanclub and EXO-M. She attended events such as LEAP 2K17, SLC 2017 Dinner in Canton Road Restaurant, Shangrila Fort in Taguig and Huling Hirit 2017 in Amphitheater, De La Salle University.
+\end{lstlisting}
+
+The lowest scoring story is shown in Listing \ref{lst:Lowest}. The low score was caused by the lack of cohesion and coherence within the paragraphs and misclassification of other posts. In this case, most of her posts are promotional posts such as inviting friends for a particular activity and sentimental posts such as sharing insights or rants. Most of her posts do not contain any check-ins, tagged friends, or other information that could help the system get more information about the tagged events, so the sentences are not as comprehensive as intended. Promotional and organizational posts are also misclassified as events because words used are categorized under keywords that the event classification module uses. The flow within the story is not clear as well since there are paragraphs are composed of incomplete sentences.
 
 \subsection{Traceability Evaluation}
-Further analysis were conducted on the generated life stories of the 12 test participants. Specifically, the contents of the story were traced back to the Facebook data. This section will not tackle all comments and findings gathered, only the major issues will be shown.
+Further analysis was conducted on the generated life stories of the 12 test participants. Specifically, the contents of the story were traced back to the Facebook data. This section will not tackle all comments and findings gathered, only the biggest issues.
 
 \underline{\textbf{Finding \# 1 - Wrong Relations in Family}}
 From one of the evaluator, problems were shown in generating his family members. \figref{tab:familyrel} shows the extracted family information of the evaluator.
@@ -261,7 +326,7 @@ From one of the evaluator, problems were shown in generating his family members.
 	\centering
 	\caption{Family Relationship Stored in the Database} \vspace{0.25em}
 	\begin{tabular}{|p{1in}|p{1in}|c|} \hline
-		\centering Criteria & Average Score \\ \hline
+		\centering Criteria & Average Score & FB ID \\ \hline
 		Emsky Lam & mother & 10154944365392731 \\ \hline
 		Kathleen Marinas & sister & 10209225247813117 \\ \hline
 		Imelda Dy & aunt & 1585251351491614 \\ \hline
@@ -284,20 +349,34 @@ But the actual result was:
 The reason for this was that the relationship types was not change to its corresponding types stored in the database. The relationship type was hardcoded to brother when doing the black-box testing and was forgotten to change it later on during the actual testing. 
 
 \underline{\textbf{Finding \# 2 - Missing Data}}
-Another finding found was that his start and end date in his works were not specified in his Facebook data. Thus, the output for this was:
+Many of data in the About Me section is optional, such as work history, education, and even family. One of the evaluators, for instance, did not specify a start and end date in his work history on Facebook. Thus, the output for this was:
 
 \begin{center}He worked at Bdo Private Bank during, to, worked at Business Management Society during, to, and worked at De La Salle University during, to,.\end{center}
 
-Another case of missing data was observed in the location of the user. Some Facebook users does not include their location or hometown. Such problem causes the output of the system to be:
+Another case of missing data was observed in the location of the user.
 
 \begin{center}He's living in.\end{center}
 
-The system forgot to check if the date started, date ended, location, and hometown were present. It always assumed that the information was available from the data stored in the database.
+The system was not able to check if the date started, date ended, location, and hometown were present. It always assumed that the information was available from the data stored in the database.
 
 
 \underline{\textbf{Finding \# 3 - Wrong extraction of event details}}
-To be able to generate a sensible sentence, the important event details must be extracted correctly. But since the system is highly dependent on the results from Stanford CoreNLP’s POS tagger, some of these event details were extracted incorrectly; thus, resulting to issues.
+To be able to generate a sensible sentence, the important event details must be extracted correctly. But since the system is highly dependent on the results from Stanford CoreNLP's POS tagger, some of these event details were extracted incorrectly.
 
-Majority of the issues here exists in the body paragraphs. The body paragraph is generated based on the available event details given to the event model. If there are incomplete event details, then, the resulting sentence will also be incomplete. Same issues are tackled when there are too much details, the system would only extract on the first verb and object relating to the verb seen. The event details mainly failed to extract the correct object. 
+These issues are mostly present in the body paragraphs. The body paragraph is generated based on the available event details given to the event model. If there are incomplete event details, then, the resulting sentence will also be incomplete. Similar issues are tackled when there are too many details, as the system would only take into account the first verb seen as well as its first direct object. Table \ref{tab:wrong-extraction} illustrates some examples.
 
-
+\begin{table}[ph!]   %t means place on top, replace with b if you want to place at the bottom
+	\centering
+	\caption{Family Relationship Stored in the Database} \vspace{0.25em}
+	\begin{tabular}{|p{2in}|p{1in}|p{1in}|p{2in}|} \hline
+		\centering Actual post stored in the database & Tagged Verb & Tagged Object & Generated Sentence after Extracting Event Details \\ \hline
+		Emsky Lam & mother & 10154944365392731 \\ \hline
+		Kathleen Marinas & sister & 10209225247813117 \\ \hline
+		Imelda Dy & aunt & 1585251351491614 \\ \hline
+		Janica Mae Lam & sister & 10207575653011620 \\ \hline
+		Wilson Martinez & uncle & 10154858631848467 \\ \hline
+		Eden Martinez & aunt & 10154097531481105 \\ \hline
+		Maria Camille Ng & sister & 10212260896216481 \\ \hline
+	\end{tabular}
+	\label{tab:wrong-extraction}
+\end{table}
