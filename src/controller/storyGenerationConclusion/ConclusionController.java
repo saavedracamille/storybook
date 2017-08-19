@@ -64,11 +64,19 @@ public class ConclusionController {
 		return conclusion;
 	}
 	
+
+	/*
+	 * Method initializes the gender pronoun
+	 * */
 	public void initializeGender() {
 		String g = dkd.getSpecificDirectKnowledge("gender");
 		gender = new Gender(g);
 	}
 	
+	
+	/* 
+	 * Method initializes the array list of Likes object containing only the top three categories with the most liked pages.
+	 */
 	public void initializeLikes() {
 		likes = new ArrayList<Likes> ();
 		
@@ -84,11 +92,18 @@ public class ConclusionController {
 		}
 	}
 	
+	/*
+	 * Method initializes the array list of Events object containing only the latest events ticked going.
+	 * */
 	public void initializeGoingEvents() {
 		goingEvents = new ArrayList<Event> ();
 		goingEvents = ed.getTopThreeGoing();
 	}
 
+
+	/*
+	 * Method initializes the array list of Events object containing only the latest events ticked interested.
+	 * */
 	public void initializeInterestedEvents() {
 		interestedEvents = new ArrayList<Event> ();
 		interestedEvents = ed.getTopThreeInterested();

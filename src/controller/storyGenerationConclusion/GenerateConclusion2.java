@@ -29,6 +29,11 @@ public class GenerateConclusion2 {
 		realiser = new Realiser(lexicon);
 	}
 	
+	/** 
+	 * Method calls the LikesPhrase, EventGoingPhrase and EventInterested methods and forms them into one conclusion paragraph.
+	 * @param objects containing the likes, going events and interested events array lists to be passed on the to the methods called.
+	 * @return a conclusion paragraph containing the list of likes, events interested and going of the user.
+	 */
 	public String generateConclusion(ConclusionController objects) {
 		pronoun = objects.getGender().getPronoun();
 		
@@ -42,6 +47,13 @@ public class GenerateConclusion2 {
 		
 		return realiser.realise(par).getRealisation();
 	}
+	
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's liked pages on a specific category
+	   indicated in the likes object. This includes listing the name of the pages in the likes object as examples per category.
+	   @param likes	arraylist of likes object that contains the category name as well as names of pages in each category
+	   @return element extension of NLG comprising of the paragraph listing the page names per category in the object parameter
+	 */
 	
 	public DocumentElement LikesPhrase(ArrayList<Likes> likes) {
 		if (likes.size() != 0) {
@@ -97,7 +109,12 @@ public class GenerateConclusion2 {
 		} else
 			return null;
 	}
-	
+
+	/** 
+	 * Method returns a DocumentElement with the collated information of the user's list of events that has been ticked going.
+	 * @param goingEvents	arraylist of event object that has been ticked going
+	 * @return element extension of NLG comprising of the paragraph listing the event names in the object parameter
+	 */
 	public DocumentElement EventGoingPhrase(ArrayList<Event> goingEvents) {
 		if (goingEvents.size() != 0) {
 			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
@@ -141,6 +158,12 @@ public class GenerateConclusion2 {
 		}
 	}
 	
+
+	/** 
+	 * Method returns a DocumentElement with the collated information of the user's list of events that has been ticked interested.
+	 * @param interestedEvents 	arraylist of event object that has been ticked interested
+	 * @return element extension of NLG comprising of the paragraph listing the event names in the object parameter
+	 */
 	public DocumentElement EventInterested(ArrayList<Event> interestedEvents) {
 		if (interestedEvents.size() != 0) {
 			NPPhraseSpec s11 = nlgFactory.createNounPhrase(pronoun);
@@ -178,7 +201,7 @@ public class GenerateConclusion2 {
 			}
 	
 			p2.addPostModifier(obj);
-			obj.addPreModifier("such as"); //change to examples, such as, like etc if you want to
+			obj.addPreModifier("such as");
 			
 			s11.addPostModifier(s);
 			
@@ -188,6 +211,11 @@ public class GenerateConclusion2 {
 		}
 	}
 	
+	/**
+	 * Method returns a the prepositional phrase of the location checked in in a form of a String
+	 * @param checkIn	object that may contain at least one of the following: place, city or country.
+	 * @return prepositional phrase of the location checked in
+	 */
 	public String generateLocation(CheckIn checkIn) {
 		boolean toggle = false;
 		String location = "";

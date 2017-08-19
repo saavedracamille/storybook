@@ -16,6 +16,8 @@ import simplenlg.features.Form;
 import simplenlg.features.Tense;
 import simplenlg.framework.CoordinatedPhraseElement;
 import simplenlg.framework.DocumentElement;
+import simplenlg.framework.LexicalCategory;
+import simplenlg.framework.NLGElement;
 import simplenlg.framework.NLGFactory;
 import simplenlg.lexicon.Lexicon;
 import simplenlg.phrasespec.NPPhraseSpec;
@@ -29,12 +31,24 @@ public class GenerateIntro2 {
 	private Realiser realiser;
 	private String pronoun;
 
+	/*
+	 * @param
+	 * @param
+	 * @return
+	 */
+	
 	public GenerateIntro2() {
 		lexicon = Lexicon.getDefaultLexicon();
 		nlgFactory = new NLGFactory(lexicon);
 		realiser = new Realiser(lexicon);
 	}
 	
+
+	/* 
+	 * Method calls the methods that is needed to form the introduction and realizes these elements into a paragraph.
+	 * @param objects containing the objects needed by the methods called.
+	 * @return a introduction paragraph containing the basic information and background of the user.
+	 */
 	public String generateIntroduction(IntroObjectInit objects) {
 		pronoun = objects.getGender().getPronoun();
 		
@@ -206,14 +220,14 @@ public class GenerateIntro2 {
 					s.addModifier(p1);
 				}
 				
-				if (!("").equals(dateStarted) && dateStarted != null) {
+				if (!("").equals(dateStarted) && dateStarted != null && !dateStarted.isEmpty()) {
 					PPPhraseSpec p2 = new PPPhraseSpec(nlgFactory);
 					p2.addComplement(dateStarted);
 					p2.setPreposition("during");
 					s.addModifier(p2);
 				}
 				
-				if (!("").equals(dateEnded) && dateEnded != null) {
+				if (!("").equals(dateEnded) && dateEnded != null && !dateEnded.isEmpty()) {
 					PPPhraseSpec p3 = new PPPhraseSpec(nlgFactory);
 					p3.addComplement(dateEnded);
 					p3.setPreposition("to");
@@ -223,12 +237,14 @@ public class GenerateIntro2 {
 				if (!("").equals(location) && location != null) {
 					PPPhraseSpec p4 = new PPPhraseSpec(nlgFactory);
 					p4.addComplement(location);
-					p4.setPreposition("at");
+					p4.setPreposition("in");
 					s.addModifier(p4);
 				}
 				
-				if (("").equals(dateEnded) || dateEnded == null)
+				if (("").equals(dateEnded) || dateEnded == null) {
+					s.addFrontModifier("is");
 					s.setFeature(Feature.FORM, Form.GERUND);
+				}
 				else
 					s.setFeature(Feature.TENSE, Tense.PAST);	
 				
@@ -247,12 +263,21 @@ public class GenerateIntro2 {
 		ArrayList<String> names = relationship.getNames("father");
 		
 		if (names != null) {
-			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+//			SPhraseSpec s1 = new SPhraseSpec(nlgFactory);
+//			if (pronoun.equalsIgnoreCase("he"))
+//				s1 = nlgFactory.createNounPhrase("his");
+//			else if (pronoun.equalsIgnoreCase("she"))
+//				s1 = nlgFactory.createNounPhrase("her");
 			
 			CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("father");
-			s.setVerb("is");
+			if (names.size() > 1) {
+				s.setSubject(nlgFactory.createNounPhrase("fathers"));
+				s.setVerb("are");
+			} else {
+				s.setSubject(nlgFactory.createNounPhrase("father"));
+				s.setVerb("is");
+			}
 			
 			for (int i = 0; i < names.size(); i++) {
 				String name = names.get(i);	
@@ -261,7 +286,7 @@ public class GenerateIntro2 {
 			
 			s.setObject(c);
 			
-			s1.addPostModifier(c);
+//			s1.addPostModifier(s);
 			
 			return nlgFactory.createSentence(s);
 		} else {
@@ -273,12 +298,21 @@ public class GenerateIntro2 {
 		ArrayList<String> names = relationship.getNames("mother");
 		
 		if (names != null) {
-			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+//			SPhraseSpec s1 = new SPhraseSpec(nlgFactory);;
+//			if (pronoun.equalsIgnoreCase("he"))
+//				s1 = nlgFactory.createNounPhrase("his");
+//			else if (pronoun.equalsIgnoreCase("she"))
+//				s1 = nlgFactory.createNounPhrase("her");
 			
 			CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("mother");
-			s.setVerb("is");
+			if (names.size() > 1) {
+				s.setSubject(nlgFactory.createNounPhrase("mothers"));
+				s.setVerb("are");
+			} else {
+				s.setSubject(nlgFactory.createNounPhrase("mother"));
+				s.setVerb("is");
+			}
 			
 			for (int i = 0; i < names.size(); i++) {
 				String name = names.get(i);	
@@ -287,7 +321,7 @@ public class GenerateIntro2 {
 			
 			s.setObject(c);
 			
-			s1.addPostModifier(c);
+//			s1.addPostModifier(s);
 			
 			return nlgFactory.createSentence(s);
 		} else {
@@ -299,12 +333,22 @@ public class GenerateIntro2 {
 		ArrayList<String> names = relationship.getNames("brother");
 		
 		if (names != null) {
-			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+//			SPhraseSpec s1 = new SPhraseSpec(nlgFactory);
+//			if (pronoun.equalsIgnoreCase("he"))
+//				s1 = nlgFactory.createNounPhrase("his");
+//			else if (pronoun.equalsIgnoreCase("she"))
+//				s1 = nlgFactory.createNounPhrase("her");
 			
 			CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("brother");
-			s.setVerb("is");
+//			s.setSubject("brother");
+			if (names.size() > 1) {
+				s.setSubject(nlgFactory.createNounPhrase("brothers"));
+				s.setVerb("are");
+			} else {
+				s.setSubject(nlgFactory.createNounPhrase("brother"));
+				s.setVerb("is");
+			}
 			
 			for (int i = 0; i < names.size(); i++) {
 				String name = names.get(i);	
@@ -313,7 +357,7 @@ public class GenerateIntro2 {
 			
 			s.setObject(c);
 			
-			s1.addPostModifier(c);
+//			s1.addPostModifier(s);
 			
 			return nlgFactory.createSentence(s);
 		} else {
@@ -325,12 +369,21 @@ public class GenerateIntro2 {
 		ArrayList<String> names = relationship.getNames("sister");
 		
 		if (names != null) {
-			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
+//			SPhraseSpec s1 = new SPhraseSpec(nlgFactory);
+//			if (pronoun.equalsIgnoreCase("he"))
+//				s1 = nlgFactory.createNounPhrase("his");
+//			else if (pronoun.equalsIgnoreCase("she"))
+//				s1 = nlgFactory.createNounPhrase("her");
 			
 			CoordinatedPhraseElement c = nlgFactory.createCoordinatedPhrase();
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
-			s.setSubject("sister");
-			s.setVerb("is");
+			if (names.size() > 1) {
+				s.setSubject(nlgFactory.createNounPhrase("sisters"));
+				s.setVerb("are");
+			} else {
+				s.setSubject(nlgFactory.createNounPhrase("sister"));
+				s.setVerb("is");
+			}
 			
 			for (int i = 0; i < names.size(); i++) {
 				String name = names.get(i);	
@@ -339,7 +392,7 @@ public class GenerateIntro2 {
 			
 			s.setObject(c);
 			
-			s1.addPostModifier(c);
+//			s1.addModifier(s);
 			
 			return nlgFactory.createSentence(s);
 		} else {

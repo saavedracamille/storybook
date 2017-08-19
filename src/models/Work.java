@@ -49,7 +49,7 @@ public class Work {
 	}
 	
 	public void setDateStarted(String dateStarted) {
-		System.out.println(dateStarted);
+//		System.out.println(dateStarted);
 		if (dateStarted != null && !("").equals(dateStarted)) {
 			String[] date = null;
 			String month = "";
@@ -79,7 +79,7 @@ public class Work {
 				flag = false;
 			}
 			
-			if (!flag)
+			if (flag)
 				this.dateStarted = month + " " + day + ", " + year;
 			else
 				this.dateStarted = null;
@@ -99,7 +99,7 @@ public class Work {
 			String year = "";
 			boolean flag = true;
 			
-			System.out.println(dateEnded);
+//			System.out.println(dateEnded);
 			
 			if (dateEnded.contains("\\/")) {
 				date = dateEnded.split("\\/");

@@ -235,7 +235,7 @@ public class VerbObjectDAO {
 		
 		try {
 			ps = conn.prepareStatement(
-					"SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_PT + " = 5 OR " + VerbObject.COL_PT + " = 2;");
+					"SELECT * FROM " + VerbObject.TABLE_VO + " WHERE " + VerbObject.COL_PT + " = 5 OR " + VerbObject.COL_PT + " = 7;");
 			rs = ps.executeQuery();
 
 			while (rs.next()) {

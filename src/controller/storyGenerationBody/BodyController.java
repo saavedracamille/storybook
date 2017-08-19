@@ -65,9 +65,9 @@ public class BodyController {
 
 //		TextUnderstanding tu = new TextUnderstanding();
 //		tu.performTextUnderstanding(tbps);
-
-		EventClassification ec = new EventClassification();
-		ec.performEventClassification(tbps);
+//
+//		EventClassification ec = new EventClassification();
+//		ec.performEventClassification(tbps);
 		
 		initializeObjects();
 	}
@@ -82,12 +82,12 @@ public class BodyController {
 	}
 	
 	public String generateBody() {
-		String conclusion = "";
+		String body = "";
 		
 		GenerateBody2 gb2 = new GenerateBody2();
-		conclusion = gb2.generateBody(this);
+		body = gb2.generateBody(this);
 		
-		return conclusion;
+		return body;
 	}
 	
 	public void initializeGender() {
