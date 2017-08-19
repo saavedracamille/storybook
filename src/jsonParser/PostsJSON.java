@@ -14,6 +14,10 @@ import modelsDAO.ToBeProcessedDAO;
 public class PostsJSON {
 	private ArrayList<ToBeProcessed> posts;
 
+	/**
+	 * Method initializes and organizes raw data into objects accordingly
+	 * @param data raw post data
+	 */
 	public PostsJSON(JSONArray data) {
 		this.posts = getPosts(data);
 
@@ -21,6 +25,11 @@ public class PostsJSON {
 		addTBPDAO(posts);
 	}
 
+	/**
+	 * Method converts raw data into objects
+	 * @param data JSON array object containing the raw data of posts
+	 * @return Array list of ToBeProcessed objects
+	 */
 	public ArrayList<ToBeProcessed> getPosts(JSONArray data) {
 		ArrayList<ToBeProcessed> posts = new ArrayList<ToBeProcessed>();
 		Preprocessing p = null;
@@ -108,6 +117,11 @@ public class PostsJSON {
 		return posts;
 	}
 
+	/**
+	 * method that creates a phrase of tagged friends
+	 * @param dataTagged JSON Array object containing the names of friends tagged
+	 * @return Phrase of listed tagged friends.
+	 */
 	public String getTaggedFriends(JSONArray dataTagged) {
 		String taggedFriends = "";
 		String connector = "";
@@ -129,11 +143,19 @@ public class PostsJSON {
 		return taggedFriends;
 	}
 
+	/**
+	 * method adds information in the object parameter to the database accordingly
+	 * @param data object containing information about post 
+	 */
 	public void addTBPDAO(ArrayList<ToBeProcessed> data) {
 		ToBeProcessedDAO tbpd = new ToBeProcessedDAO();
 		tbpd.addToBeProcessedPost(data);
 	}
 
+	/**
+	 * Method prints everything in the object parameter to the console.
+	 * @param posts array list of tobeprocessed object containing the information of the post 
+	 */
 	public void printEverything(ArrayList<ToBeProcessed> posts) {
 		for (int i = 0; i < posts.size(); i++) {
 			System.out.println("DATA: " + posts.get(i).getData());

@@ -17,6 +17,10 @@ public class LikesJSON {
 	
 	private ArrayList<Likes> likes;
 	
+	/**
+	 * Method initializes and organizes raw data into objects accordingly
+	 * @param data raw data gathered about the liked pages
+	 */
 	public LikesJSON(JSONArray data){
 		this.likes = getLikes(data);
 		
@@ -24,6 +28,11 @@ public class LikesJSON {
 		addToLikesDAO(likes);
 	}
 	
+	/**
+	 * Method converts raw data into objects
+	 * @param data JSON array object containing the raw data on the liked page
+	 * @return Array list of Likes objects
+	 */
 	public ArrayList<Likes> getLikes(JSONArray data) {
 		ArrayList<Likes> likes2 = new ArrayList<Likes> ();
 		HashMap<String, ArrayList<Interest>> likesMap = new HashMap<String, ArrayList<Interest>> ();
@@ -82,11 +91,19 @@ public class LikesJSON {
 		return likes2;
 	}
 	
+	/**
+	 * method adds information in the object parameter to the database accordingly
+	 * @param data object containing information about likes 
+	 */
 	public void addToLikesDAO(ArrayList<Likes> data) {
 		LikesDAO ld = new LikesDAO();
 		ld.addLikes(likes);
 	}
 	
+	/**
+	 * Method prints everything in the object parameter to the console.
+	 * @param likes array list of likes object containing information about the liked pages 
+	 */
 	public void printEverything(ArrayList<Likes> likes) {
 		for (int i = 0; i < likes.size(); i++) {
 			for (int j = 0; j < likes.get(i).getInterest().size(); j++) {

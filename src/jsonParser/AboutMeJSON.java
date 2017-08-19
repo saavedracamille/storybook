@@ -19,6 +19,11 @@ public class AboutMeJSON {
 
 	private AboutMe aboutMe;
 
+	/**
+	 * Method initializes and organizes raw data into objects accordingly
+	 * @param data raw data gathered about the basic information and background
+	 * @param family JSON array containing raw data of the families
+	 */
 	public AboutMeJSON(JSONObject data, JSONArray family) {
 		aboutMe = new AboutMe();
 		
@@ -43,6 +48,11 @@ public class AboutMeJSON {
 		addToDKDAO(aboutMe);
 	}
 
+	/**
+	 * Method converts raw data into objects
+	 * @param data JSON array object containing the raw data on the educational background
+	 * @return Array list of Educational Background objects
+	 */
 	public ArrayList<EducationalBackground> getEducations(JSONArray data) {
 		ArrayList<EducationalBackground> educations = new ArrayList<EducationalBackground>();
 		
@@ -94,6 +104,11 @@ public class AboutMeJSON {
 		return educations;
 	}
 
+	/**
+	 * Method converts raw data into objects
+	 * @param data JSON array object containing the raw data on the families
+	 * @return Array list of Family objects
+	 */
 	public ArrayList<Family> getFamilies(JSONArray data) {
 		ArrayList<Family> families = new ArrayList<Family>();
 		
@@ -121,6 +136,11 @@ public class AboutMeJSON {
 		return families;
 	}
 	
+	/**
+	 * Method converts raw data into objects
+	 * @param location JSON Object containing the raw data on the location
+	 * @return String of the name of the Location
+	 */
 	public String getLocation(JSONObject location) {
 		String name = "";
 		
@@ -130,6 +150,11 @@ public class AboutMeJSON {
 		return name;
 	}
 	
+	/**
+	 * Method converts raw data into objects
+	 * @param hometown JSON Object containing the raw data on the hometown
+	 * @return String of the name of the hometown
+	 */
 	public String getHometown(JSONObject hometown) {
 		String name = "";
 		
@@ -139,6 +164,11 @@ public class AboutMeJSON {
 		return name;
 	}
 	
+	/**
+	 * Method converts raw data into objects
+	 * @param data JSON array object containing the raw data on the working background
+	 * @return Array list of work objects
+	 */
 	public ArrayList<Work> getWorks(JSONArray data) {
 		ArrayList<Work> works = new ArrayList<Work>();
 		
@@ -182,6 +212,10 @@ public class AboutMeJSON {
 		return works;
 	}
 	
+	/**
+	 * method adds information in the object parameter to the database accordingly
+	 * @param aboutMe object containing basic information and background 
+	 */
 	public void addToDKDAO(AboutMe aboutMe) {
 		DirectKnowledgeDAO dkd = new DirectKnowledgeDAO();
 		FamilyDAO fd = new FamilyDAO();
@@ -208,6 +242,10 @@ public class AboutMeJSON {
 			wd.addWorks(works);
 	}
 	
+	/**
+	 * Method prints everything in the object parameter to the console.
+	 * @param aboutMe object containing basic information and background 
+	 */
 	public void printEverything(AboutMe aboutMe) {
 		System.out.println("BIRTHDAY: " + aboutMe.getBirthday());
 		System.out.println("FIRST NAME: " + aboutMe.getFirstName());

@@ -14,6 +14,10 @@ import modelsDAO.EventDAO;
 public class EventsJSON {
 	private ArrayList<Event> events;
 	
+	/**
+	 * Method initializes and organizes raw data into objects accordingly
+	 * @param data raw data gathered about the events
+	 */
 	public EventsJSON(JSONArray data){
 		this.events = getEvents(data);
 		
@@ -21,6 +25,11 @@ public class EventsJSON {
 		addToEventsDAO(events);
 	}
 	
+	/**
+	 * Method converts raw data into objects
+	 * @param data JSON array object containing the raw data on the event
+	 * @return Array list of Event objects
+	 */
 	public ArrayList<Event> getEvents(JSONArray data) {
 		ArrayList<Event> allEvents = new ArrayList<Event> ();
 		Preprocessing p = null;
@@ -81,11 +90,19 @@ public class EventsJSON {
 		return allEvents;
 	}
 	
+	/**
+	 * method adds information in the object parameter to the database accordingly
+	 * @param events object containing information about events 
+	 */
 	public void addToEventsDAO(ArrayList<Event> events) {
 		EventDAO ed = new EventDAO();
 		ed.addEvents(events);
 	}
 	
+	/**
+	 * Method prints everything in the object parameter to the console.
+	 * @param events arraylist of event object containing information about events 
+	 */
 	public void printEverything(ArrayList<Event> events) {
 		for(int i = 0; i < events.size(); i++) {
 			System.out.println("NAME: " + events.get(i).getName());
