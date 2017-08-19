@@ -51,7 +51,7 @@ public class GenerateConclusion2 {
 	/** 
 	   Method returns a DocumentElement with the collated information of the user's liked pages on a specific category
 	   indicated in the likes object. This includes listing the name of the pages in the likes object as examples per category.
-	   @param likes	arraylist of likes object that contains the category name as well as names of pages in each category
+	   @param likes	array list of likes object that contains the category name as well as names of pages in each category
 	   @return element extension of NLG comprising of the paragraph listing the page names per category in the object parameter
 	 */
 	

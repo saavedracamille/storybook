@@ -31,12 +31,9 @@ public class GenerateIntro2 {
 	private Realiser realiser;
 	private String pronoun;
 
-	/*
-	 * @param
-	 * @param
-	 * @return
-	 */
-	
+	/**
+	 * initializes lexicon, nlgFactory and realiser for the next methods.
+	 */	
 	public GenerateIntro2() {
 		lexicon = Lexicon.getDefaultLexicon();
 		nlgFactory = new NLGFactory(lexicon);
@@ -44,7 +41,7 @@ public class GenerateIntro2 {
 	}
 	
 
-	/* 
+	/** 
 	 * Method calls the methods that is needed to form the introduction and realizes these elements into a paragraph.
 	 * @param objects containing the objects needed by the methods called.
 	 * @return a introduction paragraph containing the basic information and background of the user.
@@ -55,9 +52,8 @@ public class GenerateIntro2 {
 		ArrayList<DocumentElement> list = new ArrayList<DocumentElement>();
 		
 		list.add(birthPhrase(objects.getBirth(), objects.getPersonName()));
-		//TODO: list.add(genderPhrase(objects.getGender()));
 		list.add(locationPhrase(objects.getLivingIn()));
-		//TODO: list.add(occupationPhrase(objects.getOccupation()));
+		/*list.add(occupationPhrase(objects.getOccupation()));*/
 		list.add(educationPhrase(objects.getEducationalBackground()));
 		list.add(fatherPhrase(objects.getRelationships()));
 		list.add(motherPhrase(objects.getRelationships()));
@@ -70,6 +66,11 @@ public class GenerateIntro2 {
 		return realiser.realise(par).getRealisation();
 	}
 	
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's birthdate.
+	   @param birth object containing the birthdate and birthplace of the user
+	   @return element extension of NLG comprised of a sentence with the user's birth information.
+	 */
 	public DocumentElement birthPhrase(Birth birth, String name) {
 		String birthday = birth.getBirthday();
 		
@@ -86,13 +87,12 @@ public class GenerateIntro2 {
 		return nlgFactory.createSentence(s);
 	}
 	
-	public DocumentElement genderPhrase(Gender gender) {
-		NPPhraseSpec s = nlgFactory.createNounPhrase(gender.getGender());
-		s.setDeterminer("a");
-		
-		return nlgFactory.createSentence(s);
-	}
-	
+
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's location.
+	   @param livingIn object containing the location where the user lives
+	   @return element extension of NLG comprised of a sentence with the user's location.
+	 */
 	public DocumentElement locationPhrase(LivingIn livingIn) {
 		if (livingIn.getLocation() != null || !("").equals(livingIn.getLocation())) {
 			SPhraseSpec s = new SPhraseSpec(nlgFactory);
@@ -111,7 +111,7 @@ public class GenerateIntro2 {
 		}
 	}
 	
-	//TODO: connect with education
+	/*
 	public DocumentElement occupationPhrase(Occupation occupation) {
 		if (occupation.getOccupation() != null || !("").equals(occupation.getOccupation())) {
 			NPPhraseSpec s1 = nlgFactory.createNounPhrase(occupation.getOccupation());
@@ -126,7 +126,13 @@ public class GenerateIntro2 {
 			return null;
 		}
 	}
-	
+	*/
+
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's familyRole.
+	   @param familyRole object containing the relationship of one user to another declared on Facebook
+	   @return element extension of NLG comprised of a sentence with the user's familyRole.
+	 */
 	public DocumentElement familyRolePhrase(FamilyRole familyRole) {
 		if (familyRole.getRole() != null || !("").equals(familyRole.getRole())) {
 			NPPhraseSpec s1 = nlgFactory.createNounPhrase(familyRole.getRole());
@@ -147,6 +153,12 @@ public class GenerateIntro2 {
 		}
 	}
 	
+
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's educational background.
+	   @param educationalBackground array list of educational background object containing the list of schools attended
+	   @return element extension of NLG comprised of a sentence with the user's educational background.
+	 */
 	public DocumentElement educationPhrase(ArrayList<EducationalBackground> educationalBackground) {
 		if (educationalBackground.size() != 0) {
 			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
@@ -197,6 +209,11 @@ public class GenerateIntro2 {
 		}
 	}
 	
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's work.
+	   @param works array list of educational background object containing the list of occupation
+	   @return element extension of NLG comprised of a sentence with the user's work background.
+	 */
 	public DocumentElement workPhrase(ArrayList<Work> works) {
 		if (works.size() != 0) {
 			NPPhraseSpec s1 = nlgFactory.createNounPhrase(pronoun);
@@ -259,6 +276,11 @@ public class GenerateIntro2 {
 		}
 	}
 	
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's father/s.
+	   @param relationship object containing the relationship and name of the person in relationship with
+	   @return element extension of NLG comprised of a sentence with the user's father/s.
+	 */
 	public DocumentElement fatherPhrase(Relationships relationship) {
 		ArrayList<String> names = relationship.getNames("father");
 		
@@ -294,6 +316,12 @@ public class GenerateIntro2 {
 		}
 	}
 	
+
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's mother/s.
+	   @param relationship object containing the relationship and name of the person in relationship with
+	   @return element extension of NLG comprised of a sentence with the user's mother/s.
+	 */
 	public DocumentElement motherPhrase(Relationships relationship) {
 		ArrayList<String> names = relationship.getNames("mother");
 		
@@ -329,6 +357,12 @@ public class GenerateIntro2 {
 		}
 	}
 	
+
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's brother/s.
+	   @param relationship object containing the relationship and name of the person in relationship with
+	   @return element extension of NLG comprised of a sentence with the user's brother/s.
+	 */
 	public DocumentElement brotherPhrase(Relationships relationship) {
 		ArrayList<String> names = relationship.getNames("brother");
 		
@@ -365,6 +399,12 @@ public class GenerateIntro2 {
 		}
 	}
 	
+
+	/** 
+	   Method returns a DocumentElement with the collated information of the user's sister/s.
+	   @param relationship object containing the relationship and name of the person in relationship with
+	   @return element extension of NLG comprised of a sentence with the user's sister/s.
+	 */
 	public DocumentElement sisterPhrase(Relationships relationship) {
 		ArrayList<String> names = relationship.getNames("sister");
 		
