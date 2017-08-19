@@ -31,6 +31,9 @@ public class IntroObjectInit {
 	private ArrayList<EducationalBackground> educationalBackground;
 	private ArrayList<Work> works;
 	
+	/**
+	 * initializes DAOs
+	 */	
 	public IntroObjectInit() {
 		dkd = new DirectKnowledgeDAO();
 		fd = new FamilyDAO();
@@ -40,6 +43,9 @@ public class IntroObjectInit {
 		initializeObjects();
 	}
 	
+	/**
+	 * initializes objects
+	 */	
 	public void initializeObjects() {
 		initializePerson();
 		initializeBirth();
@@ -47,13 +53,17 @@ public class IntroObjectInit {
 		initializeLivingIn();
 		initializeEducations();
 		initializeWorks();
-		initializeOccupation();
+		/*initializeOccupation();*/
 		initializeFamilyRole();
 		initializeRelationships();
 		
 		generateIntroduction();
 	}
 	
+	/**
+	 * initializes and calls generateIntroduction to create an introductory paragraph
+	 * @returns introductory paragraph
+	 */	
 	public String generateIntroduction() {
 		String introduction = "";
 		
@@ -107,6 +117,9 @@ public class IntroObjectInit {
 		return works;
 	}
 	
+	/**
+	 * initializes the whole name of the person
+	 */	
 	public void initializePerson() {
 		person = new Person();
 		String fName = dkd.getSpecificDirectKnowledge("first_name");
@@ -121,6 +134,9 @@ public class IntroObjectInit {
 			person.setLastName(lName);
 	}
 	
+	/**
+	 * initializes the birth information
+	 */	
 	public void initializeBirth() {
 		birth = new Birth();
 		String birthday = dkd.getSpecificDirectKnowledge("birthday");
@@ -132,11 +148,17 @@ public class IntroObjectInit {
 			birth.setPlace(birthPlace);
 	}
 	
+	/**
+	 * initializes the gender role
+	 */	
 	public void initializeGender() {
 		String g = dkd.getSpecificDirectKnowledge("gender");
 		gender = new Gender(g);
 	}
 	
+	/**
+	 * initializes the location currently living in
+	 */	
 	public void initializeLivingIn() {
 		livingIn = new LivingIn();
 		String location = dkd.getSpecificDirectKnowledge("location");
@@ -145,17 +167,23 @@ public class IntroObjectInit {
 			livingIn.setLocation(location);
 	}
 	
+	/**
+	 * initializes the array list of educational backgrounds
+	 */	
 	public void initializeEducations() {
 		educationalBackground = new ArrayList<EducationalBackground> ();
 		educationalBackground = ebd.getEducations();
 	}
-	
+
+	/**
+	 * initializes the array list of working backgrounds
+	 */	
 	public void initializeWorks() {
 		works = new ArrayList<Work> ();
 		works = wd.getWorks();
 	}
 	
-	public void initializeOccupation() {
+	/*public void initializeOccupation() {
 		occupation = new Occupation();
 		String o = "";
 		
@@ -174,7 +202,12 @@ public class IntroObjectInit {
 		if (o != null && !o.equals(""))
 			occupation.setOccupation(o);
 	}
+*/	
 	
+
+	/**
+	 * initializes the role in family
+	 */	
 	public void initializeFamilyRole() {
 		familyRole = new FamilyRole();
 		String role = "";
@@ -188,6 +221,10 @@ public class IntroObjectInit {
 			familyRole.setRole(role);
 	}
 	
+
+	/**
+	 * initializes the relationships
+	 */	
 	public void initializeRelationships() {
 		relationships = new Relationships();
 		relationships.setFamilies(fd.getFamilies());
