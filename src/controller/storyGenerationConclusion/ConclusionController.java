@@ -35,6 +35,9 @@ public class ConclusionController {
 		return interestedEvents;
 	}
 
+	/**
+	 * initializes DAOs
+	 */	
 	public ConclusionController() {
 		dkd = new DirectKnowledgeDAO();
 		ld = new LikesDAO();
@@ -43,6 +46,9 @@ public class ConclusionController {
 		initializeObjects();
 	}
 	
+	/**
+	 * initializes objects
+	 */	
 	public void initializeObjects() {
 		initializeGender();
 		initializeLikes();
@@ -51,7 +57,10 @@ public class ConclusionController {
 		
 		generateConclusion();
 	}
-	
+	/**
+	 * initializes and calls generateConclusion to create an conclusion paragraph
+	 * @returns conclusion paragraph
+	 */	
 	public String generateConclusion() {
 		String conclusion = "";
 		
@@ -65,7 +74,7 @@ public class ConclusionController {
 	}
 	
 
-	/*
+	/**
 	 * Method initializes the gender pronoun
 	 * */
 	public void initializeGender() {
@@ -74,7 +83,7 @@ public class ConclusionController {
 	}
 	
 	
-	/* 
+	/** 
 	 * Method initializes the array list of Likes object containing only the top three categories with the most liked pages.
 	 */
 	public void initializeLikes() {
@@ -92,7 +101,7 @@ public class ConclusionController {
 		}
 	}
 	
-	/*
+	/**
 	 * Method initializes the array list of Events object containing only the latest events ticked going.
 	 * */
 	public void initializeGoingEvents() {
@@ -101,7 +110,7 @@ public class ConclusionController {
 	}
 
 
-	/*
+	/**
 	 * Method initializes the array list of Events object containing only the latest events ticked interested.
 	 * */
 	public void initializeInterestedEvents() {
